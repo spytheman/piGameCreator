@@ -1,6 +1,7 @@
 piGameCreator is open-source multiplatform integrated development environment (IDE) mostly oriented in game development.
 
 The project is started, however, it is still in heavy development phase, thus is not available yet.
+[e.g. If you compile this source code, the application will be unusable / incomplete]
 
 piGameCreator is different from the most other game creation softwares, including, but not limited to, Yoyo's Game Maker, Scirra's Construct and Clickteam's Multimedia Fusion and TGF by technical design.
 
