@@ -13,6 +13,8 @@
 #include "gamecreator.h"
 #include "scripttestwindow.h"
 
+// the main function is the start of every C program.
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
