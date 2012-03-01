@@ -3,6 +3,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QDir>
+#include <QDebug>
 #include <QMessageBox>
 #include <QtTest/QTest>
 
@@ -54,7 +55,7 @@ int main(int argc, char *argv[])
     glutInit(&argc,argv);
 
     //debug mode: testing the gamescript window
-    QStringList ARGV = QApplication::arguments();
+    //QStringList ARGV = QApplication::arguments();
     MainWindow w;
     w.showMaximized();
     return a.exec();
