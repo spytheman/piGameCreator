@@ -16,7 +16,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    a.setApplicationName("piGameCreator [INTERNAL TEST]");
+    a.setApplicationName("piGameCreator");
     a.setOrganizationName("Pi-Dev");
     a.setOrganizationDomain("http://pi-dev.com");
     QString SS = QDir::currentPath()+"/data";
