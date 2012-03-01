@@ -1,0 +1,49 @@
+TOKEN TYPES
+
+name		if not defined
+var			if defined
+const
+Assignment	+= *= -= /=
+IncDecOp	++ --
+comparison	==
+equal		=
+assign		:= set
+arithmetic	+ - * / ^
+member		.
+bracket(	expr or func
+bracket)
+comma		,
+
+voidFunc
+IntVal
+IntFunc
+RealVal
+RealFunc
+StringVal
+StringFunc
+ClassFunc	ret class ptr
+
+type		int string 
+class
+
+NEWkeyword
+DELETEkeyword
+FORkeyword
+IFkeyword
+ELSEkeyword
+DOkeyword
+UNTILkeyword
+WHILEkeyword
+REPEATkeyword
+
+semicolon	;	stmtend, for
+blockbegin	{
+blockend	}
+array[		[
+array]		]
+operator<<	array append
+
+embed		<[*]> ... <[END]>
+
+comment		//	/* ... */
+junk / unknown

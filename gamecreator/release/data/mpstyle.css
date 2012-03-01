@@ -1,0 +1,116 @@
+body
+{
+	-webkit-user-select:none;
+	background: #888;
+	margin:0px;
+	padding:0px;
+}
+
+div.mpwidget
+{
+	width:640px;
+	height:480px;
+	border:1px solid #bbb;
+	background: url(mainpagewidget.png) no-repeat;
+	position:relative;
+}
+
+iframe
+{
+	border:0;
+	width:457px;
+	height:367px;
+	position:absolute;
+	right:0px;
+	bottom:0px;
+}
+
+div.recentfiles
+{
+	position:absolute;
+	left:0px;
+	bottom:53px;
+	width:182px;
+	height:344px;
+	overflow-y:scroll;
+}
+
+div.mpmenu
+{
+	
+	position:absolute;
+	left:183px;
+	top:82px;
+	right:0px;
+	height:16px;
+	padding:7px;
+	padding-top:8px;
+}
+
+div.mpmenu a
+{
+	padding:4px;
+	padding-left:6px;
+	padding-right:6px;
+	text-decoration:none;
+	color:black;
+	font-family:Arial;
+	font-size:12px;
+}
+a:focus{outline:none;}
+div.mpmenu a.selected
+{
+	background:url(wh4.png);
+	background-position:0px -8px;
+	outline:none;
+	outline:1px solid #55f;
+	color:white;
+}
+
+div.newopen
+{
+	position:absolute;
+	left:4px;
+	bottom:0px;
+	width:180px;
+	height:46px;
+	
+}
+a.rfile img, a.mnewopen img
+{
+	position:relative;
+	left:3px;
+	top:3px;
+}
+a.rfile
+{
+	color:black;
+	text-decoration:none;
+	font-size:14px;
+	vertical-align:middle;
+	margin:0px;
+	padding:0px;
+	display:block;
+	margin-top:-1px;
+	padding-bottom:2px;
+}
+
+a.rfile:hover
+{
+	background:#eee;
+	background-image:url(selected.png);
+	background-position:0px -8px;
+}
+
+a.mnewopen
+{
+	color:black;
+	text-decoration:none;
+	font-size:13px;
+	vertical-align:middle;
+	margin:0px;
+	padding:0px;
+	display:block;
+	margin-top:-1px;
+	padding-bottom:2px;
+}

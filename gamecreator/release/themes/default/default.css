@@ -1,0 +1,86 @@
+/*
+ THEME: Native
+ AUTHOR: PeterSvP
+*/
+
+/* Main page */
+
+#MainPage
+{
+	background: url(themes/default/defbg.jpg);
+}
+
+*[alphaChannel=true]
+{
+background:url(:/resources/RES/alpha.png);
+}
+
+*[editor=true]
+{
+	background:palette(window);
+}
+
+CodeEditor[piGameScriptEditor=true]
+{
+	background-color:none;
+	selection-background-color:palette(highlight);
+	selection-color:white;
+}
+
+/* Workspace TAB Styles */
+#WorkSpaceTabWidget>QTabBar::tab {
+margin-right:2px;
+margin-left:-1px;
+height:14px;
+margin-top:3px;
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #E1E1E1, stop: 0.4 #DDDDDD, stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+border: 1px solid #C4C4C3;
+border-bottom: 1px solid #C4C4C3;
+border-bottom-color: #C4C4C3; 
+border-top-left-radius: 4px;
+border-top-right-radius: 4px;
+bottom:1px;
+padding:2px;
+padding-left:2px;
+color:#777;
+}
+#WorkSpaceTabWidget>QTabBar::tab:selected, #WorkSpaceTabWidget>QTabBar::tab:selected:hover
+{
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #fafafa, stop: 0.4 #f4f4f4, stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+border: 1px solid #aaa;
+border-bottom: 1px solid #EEEEEE;
+color:#000;
+}
+#WorkSpaceTabWidget>QTabBar::tab:first
+{
+margin-left:0px !important;
+}
+#WorkSpaceTabWidget>QTabBar::tab:hover
+{
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #eee, stop: 0.4 #ddd, stop: 0.5 #ccc, stop: 1.0 #eee);
+border: 1px solid #aaa;
+border-bottom: 1px solid #EEEEEE;
+}
+
+#WorkSpaceTabWidget>QTabBar::tab:only-one
+{
+margin-left:0px !important;
+}
+
+#WorkSpaceTabWidget>QTabBar QToolButton
+{
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #fafafa, stop: 0.4 #f4f4f4, stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+border: 1px solid #aaa;
+}
+
+#WorkSpaceTabWidget>QTabBar>QToolButton:disabled
+{
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #E1E1E1, stop: 0.4 #DDDDDD, stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+}
+
+#WorkSpaceTabWidget>QTabBar::scroller
+{
+height:16px;
+width:16px;
+}
+

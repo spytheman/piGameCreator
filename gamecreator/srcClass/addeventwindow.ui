@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddEventWindow</class>
+ <widget class="QDialog" name="AddEventWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>514</width>
+    <height>309</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Add event...</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources.qrc">
+    <normaloff>:/resources/RES/ffficons/add.png</normaloff>:/resources/RES/ffficons/add.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Select which event to add to this class:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTreeWidget" name="treeWidget">
+     <property name="iconSize">
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
+     </property>
+     <property name="indentation">
+      <number>0</number>
+     </property>
+     <attribute name="headerDefaultSectionSize">
+      <number>140</number>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>Event</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Description</string>
+      </property>
+     </column>
+     <item>
+      <property name="text">
+       <string>Create</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">create</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources.qrc">
+        <normaloff>:/resources/RES/ffficons/new.png</normaloff>:/resources/RES/ffficons/new.png</iconset>
+      </property>
+      <property name="text">
+       <string>Occurs when object is created and placed in the scene.</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Initialize</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">init</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources.qrc">
+        <normaloff>:/resources/RES/ffficons/tick.png</normaloff>:/resources/RES/ffficons/tick.png</iconset>
+      </property>
+      <property name="text">
+       <string>Occurs just after creation, but after current step finishes.</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Destroy</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">delete</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources.qrc">
+        <normaloff>:/resources/RES/ffficons/bin.png</normaloff>:/resources/RES/ffficons/bin.png</iconset>
+      </property>
+      <property name="text">
+       <string>Occurs when object is deleted.</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Step(priority)</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">step</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources.qrc">
+        <normaloff>:/resources/RES/tango/actions/media-playback-start.png</normaloff>:/resources/RES/tango/actions/media-playback-start.png</iconset>
+      </property>
+      <property name="text">
+       <string>Occurs every game tick</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Render(pass)</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">render</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources.qrc">
+        <normaloff>:/resources/RES/ffficons/pencil.png</normaloff>:/resources/RES/ffficons/pencil.png</iconset>
+      </property>
+      <property name="text">
+       <string>Renders the object.</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Timer(int)</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">timer</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources.qrc">
+        <normaloff>:/resources/RES/ffficons/clock.png</normaloff>:/resources/RES/ffficons/clock.png</iconset>
+      </property>
+      <property name="text">
+       <string>Occurs when the int'th timer timeouts.</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Collision(class)</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">collision</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources.qrc">
+        <normaloff>:/resources/RES/ffficons/shape_move_backwards.png</normaloff>:/resources/RES/ffficons/shape_move_backwards.png</iconset>
+      </property>
+      <property name="text">
+       <string>Occurs when this object is overlapping other object.</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">colision</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Key(type,key)</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">key</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources.qrc">
+        <normaloff>:/resources/RES/ffficons/keyboard.png</normaloff>:/resources/RES/ffficons/keyboard.png</iconset>
+      </property>
+      <property name="text">
+       <string>Occurs when keyboard key is pressed or released.</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">key</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Mouse(type,button)</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">mouse</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources.qrc">
+        <normaloff>:/resources/RES/ffficons/mouse.png</normaloff>:/resources/RES/ffficons/mouse.png</iconset>
+      </property>
+      <property name="text">
+       <string>Occurs when mouse is clicked, released, moved or the wheel is rotated.</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">mouse</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Joystick(type,button)</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">joystick</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources.qrc">
+        <normaloff>:/resources/RES/ffficons/joystick.png</normaloff>:/resources/RES/ffficons/joystick.png</iconset>
+      </property>
+      <property name="text">
+       <string>NOT IMPLEMENTED!</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">joystick</string>
+      </property>
+      <property name="flags">
+       <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsUserCheckable</set>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Touch</string>
+      </property>
+      <property name="toolTip">
+       <string notr="true">touch</string>
+      </property>
+      <property name="icon">
+       <iconset resource="../resources.qrc">
+        <normaloff>:/resources/RES/ffficons/image_edit.png</normaloff>:/resources/RES/ffficons/image_edit.png</iconset>
+      </property>
+      <property name="text">
+       <string>NOT IMPLEMENTED!</string>
+      </property>
+      <property name="flags">
+       <set>ItemIsSelectable|ItemIsDragEnabled|ItemIsUserCheckable</set>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

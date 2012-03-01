@@ -1,0 +1,82 @@
+QMap
+(
+	(
+		"framework.gsd", QVariant
+		(
+			QVariantMap, QMap
+			(
+				(
+				"", QVariant
+				(
+					QVariantMap, QMap
+					(
+						(
+							"score", QVariant
+							(
+								QVariantMap, QMap
+								(
+									(
+										"desc", QVariant
+										(
+											QString, "Game's <b>score</b>"
+										)
+									)
+									(
+										"kind" ,  QVariant
+										(
+											QString, "var"
+										) 
+									) 
+									(
+										"type" ,  QVariant
+										(
+											QString, "real"
+										) 
+									)
+								)  
+							) 
+						) 
+					)  
+				) 
+			)
+			(
+				"gcObject" ,  QVariant
+				(
+					QVariantMap, QMap
+					(
+						(
+							"alpha", QVariant
+							(
+								QVariantMap, QMap
+								(
+									(
+										"desc", QVariant
+										(
+											QString, "Object's opacity"
+										)
+									) 
+									( 
+										"kind" ,  QVariant
+										(
+											QString, "var"
+										) 
+									)
+									(
+										"type" ,  QVariant
+										(
+											QString, "real"
+										) 
+									) 
+								)  
+							) 
+						)
+						(
+							"color" ,  QVariant
+							(
+								QVariantMap, QMap
+								(
+									(
+										"desc", QVariant
+										(
+											QString, "Object's blending color"
+										) ) ( "kind" ,  QVariant(QString, "var") ) ( "type" ,  QVariant(QString, "color") ) )  ) ) ( "shader" ,  QVariant(QVariantMap, QMap(("desc", QVariant(QString, "Shader to apply to the current object") ) ( "kind" ,  QVariant(QString, "prop") ) ( "type" ,  QVariant(QString, "shader") ) )  ) ) ( "x" ,  QVariant(QVariantMap, QMap(("desc", QVariant(QString, "Object's X coordinate") ) ( "kind" ,  QVariant(QString, "var") ) ( "type" ,  QVariant(QString, "real") ) )  ) ) ( "xspeed" ,  QVariant(QVariantMap, QMap(("desc", QVariant(QString, "Object's horizontal speed") ) ( "kind" ,  QVariant(QString, "var") ) ( "type" ,  QVariant(QString, "real") ) )  ) ) ( "y" ,  QVariant(QVariantMap, QMap(("desc", QVariant(QString, "Object's Y coordinate") ) ( "kind" ,  QVariant(QString, "var") ) ( "type" ,  QVariant(QString, "real") ) )  ) ) ( "yspeed" ,  QVariant(QVariantMap, QMap(("desc", QVariant(QString, "Object's vertical speed") ) ( "kind" ,  QVariant(QString, "var") ) ( "type" ,  QVariant(QString, "real") ) )  ) ) ( "z" ,  QVariant(QVariantMap, QMap(("desc", QVariant(QString, "Object's Z coordinate. In 2d mode, it's the object's depth layer.") ) ( "kind" ,  QVariant(QString, "var") ) ( "type" ,  QVariant(QString, "real") ) )  ) ) ( "zspeed" ,  QVariant(QVariantMap, QMap(("desc", QVariant(QString, "Object's Z speed, respected only in 3D collision mode") ) ( "kind" ,  QVariant(QString, "var") ) ( "type" ,  QVariant(QString, "real") ) )  ) ) )  ) ) ( "int" ,  QVariant(QVariantMap, QMap() ) ) ( "real" ,  QVariant(QVariantMap, QMap() ) ) ( "string" ,  QVariant(QVariantMap, QMap() ) ) ( "window" ,  QVariant(QVariantMap, QMap(("title", QVariant(QVariantMap, QMap(("desc", QVariant(QString, "Window's title") ) ( "kind" ,  QVariant(QString, "prop") ) ( "type" ,  QVariant(QString, "int") ) )  ) ) )  ) ) )  ) ) )  

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="Stylesheet" href="mpstyle.css">
+<script src="jquery.js"></script>
+<script>
+$(document).ready(function(){
+	$("div.mpmenu a").click(function(){
+		$("div.mpmenu a").removeClass("selected");
+		$(this).addClass("selected");
+	})
+})
+</script>
+</head>
+<body>
+<div class="mpwcontainer">
+<div class="mpwidget">
+	
+
+	<div class="recentfiles"></div>
+	<div class="newopen">
+		<a class="mnewopen" href="ui:newproject" class="newproject"><img src="new.png">&nbsp; New project</a>
+		<a class="mnewopen" href="ui:openproject" class="openproject"><img src="open.png">&nbsp; Open project</a>
+	</div>
+	<div class="mpmenu">
+		<a class="selected" href="news.html" target="mainframe">News</a><a 
+		href="games.html" target="mainframe">Games</a><a 
+		href="extensions.html" target="mainframe">Extensions</a><a 
+		href="tutorials.html" target="mainframe">Tutorials</a></div>
+	<iframe name="mainframe" src="news.html"></iframe>
+	
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<settings>
+    <codeformat>
+        <font size="11" color="#ffffff" face="Courier New"/>
+        <keyword bold="1" underline="0" color="#0000ff" italic="0"/>
+        <function bold="0" underline="0" color="#5555ff" italic="0"/>
+        <variable bold="0" underline="0" color="#0000ff" italic="0"/>
+        <resource bold="0" underline="0" color="#000000" italic="0"/>
+        <class bold="0" underline="0" color="#aaaa00" italic="0"/>
+        <number bold="0" underline="0" color="#e29700" italic="0"/>
+        <string bold="0" underline="0" color="#919191" italic="0"/>
+        <operator bold="1" underline="0" color="#000000" italic="0"/>
+        <comment bold="0" underline="0" color="#438600" italic="1"/>
+        <preprocessor bold="0" underline="0" color="#aa5500" italic="1"/>
+        <normaltext bold="0" underline="0" color="#000000" italic="0"/>
+        <error bold="1" underline="1" color="#ff0000" italic="0"/>
+    </codeformat>
+</settings>

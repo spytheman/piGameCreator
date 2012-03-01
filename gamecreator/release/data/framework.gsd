@@ -1,0 +1,794 @@
+<?xml version="1.0"?>
+<gamescriptdata name="piGameScript">
+    <!--
+
+PGSXML framework definition file.
+  
+  DO NOT MODIFY - if you modify this, you will alter
+  the piGameCreator intellisense and code completion 
+  database for the framework, that is, intellisense 
+  and the code tokenizer won't recognize the Game 
+  Framework functions.
+-->
+    <global>
+        <var type="bool" name="windowTitleFollowsScenes"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">When set to <span style=" font-weight:600;">true</span> (default), setting a scene will change the window's title unless the title is empty string.</p></var>
+        <var type="exception" name="lastException"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">This variable is set when exception occurs. You can access the returned exception instance so you can handle the exception as you like or just show its text to the user. </span>
+</p></var>
+        <var type="layer" name="currentLayer"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Reference to the current active layer for manipulation.</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-style:italic;">Note: DO NOT DELETE it unless you know what you are doing.</span>
+</p></var>
+        <func type="real" name="arccos" arg1="real radians"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></func>
+        <func type="real" name="arcsin" arg1="real radians"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></func>
+        <func type="real" name="arctg" arg1="real radians"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></func>
+        <func type="real" name="cos" arg1="real radians"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></func>
+        <func type="real" name="cotg" arg1="real radians"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">defined as 1/tg(x) </span>
+</p></func>
+        <func type="real" name="degToRad" arg1="real degrees"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></func>
+        <prop type="real" name="pi"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns the value of mathematical </span>
+<span style=" font-size:8pt; font-style:italic;">pi</span>
+<span style=" font-size:8pt;"> = 3,14159265... </span>
+</p></prop>
+        <func type="real" name="radToDeg" arg1="real radians"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></func>
+        <func type="real" name="sin" arg1="real radians"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Trigonometric function </span>
+</p></func>
+        <func type="real" name="tg" arg1="real radians"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></func>
+        <var type="scene" name="currentScene"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Reference to current active scene. This means, to the last loaded scene into the current window. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">Note: DO NOT DELETE it unless you know what you are doing.</span>
+<span style=" font-size:8pt;"/>
+</p></var>
+        <func arg1desc="The string to get translated" type="string" name="tr" arg1="string text"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Translates a given string to selected language. </span>
+</p></func>
+        <func type="void" name="messagebox" arg1="string text"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Shows a message as a message box. Intended only for debugging purposes. It's better not to use this in your games. Use the UI system instead. </span>
+</p></func>
+        <func arg4="bool fatal" arg1desc="The text to be shown to the end user." arg2desc="The exception type. This is to be user by the developers." arg3desc="The exception data." arg4desc="Wheither the exception is fatal or not." type="void" arg4value="false" arg3value="&quot;&quot;" name="throw" arg2value="&quot;GENERIC&quot;" arg1="string text" arg2="string type" arg3="string data"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Generates a fatal exception error and kills the application if unhandled. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If piGameCreator IDE is running in </span>
+<span style=" font-size:8pt; font-style:italic;">debug mode</span>
+<span style=" font-size:8pt;">, it will catch the exception and open the class code that generated the exception. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">This is only useful for code maintenance, debugging, and developing classes that must be used by other people. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">For example, if you develop a method that takes positive integer, you can generate such exception if negative one is entered. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">The argument </span>
+<span style=" font-size:8pt; font-style:italic;">text</span>
+<span style=" font-size:8pt;">is the text to show to the user when this exception remains unhandled. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">The argument </span>
+<span style=" font-size:8pt; font-style:italic;">type</span>
+<span style=" font-size:8pt;">can be omitted (will be set to 'GENERIC'). You will only need to set it if you want to handle the exception by Id. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">The argument </span>
+<span style=" font-size:8pt; font-style:italic;">data</span>
+<span style=" font-size:8pt;">is also only used if you want to handle the exception. It can contain some ordinary data about the exception. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Setting </span>
+<span style=" font-size:8pt; font-style:italic;">fatal</span>
+<span style=" font-size:8pt;">to true will disable exception catching algorithm to the piGameCreator IDE and exception handling routine in the engine. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">When an exception occurs, it will set the global variables </span>
+<span style=" font-size:8pt; font-style:italic;">lastException</span>
+<span style=" font-size:8pt;">and </span>
+<span style=" font-size:8pt; font-style:italic;">lastExceptionType</span>
+<span style=" font-size:8pt;">to the values you provided in </span>
+<span style=" font-size:8pt; font-style:italic;">text</span>
+<span style=" font-size:8pt;">and </span>
+<span style=" font-size:8pt; font-style:italic;">type</span>
+<span style=" font-size:8pt;">arguments. </span>
+</p></func>
+        <var type="window" name="currentWindow"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Reference to current active window. Or to the only window, if the game have only one window. </span>
+</p></var>
+    </global>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>This class represents a piGameCreator application. Usually, you will never need to use it directly or to create instances of it. Its variables and mothods are directly mapped to the global scope in piGameScript.&lt;/p>" name="application">
+        <func type="application" name="getInstance" static="true"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns the current application instance.</span>
+</p></func>
+        <var type="exception" name="lastException"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">This variable is set when exception occurs. You can access the returned exception instance so you can handle the exception as you like or just show its text to the user. </span>
+</p></var>
+        <var type="layer" name="currentLayer"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Reference to the current active layer for manipulation.</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-style:italic;">Note: DO NOT DELETE it unless you know what you are doing.</span>
+</p></var>
+        <var type="scene" name="currentScene"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Reference to current active scene. This means, to the last loaded scene into the current window. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">Note: DO NOT DELETE it unless you know what you are doing.</span>
+<span style=" font-size:8pt;"/>
+</p></var>
+        <func type="void" name="quitApplication" arg1="int exitCode" arg1value="0"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Forces the application to exit gracefully. The process will exit normally. Optionally, </span>
+<span style=" font-size:8pt; font-style:italic;">exitCode</span>
+<span style=" font-size:8pt;"> is the result that application returns to the target platform. </span>
+</p></func>
+        <func arg1desc="The function to set as global exception handler." type="void" name="setExceptionHandler" arg1="function handler"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Sets a function to be executed when an exception occurs. If the function processes the exception, it must return </span>
+<span style=" font-size:8pt; font-weight:600;">true</span>
+<span style=" font-size:8pt;"> . The exception is treated as handled successfully and the application continues. The exception will not be catched by the IDE. If the function returns </span>
+<span style=" font-size:8pt; font-weight:600;">false</span>
+<span style=" font-size:8pt;"> , the exception is assumed not handled and will be fired and displayed as usual. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If an exception scene is set via </span>
+<span style=" font-size:8pt; font-style:italic;">setExceptionScene()</span>
+<span style=" font-size:8pt;"> , the scene will be loaded only if the handler function returns </span>
+<span style=" font-size:8pt; font-style:italic;">false</span>
+<span style=" font-size:8pt;"> . </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Passing </span>
+<span style=" font-size:8pt; font-weight:600;">null</span>
+<span style=" font-size:8pt;"> as handler will unset any previously set exception handler. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">NOTE: Even if you handle an event with the handler, it may be not possible to resume the application state after it. Some exceptions can be safely ignored, others can not. Better use this system for handling your own generated exceptions.</span>
+<span style=" font-size:8pt;"/>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; font-style:italic;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">Exception sybsystem note: Integer division by zero and other hardware-generated exceptions will not be passed to the exception subsystem. Such exceptions will simply terminate the application with operating system error message.</span>
+<span style=" font-size:8pt;"/>
+</p></func>
+        <func arg1desc="The scene to set as exception viewer/handler" type="void" name="setExceptionScene" arg1="scene Scene"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If the application is running in </span>
+<span style=" font-size:8pt; font-style:italic;">release</span>
+<span style=" font-size:8pt;"> mode and exception occurs, instead of terminating the application, this </span>
+<span style=" font-size:8pt; font-style:italic;">Scene</span>
+<span style=" font-size:8pt;"> will be loaded if possible. Use this method only to display some user-friendly message to the user. In some case, trying to load this scene may result in pure application crash. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If the application is running in debug mode, the exception will be thrown as usual, the message will be shown and the scene will be loaded if possible. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Setting </span>
+<span style=" font-size:8pt; font-weight:600;">null</span>
+<span style=" font-size:8pt;"> as scene will unset any previously set scene. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">NOTES: Scene will be loaded even is exception occurred is fatal. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">If the exception is operating-system-dependent, for example, SIGSEGV, this subsystem will fail. Instead, a normal, OS-dpendent error message will be shown.</span>
+<span style=" font-size:8pt;"/>
+</p></func>
+        <func type="void" name="terminate" arg1="int exitCode" arg1value="1"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Terminates the application. The process will be killed by the OS. Optionally, </span>
+<span style=" font-size:8pt; font-style:italic;">exitCode</span>
+<span style=" font-size:8pt;"> is the result that application returns to the OS. </span>
+</p></func>
+        <var type="window" name="currentWindow"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Reference to current active window. Or to the only window, if the game have only one window. </span>
+</p></var>
+    </class>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Stores and uses different colors.&lt;/p>" name="color">
+        <func type="color" name="fromInt" static="true"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Creates a color from 32 bit integer formatted as ABGR </span>
+</p></func>
+        <func type="color" name="fromString" static="true"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Creates a color from specified HTML notation string in following formats: </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-weight:600;">#RRGGBBAA</span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-weight:600;">#RRGGBB</span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-weight:600;">#RGBA</span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-weight:600;">#RGB</span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">The # is optional </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></func>
+        <func arg1desc="The red component [0..255]" arg2desc="The green component [0..255]" arg3desc="The blue component [0..255]" type="color" name="rgb" static="true" arg1="int red" arg2="int green" arg3="int blue"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Creates a color by specified </span>
+<span style=" font-size:8pt; font-style:italic;">red</span>
+<span style=" font-size:8pt;">, </span>
+<span style=" font-size:8pt; font-style:italic;">green</span>
+<span style=" font-size:8pt;">and </span>
+<span style=" font-size:8pt; font-style:italic;">blue</span>
+<span style=" font-size:8pt;">values in range 0...255 </span>
+</p></func>
+        <func arg4="int alpha" arg1desc="The red component [0..255]" arg2desc="The green component [0..255]" arg3desc="The blue component [0..255]" arg4desc="The alpha component [0..255]" type="color" arg4value="255" name="rgba" static="true" arg1="int red" arg2="int green" arg3="int blue"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Creates a color by specified </span>
+<span style=" font-size:8pt; font-style:italic;">red</span>
+<span style=" font-size:8pt;"> , </span>
+<span style=" font-size:8pt; font-style:italic;">green</span>
+<span style=" font-size:8pt;"> and </span>
+<span style=" font-size:8pt; font-style:italic;">blue</span>
+<span style=" font-size:8pt;"> and </span>
+<span style=" font-size:8pt; font-style:italic;">alpha</span>
+<span style=" font-size:8pt;"> values in range 0...255 </span>
+</p></func>
+        <func arg1desc="Other color" arg2desc="Blending percent (0...1)" type="color" name="transition" static="true" arg1="color Color" arg2="real percent"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns a color created when transiting this color to a new color by specified percent of transition. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Passing 0 as percent will return this color, passing 1 as percent (this means 100%) will return the new color. Passing 0.5 will return the color that is in between the two colors. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">For example, transition from white to black, 0% means white, 100% means black, 50% means gray, 10% means light gray, 90% means very dark gray and so on. </span>
+</p></func>
+        <var type="int" name="alpha"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">The alpha component [0..255] </span>
+</p></var>
+        <var type="int" name="blue"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">The blue component [0..255]</span>
+</p></var>
+        <var type="int" name="green"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">The green component [0..255] </span>
+</p></var>
+        <var type="int" name="red"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">The red component [0..255]</span>
+</p></var>
+        <func type="int" name="toInt"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns an 32-bit integer in format ABGR </span>
+</p></func>
+        <func type="string" name="toString"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns the color as notation </span>
+<span style=" font-size:8pt; font-weight:600;">#RRGGBBAA </span>
+<span style=" font-size:8pt;">or </span>
+<span style=" font-size:8pt; font-weight:600;">#RRGGBB</span>
+<span style=" font-size:8pt;"> if alpha is 255 </span>
+</p></func>
+    </class>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Convenience class for drawing different kind of primitives.&lt;/p>" name="draw"/>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Exception class provides information about occured exceptions and allows you to define and throw your own. Each exception have text, identifier and data.&lt;/p>" name="exception">
+        <func type="exception" name="fromString"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Creates an exception instance, which text is set to the given string. </span>
+</p></func>
+        <var type="string" name="data"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Contains data about the exception. For example, a division by zero exception may contain the divisible </span>
+</p></var>
+        <var type="string" name="text"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">This text describes the exception and must be as user-friendly as possible. </span>
+</p></var>
+        <func type="string" name="toString"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns a string containing the exception text. </span>
+</p></func>
+        <var type="string" name="type"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">The type of exception. This field if useful for exception handling</span>
+</p></var>
+        <func type="void" name="throw"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Throws this exception. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">To simplify development you can also use the global </span>
+<span style=" font-size:8pt; font-style:italic;">throw()</span>
+<span style=" font-size:8pt;"> function. </span>
+</p></func>
+    </class>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>This class represents a function.&lt;/p>" hidden="true" name="function"/>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Arrays in piGameCreator are objects by themselves. They have different properites and methods that can help.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Arrays, unlike base types, like int and string, are reference type objects. That is, if you want to copy an array, you must clone it using the clone function. Some functions will automatically return copies of arrays but you must be very careful when assigning an array variable with the = operator.&lt;/p>" doc="Array" hidden="true" name="gcArray">
+        <func type="T[]" name="clone"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns a clone of current array. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-weight:600;">DISCUSS: TODO</span>
+<span style=" font-size:8pt;"/>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">FAIL: arrays must be forced VALUE types and not references! </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">TODO: CAREFULLY PLAN - Arrays are REFERENCES or VALUE TYPES? </span>
+</p></func>
+        <func type="T[]" name="getDuplicates"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Returns an array containing all elements that are met more than once in the array. </span></p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">If the array type is of some class, comparison is based on class' </span><span style=" font-size:8pt; font-style:italic;">int isEqual(T)</span> <span style=" font-size:8pt;">function. This function must return -1 if </span><span style=" font-size:8pt; font-weight:600;">this&lt;T</span> <span style=" font-size:8pt;">0 if </span><span style=" font-size:8pt; font-weight:600;">this=T</span> <span style=" font-size:8pt;">or 1 if </span><span style=" font-size:8pt; font-weight:600;">this&gt;T.</span> </p></func>
+        <func type="int" name="count"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Returns how many elements contains this array. </span></p></func>
+        <func arg1desc="The value to append" type="void" name="append" arg1="T value"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Appends a value to the end of the array, and resets its size</span> </p></func>
+        <func type="void" name="clear"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Clears all values in the array and sets its size to 0 </span>
+</p></func>
+        <func arg1desc="Element index, after which to insert the new value" arg2desc="The new value to insert" type="void" name="insertAfter" arg1="int n" arg2="T value"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Inserts an element after specified index and shifts all other elements, so the values match properly. </span></p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt; font-style:italic;">NOTE: This function may be slower in some languages and platforms because full array rewrite will be required in worst case (inserting after the first element).</span> </p></func>
+        <func arg1desc="Element index, before which to insert the new value" arg2desc="The new value to insert" type="void" name="insertBefore" arg1="int n" arg2="T value"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Inserts an element before specified index and shifts all other elements, so the values match properly. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">NOTE: This function may be slower in some languages and platforms because full array rewrite will be required in worst case (inserting before the first element).</span>
+<span style=" font-size:8pt;"/>
+</p></func>
+        <func arg1desc="The index of the element to remove." type="void" name="remove" arg1="int n"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Removes an element from the array, shifting all other elements so they match their indexes properly. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">NOTE: This function may be slower in some languages and platforms because full array scan will be required in worst case (deleting the first element).</span>
+<span style=" font-size:8pt;"/>
+</p></func>
+        <func type="void" name="removeDuplicates"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Removes all repeated values in the array so each value is met only once. </span></p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">If the array type is of some class, comparison is based on class' </span><span style=" font-size:8pt; font-style:italic;">int isEqual(T)</span> <span style=" font-size:8pt;">function. This function must return -1 if </span><span style=" font-size:8pt; font-weight:600;">this&lt;T</span> <span style=" font-size:8pt;">0 if </span><span style=" font-size:8pt; font-weight:600;">this=T</span> <span style=" font-size:8pt;">or 1 if </span><span style=" font-size:8pt; font-weight:600;">this&gt;T.</span> </p></func>
+        <func type="void" name="reverse"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Reverses the array, e.g. first element becomes last, second element becomes pre-last etc. </span>
+</p></func>
+        <func arg1desc="The new size of the array." type="void" name="setSize" arg1="int newSize"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Sets the element count of the array to the new value. If the new size is smaller than the old size, array will be truncated and the objects in it will NOT be deleted! If the new size is larger than the old size, the array will be filled with NULL values. </span>
+</p></func>
+        <func type="void" name="sort"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Sorts the values in the array. </span></p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"></p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">If the array type is of some class, comparison is based on class' </span><span style=" font-size:8pt; font-style:italic;">int isEqual(T)</span><span style=" font-size:8pt;"> function. This function must return -1 if </span><span style=" font-size:8pt; font-weight:600;">this&lt;T</span><span style=" font-size:8pt;"> 0 if </span><span style=" font-size:8pt; font-weight:600;">this=T</span><span style=" font-size:8pt;"> or 1 if </span><span style=" font-size:8pt; font-weight:600;">this&gt;T.</span><span style=" font-size:8pt;"> </span></p></func>
+    </class>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-size:8pt;&quot;>Default game object base class. All classes you define in the Class editor, by default inherits this base class.&lt;/span>&lt;/p>" doc="Game object" hidden="true" name="gcObject">
+        <var type="bool" name="global"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Even part of a layer, seting this to true will make the object directly visible to and from other layers. </span>
+</p></var>
+        <var type="bool" name="persistent"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Persistent objects do not destroy themselves when the scene changes, or their owning layer gets destroyed. If persistent object loses his owner, it will be reassociated with window's default layer and will be marked as global. </span>
+</p></var>
+        <var type="bool" name="physical"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Physical objects respect the laws of physics. </span>
+</p></var>
+        <var type="bool" name="visible"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If set to true, object will not be drawn (but will still be processed). By default, this is true.</span>
+</p></var>
+        <var type="graphicsEffect[]" name="effects"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Graphics effects applied to the current object instance.</p></var>
+        <var type="int" name="blendMode"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Sets color blending mode to this object. </span>
+</p></var>
+        <var type="lightSettings" name="lighting"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></var>
+        <prop type="objectRepresentation" name="representation"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></prop>
+        <var type="physicsSettings" name="physics"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></var>
+        <var type="real" name="alpha"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Object's opacity </span>
+</p></var>
+        <var type="real" name="x"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Object's X coordinate </span>
+</p></var>
+        <var type="real" name="xrot"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Object's X rotation. By default only used in 3D mode in the World Editor. </span>
+</p></var>
+        <var type="real" name="xscale"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Object's horizontal scale </span>
+</p></var>
+        <var type="real" name="xspeed"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Object's horizontal speed </span>
+</p></var>
+        <var type="real" name="y"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Object's Y coordinate </span>
+</p></var>
+        <var type="real" name="yrot"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Object's Y rotation. By default only used in 3D mode in the World Editor. </span>
+</p></var>
+        <var type="real" name="yscale"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Object's vertical scale. </span>
+</p></var>
+        <var type="real" name="yspeed"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Object's vertical speed </span>
+</p></var>
+        <var type="real" name="z"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Object's Z coordinate. In 2d mode, it's the object's depth layer. </span>
+</p></var>
+        <var type="real" name="zrot"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Object's Z rotation. This rotation axis is the default rotation mode for 2D scenes </span>
+</p></var>
+        <var type="real" name="zscale"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Object's depth scale. By default only used in the world editor. </span>
+</p></var>
+        <var type="real" name="zspeed"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Object's Z speed, respected only in 3D collision mode </span>
+</p></var>
+        <func type="void" name="addEffect" arg1="graphicsEffect Effect"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Sets a graphics effect to current object </span>
+</p></func>
+        <func type="void" name="setEffect" arg1="graphicsEffect Effect"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Sets a graphics effect to current object </span>
+</p></func>
+    </class>
+    <class desc="&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>" name="geometryShader"/>
+    <class desc="&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>" name="graph"/>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Graphics effects are special ways to draw something on the screen. They are exactly like the filters in professional image editing software. &lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Graphics effect can be anything - as simple color tinting, blending, brightness and contrast adjustment, to more complicated effects, including, but not limited to, 2D drop shadows and glows, deforming, bump-mapping, even parallax oclusion mapping and advanced water rendering. However, these are by default NOT implemented in piGameCreator with some few exceptions.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>There are some pre-made graphics effects available by default, for example, &lt;span style=&quot; font-style:italic;&quot;>color tint&lt;/span>, &lt;span style=&quot; font-style:italic;&quot;>drop shadow&lt;/span>, &lt;span style=&quot; font-style:italic;&quot;>blur&lt;/span>, etc. You can implement your own effects as well. This functionality is only intended for advanced users, because is too specialized into the hardware graphics rendering. Making effects can require writing custom shaders and implementing custom classes with custom settings. These effects may even look different - or completely break - in different video cards, because shader models are also very complicated and serious topic.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-weight:600;&quot;>TODO: Plan these with Dimo Markov!&lt;/span>&lt;/p>" name="graphicsEffect"/>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Single layer containing objects. Can be associated with one or more windows.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>If the layer contains persistent objects, they will be moved to the default layer for associated window.&lt;/p>" name="layer">
+        <var type="bool" name="active"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Active layers are processed automatically. If this variable is set to false, the layer will not be processed and rendered, e.g. it will not exist at all. This is useful for optimisations in large scenes and world with many objects. </span>
+</p></var>
+        <var type="bool" name="paused"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Paused layers only render their objects. Objects in paused layers do not process their events. </span>
+</p></var>
+        <var type="bool" name="visible"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If layer is not visible, its objects will not be drawn, but only processed. </span>
+</p></var>
+        <var type="gcObject[]" name="instances"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Contains the layer's instances. </span>
+</p></var>
+        <func type="layer" name="fromString" static="true"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns new layer with specified name. </span>
+</p></func>
+        <var type="layer[]" name="layers"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Contains the layer's child layers. </span>
+</p></var>
+        <func type="layer[]" name="ownerLayers"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns a list with all layers that contain reference to this layer. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If this layer is not owned by another layer, but is used in a window, a reference to the </span>
+<span style=" font-size:8pt; font-style:italic;">default</span>
+<span style=" font-size:8pt;">layer of the corresponding window will be returned. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If this layer is the default layer of an window, this function will return empty array. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If this layer is not used at all, empty list will be returned. </span>
+</p></func>
+        <var type="physicsSimulator" name="physics"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If not null, the layer will manage physics for all objects having physics properties directly added to it and all children layers via this physics simulator. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Keep in mind that objects from different simulators will not affect each other. This is becausee of performance. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If you have object that often travels between layers, like, an enemy or a character, you can mark that object as physics global object. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Applying physicsSimulator to the </span>
+<span style=" font-size:8pt; font-style:italic;">default layer</span>
+<span style=" font-size:8pt;"> will process all objects in all layers in the window. </span>
+</p></var>
+        <prop type="string" name="name"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></prop>
+        <func type="void" name="save" arg1="string filename"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Saves the layer to a flie </span>
+</p></func>
+        <func type="window[]" name="ownerWindows"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns a list with all windows that contain reference to this layer. </span>
+</p></func>
+    </class>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>This class is a light emitter for the Lighting system. It also controls the state of the lighting system itself.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>In modern 3d games lighting is important component, but in some casual/puzzle games, or in most 2D games, lighting is not so important.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>As the lighting process and rendering shadow maps is slow process, it is completely optional in piGameCreator/piGameFramework&lt;/p>" name="light">
+        <func type="bool" name="enable" static="true"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Enables the lighting system and initializes it.</span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns wheither success or not.</span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Lighting system may not be supported on some platforms, for example, the web browsers or some mobile phones so you must always check if the initialization completes.</span>
+</p></func>
+        <func type="void" name="disable" static="true"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Disables the lighting system and stops rendering any light.</p></func>
+    </class>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Various settings for the shadow/lighting subsystem.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>By default, this class have a field in each Game object derived class.&lt;/p>" name="lightSettings">
+        <prop type="bool" name="castShadow"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If set, the object will block the light and cast a shadow.</span>
+</p></prop>
+        <var type="bool" name="fullBright"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">The object will be rendered without any lighting effects. It will not receive shadows or light contributions and will not cast shadows.</span>
+</p></var>
+    </class>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>A 2D or 3D shape in which bounds lighting will occur.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Layer or scene can by itself be set as a light volume.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Light volumes are not respected by layers and every light-capable object that falls in it will be processed by the lighting subsystem.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>This class is available as a tool for shapes in a scene or a world.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>" name="lightVolume"/>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>The Object class provides generic data objects with any properties.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-weight:600;&quot;>Note for C++ and Java-targeted projects:&lt;/span> In native compiled languages, this class will be slower, because it uses string-based hashtables. If your project targets maximal performance, avoid this class.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>In HTML5 JavaScript based projects, this class uses native JavaScript objects (JSON) so it will not impact performance!&lt;/p>" doc="Generic object" name="object"/>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Defines data for object's representation on the screen.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Representation can be one of the following:&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>None, 2D Image, 3D Model, Rectangle, Vector Path, Graph or Text.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>" name="objectRepresentation">
+        <func arg1desc="The rectangle to be set. Only its width/height and offset data will be used. Its position will not be taken." type="void" name="setRectangle" arg1="rectangle r"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Sets a rectangle representation</span>
+</p></func>
+        <func arg1desc="The text to be set" type="void" name="setText" arg1="string Text" arg1value="&quot;&quot;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Sets a text representation</span>
+</p></func>
+    </class>
+    <class desc="&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>" name="path"/>
+    <class desc="&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>" name="physicsSettings"/>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>This class provides physics simulations. To run a simulation, you must add objects to the simulator.&lt;/p>" name="physicsSimulator">
+        <var type="bool" name="paused"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If this is set to true, the simulator will not run. </span>
+</p></var>
+        <var type="gcObject[]" name="objects"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></var>
+        <var type="int" name="precision"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">how precise the simulation will be. May not be affected in some platforms.</span>
+</p></var>
+        <func arg1desc="The object to add" type="void" name="addObject" arg1="gcObject object"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Adds an object to thee simulator.</span>
+</p></func>
+        <func type="void" name="step"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Steps the simulation.</span>
+</p></func>
+    </class>
+    <class desc="&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>" name="pixelShader"/>
+    <class desc="&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>" doc="2D point" name="point2d">
+        <var type="int" name="x"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></var>
+        <var type="int" name="y"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></var>
+        <func type="real" name="distance" arg1="point2d a" arg2="point2d b"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Computes the distance between 2 points </span>
+</p></func>
+        <func type="real" name="distanceTo" arg1="gcObject object"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Computes the distance between this point and </span>
+<span style=" font-size:8pt; font-style:italic;">object</span>
+</p></func>
+    </class>
+    <class desc="&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>" doc="3D point" name="point3d">
+        <var type="int" name="x"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/></var>
+        <var type="int" name="y"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"/></var>
+        <var type="int" name="z"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"/></var>
+    </class>
+    <class desc="&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>" name="rectangle"/>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Scene is collection of layers. Created within the &lt;span style=&quot; font-style:italic;&quot;>Scene editor&lt;/span> and the &lt;span style=&quot; font-style:italic;&quot;>World editor&lt;/span>, these resources's main intention is to contain layers with game objects, and are available for direct usage. However, you can reference and modify them ingame.&lt;/p>" name="scene">
+        <func type="layer[]" name="layers"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns an array with all layers in this scene. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Only modify these layers you really know what you are doing! </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Setting a scene to a window </span>
+<span style=" font-size:8pt; font-weight:600;">copies</span>
+<span style=" font-size:8pt;">these layers to the window, reseting the scene does the same. Modifying these layers will modify all future uses of this scene. </span>
+</p></func>
+        <var type="string" name="title"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">The title of the scene. This will become the window title when the scene is set unless global setting </span>
+<span style=" font-size:8pt; font-style:italic;">windodTitleFollowsScenes</span>
+<span style=" font-size:8pt;">is set to false.</span>
+</p></var>
+        <func type="void" name="save" arg1="string filePath"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Saves all layers in the scene to a file</span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-weight:600; text-decoration: underline;">TODO: Plan the file's format! It must be openable or importable in the scene/world editors</span>
+</p></func>
+    </class>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Scene graphs are used for preformance optimizations in very large scenes or worlds.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>This class provides layer level scene graph management.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>This is a way to control which layers are active and which are not, and how individual layers are linked together to produce the game world.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>piGameCreator allows you to create conditional scene graphs, so you can load different scene nodes under different circumstances.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Scene nodes can be layers (and all layers contained in them).&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>If a scene graph is not created and active in a scene, all layers activity must be controlled manually with layers' active property.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Scene graphs can be 2D and 3D.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Links between scene nodes can be defined. &lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>In case a link is drawn, linked scene node will be activated and connected to the current node. If a link gets outside of the screen, corresponding scene node will be deactivated.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>piGameCreator adds something special to the scene graph system: conditional links. Such links define different conditions and point to different layers. For example, opening a door can lead to one room in some cases and in other room in other cases. &lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>This may sound strange, but will allow some interesting gameplay elements, for example, portals, or looping castles.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>" name="sceneGraph"/>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>This is the base String class. In piGameScript each string is an object by itself that have different properties and methods.&lt;/p>" doc="string" name="string">
+        <func type="int" name="length"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Returns the length in characters of this string. </span></p></func>
+        <func type="int" name="lines"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns the count of lines in this string. For line delimiter CR, LF, or CRLF are respected. </span>
+</p></func>
+        <func type="string" name="at" arg1="int i"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns the </span>
+<span style=" font-size:8pt; font-style:italic;">i</span>
+<span style=" font-size:8pt;">-th symbol from the string. Also accessible with the array access operator[]</span>
+</p></func>
+        <func type="string" name="digits"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns a new string with only the digits from the string.</span>
+</p></func>
+        <func arg1desc="The value to format" arg2desc="The pattern to use for formatting." type="string" name="format" static="true" arg1="real value" arg2="string pattern"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Formats given real or integer value according to some rules. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">may not get implemented in this way!</span>
+</p></func>
+        <func arg1desc="The string array to join" arg2desc="The delimiter string to use for joining." arg3desc="Ignore empty strings." type="string" arg3value="true" name="join" static="true" arg1="string[] array" arg2="string delimiter" arg3="bool ignoreEmpty"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns a string with all strings in the given </span>
+<span style=" font-size:8pt; font-style:italic;">array</span>
+<span style=" font-size:8pt;"> joined and separated by </span>
+<span style=" font-size:8pt; font-style:italic;">delimiter. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If </span>
+<span style=" font-size:8pt; font-style:italic;">ignoreEmpty</span>
+<span style=" font-size:8pt;"> (set to true by default) is set to </span>
+<span style=" font-size:8pt; font-weight:600;">false</span>
+<span style=" font-size:8pt;"> , empty strings will be added to the result as well. </span>
+</p></func>
+        <func type="string" name="letters"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns a new string with only the latin letters and the underscore from the string. </span>
+</p></func>
+        <func arg1desc="The line number." type="string" name="line" arg1="int n"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns a string containing n'th line from the string. </span>
+</p></func>
+        <func arg1desc="The value being searched for." arg2desc="The replacement value that replaces found search values." type="string" name="replace" arg1="string search" arg2="string replace"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">This function returns a string with all occurrences of </span>
+<span style=" font-size:8pt; font-style:italic;">search</span>
+<span style=" font-size:8pt;"> replaced with the given </span>
+<span style=" font-size:8pt; font-style:italic;">replace</span>
+<span style=" font-size:8pt;"> value. </span>
+</p></func>
+        <func arg1desc="The value being searched for." arg2desc="The replacement value that replaces found search values." type="string" name="replaceFirst" arg1="string search" arg2="string replace"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">This function returns a string with only first occurrence of </span>
+<span style=" font-size:8pt; font-style:italic;">search</span>
+<span style=" font-size:8pt;"> replaced with the given </span>
+<span style=" font-size:8pt; font-style:italic;">replace</span>
+<span style=" font-size:8pt;"> value. </span>
+</p></func>
+        <func type="string" name="toLower"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns a string, containing this string converted to lowercase. </span>
+</p></func>
+        <func type="string" name="toUpper"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns a string, containing this string converted to uppercase. </span>
+</p></func>
+        <func type="string" name="trimmed"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns a string with removed whitespace in the beginning and the end of this string. </span>
+</p></func>
+        <func arg1desc="Delimiter to split the string" type="string[]" name="split" arg1="string delimiter"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns an array of strings with this string being split by </span>
+<span style=" font-size:8pt; font-style:italic;">delimiter.</span>
+<span style=" font-size:8pt;"/>
+</p></func>
+        <func arg1desc="New string length" arg2desc="The data to fill the string if new size is larger than previous." type="void" name="setrw" arg2value="&quot; &quot;" arg1="int length" arg2="string flood"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Sets the lingth of the string to a </span>
+<span style=" font-size:8pt; font-style:italic;">length</span>
+<span style=" font-size:8pt;"> , filling it with </span>
+<span style=" font-size:8pt; font-style:italic;">flood </span>
+<span style=" font-size:8pt; text-decoration: underline;">at the end</span>
+<span style=" font-size:8pt;"> if new size is greater than current, or truncating it otherwise </span>
+<span style=" font-size:8pt; text-decoration: underline;">from the end</span>
+<span style=" font-size:8pt;"> . </span>
+</p></func>
+        <func arg1desc="New string length" arg2desc="The data to fill the string if new size is larger than previous." type="void" name="setw" arg2value="&quot; &quot;" arg1="int length" arg2="string flood"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Sets the lingth of the string to a </span>
+<span style=" font-size:8pt; font-style:italic;">length</span>
+<span style=" font-size:8pt;"> , filling it with </span>
+<span style=" font-size:8pt; font-style:italic;">flood </span>
+<span style=" font-size:8pt; text-decoration: underline;">at the beginning</span>
+<span style=" font-size:8pt;"> if new size is greater than current, or truncating it otherwise </span>
+<span style=" font-size:8pt; text-decoration: underline;">from the end</span>
+<span style=" font-size:8pt;"> . </span>
+</p></func>
+        <func type="void" name="trim"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Removes whitespace in the beginning and the end of the string. </span>
+</p></func>
+    </class>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>High Resolution Timer, able to measure the elapsed time with 1 micro-second accuracy.&lt;/p>" name="timer">
+        <func type="real" name="getElapsedTime"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Gets elapsed time in seconds.</p></func>
+        <func type="real" name="getElapsedTimeInMicroSec"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Gets elapsed time in micro-seconds.</span>
+</p></func>
+        <func type="real" name="getElapsedTimeInMilliSec"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Gets elapsed time in milli-seconds.</span>
+</p></func>
+        <func type="real" name="getElapsedTimeInSec"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Gets elapsed time in seconds.</p></func>
+        <func type="void" name="start"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Starts the timer.</p></func>
+        <func type="void" name="stop"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Stops the timer.</p></func>
+    </class>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Provides transition effects between 2 images. Most useful for scene transition effects.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>There are several built-in effects but you can also make your own by specifying drawing function to draw both images as you like.&lt;/p>" name="transition"/>
+    <class desc="&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>" name="vertexShader"/>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Provides game windows.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>By default there is only one window, but, multiple windows can be active at the same time. However, more than one window may degrade performance.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Closing all windows will end the application.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Each &lt;span style=&quot; font-style:italic;&quot;>window&lt;/span> have set of &lt;span style=&quot; font-style:italic;&quot;>layers&lt;/span>, each layer have &lt;span style=&quot; font-style:italic;&quot;>objects&lt;/span> that live in it. &lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Also, each window have a default layer, which can be used as usual.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>" name="window">
+        <func arg1desc="The layer to add to the window" arg2desc="Replace layer with same name if this name already exists." type="bool" name="addLayer" arg2value="false" arg1="layer newLayer" arg2="bool force"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Adds a layer to the window. If a layer with same name already exists, this function will return </span>
+<span style=" font-size:8pt; font-weight:600;">false</span>
+<span style=" font-size:8pt;"> , unless you set </span>
+<span style=" font-size:8pt; font-style:italic;">force</span>
+<span style=" font-size:8pt;"> to true. Passing </span>
+<span style=" font-size:8pt; font-weight:600;">NULL</span>
+<span style=" font-size:8pt;"> as layer won't add anything and the function will return </span>
+<span style=" font-size:8pt; font-weight:600;">false</span>
+<span style=" font-size:8pt;"> as well. </span>
+</p></func>
+        <func arg1desc="The layer name to remove from the window." type="bool" name="removeLayer" arg1="string layerToRemove"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Removes a layer from the window. Passing a name that don't exist as layer won't remove anything and the function will return </span>
+<span style=" font-size:8pt; font-weight:600;">false.</span>
+<span style=" font-size:8pt;"/>
+</p></func>
+        <prop type="int" name="height"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Window's height. </span>
+</p></prop>
+        <prop type="int" name="width"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Window's width. </span>
+</p></prop>
+        <prop type="int" name="x"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Window's </span>
+<span style=" font-size:8pt; font-weight:600;">x</span>
+<span style=" font-size:8pt;"> coordinate. Changing this will move the window. </span>
+</p></prop>
+        <prop type="int" name="y"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Window's </span>
+<span style=" font-size:8pt; font-weight:600;">y</span>
+<span style=" font-size:8pt;"> coordinate. Changing this will move the window. </span>
+</p></prop>
+        <func type="layer" name="getDefaultLayer"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns reference to the default layer. </span>
+</p></func>
+        <func arg1desc="The layer name" type="layer" name="getLayer" arg1="string name"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns reference to the specified layer. If the layer don't exist, </span>
+<span style=" font-size:8pt; font-weight:600;">null</span>
+<span style=" font-size:8pt;">will be returned. </span>
+</p></func>
+        <func type="layer[]" name="layers"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns an array with all layers currently added to this window. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">Note: DO NOT DELETE these layers! </span>
+</p></func>
+        <prop type="string" name="title"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Window's </span>
+<span style=" font-size:8pt; font-weight:600;">title</span>
+<span style=" font-size:8pt;"> . Changing this will rename the window. </span>
+</p></prop>
+        <func type="string" name="toString"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns a string containing the </span>
+<span style=" font-size:8pt; font-style:italic;">window's title</span>
+<span style=" font-size:8pt;">. If window gets assigned to a string, the string will contain the window's title. </span>
+</p></func>
+        <func type="void" name="close"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Closes the window. This will </span>
+<span style=" font-size:8pt; font-weight:600;">remove</span>
+<span style=" font-size:8pt;">the window from the </span>
+<span style=" font-size:8pt; font-style:italic;">window stack</span>
+<span style=" font-size:8pt;">and all layers in it will be </span>
+<span style=" font-size:8pt; font-weight:600;">destroyed.</span>
+<span style=" font-size:8pt;"> Closing all render windows will also close the application.</span>
+</p></func>
+        <func type="void" name="draw"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Executes all render events for all layers and the window. Even if inactive, a layer will render itself, for example, when the game is paused. </span>
+</p></func>
+        <func type="void" name="hide"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Hides the window. </span>
+</p></func>
+        <func type="void" name="setFocus"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Brings the window to front in the window stack and makes it active. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">May not be supported on all platforms.</span>
+<span style=" font-size:8pt;"/>
+</p></func>
+        <func type="void" name="setPosition" arg1="int x" arg2="int y"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Sets the position of the window to </span>
+<span style=" font-family:'monospace'; font-size:10pt;">(x,y)</span>
+<span style=" font-size:8pt;">pixels based of the top left screen angle. </span>
+</p></func>
+        <func type="void" name="setScene" arg2value="null" arg1="scene Scene" arg2="transition Transition"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Sets a given </span>
+<span style=" font-size:8pt; font-style:italic;">scene</span>
+<span style=" font-size:8pt;">to the window. This will </span>
+<span style=" font-size:8pt; font-weight:600;">erase</span>
+<span style=" font-size:8pt;">all existing layers in the window and will </span>
+<span style=" font-size:8pt; font-weight:600;">overwrite</span>
+<span style=" font-size:8pt;">them with all layers from the specified scene. In addition, you can pass a </span>
+<span style=" font-size:8pt; font-style:italic;">transition</span>
+<span style=" font-size:8pt;">object for transition effects. </span>
+</p></func>
+        <func type="void" name="setSize" arg1="int width" arg2="int height"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Resizes the window. </span>
+</p></func>
+        <func type="void" name="show"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Shows the window if hidden. </span>
+</p></func>
+        <func type="void" name="showModal"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Shows the window and makes it a </span>
+<span style=" font-size:8pt; font-style:italic;">modal window</span>
+<span style=" font-size:8pt;">. No other windows will be processed and available to use. Hiding a modal window or calling </span>
+<span style=" font-size:8pt; font-style:italic;">show()</span>
+<span style=" font-size:8pt;">on it will remove his modal behavior. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">May not be supported on all platforms.</span>
+</p></func>
+        <func type="void" name="step"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Executes single step for all objects in all active layers in the window. Normally, you should not use this function directly, because the game engine calls it each frame by default.</span>
+</p></func>
+        <func type="window[]" name="openedWindows" static="true"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns a list with all currently opened windows. Deleting the windows will simply close them. Calling </span>
+<span style=" font-size:8pt; font-style:italic;">clear</span>
+<span style=" font-size:8pt;">method of this array will close the application.</span>
+</p></func>
+    </class>
+</gamescriptdata>

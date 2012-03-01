@@ -1,0 +1,46 @@
+/*
+ THEME: Black
+ AUTHOR: PeterSvP
+*/
+
+
+*
+{
+	background: #555;
+	color: white;
+}
+
+QPushButton
+{
+	border-width: 6px;
+	border-image: url('themes/black/btnup.png') 6 6 6 6 stretch stretch;
+}
+
+QPushButton:pressed
+{
+	border-image: url('themes/black/btndown.png') 6 6 6 6 stretch stretch;
+}
+
+QPushButton#pushButton_4
+{
+	color: #fcc !important;
+	border-width: 6px;
+	border-image: url('themes/black/redbtn.png') 6 6 6 6 stretch stretch;
+}
+
+QPushButton#pushButton_4:pressed
+{
+	border-image: url('themes/black/redbtndown.png') 6 6 6 6 stretch stretch;
+}
+
+QGroupBox
+{
+	border-width: 6px;
+	border-image: url('themes/black/btnup.png') 6 6 6 6 stretch stretch;
+}
+
+QGroupBox QWidget
+{
+	background: transparent;
+}
+

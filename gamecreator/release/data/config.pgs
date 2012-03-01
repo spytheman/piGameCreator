@@ -1,0 +1,15 @@
+score = 200;
+int a = score + 100;
+
+//a comment
+ball b1 = new ball;
+b1.speed = 4 * pi;
+
+#target demoVersion
+if(days > 30)
+	messagebox("Trial expired");
+#end
+
+<[C++]>
+	cout<<"Embedded C++";
+<[END]>

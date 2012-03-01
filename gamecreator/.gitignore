@@ -1,0 +1,6 @@
+debug/*
+release/projects/*
+release/targets/cpp/debug/*
+release/targets/cpp/release/*
+release/targets/cpp/mingw/*
+release/targets/delme/*
