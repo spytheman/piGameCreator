@@ -30,6 +30,7 @@
 void dim(QPainter* p, QWidget* t)
 {
     //This piece of code is unused and experimental!
+    //But is still stable
     p->setRenderHint(QPainter::Antialiasing);
     p->setRenderHint(QPainter::SmoothPixmapTransform);
 
