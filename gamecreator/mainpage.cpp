@@ -15,11 +15,13 @@ MainPage::MainPage(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainPage)
 {
+    QWebSettings::setObjectCacheCapacities(0,0,0);
     setAttribute(Qt::WA_DeleteOnClose);
     ui->setupUi(this);
     ui->webView->page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
     ui->webView->setContextMenuPolicy(Qt::NoContextMenu);
-    ui->webView->setUrl(QUrl("data/mainpage.html"));
+    ui->webView->setUrl( QUrl::fromLocalFile(QDir::currentPath()+"/data/mainpage.html"));
+
     QGraphicsDropShadowEffect* ds = new QGraphicsDropShadowEffect;
     ds->setBlurRadius(10);
     ds->setYOffset(3);
@@ -66,7 +68,7 @@ void MainPage::on_webView_linkClicked(QUrl u)
     {
         QString s = QFileDialog::getOpenFileName(this,tr("Open project"),"","piGameCreator project (*.gcpx)");
         if(s!="")projects.open(s);
-    }
+    }/**/
 }
 
 void MainPage::on_webView_loadFinished(bool b)
@@ -89,5 +91,5 @@ void MainPage::on_webView_loadFinished(bool b)
             rf.removeAllChildren();
             rf.appendInside(TheHTML);
         }
-    }
+    }/**/
 }

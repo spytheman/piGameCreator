@@ -7,7 +7,7 @@
 #
 #-------------------------------------------------
 
-# Note that libzip and zlib folders' varsions are stripped
+# Note that glew and freeglut folders' varsions are stripped
 # in order to be able to do fast updates without many pain
 
 CONFIG += ordered
