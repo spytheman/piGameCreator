@@ -3,14 +3,6 @@ cmake-2.*/*
 */*-build-*/*
 *-build-*/*
 
-bullet*/*
-boost/*
-fltk-1.*/*
-freeglut/*
-glew/*
-libzip/*
-zlib/*
-
 # Common object files and binaries
 *.[oO]
 *.[eE][xX][eE]
