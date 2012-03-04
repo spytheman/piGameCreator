@@ -5,6 +5,8 @@
 # GPLv3 preamble goes here for GPLd version,
 # commercial for commercial version
 #
+# TODO: Actually add it
+#
 #-------------------------------------------------
 
 # Note that glew and freeglut folders' varsions are stripped
