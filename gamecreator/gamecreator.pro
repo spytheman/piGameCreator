@@ -16,9 +16,9 @@ CONFIG += ordered
 
 INCLUDEPATH += ../glew/include ../glew/lib ../freeglut/include
 
-LIBS += ../freeglut/lib/libfreeglut32_static.a ../glew/lib/libglew32.a -lopengl32 -luser32 -lgdi32 -lkernel32 -lwinmm
+LIBS += ../freeglut/lib/libfreeglut32_static.a ../glew/lib/libglew32.a -lopengl32 -luser32 -lgdi32 -lkernel32 -lwinmm -lQtWebkit4
 
-QT       += core gui webkit xml opengl xmlpatterns
+QT       += core gui xml opengl xmlpatterns webkit
 
 TARGET = gamecreator
 TEMPLATE = app
@@ -133,4 +133,4 @@ FORMS    += mainwindow.ui \
 RESOURCES += \
     resources.qrc
 
-DEFINES += GLEW_STATIC FREEGLUT_STATIC
+DEFINES += GLEW_STATIC FREEGLUT_STATIC GAMECREATOR_IDE
