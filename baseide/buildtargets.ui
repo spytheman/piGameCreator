@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>573</width>
-    <height>299</height>
+    <height>415</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Project Build Targets</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources.qrc">
+   <iconset resource="../sharedcode/resources.qrc">
     <normaloff>:/resources/RES/ffficons/computer.png</normaloff>:/resources/RES/ffficons/computer.png</iconset>
   </property>
   <property name="modal">
@@ -63,7 +63,7 @@
                <string>Add target</string>
               </property>
               <property name="icon">
-               <iconset resource="resources.qrc">
+               <iconset resource="../sharedcode/resources.qrc">
                 <normaloff>:/resources/RES/ffficons/add.png</normaloff>:/resources/RES/ffficons/add.png</iconset>
               </property>
               <property name="toolButtonStyle">
@@ -96,7 +96,7 @@
                <string>Delete</string>
               </property>
               <property name="icon">
-               <iconset resource="resources.qrc">
+               <iconset resource="../sharedcode/resources.qrc">
                 <normaloff>:/resources/RES/ffficons/delete.png</normaloff>:/resources/RES/ffficons/delete.png</iconset>
               </property>
               <property name="toolButtonStyle">
@@ -152,6 +152,12 @@
      <item>
       <widget class="QWidget" name="SettingsPart" native="true">
        <layout class="QFormLayout" name="formLayout">
+        <property name="fieldGrowthPolicy">
+         <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+        </property>
+        <property name="margin">
+         <number>0</number>
+        </property>
         <item row="0" column="0">
          <widget class="QLabel" name="label">
           <property name="text">
@@ -187,7 +193,7 @@ p, li { white-space: pre-wrap; }
              <string>revert</string>
             </property>
             <property name="icon">
-             <iconset resource="resources.qrc">
+             <iconset resource="../sharedcode/resources.qrc">
               <normaloff>:/resources/RES/ffficons/arrow_refresh_small.png</normaloff>:/resources/RES/ffficons/arrow_refresh_small.png</iconset>
             </property>
             <property name="autoRaise">
@@ -197,14 +203,14 @@ p, li { white-space: pre-wrap; }
           </item>
          </layout>
         </item>
-        <item row="2" column="0">
+        <item row="3" column="0">
          <widget class="QLabel" name="label_4">
           <property name="text">
            <string>Description:</string>
           </property>
          </widget>
         </item>
-        <item row="2" column="1">
+        <item row="3" column="1">
          <widget class="QPlainTextEdit" name="DescText">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
@@ -220,14 +226,14 @@ p, li { white-space: pre-wrap; }
           </property>
          </widget>
         </item>
-        <item row="3" column="0">
+        <item row="4" column="0">
          <widget class="QLabel" name="label_3">
           <property name="text">
            <string>Exporter:</string>
           </property>
          </widget>
         </item>
-        <item row="3" column="1">
+        <item row="4" column="1">
          <widget class="QStackedWidget" name="stackedWidget">
           <property name="currentIndex">
            <number>0</number>
@@ -256,7 +262,7 @@ p, li { white-space: pre-wrap; }
                <string>Edit</string>
               </property>
               <property name="icon">
-               <iconset resource="resources.qrc">
+               <iconset resource="../sharedcode/resources.qrc">
                 <normaloff>:/resources/RES/ffficons/textfield_rename.png</normaloff>:/resources/RES/ffficons/textfield_rename.png</iconset>
               </property>
              </widget>
@@ -267,7 +273,7 @@ p, li { white-space: pre-wrap; }
                <string>Options</string>
               </property>
               <property name="icon">
-               <iconset resource="resources.qrc">
+               <iconset resource="../sharedcode/resources.qrc">
                 <normaloff>:/resources/RES/checks.png</normaloff>:/resources/RES/checks.png</iconset>
               </property>
              </widget>
@@ -291,7 +297,7 @@ p, li { white-space: pre-wrap; }
                <string>Select</string>
               </property>
               <property name="icon">
-               <iconset resource="resources.qrc">
+               <iconset resource="../sharedcode/resources.qrc">
                 <normaloff>:/resources/RES/cursor.png</normaloff>:/resources/RES/cursor.png</iconset>
               </property>
              </widget>
@@ -302,7 +308,7 @@ p, li { white-space: pre-wrap; }
                <string>Options</string>
               </property>
               <property name="icon">
-               <iconset resource="resources.qrc">
+               <iconset resource="../sharedcode/resources.qrc">
                 <normaloff>:/resources/RES/ffficons/page_white_edit.png</normaloff>:/resources/RES/ffficons/page_white_edit.png</iconset>
               </property>
              </widget>
@@ -311,7 +317,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </widget>
         </item>
-        <item row="4" column="0" colspan="2">
+        <item row="5" column="0" colspan="2">
          <widget class="QFrame" name="frame">
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
@@ -344,6 +350,20 @@ p, li { white-space: pre-wrap; }
            </item>
           </layout>
          </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Defines:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="defines"/>
         </item>
        </layout>
       </widget>
@@ -411,12 +431,19 @@ p, li { white-space: pre-wrap; }
    </item>
    <item row="1" column="0">
     <widget class="QLabel" name="label_2">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="text">
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;To make conditional code for a target, use the &lt;/span&gt;&lt;span style=&quot; font-family:'Courier New,courier'; font-size:8pt;&quot;&gt;#target&lt;/span&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt; piGameScript directive&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;To make conditional code for a target, use the &lt;/span&gt;&lt;span style=&quot; font-family:'Courier New,courier'; font-size:8pt;&quot;&gt;#target&lt;/span&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt; GameScript directive.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;The defines field must contain space separated names. Use &lt;/span&gt;&lt;span style=&quot; font-family:'Courier New,courier'; font-size:8pt;&quot;&gt;#ifdef&lt;/span&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt; or &lt;/span&gt;&lt;span style=&quot; font-family:'Courier New,courier'; font-size:8pt;&quot;&gt;#ifndef&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
@@ -426,7 +453,10 @@ p, li { white-space: pre-wrap; }
   </layout>
  </widget>
  <resources>
-  <include location="resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
  </resources>
  <connections>
   <connection>

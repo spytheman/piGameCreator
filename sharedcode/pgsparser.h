@@ -371,10 +371,10 @@ public:
     tokenlist* tokensToParse;
     int parsePotition;  //position to last successfully expected thing
 
+    //Preprocessor will do its best to filter the passed tokenlist to parse-ready tokenlist
     tokenlist* preProcess(tokenlist* tokens, QString target, QString platform, QStringList defines);
 
-    //parse must throw fatal exception when
-    void parse(tokenlist* tokens); //TODO: parse will return unknown-what for now...
+    void parse(tokenlist* tokens);
 
     // Expecters that "expects" something
 

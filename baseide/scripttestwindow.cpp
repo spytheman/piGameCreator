@@ -81,9 +81,12 @@ void scripttestwindow::on_actionTEST_triggered()
     //must do something
     pgsParser p;
     pgsParser::tokenlist l = p.tokenize(source->codeEditor->getText());
-    p.parse(&l);
 
-    /*
+    l =
+
+    //p.parse(&l);
+
+
     foreach(pgsParser::token t, l)
     {
         OUTIT
