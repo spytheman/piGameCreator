@@ -1,7 +1,7 @@
 #ifndef CPPEXPORTER_H
 #define CPPEXPORTER_H
 
-#include "../gcexporter.h"
+#include "../../sharedcode/gcexporter.h"
 
 class cppExporter: public gcExporter
 {

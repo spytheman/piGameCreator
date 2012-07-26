@@ -3,6 +3,7 @@
 #include "config.h"
 #include "compilingstatus.h"
 #include "cppexport.h"
+#include <xmmintrin.h>
 
 bool cppExporter::exportResource(QString file)
 {
@@ -15,6 +16,11 @@ bool cppExporter::exportResource(QString file)
 
 extern "C" QString getName()
 {
+    __m128 a, b;
+    a = _mm_set_ps(1.0f,2.0f,-1.0f,0.0f);
+    b = _mm_set_ps1(3.0f);
+    __m128 result = _mm_mul_ps(a,b);
+
     return "C++ / MingW";
 }
 

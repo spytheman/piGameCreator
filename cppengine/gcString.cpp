@@ -17,7 +17,8 @@ gcString::gcString(const char *strdata)
     //copy the char* to the gcString data
     memcpy( mData, strdata, mLength);
 }
-gcString::gcString(){}
+gcString::gcString(){delete mData;}
+
 gcString& gcString::operator = (const char* strdata)
 {
 
@@ -96,7 +97,7 @@ gcString gcString::toUpper()
 
 int gcString::length()
 {
-	gcThrow("Feature not implemented: \nint string::length","NOT_IMPLEMENTED");
+    return mLength;
 }
 
 gcString gcString::trimmed()

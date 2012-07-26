@@ -22,8 +22,7 @@ INPUT(
 ./release\physicsSettings.o
 ./release\physicsSimulator.o
 ./release\pixelShader.o
-./release\point2d.o
-./release\point3d.o
+./release\point.o
 ./release\rectangle.o
 ./release\scene.o
 ./release\sceneGraph.o

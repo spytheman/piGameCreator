@@ -1,0 +1,1490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>974</width>
+    <height>590</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>pi|game CREATOR</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../sharedcode/resources.qrc">
+    <normaloff>:/resources/RES/pi16x16.png</normaloff>:/resources/RES/pi16x16.png</iconset>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowTabbedDocks|QMainWindow::AnimatedDocks</set>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QWidget" name="WorkSpaceMDIContainer" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="WorkSpaceTabWidget">
+      <property name="tabPosition">
+       <enum>QTabWidget::North</enum>
+      </property>
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+      <property name="elideMode">
+       <enum>Qt::ElideLeft</enum>
+      </property>
+      <property name="usesScrollButtons">
+       <bool>true</bool>
+      </property>
+      <property name="documentMode">
+       <bool>false</bool>
+      </property>
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
+      <property name="movable">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>974</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionCreate_project"/>
+    <addaction name="actionOpen_project"/>
+    <addaction name="action_Save"/>
+    <addaction name="actionSave_as"/>
+    <addaction name="action_Pack_project"/>
+    <addaction name="actionSave_a_ll"/>
+    <addaction name="separator"/>
+    <addaction name="actionSet_up_collaboration"/>
+    <addaction name="action_Preferences"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionPiGameCreator_help"/>
+    <addaction name="actionAPI_documentation"/>
+    <addaction name="separator"/>
+    <addaction name="actionYour_first_game"/>
+    <addaction name="actionTutorials"/>
+    <addaction name="separator"/>
+    <addaction name="actionCheck_for_updates"/>
+    <addaction name="actionLicensing"/>
+    <addaction name="separator"/>
+    <addaction name="actionVisit_piGameCreator_website"/>
+    <addaction name="actionAbout_piGameCreator"/>
+   </widget>
+   <widget class="QMenu" name="menuWindow">
+    <property name="title">
+     <string>&amp;Window</string>
+    </property>
+    <addaction name="actionClose_active_tab"/>
+    <addaction name="actionClose_all_tabs"/>
+    <addaction name="separator"/>
+    <addaction name="actionShowLog"/>
+    <addaction name="actionShow_Main_page"/>
+   </widget>
+   <widget class="QMenu" name="menuResources">
+    <property name="title">
+     <string>Resources</string>
+    </property>
+    <addaction name="actionCreate_image"/>
+    <addaction name="actionCreate_sound"/>
+    <addaction name="actionCreate_model"/>
+    <addaction name="separator"/>
+    <addaction name="actionAdd_class"/>
+    <addaction name="actionAdd_global_function"/>
+    <addaction name="actionDefine_grid"/>
+    <addaction name="separator"/>
+    <addaction name="actionCreate_Font"/>
+    <addaction name="actionCreate_Shader"/>
+    <addaction name="actionAdd_Effect"/>
+    <addaction name="separator"/>
+    <addaction name="actionCreate_2D_scene"/>
+    <addaction name="actionCreate_3D_scene"/>
+    <addaction name="actionImport_resources_from_project"/>
+    <addaction name="actionClone_resource"/>
+    <addaction name="actionExport_resource"/>
+    <addaction name="actionExport_some_resources"/>
+    <addaction name="separator"/>
+    <addaction name="actionEdit_application_settings"/>
+   </widget>
+   <widget class="QMenu" name="menu_Project">
+    <property name="title">
+     <string>&amp;Project</string>
+    </property>
+    <addaction name="action_Run"/>
+    <addaction name="action_Debug"/>
+    <addaction name="actionBuild"/>
+    <addaction name="action_Parameters"/>
+    <addaction name="actionTarget_options"/>
+    <addaction name="separator"/>
+    <addaction name="action_Targets"/>
+    <addaction name="action_Project_options"/>
+   </widget>
+   <widget class="QMenu" name="menuDeveloper">
+    <property name="title">
+     <string>&amp;Developer</string>
+    </property>
+    <addaction name="actionGameScript_tester"/>
+    <addaction name="actionSkin_editor"/>
+    <addaction name="actionFramework_editor"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionSkins"/>
+    <addaction name="actionToolbars"/>
+    <addaction name="separator"/>
+    <addaction name="actionProject_tree"/>
+    <addaction name="separator"/>
+    <addaction name="actionImages"/>
+    <addaction name="actionModels"/>
+    <addaction name="actionSounds"/>
+    <addaction name="separator"/>
+    <addaction name="actionClasses"/>
+    <addaction name="actionGlobal_functions"/>
+    <addaction name="separator"/>
+    <addaction name="actionScenes"/>
+    <addaction name="actionWorlds"/>
+    <addaction name="separator"/>
+    <addaction name="actionFonts"/>
+    <addaction name="actionFilters"/>
+    <addaction name="actionGraphics_effects"/>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menuView"/>
+   <addaction name="menuResources"/>
+   <addaction name="menu_Project"/>
+   <addaction name="menuWindow"/>
+   <addaction name="menu_Help"/>
+   <addaction name="menuDeveloper"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="projectToolbar">
+   <property name="contextMenuPolicy">
+    <enum>Qt::PreventContextMenu</enum>
+   </property>
+   <property name="windowTitle">
+    <string>Standard</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+   <property name="floatable">
+    <bool>true</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionCreate_project"/>
+   <addaction name="actionOpen_project"/>
+   <addaction name="action_Save"/>
+  </widget>
+  <widget class="QDockWidget" name="projectDockWidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::PreventContextMenu</enum>
+   </property>
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="features">
+    <set>QDockWidget::AllDockWidgetFeatures</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Project tree</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_6">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="spacing">
+      <number>1</number>
+     </property>
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QComboBox" name="projectComboBox">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>21</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QStackedWidget" name="stackedWidget">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="QWidget" name="pgProjectTree">
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="searchboxLayout_4">
+           <property name="spacing">
+            <number>3</number>
+           </property>
+           <item>
+            <widget class="QLineEdit" name="searchbox_4"/>
+           </item>
+           <item>
+            <widget class="QToolButton" name="searchboxClear_4">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../sharedcode/resources.qrc">
+               <normaloff>:/resources/RES/clear_left.png</normaloff>:/resources/RES/clear_left.png</iconset>
+             </property>
+             <property name="autoRaise">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QTreeView" name="projectTree">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Ignored" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="sizeIncrement">
+            <size>
+             <width>10</width>
+             <height>10</height>
+            </size>
+           </property>
+           <property name="baseSize">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="contextMenuPolicy">
+            <enum>Qt::CustomContextMenu</enum>
+           </property>
+           <property name="editTriggers">
+            <set>QAbstractItemView::NoEditTriggers</set>
+           </property>
+           <property name="showDropIndicator" stdset="0">
+            <bool>true</bool>
+           </property>
+           <property name="dragEnabled">
+            <bool>true</bool>
+           </property>
+           <property name="dragDropMode">
+            <enum>QAbstractItemView::DragDrop</enum>
+           </property>
+           <property name="defaultDropAction">
+            <enum>Qt::IgnoreAction</enum>
+           </property>
+           <property name="iconSize">
+            <size>
+             <width>16</width>
+             <height>16</height>
+            </size>
+           </property>
+           <property name="indentation">
+            <number>16</number>
+           </property>
+           <property name="rootIsDecorated">
+            <bool>false</bool>
+           </property>
+           <property name="uniformRowHeights">
+            <bool>true</bool>
+           </property>
+           <property name="headerHidden">
+            <bool>true</bool>
+           </property>
+           <property name="expandsOnDoubleClick">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="pgImages">
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QWidget" name="AddRemove" native="true">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="margin">
+             <number>0</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <property name="spacing">
+               <number>1</number>
+              </property>
+              <item>
+               <widget class="QToolButton" name="addImage">
+                <property name="text">
+                 <string>Add image</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../sharedcode/resources.qrc">
+                  <normaloff>:/resources/RES/ffficons/add.png</normaloff>:/resources/RES/ffficons/add.png</iconset>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QToolButton" name="delImage">
+                <property name="text">
+                 <string>Delete</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../sharedcode/resources.qrc">
+                  <normaloff>:/resources/RES/ffficons/delete.png</normaloff>:/resources/RES/ffficons/delete.png</iconset>
+                </property>
+                <property name="autoRaise">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="searchboxLayout">
+           <property name="spacing">
+            <number>3</number>
+           </property>
+           <item>
+            <widget class="QLineEdit" name="searchbox"/>
+           </item>
+           <item>
+            <widget class="QToolButton" name="searchboxClear">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../sharedcode/resources.qrc">
+               <normaloff>:/resources/RES/clear_left.png</normaloff>:/resources/RES/clear_left.png</iconset>
+             </property>
+             <property name="autoRaise">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QListWidget" name="imageListWidget"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="pgTreeView">
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QWidget" name="AddRemove_2" native="true">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="margin">
+             <number>0</number>
+            </property>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <property name="spacing">
+               <number>1</number>
+              </property>
+              <item>
+               <widget class="QToolButton" name="addSomething">
+                <property name="text">
+                 <string>Add sth</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../sharedcode/resources.qrc">
+                  <normaloff>:/resources/RES/ffficons/add.png</normaloff>:/resources/RES/ffficons/add.png</iconset>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QToolButton" name="delSomething">
+                <property name="text">
+                 <string>Delete</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="../sharedcode/resources.qrc">
+                  <normaloff>:/resources/RES/ffficons/delete.png</normaloff>:/resources/RES/ffficons/delete.png</iconset>
+                </property>
+                <property name="autoRaise">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="searchboxLayout_2">
+           <property name="spacing">
+            <number>3</number>
+           </property>
+           <item>
+            <widget class="QLineEdit" name="searchbox_2"/>
+           </item>
+           <item>
+            <widget class="QToolButton" name="searchboxClear_2">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../sharedcode/resources.qrc">
+               <normaloff>:/resources/RES/clear_left.png</normaloff>:/resources/RES/clear_left.png</iconset>
+             </property>
+             <property name="autoRaise">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QListView" name="somethingLV"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="pgShaders">
+        <layout class="QVBoxLayout" name="verticalLayout_7">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <property name="margin">
+            <number>3</number>
+           </property>
+           <item>
+            <widget class="QGroupBox" name="groupBox">
+             <property name="title">
+              <string>Shader types:</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_8">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="margin">
+               <number>3</number>
+              </property>
+              <item>
+               <widget class="QRadioButton" name="radioButton">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Fragment / Pixel</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton_2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Vertex</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton_3">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Geometry</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton_4">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Tessellation Control / Hull</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButton_5">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Tessellation Evaluation / Domain</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QWidget" name="AddRemove_3" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_11">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="margin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_7">
+                   <property name="spacing">
+                    <number>1</number>
+                   </property>
+                   <item>
+                    <widget class="QToolButton" name="toolButton_3">
+                     <property name="text">
+                      <string>Add</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="../sharedcode/resources.qrc">
+                       <normaloff>:/resources/RES/ffficons/add.png</normaloff>:/resources/RES/ffficons/add.png</iconset>
+                     </property>
+                     <property name="toolButtonStyle">
+                      <enum>Qt::ToolButtonTextBesideIcon</enum>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <spacer name="horizontalSpacer_4">
+                     <property name="orientation">
+                      <enum>Qt::Horizontal</enum>
+                     </property>
+                     <property name="sizeHint" stdset="0">
+                      <size>
+                       <width>40</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                    </spacer>
+                   </item>
+                   <item>
+                    <widget class="QToolButton" name="toolButton_4">
+                     <property name="text">
+                      <string>Delete</string>
+                     </property>
+                     <property name="icon">
+                      <iconset resource="../sharedcode/resources.qrc">
+                       <normaloff>:/resources/RES/ffficons/delete.png</normaloff>:/resources/RES/ffficons/delete.png</iconset>
+                     </property>
+                     <property name="autoRaise">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="searchboxLayout_3">
+           <property name="spacing">
+            <number>3</number>
+           </property>
+           <item>
+            <widget class="QLineEdit" name="searchbox_3"/>
+           </item>
+           <item>
+            <widget class="QToolButton" name="searchboxClear_3">
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../sharedcode/resources.qrc">
+               <normaloff>:/resources/RES/clear_left.png</normaloff>:/resources/RES/clear_left.png</iconset>
+             </property>
+             <property name="autoRaise">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QListWidget" name="listWidget">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Ignored" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="page_3"/>
+       <widget class="QWidget" name="page_4"/>
+       <widget class="QWidget" name="page_5"/>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QToolBar" name="runToolbar">
+   <property name="contextMenuPolicy">
+    <enum>Qt::PreventContextMenu</enum>
+   </property>
+   <property name="windowTitle">
+    <string>Debug and Run</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_Run"/>
+   <addaction name="action_Debug"/>
+   <addaction name="separator"/>
+   <addaction name="action_Targets"/>
+   <addaction name="separator"/>
+   <addaction name="actionBuild"/>
+  </widget>
+  <widget class="QToolBar" name="viewToolbar">
+   <property name="contextMenuPolicy">
+    <enum>Qt::PreventContextMenu</enum>
+   </property>
+   <property name="windowTitle">
+    <string>Resources</string>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>16</width>
+     <height>16</height>
+    </size>
+   </property>
+   <property name="floatable">
+    <bool>true</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionProject_tree"/>
+   <addaction name="separator"/>
+   <addaction name="actionImages"/>
+   <addaction name="actionModels"/>
+   <addaction name="actionSounds"/>
+   <addaction name="separator"/>
+   <addaction name="actionClasses"/>
+   <addaction name="actionGlobal_functions"/>
+   <addaction name="separator"/>
+   <addaction name="actionScenes"/>
+   <addaction name="actionWorlds"/>
+   <addaction name="separator"/>
+   <addaction name="actionFonts"/>
+   <addaction name="actionFilters"/>
+   <addaction name="actionGraphics_effects"/>
+  </widget>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/door_in.png</normaloff>:/resources/RES/ffficons/door_in.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionOpen_project">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/folder.png</normaloff>:/resources/RES/ffficons/folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open project...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionCreate_project">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/page_white.png</normaloff>:/resources/RES/ffficons/page_white.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create &amp;new project...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionPiGameCreator_help">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/help.png</normaloff>:/resources/RES/ffficons/help.png</iconset>
+   </property>
+   <property name="text">
+    <string>piGameCreator help</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionYour_first_game">
+   <property name="text">
+    <string>Your first game</string>
+   </property>
+  </action>
+  <action name="actionTutorials">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Tutorials</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F1</string>
+   </property>
+  </action>
+  <action name="actionAbout_piGameCreator">
+   <property name="text">
+    <string>About piGameCreator</string>
+   </property>
+  </action>
+  <action name="actionVisit_piGameCreator_website">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/world_link.png</normaloff>:/resources/RES/ffficons/world_link.png</iconset>
+   </property>
+   <property name="text">
+    <string>Visit piGameCreator website</string>
+   </property>
+  </action>
+  <action name="actionCheck_for_updates">
+   <property name="text">
+    <string>Check for updates...</string>
+   </property>
+  </action>
+  <action name="actionAPI_documentation">
+   <property name="text">
+    <string>Help for developers</string>
+   </property>
+  </action>
+  <action name="actionLicensing">
+   <property name="text">
+    <string>Licensing...</string>
+   </property>
+  </action>
+  <action name="actionShowLog">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/log.png</normaloff>:/resources/RES/log.png</iconset>
+   </property>
+   <property name="text">
+    <string>Show &amp;Log</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionTEST">
+   <property name="text">
+    <string>TEST</string>
+   </property>
+  </action>
+  <action name="actionClose_active_tab">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/cross.png</normaloff>:/resources/RES/ffficons/cross.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close active &amp;tab</string>
+   </property>
+   <property name="toolTip">
+    <string>Closes the active tag</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F4</string>
+   </property>
+  </action>
+  <action name="actionClose_all_tabs">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/cross.png</normaloff>:/resources/RES/ffficons/cross.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close &amp;all tabs</string>
+   </property>
+  </action>
+  <action name="actionImport_resources_from_project">
+   <property name="text">
+    <string>Import resources...</string>
+   </property>
+  </action>
+  <action name="actionCreate_image">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/image_add.png</normaloff>:/resources/RES/ffficons/image_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create Image</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+I</string>
+   </property>
+  </action>
+  <action name="actionCreate_sound">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/sound_add.png</normaloff>:/resources/RES/ffficons/sound_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create Sound</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+U</string>
+   </property>
+  </action>
+  <action name="actionCreate_GUI_layer">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/textfield_add.png</normaloff>:/resources/RES/ffficons/textfield_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create GUI layer</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+G</string>
+   </property>
+  </action>
+  <action name="actionCreate_2D_scene">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/application_add.png</normaloff>:/resources/RES/ffficons/application_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create 2D Scene</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+S</string>
+   </property>
+  </action>
+  <action name="actionCreate_3D_scene">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/world_add.png</normaloff>:/resources/RES/ffficons/world_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create 3D World</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+3</string>
+   </property>
+  </action>
+  <action name="actionCreate_grid_based_2D_scene">
+   <property name="text">
+    <string>Create grid-based 2D scene</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+2</string>
+   </property>
+  </action>
+  <action name="actionClone_resource">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/page_copy.png</normaloff>:/resources/RES/ffficons/page_copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Clone resource...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+C</string>
+   </property>
+  </action>
+  <action name="actionExport_resource">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/disk.png</normaloff>:/resources/RES/ffficons/disk.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export resource...</string>
+   </property>
+  </action>
+  <action name="actionAdd_class">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/brick_add.png</normaloff>:/resources/RES/ffficons/brick_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create Class</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+C</string>
+   </property>
+  </action>
+  <action name="actionAdd_global_function">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/script_add.png</normaloff>:/resources/RES/ffficons/script_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add global script</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+U</string>
+   </property>
+  </action>
+  <action name="actionCreate_model">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/car_add.png</normaloff>:/resources/RES/ffficons/car_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create Model</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+M</string>
+   </property>
+  </action>
+  <action name="actionExport_some_resources">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/disk_multiple.png</normaloff>:/resources/RES/ffficons/disk_multiple.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export some resources...</string>
+   </property>
+  </action>
+  <action name="actionCreate_class_template">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/brick_go.png</normaloff>:/resources/RES/ffficons/brick_go.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create Class template...</string>
+   </property>
+  </action>
+  <action name="actionDefine_grid">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/color_swatch.png</normaloff>:/resources/RES/ffficons/color_swatch.png</iconset>
+   </property>
+   <property name="text">
+    <string>Define sprite sheet</string>
+   </property>
+  </action>
+  <action name="actionEdit_application_settings">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/cog_edit.png</normaloff>:/resources/RES/ffficons/cog_edit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Edit application settings</string>
+   </property>
+  </action>
+  <action name="actionCreate_Font">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/font_add.png</normaloff>:/resources/RES/ffficons/font_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create Font</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+F</string>
+   </property>
+  </action>
+  <action name="actionShow_Main_page">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/application_home.png</normaloff>:/resources/RES/ffficons/application_home.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Main page</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+M</string>
+   </property>
+  </action>
+  <action name="action_Save">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/disk.png</normaloff>:/resources/RES/ffficons/disk.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save project</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_as">
+   <property name="text">
+    <string>Save project &amp;as...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionSave_a_ll">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/disk_multiple.png</normaloff>:/resources/RES/ffficons/disk_multiple.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save a&amp;ll projects</string>
+   </property>
+  </action>
+  <action name="action_Run">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/tango/actions/media-playback-start.png</normaloff>:/resources/RES/tango/actions/media-playback-start.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Run</string>
+   </property>
+   <property name="shortcut">
+    <string>F5</string>
+   </property>
+  </action>
+  <action name="action_Debug">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/bug_delete.png</normaloff>:/resources/RES/ffficons/bug_delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Debug...</string>
+   </property>
+  </action>
+  <action name="action_Parameters">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/application_osx_terminal.png</normaloff>:/resources/RES/ffficons/application_osx_terminal.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Parameters...</string>
+   </property>
+  </action>
+  <action name="action_Targets">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/computer.png</normaloff>:/resources/RES/ffficons/computer.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Targets...</string>
+   </property>
+  </action>
+  <action name="action_Project_options">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/cog.png</normaloff>:/resources/RES/ffficons/cog.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Project options...</string>
+   </property>
+  </action>
+  <action name="actionCreate_vector_path">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/chart_line_add.png</normaloff>:/resources/RES/ffficons/chart_line_add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create &amp;vector path</string>
+   </property>
+  </action>
+  <action name="actionBuild">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/compile.png</normaloff>:/resources/RES/compile.png</iconset>
+   </property>
+   <property name="text">
+    <string>Build...</string>
+   </property>
+  </action>
+  <action name="actionCreate_Shader">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/contrast_high.png</normaloff>:/resources/RES/ffficons/contrast_high.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create Filter</string>
+   </property>
+  </action>
+  <action name="actionTarget_options">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/computer_edit.png</normaloff>:/resources/RES/ffficons/computer_edit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Target options...</string>
+   </property>
+  </action>
+  <action name="actionToolbars">
+   <property name="text">
+    <string>Toolbars</string>
+   </property>
+  </action>
+  <action name="action_Pack_project">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/package_go.png</normaloff>:/resources/RES/ffficons/package_go.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Pack project...</string>
+   </property>
+  </action>
+  <action name="action_Preferences">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/cog.png</normaloff>:/resources/RES/ffficons/cog.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Preferences...</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+P</string>
+   </property>
+  </action>
+  <action name="actionSet_up_collaboration">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/connect.png</normaloff>:/resources/RES/ffficons/connect.png</iconset>
+   </property>
+   <property name="text">
+    <string>Set up &amp;collaboration...</string>
+   </property>
+  </action>
+  <action name="actionSkins">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/folder_palette.png</normaloff>:/resources/RES/ffficons/folder_palette.png</iconset>
+   </property>
+   <property name="text">
+    <string>Skins</string>
+   </property>
+  </action>
+  <action name="actionGameScript_tester">
+   <property name="text">
+    <string>GameScript tester</string>
+   </property>
+  </action>
+  <action name="actionSkin_editor">
+   <property name="text">
+    <string>Skin editor</string>
+   </property>
+  </action>
+  <action name="actionFramework_editor">
+   <property name="text">
+    <string>Framework editor</string>
+   </property>
+  </action>
+  <action name="actionProject_tree">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/tree.png</normaloff>:/resources/RES/tree.png</iconset>
+   </property>
+   <property name="text">
+    <string>Project tree</string>
+   </property>
+  </action>
+  <action name="actionImages">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/image.png</normaloff>:/resources/RES/ffficons/image.png</iconset>
+   </property>
+   <property name="text">
+    <string>Images</string>
+   </property>
+  </action>
+  <action name="actionSounds">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/sound.png</normaloff>:/resources/RES/ffficons/sound.png</iconset>
+   </property>
+   <property name="text">
+    <string>Sounds</string>
+   </property>
+  </action>
+  <action name="actionScenes">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/application.png</normaloff>:/resources/RES/ffficons/application.png</iconset>
+   </property>
+   <property name="text">
+    <string>Scenes</string>
+   </property>
+  </action>
+  <action name="actionClasses">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/brick.png</normaloff>:/resources/RES/ffficons/brick.png</iconset>
+   </property>
+   <property name="text">
+    <string>Classes</string>
+   </property>
+  </action>
+  <action name="actionModels">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/car.png</normaloff>:/resources/RES/ffficons/car.png</iconset>
+   </property>
+   <property name="text">
+    <string>Models</string>
+   </property>
+  </action>
+  <action name="actionWorlds">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/world.png</normaloff>:/resources/RES/ffficons/world.png</iconset>
+   </property>
+   <property name="text">
+    <string>Worlds</string>
+   </property>
+  </action>
+  <action name="actionFonts">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/font.png</normaloff>:/resources/RES/ffficons/font.png</iconset>
+   </property>
+   <property name="text">
+    <string>Fonts</string>
+   </property>
+  </action>
+  <action name="actionFilters">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/contrast.png</normaloff>:/resources/RES/ffficons/contrast.png</iconset>
+   </property>
+   <property name="text">
+    <string>Filters</string>
+   </property>
+  </action>
+  <action name="actionAdd_Effect">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/rainbow.png</normaloff>:/resources/RES/ffficons/rainbow.png</iconset>
+   </property>
+   <property name="text">
+    <string>Create Graphics Effect</string>
+   </property>
+  </action>
+  <action name="actionGraphics_effects">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/rainbow.png</normaloff>:/resources/RES/ffficons/rainbow.png</iconset>
+   </property>
+   <property name="text">
+    <string>Graphics Effects</string>
+   </property>
+  </action>
+  <action name="actionGlobal_functions">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/script.png</normaloff>:/resources/RES/ffficons/script.png</iconset>
+   </property>
+   <property name="text">
+    <string>Global scripts</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="../sharedcode/resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

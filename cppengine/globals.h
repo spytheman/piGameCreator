@@ -1,5 +1,5 @@
-#ifndef GLOBALS_H
-#define GLOBALS_H
+#ifndef CPPENGINE_GLOBALS_H
+#define CPPENGINE_GLOBALS_H
 #include "pgframework.h"
 #include "gcString.h"
 
@@ -85,4 +85,4 @@ class exception;
 	This variable is set when exception occurs. You can access the returned exception instance so you can handle the exception as you like or just show its text to the user. 
 */
     extern exception* lastException;
-#endif //GLOBALS_H
+#endif //CPPENGINE_GLOBALS_H

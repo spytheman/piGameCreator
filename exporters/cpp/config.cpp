@@ -6,7 +6,7 @@ Config::Config(QWidget *parent) :
     ui(new Ui::Config)
 {
     ui->setupUi(this);
-    ui->frame->setContentsMargins(0,0,0,0);
+    //ui->frame->setContentsMargins(0,0,0,0);
     setWindowIcon( QIcon(":/resources/RES/ffficons/page_white_cplusplus.png"));
 }
 

@@ -1,4 +1,9 @@
+//which GLOBALS.H BTW?
 #include "globals.h"
+
+#ifdef WIN32
+#include <windows.h>
+#endif
 
 real pi;
 scene* currentScene;
@@ -34,7 +39,20 @@ gcString tr(gcString text)
 
 void gcThrow(gcString text, gcString type, gcString data, bool fatal)
 {
-	::gcThrow("Feature not implemented: \nvoid throw","NOT_IMPLEMENTED");
+	//::gcThrow("Feature not implemented: \nvoid throw","NOT_IMPLEMENTED");
+	std::cout << "EXCEPTION: \n" 
+			<< text << "\nType: " << type 
+			<< "\n" << data 
+            << "Fatal: " << fatal <<"\n----------------------------\n";
+#ifdef WIN32
+    std::cout.flush();
+    char* txt = new char[text.length()];
+    strncpy(txt,text.mData,text.length());
+    txt[text.length()] = 0;
+    MessageBox(NULL,txt, "Shit",NULL);
+    delete txt;
+    //RaiseException(0x0BADC0DE, 0x0BADC0DE, 0x0BADC0DE, 0);
+#endif
 }
 
 real cotg(real radians)

@@ -1,0 +1,30 @@
+<class base="" representation="coinIMG" collision="2d">
+    <variables>
+        <variable array="1" type="color" name="colors">
+            <value g="255" r="255" a="255" b="255"/>
+            <value g="170" r="85" a="255" b="0"/>
+            <value g="0" r="255" a="255" b="0"/>
+        </variable>
+    </variables>
+    <properties>
+        <property array="1" type="int" name="points" menu="1">
+            <value>1</value>
+            <value>10</value>
+            <value>20</value>
+            <value>50</value>
+            <value>100</value>
+            <value>200</value>
+            <value>500</value>
+            <value>1000</value>
+        </property>
+    </properties>
+    <events>
+        <event class="ball" type="collision" src="Collision ball.pgs"/>
+        <event key="13" eventtype="0" type="key" src="Down Enter.pgs"/>
+        <event type="step" src="Game tick.pgs"/>
+        <event key="32" eventtype="1" type="key" src="Press Space.pgs"/>
+    </events>
+    <functions>
+        <function type="void" name="f1" src="f1.pgs"/>
+    </functions>
+</class>

@@ -1,0 +1,38 @@
+//begin of the code
+score += 100;
+next1up = 10000;
+if score>next1up 
+{
+	lives ++
+	next1up += 10000;
+	/* block comment
+		that have many lines
+			and must be parsed as such */
+}
+int a = 2+2*2 //must be 4+2 = 6!
+int b = (2+2)*2  //that is, 8
+if a = b then  messagebox("Error", "Parse error");
+ball b1 = new ball;
+b1.direction = 10;
+b1.speed = 30;		//setters and getters maybe... unplanned!
+#target full
+	b1.color = red
+#end
+ball b2 = ball.atPosition(x+32,y) //damn halpers must be PERFECT!
+for(a=1;a<=10;a++)  messagebox("loop",a.tostring);
+a=0; b=0;
+do{a++}until a=20;
+do{b++}while b<20;
+
+//piGameScript specific:
+int i = "34".toInt();
+string n = 15 .toString("Score: # ###"); //it must get OK...
+int scores[] = {0,20,30,40};
+scores[0] = 10;
+scores << 200;
+scores[5] = 50;	//this must be not allowed explicitly!
+messagebox("We have "+scores.count()+" records")  //auto int to string
+<[C++ BEGIN]>
+	//this feature must get planned!
+	cout<<"Testing in raw embedded C++ here";
+<[END]>

@@ -1,0 +1,13 @@
+INPUT(
+./debug\imgedit.o
+./debug\imageeditor.o
+./debug\rsimage.o
+./debug\resource.o
+./debug\globals.o
+./debug\glhelp.o
+./debug\resourceeditor.o
+./debug\workspacewidget.o
+./debug\moc_imageeditor.o
+./debug\qrc_resources.o
+./debug\qrc_res_ide.o
+);

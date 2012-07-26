@@ -18,8 +18,9 @@ int main(int argc, char** argv)
 
     application app;
 
-    gcString s= "Test\n";
+    gcString s= "Test 334234\n";
     gcString s2("shit\n");
+    gcString nums = s.digits();
 
     std::cout << s << s2;
 

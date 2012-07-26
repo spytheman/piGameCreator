@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/IDE">
+        <file>RES/splash.png</file>
+    </qresource>
+</RCC>

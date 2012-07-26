@@ -1,0 +1,64 @@
+class pgsParserTest extends object
+{
+	int next1up = 1000;
+	void test()
+	{
+		//begin of the code
+		score += 100;
+		
+		#target full
+			b1.lives = 10
+			maxlevels = 100
+			skiplevels = false;
+		#else
+			b1.lives = 1
+			maxlevels = 10
+			skiplevels = true;
+		#end
+		
+		#ifndef shit
+			//NICE! Shit is not defined!
+		#else
+			//Sorry, shit must NOT be defined ;]
+		#end
+		
+		if score>next1up 
+		{
+			lives ++
+			next1up += 10000;
+			/* block comment
+				that have many lines
+					and must be parsed as such */ 
+		}
+		
+		#ifdef message
+			messagebox("the message");
+		#else
+			//no MESSAGE defined ;]
+		#end
+
+		int a = 2+2*2 /* must be 4+2 = 6! */ 
+		int b = (2+2)*2  //that is, 8
+		
+		ball b1 = new ball;
+		b1.direction = 10;
+		b1.speed = 30;		//This API is unplanned!
+
+		for(a=1;a<=10;a++)  messagebox("loop",a.tostring);
+		
+		a=0; b=0;
+		do{a++}until a=20;
+		do{b++}while b<20;
+		
+		int scores[] = {0,20,30,40};
+		scores[0] = 10;
+		scores << 200;
+		scores[5] = 50;	//this must be not allowed explicitly!
+		
+		<[C++ BEGIN]>
+			//this feature must get planned!
+			cout<<"Testing in raw embedded C++ here";
+		<[END]>
+	}
+
+}

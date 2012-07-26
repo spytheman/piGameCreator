@@ -5,7 +5,7 @@
 #include "cppexport.h"
 
 //Get access to some gameCreator tools.
-#include "gamecreator.h"
+#include "../../sharedcode/globals.h"
 
 class ExportThread:public QThread{
 public:

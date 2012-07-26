@@ -1,0 +1,11 @@
+// Colision event with Ball objects.
+// "that" variable is set to the ball that is referenced
+// collision_point is set to the point of touch
+
+if that.y>y
+{
+	setVerticalSpeed(-5);
+	setGravityDirection(-90);
+	that.stop();
+	hit=1;
+}

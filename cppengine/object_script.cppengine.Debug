@@ -22,8 +22,7 @@ INPUT(
 ./debug\physicsSettings.o
 ./debug\physicsSimulator.o
 ./debug\pixelShader.o
-./debug\point2d.o
-./debug\point3d.o
+./debug\point.o
 ./debug\rectangle.o
 ./debug\scene.o
 ./debug\sceneGraph.o

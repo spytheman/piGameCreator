@@ -4,8 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += xml gui
-
+QT       += xml gui xmlpatterns
 
 INCLUDEPATH += ../../gamecreator
 
@@ -17,25 +16,23 @@ DEFINES += CPPTARGET_LIBRARY
 SOURCES += cppexport.cpp \
     config.cpp \
     compilingstatus.cpp \
-    ../gcexporter.cpp \
-    ../../gamecreator/gameproject.cpp \
-    ../../gamecreator/gcfileformat.cpp
+    ../../sharedcode/gcexporter.cpp
 
 HEADERS += \
     config.h \
     compilingstatus.h \
-    ../gcexporter.h \
-    cppexport.h \
-    ../../gamecreator/gameproject.h \
-    ../../gamecreator/gcfileformat.h
+    ../../sharedcode/gcexporter.h \
+    cppexport.h
 
-Release:DESTDIR = ../cpp
+DESTDIR = ../cpp
 
 FORMS += \
     config.ui \
     compilingstatus.ui
 
-QMAKE_POST_LINK = copy /y "cpptarget.dll" "..\..\gamecreator\release\targets\cpp\target.dll"
+QMAKE_POST_LINK = copy /y "cpptarget.dll" "..\..\baseide\release\targets\cpp\target.dll"
+
+QMAKE_CXXFLAGS  += -msse2 -msse
 
 RESOURCES += \
-    ../../gamecreator/resources.qrc
+    ../../sharedcode/resources.qrc
