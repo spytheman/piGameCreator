@@ -38,6 +38,7 @@ bool FrameworkData::loadFrameworkData()
                     oClass["gcDesc"] = def.attribute("desc");
                     oClass["gcDisplayName"] = def.attribute("doc");
                     oClass["gcName"] = def.attribute("name");
+                    oClass["gcBase"] = def.attribute("base");
                     //def can only be CLASS or GLOBAL
                     QString className="";
                     if(def.tagName()=="global" or def.tagName()=="class")
@@ -66,6 +67,7 @@ bool FrameworkData::loadFrameworkData()
                                 vObject o;
                                 o["kind"]=e.tagName(); //var or prop
                                 o["type"]=e.attribute("type","int");
+                                o["static"]= (e.attribute("static")=="true");
                                 o["desc"]=description;
                                 oClass[name]=o;
                             }
@@ -110,7 +112,6 @@ bool FrameworkData::loadFrameworkData()
         gameScriptData[fn] = oFile;
     }
     //qDebug()<<gameScriptData;
-    //Data is loaded but badly processed!
     frameworkDataIsLoaded = true;
 }
 //GameScript
@@ -176,7 +177,9 @@ rsClass FrameworkData::getFrameworkClassAsResource(QString name)
                 rsClass c;
                 c.valid = true;
                 c.name = o.value("gcName").toString();
-                c.sourceCode = "/* Native code */";  //native code
+                c.description = o.value("gcDesc").toString();
+                c.baseClassName = o.value("gcBase").toString();
+                c.sourceCode = "/* Native code */";
 
                 vObjectIterator Object;
                 for(Object = o.begin(); Object != o.end();++Object)
@@ -187,11 +190,12 @@ rsClass FrameworkData::getFrameworkClassAsResource(QString name)
                     QString kind = obj.value("kind").toString();
                     if(kind=="var" || kind=="prop")
                     {
-                        //property
+                        //property or variable?
                         rsClass::variable v;
                         v.name = Object.key();
                         v.type = obj.value("type").toString();
                         v.description = obj.value("desc").toString();
+                        v.isStatic = obj.value("static").toBool();
                         c.variables.append(v);
                     }
                     else if(kind=="func")

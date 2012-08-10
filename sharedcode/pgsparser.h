@@ -127,7 +127,7 @@ public:
         bracketE,       // )
         comma,		// ,
 
-        FuncId,
+        funcId,
         IntVal,
         RealVal,
         StringVal,
@@ -166,10 +166,11 @@ public:
 
         embed,		// <[*]> ... <[END]>
         comment,        // /* ... */
-        incompleteComment,  // /* ...  :}
+        incompleteComment,  // /* ...
         preproc,        // #something
         junk
     };
+    bool isTextToken(tokenkind t);
     enum symboltype{letter,digit,whitespace,newline,symbol,unknown};
     struct token
     {
@@ -197,7 +198,8 @@ public:
     //needed for vars:
     struct variable
     {
-        QString name,type,description;
+        QString name,type,description,defaultValue;
+        bool isStatic;
         bool isValid;
     };
     struct functionArgument
@@ -214,7 +216,7 @@ public:
     struct classDef
     {
         //for lookup and issers
-        QString name, description;
+        QString name, description, baseClass;
         QStringList variables, functions;
         bool isValid;
     };
@@ -226,7 +228,7 @@ public:
 
     // ISsers for both framework and project data
     // These functions must be AS FAST AS POSSIBLE!!!!
-    bool isKeyword(const QString& s);
+    bool isKeyword(const QString& s);   // UNUSED
     bool isType(const QString& s);
     bool isClass(const QString& s);
     bool isResource(const QString& s);
@@ -238,8 +240,11 @@ public:
     // QStringLists for FAST name lookup: framework and project data's issers
     // These lists are updated by the constructor and reparseProject
     QVector<QString> keywords, types, classes, resources, constants, functions, variables;
+
     // for fast lookup of classmembers:
     QHash<QString, QVector<QString> > classMemberVars, classMemberFuncs;
+    QHash<QString, QVector<variable> > classMemberVarDefs;
+    QHash<QString, QVector<function> > classMemberFuncDefs;
 
     // Nextly, these lists are used to separate the framework data and project data
     QVector<QString>
@@ -320,12 +325,14 @@ public:
         // Child must only be one: The variable value: either constant OR expression!
         // Allowed child typed: expressionNode
     };
+    /*      NO comments for now!
     struct commentNode: public parseTreeNode
     {
         QString nodeType();
         QString data();
         bool blockComment;
-    };
+    };*/
+
     struct variableAssignmentNode: public parseTreeNode
     {
         QString nodeType();
@@ -360,7 +367,7 @@ public:
         QString baseClassName;
         QStringList interfaces; //Will I ever have them? NOT for now!
 
-        // Allowed childs:    variableDefinitionNode, functionDefinitionNode, commentNode
+        // Allowed childs:    variableDefinitionNode, functionDefinitionNode
     };
 
     // The parse tree itself
@@ -372,7 +379,9 @@ public:
     int parsePotition;  //position to last successfully expected thing
 
     //Preprocessor will do its best to filter the passed tokenlist to parse-ready tokenlist
-    tokenlist* preProcess(tokenlist* tokens, QString target, QString platform, QStringList defines);
+    enum preProcType {ppIfdef, ppIfndef, ppTarget, ppExporter, ppElse, ppEnd, ppInvalid};
+    preProcType parsePreProcTerm(QString s);
+    tokenlist preProcess(tokenlist* tokens, QString target, QString exporter, QStringList defines);
 
     void parse(tokenlist* tokens);
 

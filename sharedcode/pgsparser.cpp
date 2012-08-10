@@ -1,6 +1,7 @@
 #include "pgsparser.h"
 #include "globals.h"
 #include "../baseide/gcide.h"
+#include "../sharedcode/frameworkdata.h"
 
 pgsParser::pgsParser()
 {
@@ -10,6 +11,94 @@ pgsParser::pgsParser()
 
     gcprint("INITIALIZING pgsParser INSTANCE!!");
     //initialize Framework structures:
+    QStringList l = FrameworkData::getAllFrameworkClassNames();
+    foreach(QString s,l)frameworkClasses.append(s);
+
+    for(QVector<QString>::iterator i = frameworkClasses.begin();i!=frameworkClasses.end();++i)
+    {
+        rsClass c = FrameworkData::getFrameworkClassAsResource(*i);
+        //make a classDef struct from this class
+        classDef cd;
+        cd.name = c.name;
+        cd.description = c.description;
+        cd.isValid = true;
+
+        //variables and properties are 1 thing
+        foreach(rsClass::variable v,c.variables)
+        {
+            cd.variables.append(v.name);
+            classMemberVars[c.name].append(v.name);
+            variable var;
+            var.name = v.name;
+            var.type = v.type;
+            var.description = v.description;
+            var.defaultValue = v.defaultvalue;
+            var.isValid = true;
+            classMemberVarDefs[c.name].append(var);
+        }
+        foreach(rsClass::variable v,c.properties)
+        {
+            cd.variables.append(v.name);
+            classMemberVars[c.name].append(v.name);
+            variable var;
+            var.name = v.name;
+            var.type = v.type;
+            var.description = v.description;
+            var.defaultValue = v.defaultvalue;
+            var.isValid = true;
+            classMemberVarDefs[c.name].append(var);
+        }
+
+        //same as functions and events
+        foreach(rsClass::function f, c.events)
+        {
+            cd.functions.append(f.name);
+            classMemberFuncs[c.name].append(f.name);
+            function func;
+            func.description = f.description;
+            func.isStatic = f.isStatic;
+            func.isValid = true;
+            func.name = f.name;
+            func.type = f.type;
+            foreach(rsClass::variable arg, f.arguments)
+            {
+                functionArgument a;
+                a.description = arg.description;
+                a.value = arg.defaultvalue;
+                a.isValid = true;
+                a.name = arg.name;
+                a.type = arg.type;
+                func.arguments.append(a);
+            }
+            classMemberFuncDefs[c.name].append(func);
+        }
+        foreach(rsClass::function f, c.functions)
+        {
+            cd.functions.append(f.name);
+            classMemberFuncs[c.name].append(f.name);
+            function func;
+            func.description = f.description;
+            func.isStatic = f.isStatic;
+            func.isValid = true;
+            func.name = f.name;
+            func.type = f.type;
+            foreach(rsClass::variable arg, f.arguments)
+            {
+                functionArgument a;
+                a.description = arg.description;
+                a.value = arg.defaultvalue;
+                a.isValid = true;
+                a.name = arg.name;
+                a.type = arg.type;
+                func.arguments.append(a);
+            }
+            classMemberFuncDefs[c.name].append(func);
+        }
+
+        //Add the class def
+        framewrokClassDefs.append(cd);
+    }
+
     //initialize structures: on SetProject
 }
 pgsParser::~pgsParser()
@@ -18,6 +107,39 @@ pgsParser::~pgsParser()
     gcprint("DELETING pgsParser !!!");
 }
 
+bool pgsParser::isTextToken(tokenkind t)
+{
+    switch(t)
+    {
+        case nameId:
+        case varId:
+        case constId:
+        case funcId:
+        case typeId:
+        case classId:
+        case NEWkw:
+        case DELETEkw:
+        case FORkw:
+        case IFkw:
+        case ELSEkw:
+        case DOkw:
+        case UNTILkw:
+        case WHILEkw:
+        case REPEATkw:
+        case CLASSkw:
+        case EXTENDSkw:
+        case IMPLEMENTSkw:
+        case STATICkw:
+        case SWITCHkw:
+        case CASEkw:
+        case DEFAULTkw:
+        case BREAKkw:
+        case CONTINUEkw:
+            return true;
+        default: {}
+    }
+    return false;
+}
 // THESE APIs must get REALLY implemented!
 
 bool pgsParser::isType(const QString& s)
@@ -30,6 +152,10 @@ QString pgsParser::getType(const QString& s)
     if(s=="integer")return "int";
     if(s=="boolean")return "bool";
     return s;
+}
+inline bool pgsParser::isKeyword(const QString &s)
+{
+    return keywords.contains(s);
 }
 inline bool pgsParser::isFunction(const QString& s, tokenlist* tl, QString* className)
 {
@@ -132,6 +258,32 @@ QString pgsParser::getConstValue(QString name, pgsParser::token* t)
 bool pgsParser::isVar(const QString& s, tokenlist* tl, QString* className)
 {
     return variables.contains(s);
+}
+pgsParser::classDef pgsParser::getClass(const QString &name)
+{
+    if(frameworkClasses.contains(name))
+    {
+        foreach(pgsParser::classDef cd, framewrokClassDefs)
+            if(cd.name==name)
+                return cd;
+    }
+    //else:
+    classDef cd;
+    cd.isValid = false;
+    cd.name = "[INVALID]";
+    return cd;
+}
+
+pgsParser::variable pgsParser::getVar(const QString &name, const QString &className)
+{
+    if(className=="")
+    {
+        //from global scope
+    }
+    else
+    {
+        //from class
+    }
 }
 
 pgsParser::symboltype pgsParser::ST(QChar c)
@@ -247,7 +399,7 @@ pgsParser::tokenlist pgsParser::tokenize(QString str)
                 {
                     //it must check against class member!
                     //check the function return type and set the proper typeName
-                    t.kind=FuncId;
+                    t.kind=funcId;
                     t.typeName="int";
                     t.format=CFfunction;
                 }
@@ -434,7 +586,7 @@ QString pgsParser::tokenkindToString(tokenkind t)
     if(t==bracketE)return "bracketE";           // )
     if(t==comma)return "comma";
 
-    if(t==FuncId)return "FuncId";
+    if(t==funcId)return "FuncId";
     if(t==IntVal)return "IntVal";
     if(t==RealVal)return "RealVal";
     if(t==StringVal)return "StringVal";
@@ -566,7 +718,7 @@ NTYPE(forNode,"for")
 NTYPE(statementNode,"statement")
 NTYPE(functionDefinitionNode,"funcdef")
 NTYPE(classNode,"class")
-NTYPE(commentNode,"comment")
+//NTYPE(commentNode,"comment")
 
 //TODO: Real implementation for these DATAs
 NDATA(constantNode){return "";}
@@ -578,7 +730,7 @@ NDATA(forNode){return "";}
 NDATA(statementNode){return "";}
 NDATA(functionDefinitionNode){return "";}
 NDATA(classNode){return "";}
-NDATA(commentNode){return "";}
+//NDATA(commentNode){return "";}
 
 #undef NTYPE
 #undef NDATA
@@ -587,6 +739,162 @@ NDATA(commentNode){return "";}
 bool pgsParser::expectClass()
 {
     //expect it
+}
+// PREPROCESS
+pgsParser::preProcType pgsParser::parsePreProcTerm(QString s)
+{
+    if(s.contains("#ifdef"))return ppIfdef;
+    else if(s.contains("#ifndef"))return ppIfndef;
+    else if(s.contains("#target"))return ppTarget;
+    else if(s.contains("#exporter"))return ppExporter;
+    else if(s.trimmed()=="#else")return ppElse;
+    else if(s.trimmed()=="#end")return ppEnd;
+    else return ppInvalid;
+}
+
+pgsParser::tokenlist pgsParser::preProcess(tokenlist *tokens, QString target, QString exporter, QStringList defines)
+{
+    tokenlist res;
+    bool state = 0;
+    // 0 = normal,
+    // 1 = between  IF  and  [END/ELSE]
+    // 2 - between ELSE and END
+
+    bool destiny;
+    QString className = "undefined";  //lazy determination
+    // TRUE &  state>0: Adds to output
+    // FALSE & state>0: Don't add to output!
+
+    for(int i=0;i<tokens->count();i++)
+    {
+        const pgsParser::token& t = tokens->at(i);
+        if(t.kind == CLASSkw && i+1<tokens->count() && tokens->at(i+1).kind == nameId)
+            className = tokens->at(i+1).text;
+        switch(state)
+        {
+        case 0:
+            if(t.kind!=preproc)
+            {
+                if(t.kind!=comment)res<<t;
+            }
+            else
+            {
+                //PREPROC must be parsed and NOT added to the output list
+                preProcType ppt = parsePreProcTerm(t.text);
+
+                //for rist state, only ifdef, ifndef, target, exporter allowed
+                switch(ppt)
+                {
+                    case ppIfdef:
+                    {
+                        QString s = t.text; s = s.replace("#ifdef","").trimmed();
+                        destiny = defines.contains(s);
+                        state=1;
+                        break;
+                    }
+                    case ppIfndef:
+                    {
+                        QString s = t.text; s = s.replace("#ifndef","").trimmed();
+                        destiny = !defines.contains(s);
+                        state=1;
+                        break;
+                    }
+                    case ppTarget:
+                    {
+                        QString s = t.text; s = s.replace("#target","").trimmed();
+                        destiny = (target==s);
+                        state=1;
+                        break;
+                    }
+                    case ppExporter:
+                    {
+                        QString s = t.text; s = s.replace("#exporter","").trimmed();
+                        destiny = (exporter==s);
+                        state=1;
+                        break;
+                    }
+                    default:
+                    {
+                        //what is the error?
+                        parseError err;
+                        //we must somehow get the current class name...
+                        err.className=className;
+                        err.col = t.col;
+                        err.line = t.line;
+                        QString mess;
+                        if(ppt==ppInvalid)
+                        mess = "Invalid preprocessor directive encountered";
+                        else mess = "Only #ifdef, #ifndef, #target and #platform directives are allowed here";
+                        err.message = mess;
+                        parseErrors.append(err);
+                    }
+                }
+            }
+            break;
+        case 1:
+            if(t.kind!=preproc)
+            {
+                if(destiny && t.kind!=comment)res << t;
+            }
+            else
+            {
+                //preproc can only be #else or #end
+                preProcType ppt = parsePreProcTerm(t.text);
+                if(ppt==ppEnd)
+                {
+                    state = 0;
+                }
+                else if(ppt==ppElse)
+                {
+                    destiny = !destiny;
+                    state = 2;
+                }
+                else
+                {
+                    parseError err;
+                    err.className=className;
+                    err.col = t.col;
+                    err.line = t.line;
+                    QString mess;
+                    if(ppt==ppInvalid)
+                    mess = "Invalid preprocessor directive encountered";
+                    else mess = "Only #else and #end directives are allowed here";
+                    err.message = mess;
+                    parseErrors.append(err);
+                }
+            }
+            break;
+        case 2:
+            if(t.kind!=preproc)
+            {
+                if(destiny && t.kind!=comment)res << t;
+            }
+            else
+            {
+                //preproc can only be #end
+                preProcType ppt = parsePreProcTerm(t.text);
+                if(ppt==ppEnd) state = 0;
+                else
+                {
+                    //what is the error?
+                    parseError err;
+                    //we must somehow get the current class name...
+                    err.className=className;
+                    err.col = t.col;
+                    err.line = t.line;
+                    QString mess;
+                    if(ppt==ppInvalid)
+                    mess = "Invalid preprocessor directive encountered";
+                    else mess = "Only #end directive is allowed here";
+                    err.message = mess;
+                    parseErrors.append(err);
+                }
+            }
+            break;
+            break;
+        }
+    }
+    return res;
 }
 
 // PARSE!

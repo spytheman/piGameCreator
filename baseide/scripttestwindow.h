@@ -26,9 +26,10 @@ private:
 private slots:
     void on_actionSettings_triggered();
     void codeChanged();
-    void on_actionTEST_triggered();
     void on_actionExpression_triggered();
     void on_actionCreator_IDE_triggered();
+    void on_actionPreprocess_triggered();
+    void on_actionParse_triggered();
 };
 
 #endif // SCRIPTTESTWINDOW_H

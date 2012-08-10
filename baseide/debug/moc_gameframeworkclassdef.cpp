@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'gameframeworkclassdef.h'
 **
-** Created: Fri 20. Jul 17:14:18 2012
+** Created: Fri 10. Aug 01:00:12 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_GameFrameworkClassDef[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      55,   14, // methods
+      57,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -86,6 +86,8 @@ static const uint qt_meta_data_GameFrameworkClassDef[] = {
     1638,   22,   22,   22, 0x08,
     1668,   22,   22,   22, 0x08,
     1696,   22,   22,   22, 0x08,
+    1722,   22,   22,   22, 0x08,
+    1750,   22,   22,   22, 0x08,
 
        0        // eod
 };
@@ -145,6 +147,8 @@ static const char qt_meta_stringdata_GameFrameworkClassDef[] = {
     "on_TaskCurrentClass_clicked()\0"
     "on_TaskAllClasses_clicked()\0"
     "on_TaskAllFiles_clicked()\0"
+    "on_staticVariable_clicked()\0"
+    "on_staticProperty_clicked()\0"
 };
 
 void GameFrameworkClassDef::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -208,6 +212,8 @@ void GameFrameworkClassDef::qt_static_metacall(QObject *_o, QMetaObject::Call _c
         case 52: _t->on_TaskCurrentClass_clicked(); break;
         case 53: _t->on_TaskAllClasses_clicked(); break;
         case 54: _t->on_TaskAllFiles_clicked(); break;
+        case 55: _t->on_staticVariable_clicked(); break;
+        case 56: _t->on_staticProperty_clicked(); break;
         default: ;
         }
     }
@@ -245,9 +251,9 @@ int GameFrameworkClassDef::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 55)
+        if (_id < 57)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 55;
+        _id -= 57;
     }
     return _id;
 }

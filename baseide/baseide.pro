@@ -99,5 +99,4 @@ FORMS    += mainwindow.ui \
 
 RESOURCES += \
     ../sharedcode/resources.qrc \
-    res_ide.qrc \
-    resources.qrc
+    res_ide.qrc

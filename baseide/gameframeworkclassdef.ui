@@ -71,7 +71,7 @@
      </widget>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>7</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="pgNone">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -141,27 +141,41 @@ p, li { white-space: pre-wrap; }
         <property name="fieldGrowthPolicy">
          <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
         </property>
-        <item row="0" column="0">
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Class name:</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QLineEdit" name="className"/>
-        </item>
-        <item row="1" column="0">
+        <item row="2" column="0">
          <widget class="QLabel" name="label_3">
           <property name="text">
            <string>Display name:</string>
           </property>
          </widget>
         </item>
-        <item row="1" column="1">
+        <item row="2" column="1">
          <widget class="QLineEdit" name="classDisplayName"/>
         </item>
-        <item row="2" column="0" colspan="2">
+        <item row="1" column="0" colspan="2">
+         <layout class="QHBoxLayout" name="horizontalLayout_9">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Class name:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="className"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_21">
+            <property name="text">
+             <string>Base class:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="baseClassName"/>
+          </item>
+         </layout>
+        </item>
+        <item row="3" column="0" colspan="2">
          <layout class="QHBoxLayout" name="horizontalLayout_2">
           <property name="spacing">
            <number>0</number>
@@ -258,10 +272,10 @@ p, li { white-space: pre-wrap; }
           </item>
          </layout>
         </item>
-        <item row="3" column="0" colspan="2">
+        <item row="4" column="0" colspan="2">
          <widget class="QTextEdit" name="classDescEdit"/>
         </item>
-        <item row="4" column="0" colspan="2">
+        <item row="5" column="0" colspan="2">
          <widget class="QCheckBox" name="classHidden">
           <property name="text">
            <string>Hidden class (don't show in the Code Completer)</string>
@@ -604,7 +618,7 @@ p, li { white-space: pre-wrap; }
           </item>
          </widget>
         </item>
-        <item row="2" column="0" colspan="2">
+        <item row="3" column="0" colspan="2">
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <property name="spacing">
            <number>0</number>
@@ -701,8 +715,15 @@ p, li { white-space: pre-wrap; }
           </item>
          </layout>
         </item>
-        <item row="3" column="0" colspan="2">
+        <item row="4" column="0" colspan="2">
          <widget class="QTextEdit" name="varDesc"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QCheckBox" name="staticVariable">
+          <property name="text">
+           <string>Static variable</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -1043,7 +1064,7 @@ p, li { white-space: pre-wrap; }
           </item>
          </widget>
         </item>
-        <item row="2" column="0" colspan="2">
+        <item row="3" column="0" colspan="2">
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <property name="spacing">
            <number>0</number>
@@ -1140,7 +1161,7 @@ p, li { white-space: pre-wrap; }
           </item>
          </layout>
         </item>
-        <item row="3" column="0" colspan="2">
+        <item row="4" column="0" colspan="2">
          <widget class="QTextEdit" name="propDesc">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1150,10 +1171,17 @@ p, li { white-space: pre-wrap; }
           </property>
          </widget>
         </item>
-        <item row="4" column="0" colspan="2">
+        <item row="5" column="0" colspan="2">
          <widget class="QLabel" name="label_5">
           <property name="text">
            <string>This will generate corresponding set/get functions</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QCheckBox" name="staticProperty">
+          <property name="text">
+           <string>Static property</string>
           </property>
          </widget>
         </item>
@@ -1275,15 +1303,12 @@ p, li { white-space: pre-wrap; }
   <tabstop>toolButton_21</tabstop>
   <tabstop>toolButton_22</tabstop>
   <tabstop>propDesc</tabstop>
-  <tabstop>className</tabstop>
   <tabstop>classDisplayName</tabstop>
   <tabstop>toolButton_5</tabstop>
   <tabstop>toolButton_3</tabstop>
   <tabstop>toolButton</tabstop>
   <tabstop>toolButton_2</tabstop>
   <tabstop>toolButton_4</tabstop>
-  <tabstop>classDescEdit</tabstop>
-  <tabstop>classHidden</tabstop>
   <tabstop>addvarRB</tabstop>
   <tabstop>addvarRB_2</tabstop>
   <tabstop>addFunction</tabstop>

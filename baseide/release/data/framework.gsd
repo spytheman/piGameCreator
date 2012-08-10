@@ -5,64 +5,151 @@
 PGSXML framework definition file.
   
   DO NOT MODIFY - if you modify this, you will alter
-  the piGameCreator intellisense and code completion 
+  the game script intellisense and code completion 
   database for the framework, that is, intellisense 
   and the code tokenizer won't recognize the Game 
   Framework functions.
 -->
     <global>
         <var type="bool" name="windowTitleFollowsScenes"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">When set to <span style=" font-weight:600;">true</span> (default), setting a scene will change the window's title unless the title is empty string.</p></var>
-        <var type="exception" name="lastException"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">This variable is set when exception occurs. You can access the returned exception instance so you can handle the exception as you like or just show its text to the user. </span></p></var>
-        <var type="layer" name="currentLayer"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Reference to the current active layer for manipulation.</p>
-<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p>
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-style:italic;">Note: DO NOT DELETE it unless you know what you are doing.</span> </p></var>
-        <func type="real" name="arccos" arg1="real degrees"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"><br /></p></func>
-        <func type="real" name="arcsin" arg1="real degrees"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"><br /></p></func>
-        <func type="real" name="arctg" arg1="real degrees"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"><br /></p></func>
-        <func type="real" name="cos" arg1="real degrees"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"><br /></p></func>
-        <func type="real" name="cotg" arg1="real degrees"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">defined as 1/tg(x) </span></p></func>
-        <func type="real" name="degToRad" arg1="real degrees"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"><br /></p></func>
-        <prop type="real" name="pi"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Returns the value of mathematical </span><span style=" font-size:8pt; font-style:italic;">pi</span><span style=" font-size:8pt;"> = 3,14159265... </span></p></prop>
-        <func type="real" name="radToDeg" arg1="real radians"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"><br /></p></func>
-        <func type="real" name="sin" arg1="real degrees"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Trigonometric function </span></p></func>
-        <func type="real" name="tg" arg1="real degrees"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"><br /></p></func>
-        <var type="scene" name="currentScene"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Reference to current active scene. This means, to the last loaded scene into the current window. </span></p>
-<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"><br /></p>
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt; font-style:italic;">Note: DO NOT DELETE it unless you know what you are doing.</span><span style=" font-size:8pt;"> </span></p></var>
-        <func arg1desc="The string to get translated" type="string" name="tr" arg1="string text"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Translates a given string to selected language. </span></p></func>
-        <func type="void" name="messagebox" arg1="string text"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
-<span style=" font-size:8pt;">Shows a message as a message box. Intended only for debugging purposes. It's better not to use this in your games. Use the UI system instead. </span>
-</p></func>
-        <func arg1desc="The language file to set." type="void" name="setLanguage" arg1="string filename"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Sets the language file to be used for </span><span style=" font-size:8pt; font-weight:600;">tr</span><span style=" font-size:8pt;">(</span><span style=" font-size:8pt; font-style:italic;">string</span><span style=" font-size:8pt;">) function</span></p></func>
-        <func arg4="bool fatal" arg1desc="The text to be shown to the end user." arg2desc="The exception type. This is to be user by the developers." arg3desc="The exception data." arg4desc="Wheither the exception is fatal or not." type="void" arg4value="false" arg3value="&quot;&quot;" name="throw" arg2value="&quot;GENERIC&quot;" arg1="string text" arg2="string type" arg3="string data"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Generates a fatal exception error and kills the application if unhandled. </span></p>
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">If piGameCreator IDE is running in </span><span style=" font-size:8pt; font-style:italic;">debug mode</span> <span style=" font-size:8pt;">, it will catch the exception and open the class code that generated the exception. </span></p>
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">This is only useful for code maintenance, debugging, and developing classes that must be used by other people. </span></p>
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">For example, if you develop a method that takes positive integer, you can generate such exception if negative one is entered. </span></p>
-<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"><br /></p>
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">The argument </span><span style=" font-size:8pt; font-style:italic;">text</span> <span style=" font-size:8pt;">is the text to show to the user when this exception remains unhandled. </span></p>
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">The argument </span><span style=" font-size:8pt; font-style:italic;">type</span> <span style=" font-size:8pt;">can be omitted (will be set to 'GENERIC'). You will only need to set it if you want to handle the exception by Id. </span></p>
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">The argument </span><span style=" font-size:8pt; font-style:italic;">data</span> <span style=" font-size:8pt;">is also only used if you want to handle the exception. It can contain some ordinary data about the exception. </span></p>
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Setting </span><span style=" font-size:8pt; font-style:italic;">fatal</span> <span style=" font-size:8pt;">to true will disable exception catching algorithm to the piGameCreator IDE and exception handling routine in the engine. </span></p>
-<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"><br /></p>
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">When an exception occurs, it will set the global variables </span><span style=" font-size:8pt; font-style:italic;">lastException</span> <span style=" font-size:8pt;">and </span><span style=" font-size:8pt; font-style:italic;">lastExceptionType</span> <span style=" font-size:8pt;">to the values you provided in </span><span style=" font-size:8pt; font-style:italic;">text</span> <span style=" font-size:8pt;">and </span><span style=" font-size:8pt; font-style:italic;">type</span> <span style=" font-size:8pt;">arguments. </span></p></func>
-        <var type="window" name="currentWindow"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Reference to current active window. Or to the only window, if the game have only one window. </span></p></var>
-    </global>
-    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>This class represents a piGameCreator application. Usually, you will never need to use it directly or to create instances of it. Its variables and mothods are directly mapped to the global scope in piGameScript.&lt;/p>" name="application">
-        <func type="application" name="getInstance" static="true"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
-<span style=" font-size:8pt;">Returns the current application instance.</span>
-</p></func>
         <var type="exception" name="lastException"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">This variable is set when exception occurs. You can access the returned exception instance so you can handle the exception as you like or just show its text to the user. </span>
 </p></var>
         <var type="layer" name="currentLayer"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Reference to the current active layer for manipulation.</p>
-<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"/>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<br/>
+</p>
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-style:italic;">Note: DO NOT DELETE it unless you know what you are doing.</span>
+</p></var>
+        <func type="real" name="arccos" arg1="real degrees"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">
+<br/>
+</p></func>
+        <func type="real" name="arcsin" arg1="real degrees"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">
+<br/>
+</p></func>
+        <func type="real" name="arctg" arg1="real degrees"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">
+<br/>
+</p></func>
+        <func type="real" name="cos" arg1="real degrees"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">
+<br/>
+</p></func>
+        <func type="real" name="cotg" arg1="real degrees"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">defined as 1/tg(x) </span>
+</p></func>
+        <func type="real" name="degToRad" arg1="real degrees"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">
+<br/>
+</p></func>
+        <prop type="real" name="pi"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Returns the value of mathematical </span>
+<span style=" font-size:8pt; font-style:italic;">pi</span>
+<span style=" font-size:8pt;"> = 3,14159265... </span>
+</p></prop>
+        <func type="real" name="radToDeg" arg1="real radians"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">
+<br/>
+</p></func>
+        <func type="real" name="sin" arg1="real degrees"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Trigonometric function </span>
+</p></func>
+        <func type="real" name="tg" arg1="real degrees"><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">
+<br/>
+</p></func>
+        <var type="scene" name="currentScene"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Reference to current active scene. This means, to the last loaded scene into the current window. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">
+<br/>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">Note: DO NOT DELETE it unless you know what you are doing.</span>
+<span style=" font-size:8pt;"/>
+</p></var>
+        <func arg1desc="The string to get translated" type="string" name="tr" arg1="string text"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Translates a given string to selected language. </span>
+</p></func>
+        <func type="void" name="messagebox" arg1="string text"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Shows a message as a message box. Intended only for debugging purposes. It's better not to use this in your games. Use the UI system instead. </span>
+</p></func>
+        <func arg1desc="The language file to set." type="void" name="setLanguage" arg1="string filename"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Sets the language file to be used for </span>
+<span style=" font-size:8pt; font-weight:600;">tr</span>
+<span style=" font-size:8pt;">(</span>
+<span style=" font-size:8pt; font-style:italic;">string</span>
+<span style=" font-size:8pt;">) function</span>
+</p></func>
+        <func arg4="bool fatal" arg1desc="The text to be shown to the end user." arg2desc="The exception type. This is to be user by the developers." arg3desc="The exception data." arg4desc="Wheither the exception is fatal or not." type="void" arg4value="false" arg3value="&quot;&quot;" name="throw" arg2value="&quot;GENERIC&quot;" arg1="string text" arg2="string type" arg3="string data"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Generates a fatal exception error and kills the application if unhandled. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If piGameCreator IDE is running in </span>
+<span style=" font-size:8pt; font-style:italic;">debug mode</span>
+<span style=" font-size:8pt;">, it will catch the exception and open the class code that generated the exception. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">This is only useful for code maintenance, debugging, and developing classes that must be used by other people. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">For example, if you develop a method that takes positive integer, you can generate such exception if negative one is entered. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">
+<br/>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">The argument </span>
+<span style=" font-size:8pt; font-style:italic;">text</span>
+<span style=" font-size:8pt;">is the text to show to the user when this exception remains unhandled. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">The argument </span>
+<span style=" font-size:8pt; font-style:italic;">type</span>
+<span style=" font-size:8pt;">can be omitted (will be set to 'GENERIC'). You will only need to set it if you want to handle the exception by Id. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">The argument </span>
+<span style=" font-size:8pt; font-style:italic;">data</span>
+<span style=" font-size:8pt;">is also only used if you want to handle the exception. It can contain some ordinary data about the exception. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Setting </span>
+<span style=" font-size:8pt; font-style:italic;">fatal</span>
+<span style=" font-size:8pt;">to true will disable exception catching algorithm to the piGameCreator IDE and exception handling routine in the engine. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">
+<br/>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">When an exception occurs, it will set the global variables </span>
+<span style=" font-size:8pt; font-style:italic;">lastException</span>
+<span style=" font-size:8pt;">and </span>
+<span style=" font-size:8pt; font-style:italic;">lastExceptionType</span>
+<span style=" font-size:8pt;">to the values you provided in </span>
+<span style=" font-size:8pt; font-style:italic;">text</span>
+<span style=" font-size:8pt;">and </span>
+<span style=" font-size:8pt; font-style:italic;">type</span>
+<span style=" font-size:8pt;">arguments. </span>
+</p></func>
+        <var type="window" name="currentWindow"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Reference to current active window. Or to the only window, if the game have only one window. </span>
+</p></var>
+    </global>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>This class represents a piGameCreator application. Usually, you will never need to use it directly or to create instances of it. Its variables and mothods are directly mapped to the global scope in piGameScript.&lt;/p>" name="application">
+        <var type="exception" name="lastException"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">This variable is set when exception occurs. You can access the returned exception instance so you can handle the exception as you like or just show its text to the user. </span></p></var>
+        <var type="layer" name="currentLayer"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Reference to the current active layer for manipulation. </span>
+</p>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">
+<br/>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">Note: DO NOT DELETE it unless you know what you are doing.</span>
+<span style=" font-size:8pt;"/>
 </p></var>
         <var type="scene" name="currentScene"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Reference to current active scene. This means, to the last loaded scene into the current window. </span>
 </p>
-<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">
+<br/>
+</p>
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt; font-style:italic;">Note: DO NOT DELETE it unless you know what you are doing.</span>
 <span style=" font-size:8pt;"/>
@@ -70,7 +157,7 @@ PGSXML framework definition file.
         <func type="void" name="quitApplication" arg1="int exitCode" arg1value="0"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Forces the application to exit gracefully. The process will exit normally. Optionally, </span>
 <span style=" font-size:8pt; font-style:italic;">exitCode</span>
-<span style=" font-size:8pt;">is the result that application returns to the target platform. </span>
+<span style=" font-size:8pt;"> is the result that application returns to the target platform. </span>
 </p></func>
         <func arg1desc="The function to set as global exception handler." type="void" name="setExceptionHandler" arg1="function handler"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Sets a function to be executed when an exception occurs. If the function processes the exception, it must return </span>
@@ -91,12 +178,16 @@ PGSXML framework definition file.
 <span style=" font-size:8pt; font-weight:600;">null</span>
 <span style=" font-size:8pt;"> as handler will unset any previously set exception handler. </span>
 </p>
-<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;"/>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">
+<br/>
+</p>
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt; font-style:italic;">NOTE: Even if you handle an event with the handler, it may be not possible to resume the application state after it. Some exceptions can be safely ignored, others can not. Better use this system for handling your own generated exceptions.</span>
 <span style=" font-size:8pt;"/>
 </p>
-<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; font-style:italic;"/>
+<p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt; font-style:italic;">
+<br/>
+</p>
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt; font-style:italic;">Exception sybsystem note: Integer division by zero and other hardware-generated exceptions will not be passed to the exception subsystem. Such exceptions will simply terminate the application with operating system error message.</span>
 <span style=" font-size:8pt;"/>
@@ -104,9 +195,9 @@ PGSXML framework definition file.
         <func arg1desc="The scene to set as exception viewer/handler" type="void" name="setExceptionScene" arg1="scene Scene"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">If the application is running in </span>
 <span style=" font-size:8pt; font-style:italic;">release</span>
-<span style=" font-size:8pt;">mode and exception occurs, instead of terminating the application, this </span>
+<span style=" font-size:8pt;"> mode and exception occurs, instead of terminating the application, this </span>
 <span style=" font-size:8pt; font-style:italic;">Scene</span>
-<span style=" font-size:8pt;">will be loaded if possible. Use this method only to display some user-friendly message to the user. In some case, trying to load this scene may result in pure application crash. </span>
+<span style=" font-size:8pt;"> will be loaded if possible. Use this method only to display some user-friendly message to the user. In some case, trying to load this scene may result in pure application crash. </span>
 </p>
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">If the application is running in debug mode, the exception will be thrown as usual, the message will be shown and the scene will be loaded if possible. </span>
@@ -114,7 +205,7 @@ PGSXML framework definition file.
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Setting </span>
 <span style=" font-size:8pt; font-weight:600;">null</span>
-<span style=" font-size:8pt;">as scene will unset any previously set scene. </span>
+<span style=" font-size:8pt;"> as scene will unset any previously set scene. </span>
 </p>
 <p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;">
 <br/>
@@ -124,6 +215,7 @@ PGSXML framework definition file.
 </p>
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt; font-style:italic;">If the exception is operating-system-dependent, for example, SIGSEGV, this subsystem will fail. Instead, a normal, OS-dpendent error message will be shown.</span>
+<span style=" font-size:8pt;"/>
 </p></func>
         <func type="void" name="terminate" arg1="int exitCode" arg1value="1"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Terminates the application. The process will be killed by the OS. Optionally, </span>
@@ -490,7 +582,7 @@ PGSXML framework definition file.
 </p></var>
     </class>
     <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>A 2D or 3D shape in which bounds lighting will occur.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Layer or scene can by itself be set as a light volume.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Light volumes are not respected by layers and every light-capable object that falls in it will be processed by the lighting subsystem.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>This class is available as a tool for shapes in a scene or a world.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>" name="lightVolume"/>
-    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>The Object class provides generic data objects with any properties.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-weight:600;&quot;>Note for C++ and Java-targeted projects:&lt;/span> In native compiled languages, this class will be slower, because it uses string-based hashtables. If your project targets maximal performance, avoid this class.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>In HTML5 JavaScript based projects, this class uses native JavaScript objects (JSON) so it will not impact performance!&lt;/p>" doc="Generic object" name="object"/>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>The Object class provides generic data objects with any properties.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-weight:600;&quot;>Note for C++ and Java-targeted projects:&lt;/span> In native compiled languages, this class will be slower, because it uses string-based hashtables. If your project targets maximal performance, avoid this class.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>In HTML5 JavaScript based projects, this class uses native JavaScript objects (JSON) so it will not impact performance!&lt;/p>" doc="Generic object" hidden="true" name="object"/>
     <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Defines data for object's representation on the screen.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Representation can be one of the following:&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>None, 2D Image, 3D Model, Rectangle, Vector Path, Graph or Text.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>" name="objectRepresentation">
         <func arg1desc="The rectangle to be set. Only its width/height and offset data will be used. Its position will not be taken." type="void" name="setRectangle" arg1="rectangle r"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Sets a rectangle representation</span>

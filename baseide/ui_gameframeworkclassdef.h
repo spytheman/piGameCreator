@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'gameframeworkclassdef.ui'
 **
-** Created: Fri 20. Jul 17:13:29 2012
+** Created: Fri 10. Aug 01:00:05 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -116,6 +116,7 @@ public:
     QToolButton *toolButton_16;
     QToolButton *toolButton_17;
     QTextEdit *varDesc;
+    QCheckBox *staticVariable;
     QWidget *pgFunction;
     QFormLayout *formLayout_5;
     QLabel *label_13;
@@ -156,6 +157,7 @@ public:
     QToolButton *toolButton_22;
     QTextEdit *propDesc;
     QLabel *label_5;
+    QCheckBox *staticProperty;
     QFrame *line;
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton_3;
@@ -564,12 +566,17 @@ public:
         horizontalLayout_4->addWidget(toolButton_17);
 
 
-        formLayout_3->setLayout(2, QFormLayout::SpanningRole, horizontalLayout_4);
+        formLayout_3->setLayout(3, QFormLayout::SpanningRole, horizontalLayout_4);
 
         varDesc = new QTextEdit(pgVariable);
         varDesc->setObjectName(QString::fromUtf8("varDesc"));
 
-        formLayout_3->setWidget(3, QFormLayout::SpanningRole, varDesc);
+        formLayout_3->setWidget(4, QFormLayout::SpanningRole, varDesc);
+
+        staticVariable = new QCheckBox(pgVariable);
+        staticVariable->setObjectName(QString::fromUtf8("staticVariable"));
+
+        formLayout_3->setWidget(2, QFormLayout::LabelRole, staticVariable);
 
         stackedWidget->addWidget(pgVariable);
         pgFunction = new QWidget();
@@ -787,7 +794,7 @@ public:
         horizontalLayout_5->addWidget(toolButton_22);
 
 
-        formLayout_4->setLayout(2, QFormLayout::SpanningRole, horizontalLayout_5);
+        formLayout_4->setLayout(3, QFormLayout::SpanningRole, horizontalLayout_5);
 
         propDesc = new QTextEdit(pgProperty);
         propDesc->setObjectName(QString::fromUtf8("propDesc"));
@@ -797,12 +804,17 @@ public:
         sizePolicy2.setHeightForWidth(propDesc->sizePolicy().hasHeightForWidth());
         propDesc->setSizePolicy(sizePolicy2);
 
-        formLayout_4->setWidget(3, QFormLayout::SpanningRole, propDesc);
+        formLayout_4->setWidget(4, QFormLayout::SpanningRole, propDesc);
 
         label_5 = new QLabel(pgProperty);
         label_5->setObjectName(QString::fromUtf8("label_5"));
 
-        formLayout_4->setWidget(4, QFormLayout::SpanningRole, label_5);
+        formLayout_4->setWidget(5, QFormLayout::SpanningRole, label_5);
+
+        staticProperty = new QCheckBox(pgProperty);
+        staticProperty->setObjectName(QString::fromUtf8("staticProperty"));
+
+        formLayout_4->setWidget(2, QFormLayout::LabelRole, staticProperty);
 
         stackedWidget->addWidget(pgProperty);
         splitter->addWidget(stackedWidget);
@@ -926,7 +938,7 @@ public:
         retranslateUi(GameFrameworkClassDef);
         QObject::connect(cancelButton, SIGNAL(clicked()), GameFrameworkClassDef, SLOT(reject()));
 
-        stackedWidget->setCurrentIndex(7);
+        stackedWidget->setCurrentIndex(8);
         varType->setCurrentIndex(-1);
         propType->setCurrentIndex(-1);
 
@@ -992,6 +1004,7 @@ public:
         toolButton_15->setText(QString());
         toolButton_16->setText(QString());
         toolButton_17->setText(QString());
+        staticVariable->setText(QApplication::translate("GameFrameworkClassDef", "Static variable", 0, QApplication::UnicodeUTF8));
         label_13->setText(QApplication::translate("GameFrameworkClassDef", "Function name:", 0, QApplication::UnicodeUTF8));
         label_14->setText(QApplication::translate("GameFrameworkClassDef", "Return type:", 0, QApplication::UnicodeUTF8));
         fnType->clear();
@@ -1034,6 +1047,7 @@ public:
         toolButton_21->setText(QString());
         toolButton_22->setText(QString());
         label_5->setText(QApplication::translate("GameFrameworkClassDef", "This will generate corresponding set/get functions", 0, QApplication::UnicodeUTF8));
+        staticProperty->setText(QApplication::translate("GameFrameworkClassDef", "Static property", 0, QApplication::UnicodeUTF8));
         pushButton_3->setText(QApplication::translate("GameFrameworkClassDef", "Insert...", 0, QApplication::UnicodeUTF8));
         btnTasks->setText(QApplication::translate("GameFrameworkClassDef", "Tasks", 0, QApplication::UnicodeUTF8));
         btnEdit->setText(QApplication::translate("GameFrameworkClassDef", "Edit", 0, QApplication::UnicodeUTF8));

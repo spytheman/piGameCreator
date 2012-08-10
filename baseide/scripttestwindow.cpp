@@ -69,34 +69,18 @@ void scripttestwindow::codeChanged()
 }
 
 #define OUTIT s.append("<div style='border: 1px solid #aaa;" \
-    "background: #ccc; font-size: 12px;" \
+    "background: #eee; font-size: 12px;" \
     "display: inline-block;" \
-    "border-radius:4px;margin:2px;padding: 2px;" \
+    "border-radius:3px;margin:1px;padding: 1px;" \
     "color: #333;'><b>"+t.text+"</b><br>"+p.tokenkindToString(t.kind)+" "+t.typeName+"&nbsp;</div>");
 
-void scripttestwindow::on_actionTEST_triggered()
-{
-    ui->debug->setMaximumHeight(16777215);
-    QString s;
-    //must do something
-    pgsParser p;
-    pgsParser::tokenlist l = p.tokenize(source->codeEditor->getText());
-
-    l =
-
-    //p.parse(&l);
-
-
-    foreach(pgsParser::token t, l)
-    {
-        OUTIT
-    }
-    ui->debug->setHtml(s); /**/
-}
+#define ERROR(MESSAGE) s.append("<div style='border: 1px solid #f00;" \
+    "background: #fee; font-size: 13px;" \
+    "border-radius:3px;margin:2px;padding: 1px;" \
+    "color: #400;'><b>ERROR: </b>"+MESSAGE.message+" in class "+MESSAGE.className+" at line "+QString::number(MESSAGE.line)+"</div>");
 
 void scripttestwindow::on_actionExpression_triggered()
 {
-    ui->debug->setMaximumHeight(16777215);
     QString s;
     pgsParser p;
     pgsParser::expression e = p.parseExpression(source->codeEditor->getText());
@@ -112,3 +96,68 @@ void scripttestwindow::on_actionCreator_IDE_triggered()
     creatorIDE->mainWindow->show();
     close();
 }
+
+void scripttestwindow::on_actionPreprocess_triggered()
+{
+    QString s;
+    //must do something
+    pgsParser p;
+    pgsParser::tokenlist l = p.tokenize(source->codeEditor->getText());
+
+    pgsParser::tokenlist defs = p.tokenize( ui->defines->text() );
+    QStringList deflist;
+    bool invdef = false;
+    foreach(pgsParser::token def, defs)
+    {
+        if(p.isTextToken(def.kind)) deflist += def.text;
+        else invdef = true;
+    }
+
+    l = p.preProcess(&l,ui->target->currentText(), ui->exporter->text(), deflist);
+
+    foreach(pgsParser::parseError err, p.parseErrors)
+    {
+        ERROR(err)
+    }
+
+    if(invdef)
+    {
+        s = "Invalid defines!";
+    }
+    else
+    foreach(pgsParser::token t, l)
+    {
+        OUTIT
+    }
+    ui->debug->setHtml(s); /**/
+}
+
+void scripttestwindow::on_actionParse_triggered()
+{
+    //parse
+    QString s;
+    //must do something
+    pgsParser p;
+    pgsParser::tokenlist l = p.tokenize(source->codeEditor->getText());
+
+    pgsParser::tokenlist defs = p.tokenize( ui->defines->text() );
+    QStringList deflist;
+    bool invdef = false;
+    foreach(pgsParser::token def, defs)
+    {
+        if(p.isTextToken(def.kind)) deflist += def.text;
+        else invdef = true;
+    }
+
+    l = p.preProcess(&l,ui->target->currentText(), ui->exporter->text(), deflist);
+    if(!invdef)
+    {
+        p.parse(&l);
+    }
+    else s="Invalid defines";
+    //else
+    ui->debug->setHtml(s); /**/
+}
+
+#undef OUTIT
+#undef ERROR

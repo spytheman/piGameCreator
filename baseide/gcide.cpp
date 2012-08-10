@@ -98,7 +98,7 @@ int gcide::run()
         if(qApp->arguments().contains("--gsdebug"))
         {
             scripttestwindow* stw = new scripttestwindow;
-            stw->show();
+            stw->showMaximized();
             return qApp->exec();
         }
         else

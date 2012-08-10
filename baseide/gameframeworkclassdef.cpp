@@ -35,6 +35,7 @@ GameFrameworkClassDef::~GameFrameworkClassDef()
 
 void GameFrameworkClassDef::reloadData()
 {
+    FrameworkData::loadFrameworkData();
     ui->treeWidget->clear();
 
     //for ALL files add them
@@ -138,7 +139,7 @@ void GameFrameworkClassDef::on_OKbutton_clicked()
             "\n\nPGSXML framework definition file.\n  "
             "\n  "
             "DO NOT MODIFY - if you modify this, you will alter\n  "
-            "the piGameCreator intellisense and code completion \n  "
+            "the game script intellisense and code completion \n  "
             "database for the framework, that is, intellisense \n  "
             "and the code tokenizer won't recognize the Game \n  "
             "Framework functions.\n";
@@ -162,6 +163,7 @@ void GameFrameworkClassDef::on_OKbutton_clicked()
                 if(o.value("gcHidden").toBool())eClass.setAttribute("hidden","true");
                 if(o.value("gcDisplayName").toString()!="")eClass.setAttribute("doc",o.value("gcDisplayName").toString());
                 if(o.value("gcDesc").toString()!="")eClass.setAttribute("desc",o.value("gcDesc").toString());
+                if(o.value("gcBase").toString()!="")eClass.setAttribute("base",o.value("gcBase").toString());
             }
             gsdata.appendChild(eClass);
             //add class's data
@@ -175,6 +177,7 @@ void GameFrameworkClassDef::on_OKbutton_clicked()
                 eClass.appendChild(e);
                 e.setAttribute("name",o.value("name").toString());
                 e.setAttribute("type",o.value("type").toString());
+                if(o.value("static").toString()=="true")e.setAttribute("static","true");
                 QString desc = o.value("desc").toString(); //this can be XML as well!
                 desc = HTMLBodyContents(desc);
                 QString hash = QString(QCryptographicHash::hash(QString::number(replaceId).toLocal8Bit(),QCryptographicHash::Md5).toHex());
@@ -184,7 +187,6 @@ void GameFrameworkClassDef::on_OKbutton_clicked()
                 e.appendChild(xdesc);
                 if(kind=="func")
                 {
-                    if(o.value("static").toBool())e.setAttribute("static","true");
                     //arguments
                     vObjectIterator iArg;
                     QMap<int,QVariant> argsordered;
@@ -256,6 +258,7 @@ void GameFrameworkClassDef::on_treeWidget_currentItemChanged(QTreeWidgetItem *it
             ui->propDesc->setText(o.value("desc").toString());
             ui->propType->setEditText(o.value("type").toString());
             ui->propName->setText(o.value("name").toString());
+            ui->staticProperty->setChecked(o.value("static").toBool());
         }
         else if(kind=="var")
         {
@@ -263,6 +266,7 @@ void GameFrameworkClassDef::on_treeWidget_currentItemChanged(QTreeWidgetItem *it
             ui->varDesc->setText(o.value("desc").toString());
             ui->varType->setEditText(o.value("type").toString());
             ui->varName->setText(o.value("name").toString());
+            ui->staticVariable->setChecked(o.value("static").toBool());
         }
         else if(kind=="func")
         {
@@ -316,7 +320,7 @@ void GameFrameworkClassDef::on_treeWidget_currentItemChanged(QTreeWidgetItem *it
         ui->classDescEdit->setText(o.value("gcDesc").toString());
         ui->classHidden->setChecked(o.value("gcHidden").toBool());
         ui->className->setText(item->text(0)=="<global>"?"":item->text(0));
-
+        ui->baseClassName->setText(o.value("gcBase").toString());
         ui->stackedWidget->setCurrentWidget(ui->pgClassSettings);
     }
     else if(type=="file")
@@ -1427,4 +1431,28 @@ void GameFrameworkClassDef::genJs(vObject Class,int when)
 void GameFrameworkClassDef::genDoc(vObject Class,int when)
 {
     //each class in its doc
+}
+
+void GameFrameworkClassDef::on_staticVariable_clicked()
+{
+    vObject o = ui->treeWidget->currentItem()->data(0,TIDATA).toHash();
+    o["static"]=(ui->staticVariable->isChecked()?"true":"false");
+    ui->treeWidget->currentItem()->setData(0,TIDATA,o);
+    ui->treeWidget->currentItem()->setText(0,o.value("type").toString()+" "+o.value("name").toString());
+}
+
+void GameFrameworkClassDef::on_staticProperty_clicked()
+{
+    vObject o = ui->treeWidget->currentItem()->data(0,TIDATA).toHash();
+    o["static"]=(ui->staticProperty->isChecked()?"true":"false");
+    ui->treeWidget->currentItem()->setData(0,TIDATA,o);
+    ui->treeWidget->currentItem()->setText(0,o.value("type").toString()+" "+o.value("name").toString());
+}
+
+void GameFrameworkClassDef::on_baseClassName_textChanged(const QString &arg1)
+{
+    QString text = arg1;
+    vObject o = ui->treeWidget->currentItem()->data(0,TIDATA).toHash();
+    o["gcBase"] = ui->baseClassName->text();
+    ui->treeWidget->currentItem()->setData(0,TIDATA,o);
 }

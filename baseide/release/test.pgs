@@ -1,6 +1,9 @@
-class pgsParserTest extends object
+class pgsParserTest 
+extends object
 {
+	//comment
 	int next1up = 1000;
+	
 	void test()
 	{
 		//begin of the code
@@ -10,16 +13,10 @@ class pgsParserTest extends object
 			b1.lives = 10
 			maxlevels = 100
 			skiplevels = false;
-		#else
+		#else 
 			b1.lives = 1
 			maxlevels = 10
 			skiplevels = true;
-		#end
-		
-		#ifndef shit
-			//NICE! Shit is not defined!
-		#else
-			//Sorry, shit must NOT be defined ;]
 		#end
 		
 		if score>next1up 
@@ -33,8 +30,6 @@ class pgsParserTest extends object
 		
 		#ifdef message
 			messagebox("the message");
-		#else
-			//no MESSAGE defined ;]
 		#end
 
 		int a = 2+2*2 /* must be 4+2 = 6! */ 
@@ -50,7 +45,7 @@ class pgsParserTest extends object
 		do{a++}until a=20;
 		do{b++}while b<20;
 		
-		int scores[] = {0,20,30,40};
+		int  scores[] = {0,20,30,40};
 		scores[0] = 10;
 		scores << 200;
 		scores[5] = 50;	//this must be not allowed explicitly!
@@ -60,5 +55,5 @@ class pgsParserTest extends object
 			cout<<"Testing in raw embedded C++ here";
 		<[END]>
 	}
-
+	
 }

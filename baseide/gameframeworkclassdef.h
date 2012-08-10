@@ -89,6 +89,12 @@ private slots:
     void on_TaskAllClasses_clicked();
     void on_TaskAllFiles_clicked();
 
+    void on_staticVariable_clicked();
+
+    void on_staticProperty_clicked();
+
+    void on_baseClassName_textChanged(const QString &arg1);
+
 private:
 
     //when: 0 - begin, 1 - for each object, 2 - after all objects!

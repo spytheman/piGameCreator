@@ -9,6 +9,7 @@ public:
     struct variable
     {
         QString name,type,defaultvalue,description;
+        bool isStatic;
     };
     struct function
     {
@@ -28,6 +29,8 @@ public:
 
     //The generic case:
     QString sourceCode;     //minimum requirement!
+    QString description;
+    QString baseClassName;
     QList<variable> variables, properties;
     QList<function> functions, events;
 
