@@ -6,7 +6,8 @@
 
 class path
 {
-public:
+public:	gcArray<point*>* points;
+
 };
 
 #endif //PATH_H

@@ -28,7 +28,7 @@ public:
     //what does each class have?
 
     //The generic case:
-    QString sourceCode;     //minimum requirement!
+    QString sourceCode;     //minimum requirement!!
     QString description;
     QString baseClassName;
     QList<variable> variables, properties;

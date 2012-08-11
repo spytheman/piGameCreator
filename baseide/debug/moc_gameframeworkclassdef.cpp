@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'gameframeworkclassdef.h'
 **
-** Created: Fri 10. Aug 01:00:12 2012
+** Created: Sat 11. Aug 03:44:20 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_GameFrameworkClassDef[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      57,   14, // methods
+      58,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -88,6 +88,7 @@ static const uint qt_meta_data_GameFrameworkClassDef[] = {
     1696,   22,   22,   22, 0x08,
     1722,   22,   22,   22, 0x08,
     1750,   22,   22,   22, 0x08,
+    1778,  977,   22,   22, 0x08,
 
        0        // eod
 };
@@ -149,6 +150,7 @@ static const char qt_meta_stringdata_GameFrameworkClassDef[] = {
     "on_TaskAllFiles_clicked()\0"
     "on_staticVariable_clicked()\0"
     "on_staticProperty_clicked()\0"
+    "on_baseClassName_textChanged(QString)\0"
 };
 
 void GameFrameworkClassDef::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -214,6 +216,7 @@ void GameFrameworkClassDef::qt_static_metacall(QObject *_o, QMetaObject::Call _c
         case 54: _t->on_TaskAllFiles_clicked(); break;
         case 55: _t->on_staticVariable_clicked(); break;
         case 56: _t->on_staticProperty_clicked(); break;
+        case 57: _t->on_baseClassName_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -251,9 +254,9 @@ int GameFrameworkClassDef::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 57)
+        if (_id < 58)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 57;
+        _id -= 58;
     }
     return _id;
 }

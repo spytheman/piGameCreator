@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'gameframeworkclassdef.ui'
 **
-** Created: Fri 10. Aug 01:00:05 2012
+** Created: Sat 11. Aug 03:43:40 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -56,10 +56,13 @@ public:
     QSpacerItem *verticalSpacer_2;
     QWidget *pgClassSettings;
     QFormLayout *formLayout;
-    QLabel *label;
-    QLineEdit *className;
     QLabel *label_3;
     QLineEdit *classDisplayName;
+    QHBoxLayout *horizontalLayout_9;
+    QLabel *label;
+    QLineEdit *className;
+    QLabel *label_21;
+    QLineEdit *baseClassName;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_4;
     QSpacerItem *horizontalSpacer;
@@ -249,25 +252,40 @@ public:
         formLayout = new QFormLayout(pgClassSettings);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
         formLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
-        label = new QLabel(pgClassSettings);
-        label->setObjectName(QString::fromUtf8("label"));
-
-        formLayout->setWidget(0, QFormLayout::LabelRole, label);
-
-        className = new QLineEdit(pgClassSettings);
-        className->setObjectName(QString::fromUtf8("className"));
-
-        formLayout->setWidget(0, QFormLayout::FieldRole, className);
-
         label_3 = new QLabel(pgClassSettings);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
-        formLayout->setWidget(1, QFormLayout::LabelRole, label_3);
+        formLayout->setWidget(2, QFormLayout::LabelRole, label_3);
 
         classDisplayName = new QLineEdit(pgClassSettings);
         classDisplayName->setObjectName(QString::fromUtf8("classDisplayName"));
 
-        formLayout->setWidget(1, QFormLayout::FieldRole, classDisplayName);
+        formLayout->setWidget(2, QFormLayout::FieldRole, classDisplayName);
+
+        horizontalLayout_9 = new QHBoxLayout();
+        horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
+        label = new QLabel(pgClassSettings);
+        label->setObjectName(QString::fromUtf8("label"));
+
+        horizontalLayout_9->addWidget(label);
+
+        className = new QLineEdit(pgClassSettings);
+        className->setObjectName(QString::fromUtf8("className"));
+
+        horizontalLayout_9->addWidget(className);
+
+        label_21 = new QLabel(pgClassSettings);
+        label_21->setObjectName(QString::fromUtf8("label_21"));
+
+        horizontalLayout_9->addWidget(label_21);
+
+        baseClassName = new QLineEdit(pgClassSettings);
+        baseClassName->setObjectName(QString::fromUtf8("baseClassName"));
+
+        horizontalLayout_9->addWidget(baseClassName);
+
+
+        formLayout->setLayout(1, QFormLayout::SpanningRole, horizontalLayout_9);
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(0);
@@ -327,17 +345,17 @@ public:
         horizontalLayout_2->addWidget(toolButton_4);
 
 
-        formLayout->setLayout(2, QFormLayout::SpanningRole, horizontalLayout_2);
+        formLayout->setLayout(3, QFormLayout::SpanningRole, horizontalLayout_2);
 
         classDescEdit = new QTextEdit(pgClassSettings);
         classDescEdit->setObjectName(QString::fromUtf8("classDescEdit"));
 
-        formLayout->setWidget(3, QFormLayout::SpanningRole, classDescEdit);
+        formLayout->setWidget(4, QFormLayout::SpanningRole, classDescEdit);
 
         classHidden = new QCheckBox(pgClassSettings);
         classHidden->setObjectName(QString::fromUtf8("classHidden"));
 
-        formLayout->setWidget(4, QFormLayout::SpanningRole, classHidden);
+        formLayout->setWidget(5, QFormLayout::SpanningRole, classHidden);
 
         stackedWidget->addWidget(pgClassSettings);
         pgSelectType = new QWidget();
@@ -900,16 +918,13 @@ public:
         QWidget::setTabOrder(toolButton_20, toolButton_21);
         QWidget::setTabOrder(toolButton_21, toolButton_22);
         QWidget::setTabOrder(toolButton_22, propDesc);
-        QWidget::setTabOrder(propDesc, className);
-        QWidget::setTabOrder(className, classDisplayName);
+        QWidget::setTabOrder(propDesc, classDisplayName);
         QWidget::setTabOrder(classDisplayName, toolButton_5);
         QWidget::setTabOrder(toolButton_5, toolButton_3);
         QWidget::setTabOrder(toolButton_3, toolButton);
         QWidget::setTabOrder(toolButton, toolButton_2);
         QWidget::setTabOrder(toolButton_2, toolButton_4);
-        QWidget::setTabOrder(toolButton_4, classDescEdit);
-        QWidget::setTabOrder(classDescEdit, classHidden);
-        QWidget::setTabOrder(classHidden, addvarRB);
+        QWidget::setTabOrder(toolButton_4, addvarRB);
         QWidget::setTabOrder(addvarRB, addvarRB_2);
         QWidget::setTabOrder(addvarRB_2, addFunction);
         QWidget::setTabOrder(addFunction, radioButton);
@@ -938,7 +953,7 @@ public:
         retranslateUi(GameFrameworkClassDef);
         QObject::connect(cancelButton, SIGNAL(clicked()), GameFrameworkClassDef, SLOT(reject()));
 
-        stackedWidget->setCurrentIndex(8);
+        stackedWidget->setCurrentIndex(2);
         varType->setCurrentIndex(-1);
         propType->setCurrentIndex(-1);
 
@@ -962,8 +977,9 @@ public:
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Select a class or class member, or click <span style=\" font-weight:600;\">Insert</span> to add new.</p></body></html>", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("GameFrameworkClassDef", "Class name:", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("GameFrameworkClassDef", "Display name:", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("GameFrameworkClassDef", "Class name:", 0, QApplication::UnicodeUTF8));
+        label_21->setText(QApplication::translate("GameFrameworkClassDef", "Base class:", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("GameFrameworkClassDef", "Description:", 0, QApplication::UnicodeUTF8));
         toolButton_5->setText(QString());
         toolButton_3->setText(QString());
