@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090600">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011110902">
 
   <!-- File: mingw32-gettext.xml -->
 
@@ -34,35 +34,53 @@
         </paragraph>
       </description>
 
-      <licence tarname="gettext-%-mingw32-%-lic.tar" />
-      <source tarname="gettext-%-mingw32-%-src.tar" />
+      <licence tarname="gettext-%-mingw32-%-lic.tar.%" />
+      <source tarname="gettext-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <release tarname="gettext-0.17-1-mingw32-bin.tar.lzma" >
+          <requires eq="mingw32-libgcc-*-mingw32-*-dll-1.tar" />
           <requires eq="mingw32-libiconv-*-mingw32-*-dll-2.tar" />
+          <requires eq="mingw32-libintl-%-mingw32-%-dll-8.tar" />
+        </release>
+        <release tarname="gettext-0.18.1.1-2-mingw32-bin.tar.lzma" >
+          <requires eq="mingw32-libgcc-*-mingw32-*-dll-1.tar" />
+          <requires ge="mingw32-libiconv-1.14-2-mingw32-*-dll-2.tar" />
           <requires eq="mingw32-libintl-%-mingw32-%-dll-8.tar" />
         </release>
       </component>
 
       <component class="doc">
         <release tarname="gettext-0.17-1-mingw32-doc.tar.lzma" />
+        <release tarname="gettext-0.18.1.1-2-mingw32-doc.tar.lzma" />
       </component>
 
       <component class="lic">
         <release tarname="gettext-0.17-1-mingw32-lic.tar.lzma" />
+        <release tarname="gettext-0.18.1.1-2-mingw32-lic.tar.lzma" />
       </component>
 
       <component class="dev">
         <release tarname="gettext-0.17-1-mingw32-dev.tar.lzma" >
-          <requires eq="mingw32-libgcc-*-mingw32-dll-1.tar" />
+          <requires eq="mingw32-libgcc-*-mingw32-*-dll-1.tar" />
           <requires eq="mingw32-libgettextpo-%-mingw32-%-dll-0.tar" />
           <requires eq="mingw32-libiconv-*-mingw32-*-dll-2.tar" />
+          <requires eq="mingw32-libintl-%-mingw32-%-dll-8.tar" />
+        </release>
+        <release tarname="gettext-0.18.1.1-2-mingw32-dev.tar.lzma" >
+          <requires eq="mingw32-libstdc++-*-mingw32-*-dll-6.tar" />
+          <requires eq="mingw32-libgomp-*-mingw32-*-dll-1.tar" />
+          <requires eq="mingw32-libgcc-*-mingw32-*-dll-1.tar" />
+          <requires eq="mingw32-libexpat-*-mingw32-*-dll-1.tar" />
+          <requires eq="mingw32-libgettextpo-%-mingw32-%-dll-0.tar" />
+          <requires ge="mingw32-libiconv-1.14-2-mingw32-*-dll-2.tar" />
           <requires eq="mingw32-libintl-%-mingw32-%-dll-8.tar" />
         </release>
       </component>
 
       <component class="ext">
         <release tarname="gettext-0.17-1-mingw32-ext.tar.lzma" />
+        <release tarname="gettext-0.18.1.1-2-mingw32-ext.tar.lzma" />
       </component>
     </package>
 
@@ -94,12 +112,17 @@
         </paragraph>
       </description>
 
-      <licence tarname="gettext-%-mingw32-%-lic.tar" />
-      <source tarname="gettext-%-mingw32-%-src.tar" />
+      <licence tarname="gettext-%-mingw32-%-lic.tar.%" />
+      <source tarname="gettext-%-mingw32-%-src.tar.%" />
 
       <component class="dll">
         <release tarname="libintl-0.17-1-mingw32-dll-8.tar.lzma" >
+          <requires eq="mingw32-libgcc-*-mingw32-*-dll-1.tar" />
           <requires eq="mingw32-libiconv-*-mingw32-*-dll-2.tar" />
+        </release>
+        <release tarname="libintl-0.18.1.1-2-mingw32-dll-8.tar.lzma" >
+          <requires eq="mingw32-libgcc-*-mingw32-*-dll-1.tar" />
+          <requires ge="mingw32-libiconv-1.14-2-mingw32-*-dll-2.tar" />
         </release>
       </component>
     </package>
@@ -134,13 +157,18 @@
         </paragraph>
       </description>
 
-      <licence tarname="gettext-%-mingw32-%-lic.tar" />
-      <source tarname="gettext-%-mingw32-%-src.tar" />
+      <licence tarname="gettext-%-mingw32-%-lic.tar.%" />
+      <source tarname="gettext-%-mingw32-%-src.tar.%" />
 
       <component class="dll">
         <release tarname="libgettextpo-0.17-1-mingw32-dll-0.tar.lzma" >
-          <requires eq="mingw32-libgcc-*-mingw32-dll-1.tar" />
+          <requires eq="mingw32-libgcc-*-mingw32-*-dll-1.tar" />
           <requires eq="mingw32-libiconv-*-mingw32-*-dll-2.tar" />
+          <requires eq="mingw32-libintl-%-mingw32-%-dll-8.tar" />
+        </release>
+        <release tarname="libgettextpo-0.18.1.1-2-mingw32-dll-0.tar.lzma" >
+          <requires eq="mingw32-libgcc-*-mingw32-*-dll-1.tar" />
+          <requires ge="mingw32-libiconv-1.14-2-mingw32-*-dll-2.tar" />
           <requires eq="mingw32-libintl-%-mingw32-%-dll-8.tar" />
         </release>
       </component>
@@ -176,12 +204,17 @@
         </paragraph>
       </description>
 
-      <licence tarname="gettext-%-mingw32-%-lic.tar" />
-      <source tarname="gettext-%-mingw32-%-src.tar" />
+      <licence tarname="gettext-%-mingw32-%-lic.tar.%" />
+      <source tarname="gettext-%-mingw32-%-src.tar.%" />
 
       <component class="dll">
         <release tarname="libasprintf-0.17-1-mingw32-dll-0.tar.lzma" >
-          <requires eq="mingw32-libgcc-*-mingw32-dll-1.tar" />
+          <requires eq="mingw32-libstdc++-*-mingw32-*-dll-6.tar" />
+          <requires eq="mingw32-libgcc-*-mingw32-*-dll-1.tar" />
+        </release>
+        <release tarname="libasprintf-0.18.1.1-2-mingw32-dll-0.tar.lzma" >
+          <requires eq="mingw32-libstdc++-*-mingw32-*-dll-6.tar" />
+          <requires eq="mingw32-libgcc-*-mingw32-*-dll-1.tar" />
         </release>
       </component>
     </package>

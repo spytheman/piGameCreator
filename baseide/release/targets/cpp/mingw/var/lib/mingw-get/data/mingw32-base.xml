@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://www.mingw.org" issue="2010083100">
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2011060500">
 
   <!-- File: mingw32-base.xml -->
   <!-- This is a preliminary catalogue to facilitate the release of
@@ -10,7 +10,7 @@
   <package-collection subsystem="mingw32">
     <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
 
-    <package name="mingw32-base" alias="base" class="virtual" >
+    <package name="mingw32-base" alias="base mingw mingw32" class="virtual" >
       <affiliate group="MinGW Base System" />
       <description lang="en" title="A Basic MinGW Installation" >
         <paragraph>This meta package provides a basic GCC installation,
@@ -21,7 +21,7 @@
       </description>
 
       <component class="bin">
-        <release tarname="mingw32-base-2010083100-mingw32-bin.meta" />
+        <release tarname="mingw32-base-2011060500-mingw32-bin.meta" />
         <requires eq="mingw32-gcc-*-mingw32-*-bin.tar" />
         <requires eq="mingw32-gcc-*-mingw32-*-lic.tar" />
         <requires eq="mingw32-make-*-mingw32-*-bin.tar" />

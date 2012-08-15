@@ -62,6 +62,7 @@ struct buildtarget
     QString name,codename,description,exportername;
     bool valid; //installed or not - it MUST be possible to maintain uninstalled targets [but don't show them in the editor!]
     dllForExport* exporter;
+    QStringList defines;
     vObject settings;
 };
 #define CFkeyword 0

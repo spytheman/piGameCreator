@@ -9,6 +9,7 @@ public:
     rsModel();
     QString mainFolderName();
     QString kind();
+    bool addToProject(gameproject *p);
 };
 
 #endif // RSMODEL_H

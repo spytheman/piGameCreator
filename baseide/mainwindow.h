@@ -52,6 +52,8 @@ private slots:
 
     void on_actionGameScript_tester_triggered();
 
+    void on_action_Targets_triggered();
+
 private:
     QTimer OpenWidgetTimer;
 };

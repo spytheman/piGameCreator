@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010080500">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: msys-regex.xml -->
 
@@ -47,8 +47,8 @@
         </paragraph>
       </description>
 
-      <source tarname="regex-%-msys-%-src.tar" />
-      <licence tarname="regex-%-msys-%-lic.tar" />
+      <source tarname="regex-%-msys-%-src.tar.%" />
+      <licence tarname="regex-%-msys-%-lic.tar.%" />
 
       <component class="dll">
         <release tarname="libregex-0.12-1-msys-1.0.11-dll-0.tar.lzma" />

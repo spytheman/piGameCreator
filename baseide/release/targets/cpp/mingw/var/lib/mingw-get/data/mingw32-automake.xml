@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010091200">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: mingw32-automake.xml -->
 
@@ -18,8 +18,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="automake-%-mingw32-%-lic.tar" />
-      <source tarname="automake-%-mingw32-%-src.tar" />
+      <licence tarname="automake-%-mingw32-%-lic.tar.%" />
+      <source tarname="automake-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="mingw32-automake1.4-*-mingw32-*-bin.tar" />
@@ -52,8 +52,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="automake1.4-%-mingw32-%-lic.tar" />
-      <source tarname="automake1.4-%-mingw32-%-src.tar" />
+      <licence tarname="automake1.4-%-mingw32-%-lic.tar.%" />
+      <source tarname="automake1.4-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="mingw32-autoconf-*-mingw32-*-bin.tar" />
@@ -86,8 +86,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="automake1.5-%-mingw32-%-lic.tar" />
-      <source tarname="automake1.5-%-mingw32-%-src.tar" />
+      <licence tarname="automake1.5-%-mingw32-%-lic.tar.%" />
+      <source tarname="automake1.5-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="mingw32-autoconf-*-mingw32-*-bin.tar" />
@@ -120,8 +120,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="automake1.6-%-mingw32-%-lic.tar" />
-      <source tarname="automake1.6-%-mingw32-%-src.tar" />
+      <licence tarname="automake1.6-%-mingw32-%-lic.tar.%" />
+      <source tarname="automake1.6-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="mingw32-autoconf-*-mingw32-*-bin.tar" />
@@ -154,8 +154,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="automake1.7-%-mingw32-%-lic.tar" />
-      <source tarname="automake1.7-%-mingw32-%-src.tar" />
+      <licence tarname="automake1.7-%-mingw32-%-lic.tar.%" />
+      <source tarname="automake1.7-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="mingw32-autoconf-*-mingw32-*-bin.tar" />
@@ -188,8 +188,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="automake1.8-%-mingw32-%-lic.tar" />
-      <source tarname="automake1.8-%-mingw32-%-src.tar" />
+      <licence tarname="automake1.8-%-mingw32-%-lic.tar.%" />
+      <source tarname="automake1.8-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="mingw32-autoconf-*-mingw32-*-bin.tar" />
@@ -222,8 +222,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="automake1.9-%-mingw32-%-lic.tar" />
-      <source tarname="automake1.9-%-mingw32-%-src.tar" />
+      <licence tarname="automake1.9-%-mingw32-%-lic.tar.%" />
+      <source tarname="automake1.9-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="mingw32-autoconf-*-mingw32-*-bin.tar" />
@@ -256,8 +256,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="automake1.10-%-mingw32-%-lic.tar" />
-      <source tarname="automake1.10-%-mingw32-%-src.tar" />
+      <licence tarname="automake1.10-%-mingw32-%-lic.tar.%" />
+      <source tarname="automake1.10-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="mingw32-autoconf-*-mingw32-*-bin.tar" />
@@ -290,8 +290,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="automake1.11-%-mingw32-%-lic.tar" />
-      <source tarname="automake1.11-%-mingw32-%-src.tar" />
+      <licence tarname="automake1.11-%-mingw32-%-lic.tar.%" />
+      <source tarname="automake1.11-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="mingw32-autoconf-*-mingw32-*-bin.tar" />

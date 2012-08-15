@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://www.mingw.org" issue="2011031200">
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2011082300">
 
   <!-- File: mingw32-runtime.xml ~~ mingw-get package description for MinGW API -->
 
@@ -29,11 +29,15 @@
 
       <component class="dev">
         <requires eq="mingwrt-%-mingw32-dll.tar" />
+        <release tarname="mingwrt-3.20-mingw32-dev.tar.gz" />
+        <release tarname="mingwrt-3.19-mingw32-dev.tar.gz" />
         <release tarname="mingwrt-3.18-mingw32-dev.tar.gz" />
         <release tarname="mingwrt-3.17-mingw32-dev.tar.gz" />
       </component>
 
       <component class="dll">
+        <release tarname="mingwrt-3.20-mingw32-dll.tar.gz" />
+        <release tarname="mingwrt-3.19-mingw32-dll.tar.gz" />
         <release tarname="mingwrt-3.18-mingw32-dll.tar.gz" />
         <release tarname="mingwrt-3.17-mingw32-dll.tar.gz" />
       </component>
@@ -55,6 +59,10 @@
       </description>
 
       <component class="dev">
+        <release tarname="w32api-3.17-2-mingw32-dev.tar.lzma" >
+          <licence tarname="w32api-%-mingw32-dev.tar.lzma" />
+          <source tarname="w32api-%-mingw32-src.tar.lzma" />
+        </release>
         <release tarname="w32api-3.17-1-mingw32-dev.tar.lzma" >
           <licence tarname="w32api-%-mingw32-dev.tar.lzma" />
           <source tarname="w32api-%-mingw32-src.tar.lzma" />

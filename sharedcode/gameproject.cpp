@@ -1,9 +1,5 @@
 #include "gameproject.h"
-#ifdef CREATOR_IDE
-#include "../baseide/gcide.h"
-#else
 #include "frameworkdata.h"
-#endif
 #include "../sharedcode/globals.h"
 #include <QtXml/QDomDocument>
 #include <QtXml/QDomElement>
@@ -17,9 +13,6 @@
 gameproject::gameproject()
 {
     mFilename = "";
-#ifndef CREATOR_IDE
-    fd.loadFrameworkData();
-#endif
 }
 
 gameproject::gameproject(QString filename)
@@ -75,6 +68,29 @@ bool gameproject::load(QString filename)
             }
         }
         else {return false;} //Resources MUST be first defined!
+        res = project->documentElement().firstChild().nextSibling();
+        if(res.toElement().tagName()=="targets")
+        {
+            res=res.firstChild();
+            while(!res.isNull())
+            {
+                QDomElement e = res.toElement();
+                if(e.tagName()=="target")
+                {
+                    gcprint("TARGET: "+e.attribute("name"));
+                    //add the target:
+                    buildtarget* t = new buildtarget;
+                    t->exportername = e.attribute("exporter");
+                    t->codename = e.attribute("name");
+                    t->name = e.elementsByTagName("name").at(0).toElement().text();
+                    t->description = e.elementsByTagName("description").at(0).toElement().text();
+                    t->exporter = NULL; //make it invalid for now!
+                    t->valid = false;
+                    mBuildTargets.append(t);
+                }
+                res=res.nextSibling();
+            }
+        }
     }
     return true;
 }
@@ -87,7 +103,7 @@ void gameproject::addentry(QDomElement e)
         rsImage* img = new rsImage;
         img->name = e.attribute("name");
         img->type = e.attribute("type","image");
-        img->path = e.attribute("path","/");    //default path is the project root
+        img->path = e.attribute("path","");    //default path is the project root
         img->icon = QIcon( e.attribute("icon", ":/resources/RES/ffficons/image.png"));
         img->preview = QPixmap( this->absoluteFolder()+"/"+img->relativeFolder()+"/preview.png" );
         mImages.append(img);
@@ -108,7 +124,7 @@ void gameproject::addentry(QDomElement e)
         rsClass* res = new rsClass;
         res->name = e.attribute("name");
         res->type = e.attribute("type","codebased");
-        res->path = e.attribute("path","/");    //default path is the project root
+        res->path = e.attribute("path","");    //default path is the project root
         res->icon = QIcon( e.attribute("icon", ":/resources/RES/ffficons/brick.png"));
         res->preview = QPixmap( this->absoluteFolder()+"/"+res->relativeFolder()+"/preview.png" );
         mClasses.append(res);
@@ -121,7 +137,7 @@ void gameproject::addentry(QDomElement e)
         rsScene* res = new rsScene;
         res->name = e.attribute("name");
         res->type = e.attribute("type","scene");
-        res->path = e.attribute("path","/");    //default path is the project root
+        res->path = e.attribute("path","");    //default path is the project root
         res->icon = QIcon( e.attribute("icon", ":/resources/RES/ffficons/application.png"));
         res->preview = QPixmap( this->absoluteFolder()+"/"+res->relativeFolder()+"/preview.png" );
         mScenes.append(res);
@@ -208,4 +224,22 @@ rsClass gameproject::getClass(QString name)
         //nothing returned? Then check Framework data
         vObject o = FrameworkData::getFrameworkClass(name);
     }
+}
+
+gameproject::~gameproject()
+{
+    qDeleteAll(mBuildTargets);
+    qDeleteAll(mImages);
+    qDeleteAll(mClasses);
+    qDeleteAll(mImages);
+    qDeleteAll(mModels);
+    qDeleteAll(mScenes);
+    qDeleteAll(mSounds);
+}
+
+void gameproject::setBuildTargets(QList<buildtarget *> targets)
+{
+    qDeleteAll(mBuildTargets);
+    mBuildTargets.clear();
+    mBuildTargets = targets;
 }

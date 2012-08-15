@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090600">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: msys-gmp.xml -->
 
@@ -26,8 +26,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="gmp-%-msys-%-lic.tar" />
-      <source tarname="gmp-%-msys-%-src.tar" />
+      <licence tarname="gmp-%-msys-%-lic.tar.%" />
+      <source tarname="gmp-%-msys-%-src.tar.%" />
 
       <component class="doc">
         <release tarname="gmp-5.0.1-1-msys-1.0.13-doc.tar.lzma" />
@@ -58,8 +58,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="gmp-%-msys-%-lic.tar" />
-      <source tarname="gmp-%-msys-%-src.tar" />
+      <licence tarname="gmp-%-msys-%-lic.tar.%" />
+      <source tarname="gmp-%-msys-%-src.tar.%" />
 
       <component class="dll">
         <release tarname="libgmp-5.0.1-1-msys-1.0.13-dll-10.tar.lzma" />

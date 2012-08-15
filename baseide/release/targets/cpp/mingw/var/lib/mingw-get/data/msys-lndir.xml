@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090500">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: msys-lndir.xml -->
 
@@ -26,8 +26,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="lndir-%-msys-%-lic.tar" />
-      <source tarname="lndir-%-msys-%-src.tar" />
+      <licence tarname="lndir-%-msys-%-lic.tar.%" />
+      <source tarname="lndir-%-msys-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="msys-core-*-msys-*-bin.tar" />

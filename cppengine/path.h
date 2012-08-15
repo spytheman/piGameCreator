@@ -3,10 +3,10 @@
 #include "pgframework.h"
 
 
-
+class point;
 class path
 {
-public:	gcArray<point*>* points;
+public:	gcArray<point*>* points;
 
 };
 

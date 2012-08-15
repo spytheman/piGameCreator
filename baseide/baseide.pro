@@ -49,7 +49,8 @@ SOURCES += main.cpp\
     ../sharedcode/frameworkdata.cpp \
     scripttestwindow.cpp \
     ../sharedcode/timer.cpp \
-    codeeditor.cpp
+    codeeditor.cpp \
+    buildtargets.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -83,7 +84,8 @@ HEADERS  += mainwindow.h \
     ../sharedcode/frameworkdata.h \
     scripttestwindow.h \
     ../sharedcode/timer.h \
-    codeeditor.h
+    codeeditor.h \
+    buildtargets.h
 
 FORMS    += mainwindow.ui \
     splashscreen.ui \

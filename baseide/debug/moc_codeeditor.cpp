@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'codeeditor.h'
 **
-** Created: Sat 11. Aug 03:44:24 2012
+** Created: Sun 12. Aug 05:52:09 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!

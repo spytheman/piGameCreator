@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010080500">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011110700">
 
   <!-- File: msys-xz.xml -->
 
@@ -29,8 +29,8 @@
         </paragraph>
       </description>
 
-      <source tarname="xz-%-msys-%-src.tar" />
-      <licence tarname="xz-%-msys-%-lic.tar" />
+      <source tarname="xz-%-msys-%-src.tar.%" />
+      <licence tarname="xz-%-msys-%-lic.tar.%" />
 
       <component class="bin">
         <!-- Every MSYS package requires msys-core-bin.  This dependency
@@ -41,6 +41,10 @@
         <release tarname="xz-4.999.9beta_20100401-1-msys-1.0.13-bin.tar.gz">
           <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
           <requires eq="msys-liblzma-%-msys-%-dll-1.tar" />
+        </release>
+        <release tarname="xz-5.0.3-1-msys-1.0.17-bin.tar.lzma">
+          <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+          <requires eq="msys-liblzma-%-msys-%-dll-5.tar" />
         </release>
 
         <!-- Other requirements support the auxiliary scripts, which are
@@ -55,10 +59,16 @@
 
       <component class="doc">
         <release tarname="xz-4.999.9beta_20100401-1-msys-1.0.13-doc.tar.gz" />
+        <release tarname="xz-5.0.3-1-msys-1.0.17-doc.tar.lzma" />
+      </component>
+
+      <component class="lang">
+        <release tarname="xz-5.0.3-1-msys-1.0.17-lang.tar.lzma" />
       </component>
 
       <component class="lic">
         <release tarname="xz-4.999.9beta_20100401-1-msys-1.0.13-lic.tar.gz" />
+        <release tarname="xz-5.0.3-1-msys-1.0.17-lic.tar.lzma" />
       </component>
     </package>
 
@@ -84,11 +94,12 @@
         </paragraph>
       </description>
 
-      <source tarname="xz-%-msys-%-src.tar" />
-      <licence tarname="xz-%-msys-%-lic.tar" />
+      <source tarname="xz-%-msys-%-src.tar.%" />
+      <licence tarname="xz-%-msys-%-lic.tar.%" />
 
       <component class="dll">
         <release tarname="liblzma-4.999.9beta_20100401-1-msys-1.0.13-dll-1.tar.gz" />
+        <release tarname="liblzma-5.0.3-1-msys-1.0.17-dll-5.tar.lzma" />
 
         <!-- Every MSYS DLL package requires msys-core-bin -->
         <requires eq="msys-core-*-msys-*-bin.tar" />
@@ -97,6 +108,9 @@
       <component class="dev">
         <release tarname="liblzma-4.999.9beta_20100401-1-msys-1.0.13-dev.tar.gz">
           <requires eq="msys-liblzma-%-msys-%-dll-1.tar" />
+        </release>
+        <release tarname="liblzma-5.0.3-1-msys-1.0.17-dev.tar.lzma">
+          <requires eq="msys-liblzma-%-msys-%-dll-5.tar" />
         </release>
       </component>
     </package>

@@ -13,6 +13,9 @@ INPUT(
 ./release\workspacewidget.o
 ./release\sceneview.o
 ./release\frameworkdata.o
+./release\rssound.o
+./release\rsmodel.o
+./release\rsgraphicseffect.o
 ./release\moc_sceneeditor.o
 ./release\moc_qwidgetwithclosesignal.o
 ./release\qrc_resources.o

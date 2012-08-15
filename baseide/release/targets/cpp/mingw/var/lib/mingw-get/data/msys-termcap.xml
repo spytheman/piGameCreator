@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010071900">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: msys-termcap.xml -->
 
@@ -24,8 +24,8 @@
         </paragraph>
       </description>
 
-      <source tarname="termcap-%-msys-%-src.tar" />
-      <licence tarname="termcap-%-msys-%-lic.tar" />
+      <source tarname="termcap-%-msys-%-src.tar.%" />
+      <licence tarname="termcap-%-msys-%-lic.tar.%" />
 
       <component class="bin">
         <release tarname="termcap-0.20050421_1-2-msys-1.0.13-bin.tar.lzma" />
@@ -57,8 +57,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="termcap-%-msys-%-lic.tar" />
-      <source tarname="termcap-%-msys-%-src.tar" />
+      <licence tarname="termcap-%-msys-%-lic.tar.%" />
+      <source tarname="termcap-%-msys-%-src.tar.%" />
 
       <component class="dll">
         <release tarname="libtermcap-0.20050421_1-2-msys-1.0.13-dll-0.tar.lzma" />
@@ -67,9 +67,9 @@
       </component>
 
       <component class="dev">
-        <release tarname="libtermcap-0.20050421_1-2-msys-1.0.13-dev.tar.lzma" />
-        <requires eq="msys-libtermcap-%-msys-%-dll-0.tar" />
-        <requires eq="msys-termcap-%-msys-%-bin.tar" />
+        <release tarname="libtermcap-0.20050421_1-2-msys-1.0.13-dev.tar.lzma">
+          <requires eq="msys-libtermcap-%-msys-%-dll-0.tar" />
+        </release>
       </component>
     </package>
 

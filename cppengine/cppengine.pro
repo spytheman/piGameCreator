@@ -41,7 +41,11 @@ SOURCES += \
 	timer.cpp \
 	transition.cpp \
 	vertexShader.cpp \
-	window.cpp
+	window.cpp \
+    gcstring/bstrwrap.cpp \
+    gcstring/bstrlib.c \
+    gcstring/bstraux.c \
+    gcstring/bsafe.c
 
 HEADERS += \
 	application.h \
@@ -75,4 +79,8 @@ HEADERS += \
 	timer.h \
 	transition.h \
 	vertexShader.h \
-	window.h
+	window.h \
+    gcstring/bstrwrap.h \
+    gcstring/bstrlib.h \
+    gcstring/bstraux.h \
+    gcstring/bsafe.h

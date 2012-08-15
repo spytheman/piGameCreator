@@ -11,12 +11,12 @@ class gcArray
 public:
 /* Avoid being regenerated:
 	void sort();
-	void insertBefore(int n, T* value);
-	void insertAfter(int n, T* value);
-    void append(T* value);
-	gcArray<T*>* getDuplicates();
+    void insertBefore(int n, T value);
+    void insertAfter(int n, T value);
+    void append(T value);
+    gcArray<T>* getDuplicates();
 	int count();
-	gcArray<T*>* clone();
+    gcArray<T>* clone();
 	void clear();
     void remove(int n);
 	void setSize(int newSize);
@@ -27,6 +27,10 @@ public:
 /*
 	Reverses the array, e.g. first element becomes last, second element becomes pre-last etc. 
 */
+    T operator[](int i)
+    {
+    }
+
     void reverse()
     {
 
@@ -75,7 +79,7 @@ public:
 	FAIL: arrays must be forced VALUE types and not references! 
 	TODO: CAREFULLY PLAN - Arrays are REFERENCES or VALUE TYPES? 
 */
-    gcArray<T*>* clone()
+    gcArray<T>* clone()
     {
 
     }
@@ -93,7 +97,7 @@ public:
 	
 	If the array type is of some class, comparison is based on class' int isEqual(T) function. This function must return -1 if this<T 0 if this=T or 1 if this>T. 
 */
-    gcArray<T*>* getDuplicates()
+    gcArray<T>* getDuplicates()
     {
 
     }
@@ -101,7 +105,7 @@ public:
 /*
 	Appends a value to the end of the array, and resets its size 
 */
-    void append(T* value)
+    void append(T value)
     {
 
     }
@@ -111,7 +115,7 @@ public:
 	
 	NOTE: This function may be slower in some languages and platforms because full array rewrite will be required in worst case (inserting after the first element). 
 */
-    void insertAfter(int n, T* value)
+    void insertAfter(int n, T value)
     {
 
     }
@@ -121,7 +125,7 @@ public:
 	
 	NOTE: This function may be slower in some languages and platforms because full array rewrite will be required in worst case (inserting before the first element). 
 */
-    void insertBefore(int n, T* value)
+    void insertBefore(int n, T value)
     {
 
     }

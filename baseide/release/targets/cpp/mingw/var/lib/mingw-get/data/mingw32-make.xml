@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2011012200">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
   <package-collection subsystem="mingw32">
     <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
     <!-- NOTE: no alias declared here, because msys-make is considered
@@ -22,8 +22,8 @@
         </paragraph>
       </description>
 
-      <source tarname="make-%-mingw32-src.tar" />
-      <licence tarname="make-%-mingw32-doc.tar" />
+      <source tarname="make-%-mingw32-src.tar.%" />
+      <licence tarname="make-%-mingw32-doc.tar.%" />
 
       <component class="bin">
         <release tarname="make-3.82-5-mingw32-bin.tar.lzma" >

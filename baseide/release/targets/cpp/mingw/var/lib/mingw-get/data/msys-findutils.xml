@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010080600">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: msys-findutils.xml -->
 
@@ -24,8 +24,8 @@
         </paragraph>
       </description>
 
-      <source tarname="findutils-%-msys-%-src.tar" />
-      <licence tarname="findutils-%-msys-%-lic.tar" />
+      <source tarname="findutils-%-msys-%-src.tar.%" />
+      <licence tarname="findutils-%-msys-%-lic.tar.%" />
 
       <component class="bin">
         <requires eq="msys-core-*-msys-*-bin.tar" />
@@ -69,8 +69,8 @@
         </paragraph>
       </description>
 
-      <source tarname="findutils-%-msys-%-src.tar" />
-      <licence tarname="findutils-%-msys-%-lic.tar" />
+      <source tarname="findutils-%-msys-%-src.tar.%" />
+      <licence tarname="findutils-%-msys-%-lic.tar.%" />
 
       <component class="bin">
         <requires eq="msys-core-*-msys-*-bin.tar" />

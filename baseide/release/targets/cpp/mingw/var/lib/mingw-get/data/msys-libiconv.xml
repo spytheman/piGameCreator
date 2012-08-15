@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010071900">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011103100">
 
   <!-- File: msys-libiconv.xml -->
 
@@ -31,12 +31,16 @@
         </paragraph>
       </description>
 
-      <source tarname="libiconv-%-msys-%-src.tar" />
-      <licence tarname="libiconv-%-msys-%-lic.tar" />
+      <source tarname="libiconv-%-msys-%-src.tar.%" />
+      <licence tarname="libiconv-%-msys-%-lic.tar.%" />
 
       <component class="bin">
         <release tarname="libiconv-1.13.1-2-msys-1.0.13-bin.tar.lzma">
           <requires eq="msys-libintl-*-msys-*-dll-8.tar" />
+          <requires eq="msys-libiconv-%-msys-%-dll-2.tar" />
+        </release>
+        <release tarname="libiconv-1.14-1-msys-1.0.17-bin.tar.lzma">
+          <requires ge="msys-libintl-0.18.1.1-1-msys-*-dll-8.tar" />
           <requires eq="msys-libiconv-%-msys-%-dll-2.tar" />
         </release>
         <requires eq="msys-core-*-msys-*-bin.tar" />
@@ -44,20 +48,26 @@
 
       <component class="doc">
         <release tarname="libiconv-1.13.1-2-msys-1.0.13-doc.tar.lzma" />
+        <release tarname="libiconv-1.14-1-msys-1.0.17-doc.tar.lzma" />
       </component>
 
       <component class="lic">
         <release tarname="libiconv-1.13.1-2-msys-1.0.13-lic.tar.lzma" />
+        <release tarname="libiconv-1.14-1-msys-1.0.17-lic.tar.lzma" />
       </component>
 
       <component class="dev">
         <release tarname="libiconv-1.13.1-2-msys-1.0.13-dev.tar.lzma" >
           <requires eq="msys-libiconv-%-msys-%-dll-2.tar" />
         </release>
+        <release tarname="libiconv-1.14-1-msys-1.0.17-dev.tar.lzma" >
+          <requires eq="msys-libiconv-%-msys-%-dll-2.tar" />
+        </release>
       </component>
 
       <component class="dll">
         <release tarname="libiconv-1.13.1-2-msys-1.0.13-dll-2.tar.lzma" />
+        <release tarname="libiconv-1.14-1-msys-1.0.17-dll-2.tar.lzma" />
         <requires eq="msys-core-*-msys-*-bin.tar" />
       </component>
     </package>
@@ -87,11 +97,12 @@
         </paragraph>
       </description>
 
-      <source tarname="libiconv-%-msys-%-src.tar" />
-      <licence tarname="libiconv-%-msys-%-lic.tar" />
+      <source tarname="libiconv-%-msys-%-src.tar.%" />
+      <licence tarname="libiconv-%-msys-%-lic.tar.%" />
 
       <component class="dll">
         <release tarname="libcharset-1.13.1-2-msys-1.0.13-dll-1.tar.lzma" />
+        <release tarname="libcharset-1.14-1-msys-1.0.17-dll-1.tar.lzma" />
         <requires eq="msys-core-*-msys-*-bin.tar" />
       </component>
     </package>

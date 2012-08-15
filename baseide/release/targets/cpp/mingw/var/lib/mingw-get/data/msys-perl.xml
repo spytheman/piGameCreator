@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090500">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: msys-perl.xml -->
 
@@ -18,8 +18,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="perl-%-msys-%-lic.tar" />
-      <source tarname="perl-%-msys-%-src.tar" />
+      <licence tarname="perl-%-msys-%-lic.tar.%" />
+      <source tarname="perl-%-msys-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="msys-core-*-msys-*-bin.tar" />
@@ -28,22 +28,46 @@
           <requires eq="msys-libgdbm-*-msys-*-dll-3.tar" />
           <requires eq="msys-libcrypt-*-msys-*-dll-0.tar" />
         </release>
+        <release tarname="perl-5.8.8-1-msys-1.0.17-bin.tar.lzma" >
+          <requires eq="msys-zlib-*-msys-*-dll.tar" />
+          <requires eq="msys-libbz2-*-msys-*-dll-1.tar" />
+          <requires eq="msys-libgdbm-*-msys-*-dll-3.tar" />
+          <requires eq="msys-libcrypt-*-msys-*-dll-0.tar" />
+          <requires eq="msys-libexpat-*-msys-*-dll-1.tar" />
+          <requires eq="msys-libxml2-*-msys-*-dll-2.tar" />
+          <!-- for perlrebase script -->
+          <!--
+          <requires eq="msys-findutils-*-msys-*-bin.tar" />
+          <requires eq="msys-grep-*-msys-*-bin.tar" />
+          <requires eq="msys-sed-*-msys-*-bin.tar" />
+          <requires eq="msys-rebase-*-msys-*-bin.tar" />
+          -->
+          <!-- and one of these two: -->
+          <!--
+          <requires eq="msys-binutils-*-msys-*-bin.tar" />
+          <requires eq="mingw32-binutils-*-mingw32-*-bin.tar" />
+          -->
+        </release>
       </component>
 
       <component class="doc">
         <release tarname="perl-5.6.1_2-2-msys-1.0.13-doc.tar.lzma" />
+        <release tarname="perl-5.8.8-1-msys-1.0.17-doc.tar.lzma" />
       </component>
 
       <component class="html">
         <release tarname="perl-5.6.1_2-2-msys-1.0.13-html.tar.lzma" />
+        <release tarname="perl-5.8.8-1-msys-1.0.17-html.tar.lzma" />
       </component>
 
       <component class="man">
         <release tarname="perl-5.6.1_2-2-msys-1.0.13-man.tar.lzma" />
+        <release tarname="perl-5.8.8-1-msys-1.0.17-man.tar.lzma" />
       </component>
 
       <component class="lic">
         <release tarname="perl-5.6.1_2-2-msys-1.0.13-lic.tar.lzma" />
+        <release tarname="perl-5.8.8-1-msys-1.0.17-lic.tar.lzma" />
       </component>
     </package>
 

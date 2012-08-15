@@ -15,6 +15,7 @@ class rsModel;
 class rsScene;
 class rsClass;
 class rsSound;
+class rsGraphicsEffect;
 
 class gameproject
 {
@@ -23,11 +24,14 @@ class gameproject
     friend class rsScene;
     friend class rsClass;
     friend class rsSound;
+    friend class rsGraphicsEffect;
 public:
+
     //construct the game project
     gameproject();
     //with file set
     gameproject(QString filename);
+    ~gameproject();
 
     //Loads project from given file
     bool load(QString filename);
@@ -36,6 +40,7 @@ public:
     bool load();
 
     void setFilename(QString);
+    void setBuildTargets(QList<buildtarget*> targets);
     QString filename();
     QString absoluteFolder();
     QString title();
@@ -52,6 +57,7 @@ public:
     QList<rsModel*> models();
     QList<rsScene*> scenes();
     QList<rsSound*> sounds();
+    QList<rsGraphicsEffect*> graphicsEffects();
 
     //Convenience string lists and checks [may get slow!]:
     QStringList getClasses();
@@ -66,6 +72,8 @@ public:
     bool isScene(QString name);
     bool isSound(QString name);
     bool isWorld(QString name);
+    bool isGraphicsEffect(QString name);
+
     bool isKind(QString name, QString kind);
     bool isType(QString name, QString type);
     rsClass getClass(QString name);
@@ -78,18 +86,17 @@ public:
 private:
     QString mFilename, mTitle;
 
-    //containers
+    //containers @RESOURCE
     QList<rsClass*> mClasses;
     QList<rsImage*> mImages;
     QList<rsModel*> mModels;
     QList<rsScene*> mScenes;
     QList<rsSound*> mSounds;
+    QList<rsGraphicsEffect*> mGraphicsEffects;
+
     QList<buildtarget*> mBuildTargets;
     void addentry(QDomElement e);
 
-#ifndef CREATOR_IDE
-    FrameworkData fd;
-#endif
 };
 
 #endif // GAMEPROJECT_H

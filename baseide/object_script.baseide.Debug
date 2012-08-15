@@ -35,6 +35,7 @@ INPUT(
 ./debug\scripttestwindow.o
 ./debug\timer.o
 ./debug\codeeditor.o
+./debug\buildtargets.o
 ./debug\moc_mainwindow.o
 ./debug\moc_splashscreen.o
 ./debug\moc_gcide.o
@@ -49,6 +50,7 @@ INPUT(
 ./debug\moc_settingswindow.o
 ./debug\moc_scripttestwindow.o
 ./debug\moc_codeeditor.o
+./debug\moc_buildtargets.o
 ./debug\qrc_resources.o
 ./debug\qrc_res_ide.o
 );

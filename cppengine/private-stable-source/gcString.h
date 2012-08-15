@@ -3,21 +3,33 @@
 #include "gcArray.h"
 #include "pgframework.h"
 #include <iostream>
+#include "gcstring/bstrwrap.h"
+using namespace Bstrlib;
 
 class gcString
 {
-public:
-	
+public:		
 /*
     For gcString to work, it must be implemented to act like string.
     So following methods and overloads are nessesary
 */
-    gcString& operator = (const char* strdata);
+
     gcString(const char *strdata);
+    gcString(const gcString& string);
+    gcString(const CBString& string);
+    gcString(const gcString* string);
     gcString();
-    ~gcString();
-    int mLength;
-    char* mData;
+
+    //gcString& operator =(const gcString &s);
+    gcString& operator =(const char* s);
+
+    gcString operator + (const gcString& s);
+    gcString operator + (const char* s);
+
+    gcString& operator += (const gcString& s);
+    gcString& operator += (const char* s);
+    /**/
+
 	
 /*
 	Sets the lingth of the string to a length , filling it with flood at the beginning if new size is greater than current, or truncating it otherwise from the end . 
@@ -105,7 +117,18 @@ public:
 	Returns the count of lines in this string. For line delimiter CR, LF, or CRLF are respected. 
 */
 	int lines();
+
+/*
+    If you need formatting, use the format() instead.
+*/
+    static gcString gcFromInt(int value);
+
+    friend gcString operator+(const char* l, const gcString& r);
+    friend std::ostream& operator << (std::ostream& cout, const gcString s);
+    CBString data;
 };
-std::ostream& operator << (std::ostream& cout, const gcString s);
+
+extern gcString operator+(const char* l, const gcString& r);
+extern std::ostream& operator << (std::ostream& cout, const gcString s);
 
 #endif //GCSTRING_H

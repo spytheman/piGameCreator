@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090600">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: mingw32-autoconf.xml -->
 
@@ -23,8 +23,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="autoconf-%-mingw32-%-lic.tar" />
-      <source tarname="autoconf-%-mingw32-%-src.tar" />
+      <licence tarname="autoconf-%-mingw32-%-lic.tar.%" />
+      <source tarname="autoconf-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="mingw32-autoconf2.1-*-mingw32-*-bin.tar" />
@@ -33,10 +33,12 @@
         <requires eq="msys-core-*-msys-*-bin.tar" />
         <requires eq="msys-gawk-*-msys-*-bin.tar" />
         <release tarname="autoconf-9-1-mingw32-bin.tar.lzma" />
+        <release tarname="autoconf-10-1-mingw32-bin.tar.lzma" />
       </component>
 
       <component class="lic">
         <release tarname="autoconf-9-1-mingw32-lic.tar.lzma" />
+        <release tarname="autoconf-10-1-mingw32-lic.tar.lzma" />
       </component>
     </package>
 
@@ -56,8 +58,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="autoconf2.1-%-mingw32-%-lic.tar" />
-      <source tarname="autoconf2.1-%-mingw32-%-src.tar" />
+      <licence tarname="autoconf2.1-%-mingw32-%-lic.tar.%" />
+      <source tarname="autoconf2.1-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="msys-core-*-msys-*-bin.tar" />
@@ -93,8 +95,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="autoconf2.5-%-mingw32-%-lic.tar" />
-      <source tarname="autoconf2.5-%-mingw32-%-src.tar" />
+      <licence tarname="autoconf2.5-%-mingw32-%-lic.tar.%" />
+      <source tarname="autoconf2.5-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="msys-core-*-msys-*-bin.tar" />
@@ -103,14 +105,17 @@
         <requires eq="msys-perl-*-msys-*-bin.tar" />
         <requires eq="msys-texinfo-*-msys-*-bin.tar" />
         <release tarname="autoconf2.5-2.67-1-mingw32-bin.tar.lzma" />
+        <release tarname="autoconf2.5-2.68-1-mingw32-bin.tar.lzma" />
       </component>
 
       <component class="doc">
         <release tarname="autoconf2.5-2.67-1-mingw32-doc.tar.lzma" />
+        <release tarname="autoconf2.5-2.68-1-mingw32-doc.tar.lzma" />
       </component>
 
       <component class="lic">
         <release tarname="autoconf2.5-2.67-1-mingw32-lic.tar.lzma" />
+        <release tarname="autoconf2.5-2.68-1-mingw32-lic.tar.lzma" />
       </component>
     </package>
 

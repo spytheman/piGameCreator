@@ -4,6 +4,7 @@
 #include "scriptwindow.h"
 #include "ntdialog.h"
 #include "../sharedcode/globals.h"
+#include "codeeditor.h"
 #include <QTextDocumentFragment>
 #include <QCryptographicHash>
 #include <QMessageBox>
@@ -1073,12 +1074,13 @@ void GameFrameworkClassDef::genCpp(vObject Class,int when)
     {
         hUsedTypes.clear();
         QString header,source, fnh, fncpp, target="../../cppengine",
-                hforwards,inclh,inclcpp,classmember, className, classNameNoPointer;
+                hforwards,inclh,inclcpp,classmember, className, classNameNoPointer, baseClassName;
         QStringList classmembers;
         QList<vObject> functions; //vObject contains: sig, code  [CPP entries]
         QTextEdit textedit;  //used only for HTML2TEXT
         className=cppGetType(Class.value("gcName").toString());
         classNameNoPointer=cppGetType(Class.value("gcName").toString(),true);
+        baseClassName=Class.value("gcBase").toString();
 
         //includes:
         inclh = "#include \"pgframework.h\"";
@@ -1284,11 +1286,18 @@ void GameFrameworkClassDef::genCpp(vObject Class,int when)
                 }
             }
             qDebug() << hUsedTypes;
-
+            QString inheritedClass;
+            if(baseClassName!="")
+            {
+                inclh += "\n#include \""+baseClassName+".h\"";
+                inheritedClass = ": public "+baseClassName;
+            }
             inclh += "\n";
             QString uppername = classNameNoPointer.toUpper() + "_H",
             guards = "#ifndef " +uppername + "\n#define "+uppername;
-            header = guards + "\n" + inclh + "\n" + hforwards + "\n\nclass " + classNameNoPointer + "\n{\npublic:\n";
+            header = guards + "\n" + inclh + "\n" + hforwards +
+                    "\n\nclass " + classNameNoPointer + inheritedClass +
+                    "\n{\npublic:\n";
             foreach(QString member,classmembers)
                 if(!member.isEmpty())header+="\t"+member.replace(marker,"")+"\n";
             header += "};\n\n#endif //"+uppername;
@@ -1367,6 +1376,8 @@ void GameFrameworkClassDef::genCpp(vObject Class,int when)
         scriptwindow
                 *H = new scriptwindow,
                 *CPP=new scriptwindow;
+        H->codeEditor->setSyntaxHighlighter(new pgsHighlighter);
+        CPP->codeEditor->setSyntaxHighlighter(new pgsHighlighter);
         H->setText(header);
         CPP->setText(source);
         H->setWindowTitle(fh.fileName());
@@ -1386,7 +1397,40 @@ void GameFrameworkClassDef::genCpp(vObject Class,int when)
         //we generated all the code, sure!
         //Update the makefiles AND the PRO file for qmake
 
-        QFile f("../../cppengine/qmake.cppengine.pro.template");
+        QFile cmf("../../cppengine/cmakelists.template.txt");
+        QString cmfTemplate;
+        if(cmf.exists())
+        {
+            if(cmf.open(QIODevice::ReadOnly))
+            {
+                cmfTemplate = cmf.readAll();
+                cmf.close();
+            }
+            QFile outf("../../cppengine/CMakeLists.txt");
+            if(outf.open(QIODevice::WriteOnly))
+            {
+                //patch the template:
+                QDir d("../../cppengine");
+                QStringList sources = d.entryList(QStringList("*.cpp"));
+                QString cppstrings = sources.join(" \n\t");
+                cmfTemplate.replace("{{SOURCES}}","\t"+cppstrings);
+                //QStringList headers = d.entryList(QStringList("*.h"));
+                //QString hstrings = headers.join(" \n\t");
+                //cmfTemplate.replace("{{HEADERS}}","\t"+hstrings);
+                outf.write(cmfTemplate.toUtf8());
+
+                scriptwindow *OUT = new scriptwindow;
+                OUT->setText(cmfTemplate);
+                OUT->setWindowTitle("CMAKE makefile");
+                OUT->setAttribute(Qt::WA_DeleteOnClose);
+                OUT->setParent(this);
+                OUT->setWindowFlags(Qt::Window);
+                OUT->show();
+            }
+
+        }
+
+        QFile f("../../cppengine/qmake.cppengine.pro.template.txt");
         QString Template;
         if(f.exists())
         {

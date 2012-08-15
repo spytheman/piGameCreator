@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090601">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011103100">
 
   <!-- File: mingw32-libiconv.xml -->
 
@@ -20,32 +20,45 @@
         </paragraph>
       </description>
 
-      <licence tarname="libiconv-%-mingw32-%-lic.tar" />
-      <source tarname="libiconv-%-mingw32-%-src.tar" />
+      <licence tarname="libiconv-%-mingw32-%-lic.tar.%" />
+      <source tarname="libiconv-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <release tarname="libiconv-1.13.1-1-mingw32-bin.tar.lzma" >
           <requires eq="mingw32-libiconv-%-mingw32-%-dll-2.tar" />
           <requires eq="mingw32-libintl-*-mingw32-*-dll-8.tar" />
+          <requires eq="mingw32-libgcc-*-mingw32-dll-1.tar" />
+        </release>
+        <release tarname="libiconv-1.14-2-mingw32-bin.tar.lzma" >
+          <requires eq="mingw32-libiconv-%-mingw32-%-dll-2.tar" />
+          <requires ge="mingw32-libintl-0.18.1.1-2-mingw32-*-dll-8.tar" />
+          <requires eq="mingw32-libgcc-*-mingw32-dll-1.tar" />
         </release>
       </component>
 
       <component class="doc">
         <release tarname="libiconv-1.13.1-1-mingw32-doc.tar.lzma" />
+        <release tarname="libiconv-1.14-2-mingw32-doc.tar.lzma" />
       </component>
 
       <component class="lic">
         <release tarname="libiconv-1.13.1-1-mingw32-lic.tar.lzma" />
+        <release tarname="libiconv-1.14-2-mingw32-lic.tar.lzma" />
       </component>
 
       <component class="dev">
         <release tarname="libiconv-1.13.1-1-mingw32-dev.tar.lzma" >
           <requires eq="mingw32-libiconv-%-mingw32-%-dll-2.tar" />
         </release>
+        <release tarname="libiconv-1.14-2-mingw32-dev.tar.lzma" >
+          <requires eq="mingw32-libiconv-%-mingw32-%-dll-2.tar" />
+        </release>
       </component>
 
       <component class="dll">
+        <requires eq="mingw32-libgcc-*-mingw32-dll-1.tar" />
         <release tarname="libiconv-1.13.1-1-mingw32-dll-2.tar.lzma" />
+        <release tarname="libiconv-1.14-2-mingw32-dll-2.tar.lzma" />
       </component>
     </package>
 
@@ -64,11 +77,13 @@
         </paragraph>
       </description>
 
-      <licence tarname="libiconv-%-mingw32-%-lic.tar" />
-      <source tarname="libiconv-%-mingw32-%-src.tar" />
+      <licence tarname="libiconv-%-mingw32-%-lic.tar.%" />
+      <source tarname="libiconv-%-mingw32-%-src.tar.%" />
 
       <component class="dll">
+        <requires eq="mingw32-libgcc-*-mingw32-dll-1.tar" />
         <release tarname="libcharset-1.13.1-1-mingw32-dll-1.tar.lzma" />
+        <release tarname="libcharset-1.14-2-mingw32-dll-1.tar.lzma" />
       </component>
     </package>
 

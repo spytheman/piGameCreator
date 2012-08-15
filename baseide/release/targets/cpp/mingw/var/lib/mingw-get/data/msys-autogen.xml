@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090600">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: msys-autogen.xml -->
 
@@ -33,8 +33,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="autogen-%-msys-%-lic.tar" />
-      <source tarname="autogen-%-msys-%-src.tar" />
+      <licence tarname="autogen-%-msys-%-lic.tar.%" />
+      <source tarname="autogen-%-msys-%-src.tar.%" />
 
       <component class="bin">
         <!-- Every MSYS package requires msys-core-bin.  This dependency
@@ -85,8 +85,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="autogen-%-msys-%-lic.tar" />
-      <source tarname="autogen-%-msys-%-src.tar" />
+      <licence tarname="autogen-%-msys-%-lic.tar.%" />
+      <source tarname="autogen-%-msys-%-src.tar.%" />
 
       <component class="dll">
         <release tarname="libopts-5.10.1-1-msys-1.0.15-dll-25.tar.lzma" >

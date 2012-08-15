@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090600">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2012040500">
 
   <!-- File: mingw32-mingw-utils.xml -->
 
@@ -24,14 +24,14 @@
           incarnations of mingw-utils.  These included pexports, which is now
           provided by the separate mingw32-pexports package; dos2unix and
           unix2dos, which are both now provided by the separate
-          mingw32-cygutils-dos2unix package; and DrMinGW.  DrMinGW is now
+          mingw32-dos2unix package; and DrMinGW.  DrMinGW is now
           available and maintained outside the MinGW/MSYS project by its
           original author: http://code.google.com/p/jrfonseca/wiki/DrMingw
         </paragraph>
       </description>
 
-      <licence tarname="mingw-utils-%-mingw32-%-lic.tar" />
-      <source tarname="mingw-utils-%-mingw32-%-src.tar" />
+      <licence tarname="mingw-utils-%-mingw32-%-lic.tar.%" />
+      <source tarname="mingw-utils-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <!-- All of the following requirements are needed to satisfy 

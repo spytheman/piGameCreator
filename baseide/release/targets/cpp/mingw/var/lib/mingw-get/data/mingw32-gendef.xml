@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090600">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: mingw32-gendef.xml -->
 
@@ -28,8 +28,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="gendef-%-mingw32-%-lic.tar" />
-      <source tarname="gendef-%-mingw32-%-src.tar" />
+      <licence tarname="gendef-%-mingw32-%-lic.tar.%" />
+      <source tarname="gendef-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <release tarname="gendef-1.0.1346-1-mingw32-bin.tar.lzma" />

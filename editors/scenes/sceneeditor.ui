@@ -1319,7 +1319,7 @@
      <item>
       <widget class="QStackedWidget" name="ToolOptionsSW">
        <property name="currentIndex">
-        <number>5</number>
+        <number>0</number>
        </property>
        <widget class="QWidget" name="pgObjectInspector">
         <layout class="QVBoxLayout" name="verticalLayout_17">
@@ -1962,7 +1962,7 @@ Select an object to edit its properties.</string>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_14">
               <property name="spacing">
-               <number>5</number>
+               <number>3</number>
               </property>
               <property name="topMargin">
                <number>3</number>
@@ -1984,13 +1984,7 @@ Select an object to edit its properties.</string>
                </spacer>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_13">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
+               <widget class="QToolButton" name="toolButton_13">
                 <property name="text">
                  <string>Add graph</string>
                 </property>
@@ -1998,22 +1992,22 @@ Select an object to edit its properties.</string>
                  <iconset resource="../../sharedcode/resources.qrc">
                   <normaloff>:/resources/RES/ffficons/chart_organisation.png</normaloff>:/resources/RES/ffficons/chart_organisation.png</iconset>
                 </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_11">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
+               <widget class="QToolButton" name="toolButton_24">
                 <property name="text">
                  <string>Place objects</string>
                 </property>
                 <property name="icon">
                  <iconset resource="../../sharedcode/resources.qrc">
                   <normaloff>:/resources/RES/ffficons/brick.png</normaloff>:/resources/RES/ffficons/brick.png</iconset>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
                 </property>
                </widget>
               </item>
@@ -2205,7 +2199,7 @@ Select an object to edit its properties.</string>
          <item>
           <widget class="QStackedWidget" name="terrainOptionsSW">
            <property name="currentIndex">
-            <number>1</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="pgTerrainOptionsNotSelected">
             <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -2470,7 +2464,7 @@ Select an object to edit its properties.</string>
              <item>
               <widget class="QStackedWidget" name="HeightMapTerrainTools">
                <property name="currentIndex">
-                <number>2</number>
+                <number>5</number>
                </property>
                <widget class="QWidget" name="pgHmTHeight">
                 <layout class="QVBoxLayout" name="verticalLayout_24">

@@ -9,6 +9,7 @@ public:
     rsGraphicsEffect();
     QString mainFolderName();
     QString kind();
+    bool addToProject(gameproject *p);
 };
 
 #endif // RSGRAPHICSEFFECT_H

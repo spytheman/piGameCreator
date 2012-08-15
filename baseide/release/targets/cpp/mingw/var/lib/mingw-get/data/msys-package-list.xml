@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://www.mingw.org" issue="2010100700">
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2012040500">
 
   <!-- File: msys-package-list.xml -->
 
@@ -30,6 +30,8 @@
   <package-list catalogue="msys-cygutils" />
   <package-list catalogue="msys-dash" />
   <package-list catalogue="msys-diffutils" />
+  <package-list catalogue="msys-diffstat" />
+  <package-list catalogue="msys-dos2unix" />
   <package-list catalogue="msys-expat" />
   <package-list catalogue="msys-file" />
   <package-list catalogue="msys-findutils" />
@@ -43,6 +45,7 @@
   <package-list catalogue="msys-groff" />
   <package-list catalogue="msys-guile" />
   <package-list catalogue="msys-gzip" />
+  <package-list catalogue="msys-help2man" />
   <package-list catalogue="msys-inetutils" />
   <package-list catalogue="msys-less" />
   <package-list catalogue="msys-libarchive" />
@@ -64,6 +67,7 @@
   <package-list catalogue="msys-popt" />
   <package-list catalogue="msys-rebase" />
   <package-list catalogue="msys-regex" />
+  <package-list catalogue="msys-rsync" />
   <package-list catalogue="msys-rxvt" />
   <package-list catalogue="msys-sed" />
   <package-list catalogue="msys-tar" />
@@ -76,6 +80,9 @@
   <package-list catalogue="msys-xz" />
   <package-list catalogue="msys-zip" />
   <package-list catalogue="msys-zlib" />
+
+  <!-- "real" packages ~~ user contributed -->
+  <package-list catalogue="msys-mksh" />
 
   <!-- "virtual" packages -->
   <package-list catalogue="msys-base" />

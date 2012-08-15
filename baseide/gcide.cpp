@@ -153,6 +153,19 @@ bool gcide::openProject(QString filename)
     gameproject* gp = new gameproject(filename);
     if(gp->load())
     {
+        //validate and update the exporters
+        foreach(buildtarget* t, gp->buildTargets())
+        {
+            QString expname = t->exportername;
+            foreach(dllForExport* d, creatorIDE->exporterLibs)
+                if(d->exporterName()==expname)
+                {
+                    t->exporter = d;
+                    t->valid = true;
+                    break;
+                }
+        }
+
         //add the project to the opened projects
         OpenedProject* op = new OpenedProject;
         op->project = gp;
@@ -170,7 +183,7 @@ bool gcide::openProject(QString filename)
         creatorIDE->currentProject = op;
 
         // This API is not needed! Views will be updated manually by each op
-         creatorIDE->mainWindow->addProjectEntry(op);
+        creatorIDE->mainWindow->addProjectEntry(op);
     }
     else gcprint("Unable to open the project");
 }
@@ -301,4 +314,28 @@ void gcide::loadSettings()
     creatorIDE->codeFormats[CFnormaltext].color = creatorIDE->settings->value("CodeEditor/format_normaltext_color").value<QColor>();
     creatorIDE->codeFormats[CFerror].color = creatorIDE->settings->value("CodeEditor/format_error_color").value<QColor>();
 
+}
+
+dllForExport* gcide::getExporter(QString name)
+{
+    foreach(dllForExport* d, exporterLibs)
+        if(d->exporterName()==name)
+            return d;
+    return 0;
+}
+
+bool gcide::saveProject(OpenedProject *project, bool onlyTree)
+{
+    //save is not implemented??? must copy it from somewhere....
+    return false;
+}
+
+bool gcide::saveProjectAs(OpenedProject *project)
+{
+    return false;
+}
+
+bool gcide::saveProjectAs(OpenedProject *project, QString newFileName)
+{
+    return false;
 }

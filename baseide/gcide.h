@@ -47,13 +47,14 @@ public:
 
     //Exporters
     QList<dllForExport*> exporterLibs;
+    dllForExport* getExporter(QString name);
 
     //Resource editors
     QList<dllForResourceEditor*> resourceEditorLibs;
 
     //All currently opened projects.
     QList<OpenedProject*> projects;
-    OpenedProject* currentProject;
+    OpenedProject* currentProject;  //which project is treated as current?
     gcresource* currentResource;
 
     QDialog* getNewDialogForKind(QString kind);
@@ -67,7 +68,7 @@ public:
     bool openProject(); //asks to select filename then opens the project
 
     //saves a project - in its file and location
-    bool saveProject(OpenedProject* project);
+    bool saveProject(OpenedProject* project, bool onlyTree = false);
     bool saveProjectAs(OpenedProject* project);   //asks for new file, saves it and clones project folder there
     bool saveProjectAs(OpenedProject* project, QString newFileName);  //saves to this file and clones project folder
 

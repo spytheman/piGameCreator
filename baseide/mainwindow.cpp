@@ -11,6 +11,7 @@
 #include "gameframeworkclassdef.h"
 #include "scripttestwindow.h"
 #include "settingswindow.h"
+#include "buildtargets.h"
 #include "../sharedcode/gameproject.h"
 #include "../sharedcode/globals.h"
 #include "../sharedcode/resource.h"
@@ -45,6 +46,7 @@ MainWindow::MainWindow(QWidget *parent) :
     {
         ui->menuDeveloper->setVisible(false);
     }
+    ui->projectComboBox->hide();
 
     //Exporter selector
     targetsCB = new QComboBox;
@@ -350,7 +352,6 @@ void MainWindow::addProjectEntry(OpenedProject *opr)
     gameproject* p = opr->project;
 
     //Adds project to the TREE and ALL comboboxes
-    // @RESOURCES
 
     QStandardItem* projectNode = new QStandardItem(p->title());
     QFont f; f.setBold(true);
@@ -370,8 +371,14 @@ void MainWindow::addProjectEntry(OpenedProject *opr)
 
     // Add the project to the project combobox as well:
     ui->projectComboBox->addItem(projectNode->icon(),projectNode->text(), projectNode->data(TIPROJECT));
+    if(ui->projectComboBox->count()>1)ui->projectComboBox->setVisible(true);
+    else ui->projectComboBox->setVisible(false);
     creatorIDE->currentProject = opr;
 
+    // update targets combo box:
+    RebuildTargetsCB(opr);
+
+    // @RESOURCES
     // Now for each resource, add it to the tree:
     foreach(gcresource* r,p->images())  addResourceEntry(opr,r);
     foreach(gcresource* r,p->models())  addResourceEntry(opr,r);
@@ -747,4 +754,14 @@ void MainWindow::on_actionGameScript_tester_triggered()
     scripttestwindow* w = new scripttestwindow(this);
     w->setWindowModality(Qt::ApplicationModal);
     w->show();
+}
+
+void MainWindow::on_action_Targets_triggered()
+{
+    if(creatorIDE->currentProject==0)return;
+    BuildTargets w(creatorIDE->currentProject);
+    w.setParent(this);
+    w.setWindowFlags(Qt::Window);
+    w.exec();
+    RebuildTargetsCB(creatorIDE->currentProject);
 }

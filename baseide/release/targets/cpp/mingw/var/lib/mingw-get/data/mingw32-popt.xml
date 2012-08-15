@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090600">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: mingw32-popt.xml -->
 
@@ -19,8 +19,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="popt-%-mingw32-%-lic.tar" />
-      <source tarname="popt-%-mingw32-%-src.tar" />
+      <licence tarname="popt-%-mingw32-%-lic.tar.%" />
+      <source tarname="popt-%-mingw32-%-src.tar.%" />
 
       <component class="doc">
         <release tarname="popt-1.15-1-mingw32-doc.tar.lzma" />
@@ -44,8 +44,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="popt-%-mingw32-%-lic.tar" />
-      <source tarname="popt-%-mingw32-%-src.tar" />
+      <licence tarname="popt-%-mingw32-%-lic.tar.%" />
+      <source tarname="popt-%-mingw32-%-src.tar.%" />
 
       <component class="dll">
         <release tarname="libpopt-1.15-1-mingw32-dll-0.tar.lzma" >

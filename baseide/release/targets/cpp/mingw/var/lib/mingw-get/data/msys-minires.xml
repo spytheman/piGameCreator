@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090500">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: msys-minires.xml -->
 
@@ -32,8 +32,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="minires-%-msys-%-lic.tar" />
-      <source tarname="minires-%-msys-%-src.tar" />
+      <licence tarname="minires-%-msys-%-lic.tar.%" />
+      <source tarname="minires-%-msys-%-src.tar.%" />
 
       <component class="bin">
         <!-- Every MSYS package requires msys-core-bin.  This dependency
@@ -81,8 +81,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="minires-%-msys-%-lic.tar" />
-      <source tarname="minires-%-msys-%-src.tar" />
+      <licence tarname="minires-%-msys-%-lic.tar.%" />
+      <source tarname="minires-%-msys-%-src.tar.%" />
 
       <component class="dll">
         <!-- Every MSYS DLL package requires msys-core-bin -->

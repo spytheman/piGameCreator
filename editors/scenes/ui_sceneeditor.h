@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'sceneeditor.ui'
 **
-** Created: Fri 20. Jul 17:22:42 2012
+** Created: Sun 12. Aug 04:54:15 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -225,8 +225,8 @@ public:
     QCheckBox *checkBox_3;
     QHBoxLayout *horizontalLayout_14;
     QSpacerItem *horizontalSpacer_10;
-    QPushButton *pushButton_13;
-    QPushButton *pushButton_11;
+    QToolButton *toolButton_13;
+    QToolButton *toolButton_24;
     QSpacerItem *horizontalSpacer_12;
     QFrame *frame_6;
     QVBoxLayout *verticalLayout_23;
@@ -1507,30 +1507,28 @@ public:
         verticalLayout_25->addLayout(horizontalLayout_6);
 
         horizontalLayout_14 = new QHBoxLayout();
-        horizontalLayout_14->setSpacing(5);
+        horizontalLayout_14->setSpacing(3);
         horizontalLayout_14->setObjectName(QString::fromUtf8("horizontalLayout_14"));
         horizontalLayout_14->setContentsMargins(-1, 3, -1, 5);
         horizontalSpacer_10 = new QSpacerItem(5, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_14->addItem(horizontalSpacer_10);
 
-        pushButton_13 = new QPushButton(GraphFrame);
-        pushButton_13->setObjectName(QString::fromUtf8("pushButton_13"));
-        sizePolicy3.setHeightForWidth(pushButton_13->sizePolicy().hasHeightForWidth());
-        pushButton_13->setSizePolicy(sizePolicy3);
-        pushButton_13->setIcon(icon14);
+        toolButton_13 = new QToolButton(GraphFrame);
+        toolButton_13->setObjectName(QString::fromUtf8("toolButton_13"));
+        toolButton_13->setIcon(icon14);
+        toolButton_13->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-        horizontalLayout_14->addWidget(pushButton_13);
+        horizontalLayout_14->addWidget(toolButton_13);
 
-        pushButton_11 = new QPushButton(GraphFrame);
-        pushButton_11->setObjectName(QString::fromUtf8("pushButton_11"));
-        sizePolicy3.setHeightForWidth(pushButton_11->sizePolicy().hasHeightForWidth());
-        pushButton_11->setSizePolicy(sizePolicy3);
+        toolButton_24 = new QToolButton(GraphFrame);
+        toolButton_24->setObjectName(QString::fromUtf8("toolButton_24"));
         QIcon icon30;
         icon30.addFile(QString::fromUtf8(":/resources/RES/ffficons/brick.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_11->setIcon(icon30);
+        toolButton_24->setIcon(icon30);
+        toolButton_24->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-        horizontalLayout_14->addWidget(pushButton_11);
+        horizontalLayout_14->addWidget(toolButton_24);
 
         horizontalSpacer_12 = new QSpacerItem(5, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -2441,9 +2439,9 @@ public:
         retranslateUi(SceneEditor);
 
         GridStackedWidget->setCurrentIndex(0);
-        ToolOptionsSW->setCurrentIndex(5);
-        terrainOptionsSW->setCurrentIndex(1);
-        HeightMapTerrainTools->setCurrentIndex(2);
+        ToolOptionsSW->setCurrentIndex(0);
+        terrainOptionsSW->setCurrentIndex(0);
+        HeightMapTerrainTools->setCurrentIndex(5);
         comboBox_2->setCurrentIndex(0);
 
 
@@ -2553,8 +2551,8 @@ public:
         path_save->setText(QApplication::translate("SceneEditor", "Save", 0, QApplication::UnicodeUTF8));
         path_load->setText(QApplication::translate("SceneEditor", "Load", 0, QApplication::UnicodeUTF8));
         checkBox_3->setText(QApplication::translate("SceneEditor", "Snap vertices to the grid", 0, QApplication::UnicodeUTF8));
-        pushButton_13->setText(QApplication::translate("SceneEditor", "Add graph", 0, QApplication::UnicodeUTF8));
-        pushButton_11->setText(QApplication::translate("SceneEditor", "Place objects", 0, QApplication::UnicodeUTF8));
+        toolButton_13->setText(QApplication::translate("SceneEditor", "Add graph", 0, QApplication::UnicodeUTF8));
+        toolButton_24->setText(QApplication::translate("SceneEditor", "Place objects", 0, QApplication::UnicodeUTF8));
         QTreeWidgetItem *___qtreewidgetitem4 = GraphsTW->headerItem();
         ___qtreewidgetitem4->setText(0, QApplication::translate("SceneEditor", " Graphs", 0, QApplication::UnicodeUTF8));
         graph_new->setText(QApplication::translate("SceneEditor", "New", 0, QApplication::UnicodeUTF8));

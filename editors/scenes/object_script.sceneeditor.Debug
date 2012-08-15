@@ -13,6 +13,9 @@ INPUT(
 ./debug\workspacewidget.o
 ./debug\sceneview.o
 ./debug\frameworkdata.o
+./debug\rssound.o
+./debug\rsmodel.o
+./debug\rsgraphicseffect.o
 ./debug\moc_sceneeditor.o
 ./debug\moc_qwidgetwithclosesignal.o
 ./debug\qrc_resources.o

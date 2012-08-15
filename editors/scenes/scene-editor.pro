@@ -29,7 +29,10 @@ SOURCES +=  sceneedit.cpp \
             ../../baseide/resourceeditor.cpp \
             ../../baseide/workspacewidget.cpp \
             sceneview.cpp \
-    ../../sharedcode/frameworkdata.cpp
+    ../../sharedcode/frameworkdata.cpp \
+    ../../sharedcode/rssound.cpp \
+    ../../sharedcode/rsmodel.cpp \
+    ../../sharedcode/rsgraphicseffect.cpp
 
 HEADERS +=  sceneedit.h \
             sceneeditor.h \

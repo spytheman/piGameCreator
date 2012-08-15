@@ -30,4 +30,8 @@ INPUT(
 ./debug\transition.o
 ./debug\vertexShader.o
 ./debug\window.o
+./debug\bstrwrap.o
+./debug\bstrlib.o
+./debug\bstraux.o
+./debug\bsafe.o
 );

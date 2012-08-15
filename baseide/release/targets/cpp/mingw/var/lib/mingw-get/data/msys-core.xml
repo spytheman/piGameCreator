@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010100100">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: msys-core.xml -->
 
   <package-collection subsystem="msys">
     <download-host uri="http://prdownloads.sourceforge.net/mingw/%F?download" />
-    <package name="msys-core">
+    <package name="msys-core" alias="msysCORE">
       <affiliate group="MSYS Base System" />
       <description lang="en" title="msysCORE: The core components of MSYS">
         <paragraph>MSYS, or the Minimal SYStem, is a POSIX implementation
@@ -31,8 +31,8 @@
         </paragraph>
       </description>
 
-      <source tarname="msysCORE-%-msys-%-src.tar" />
-      <licence tarname="msysCORE-%-msys-%-lic.tar" />
+      <source tarname="msysCORE-%-msys-%-src.tar.%" />
+      <licence tarname="msysCORE-%-msys-%-lic.tar.%" />
 
       <component class="bin">
         <!-- Note: no specific dll component in this package; the
@@ -43,14 +43,14 @@
          -->
         <requires eq="msys-core-%-msys-%-doc.tar" />
         <requires eq="msys-core-%-msys-%-lic.tar" />
-        <release tarname="msysCORE-1.0.16-1-msys-1.0.16-bin.tar.lzma" />
+        <release tarname="msysCORE-1.0.17-1-msys-1.0.17-bin.tar.lzma" />
       </component>
 
       <component class="ext">
         <!-- msys-core-ext contains tools that have dependencies on
          components other than msys-core-bin alone.
          -->
-        <release tarname="msysCORE-1.0.16-1-msys-1.0.16-ext.tar.lzma" />
+        <release tarname="msysCORE-1.0.17-1-msys-1.0.17-ext.tar.lzma" />
         <requires eq="msys-bash-*-msys-*-bin.tar" />
         <requires eq="msys-core-%-msys-%-bin.tar" />
         <requires eq="msys-coreutils-*-msys-*-bin.tar" />
@@ -60,19 +60,19 @@
       </component>
 
       <component class="dev">
-        <release tarname="msysCORE-1.0.16-1-msys-1.0.16-dev.tar.lzma" />
+        <release tarname="msysCORE-1.0.17-1-msys-1.0.17-dev.tar.lzma" />
       </component>
 
       <component class="doc">
-        <release tarname="msysCORE-1.0.16-1-msys-1.0.16-doc.tar.lzma" />
+        <release tarname="msysCORE-1.0.17-1-msys-1.0.17-doc.tar.lzma" />
       </component>
 
       <component class="lic">
-        <release tarname="msysCORE-1.0.16-1-msys-1.0.16-lic.tar.lzma" />
+        <release tarname="msysCORE-1.0.17-1-msys-1.0.17-lic.tar.lzma" />
       </component>
 
       <component class="dbg">
-        <release tarname="msysCORE-1.0.16-1-msys-1.0.16-dbg.tar.lzma" />
+        <release tarname="msysCORE-1.0.17-1-msys-1.0.17-dbg.tar.lzma" />
         <requires eq="msys-core-%-msys-%-bin.tar" />
       </component>
     </package>

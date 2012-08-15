@@ -1,4 +1,5 @@
 #include "rssound.h"
+#include "gameproject.h"
 
 rsSound::rsSound()
 {
@@ -12,4 +13,10 @@ QString rsSound::mainFolderName()
 QString rsSound::kind()
 {
     return "sound";
+}
+
+bool rsSound::addToProject(gameproject *p)
+{
+    if(p->isResource(name))return false;
+    p->mSounds.append(this);
 }

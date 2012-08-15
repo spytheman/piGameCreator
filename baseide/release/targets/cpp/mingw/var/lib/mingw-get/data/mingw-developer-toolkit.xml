@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://www.mingw.org" issue="2010090600">
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2011082600">
 
   <!-- File: mingw-developer-toolkit.xml -->
 
@@ -35,7 +35,7 @@
       </description>
 
       <component class="bin">
-        <release tarname="mingw-developer-toolkit-2010090600-msys-bin.meta" />
+        <release tarname="mingw-developer-toolkit-2011082600-msys-bin.meta" />
         <requires eq="mingw32-autotools-*-mingw32-bin.meta" />
         <requires eq="msys-base-*-msys-*-bin.meta" />
         <requires eq="msys-autogen-*-msys-*-bin.tar" />
@@ -44,6 +44,7 @@
         <requires eq="msys-bsdcpio-*-msys-*-bin.tar" />
         <requires eq="msys-coreutils-*-msys-*-ext.tar" />
         <requires eq="msys-cvs-*-msys-*-bin.tar" />
+        <requires eq="msys-diffstat-*-msys-*-bin.tar" />
         <requires eq="msys-flex-*-msys-*-bin.tar" />
         <requires eq="msys-guile-*-msys-*-bin.tar" />
         <requires eq="msys-inetutils-*-msys-*-bin.tar" />
@@ -54,6 +55,7 @@
         <requires eq="msys-openssl-*-msys-*-bin.tar" />
         <requires eq="msys-patch-*-msys-*-bin.tar" />
         <requires eq="msys-perl-*-msys-*-bin.tar" />
+        <requires eq="msys-rsync-*-msys-*-bin.tar" />
         <requires eq="msys-vim-*-msys-*-bin.tar" />
       </component>
     </package>

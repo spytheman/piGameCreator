@@ -236,15 +236,19 @@ PGSXML framework definition file.
 </p>
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt; font-weight:600;">#RRGGBBAA</span>
+<span style=" font-size:8pt;"/>
 </p>
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt; font-weight:600;">#RRGGBB</span>
+<span style=" font-size:8pt;"/>
 </p>
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt; font-weight:600;">#RGBA</span>
+<span style=" font-size:8pt;"/>
 </p>
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt; font-weight:600;">#RGB</span>
+<span style=" font-size:8pt;"/>
 </p>
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">The # is optional </span>
@@ -264,13 +268,13 @@ PGSXML framework definition file.
         <func arg4="int alpha" arg1desc="The red component [0..255]" arg2desc="The green component [0..255]" arg3desc="The blue component [0..255]" arg4desc="The alpha component [0..255]" type="color" arg4value="255" name="rgba" static="true" arg1="int red" arg2="int green" arg3="int blue"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Creates a color by specified </span>
 <span style=" font-size:8pt; font-style:italic;">red</span>
-<span style=" font-size:8pt;">, </span>
+<span style=" font-size:8pt;"> , </span>
 <span style=" font-size:8pt; font-style:italic;">green</span>
-<span style=" font-size:8pt;">and </span>
+<span style=" font-size:8pt;"> and </span>
 <span style=" font-size:8pt; font-style:italic;">blue</span>
-<span style=" font-size:8pt;">and </span>
+<span style=" font-size:8pt;"> and </span>
 <span style=" font-size:8pt; font-style:italic;">alpha</span>
-<span style=" font-size:8pt;">values in range 0...255 </span>
+<span style=" font-size:8pt;"> values in range 0...255 </span>
 </p></func>
         <func arg1desc="Other color" arg2desc="Blending percent (0...1)" type="color" name="transition" static="true" arg1="color Color" arg2="real percent"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Returns a color created when transiting this color to a new color by specified percent of transition. </span>
@@ -680,6 +684,7 @@ PGSXML framework definition file.
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt; font-style:italic;">may not get implemented in this way!</span>
 </p></func>
+        <func arg1desc="Value that to be set for this string. If you need formatting, use the format() instead" type="string" name="fromInt" static="true" arg1="int value"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">If you need formatting, use the format() instead.</p></func>
         <func arg1desc="The string array to join" arg2desc="The delimiter string to use for joining." arg3desc="Ignore empty strings." type="string" arg3value="true" name="join" static="true" arg1="string[] array" arg2="string delimiter" arg3="bool ignoreEmpty"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Returns a string with all strings in the given </span>
 <span style=" font-size:8pt; font-style:italic;">array</span>
@@ -838,8 +843,12 @@ PGSXML framework definition file.
         <func type="void" name="hide"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Hides the window. </span>
 </p></func>
-        <func type="void" name="setFocus"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Brings the window to front in the window stack and makes it active. </span></p>
-<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt; font-style:italic;">May not be supported on all platforms.</span> </p></func>
+        <func type="void" name="setFocus"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Brings the window to front in the window stack and makes it active. </span>
+</p>
+<p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt; font-style:italic;">May not be supported on all platforms.</span>
+</p></func>
         <func type="void" name="setPosition" arg1="int x" arg2="int y"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Sets the position of the window to </span>
 <span style=" font-family:'monospace'; font-size:10pt;">(x,y)</span>

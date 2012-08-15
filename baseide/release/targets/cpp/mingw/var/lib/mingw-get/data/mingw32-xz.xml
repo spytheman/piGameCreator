@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090600">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101400">
 
   <!-- File: mingw32-xz.xml -->
 
@@ -27,8 +27,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="xz-%-mingw32-%-lic.tar" />
-      <source tarname="xz-%-mingw32-%-src.tar" />
+      <licence tarname="xz-%-mingw32-%-lic.tar.%" />
+      <source tarname="xz-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="msys-bash-*-msys-*-bin.tar" />
@@ -39,18 +39,25 @@
           <requires eq="mingw32-libintl-*-mingw32-*-dll-8.tar" />
           <requires eq="mingw32-liblzma-%-mingw32-%-dll-1.tar" />
         </release>
+        <release tarname="xz-5.0.3-2-mingw32-bin.tar.lzma" >
+          <requires eq="mingw32-libintl-*-mingw32-*-dll-8.tar" />
+          <requires eq="mingw32-liblzma-%-mingw32-%-dll-5.tar" />
+        </release>
       </component>
 
       <component class="doc">
         <release tarname="xz-4.999.9beta_20100401-1-mingw32-doc.tar.bz2" />
+        <release tarname="xz-5.0.3-2-mingw32-doc.tar.lzma" />
       </component>
 
       <component class="lang">
         <release tarname="xz-4.999.9beta_20100401-1-mingw32-lang.tar.bz2" />
+        <release tarname="xz-5.0.3-2-mingw32-lang.tar.lzma" />
       </component>
 
       <component class="lic">
         <release tarname="xz-4.999.9beta_20100401-1-mingw32-lic.tar.bz2" />
+        <release tarname="xz-5.0.3-2-mingw32-lic.tar.lzma" />
       </component>
     </package>
 
@@ -75,16 +82,22 @@
         </paragraph>
       </description>
 
-      <licence tarname="xz-%-mingw32-%-lic.tar" />
-      <source tarname="xz-%-mingw32-%-src.tar" />
+      <licence tarname="xz-%-mingw32-%-lic.tar.%" />
+      <source tarname="xz-%-mingw32-%-src.tar.%" />
 
       <component class="dll">
         <release tarname="liblzma-4.999.9beta_20100401-1-mingw32-dll-1.tar.bz2" />
+        <release tarname="liblzma-5.0.3-2-mingw32-dll-5.tar.lzma" >
+          <requires eq="mingw32-libgcc-*-mingw32-dll-1.tar" />
+        </release>
       </component>
 
       <component class="dev">
         <release tarname="liblzma-4.999.9beta_20100401-1-mingw32-dev.tar.bz2" >
           <requires eq="mingw32-liblzma-%-mingw32-%-dll-1.tar" />
+        </release>
+        <release tarname="liblzma-5.0.3-2-mingw32-dev.tar.lzma" >
+          <requires eq="mingw32-liblzma-%-mingw32-%-dll-5.tar" />
         </release>
       </component>
     </package>

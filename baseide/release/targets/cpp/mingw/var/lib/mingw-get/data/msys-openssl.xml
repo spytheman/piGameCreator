@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090600">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: msys-openssl.xml -->
 
@@ -25,8 +25,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="openssl-%-msys-%-lic.tar" />
-      <source tarname="openssl-%-msys-%-src.tar" />
+      <licence tarname="openssl-%-msys-%-lic.tar.%" />
+      <source tarname="openssl-%-msys-%-src.tar.%" />
 
       <component class="bin">
         <!-- Every MSYS package requires msys-core-bin.  This dependency
@@ -67,8 +67,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="openssl-%-msys-%-lic.tar" />
-      <source tarname="openssl-%-msys-%-src.tar" />
+      <licence tarname="openssl-%-msys-%-lic.tar.%" />
+      <source tarname="openssl-%-msys-%-src.tar.%" />
 
       <component class="dll">
         <release tarname="libopenssl-1.0.0-1-msys-1.0.13-dll-100.tar.lzma" />

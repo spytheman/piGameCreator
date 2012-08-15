@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010092500">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011102400">
 
   <!-- File: msys-autoconf.xml ~~ mingw-get package description autoconf (msys) -->
 
@@ -30,8 +30,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="autoconf-%-msys-%-lic.tar" />
-      <source tarname="autoconf-%-msys-%-src.tar" />
+      <licence tarname="autoconf-%-msys-%-lic.tar.%" />
+      <source tarname="autoconf-%-msys-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="msys-core-*-msys-*-bin.tar" />
@@ -41,16 +41,19 @@
         <requires eq="msys-texinfo-*-msys-*-bin.tar" />
         <release tarname="autoconf-2.65-1-msys-1.0.13-bin.tar.lzma" />
         <release tarname="autoconf-2.67-1-msys-1.0.15-bin.tar.lzma" />
+        <release tarname="autoconf-2.68-1-msys-1.0.17-bin.tar.lzma" />
       </component>
 
       <component class="doc">
         <release tarname="autoconf-2.65-1-msys-1.0.13-doc.tar.lzma" />
         <release tarname="autoconf-2.67-1-msys-1.0.15-doc.tar.lzma" />
+        <release tarname="autoconf-2.68-1-msys-1.0.17-doc.tar.lzma" />
       </component>
 
       <component class="lic">
         <release tarname="autoconf-2.65-1-msys-1.0.13-lic.tar.lzma" />
         <release tarname="autoconf-2.67-1-msys-1.0.15-lic.tar.lzma" />
+        <release tarname="autoconf-2.68-1-msys-1.0.17-lic.tar.lzma" />
       </component>
     </package>
 

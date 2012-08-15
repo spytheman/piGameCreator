@@ -37,8 +37,8 @@
  * See the README file for an explanation of the pthreads-win32 version
  * numbering scheme and how the DLL is named etc.
  */
-#define PTW32_VERSION 2,8,0,0
-#define PTW32_VERSION_STRING "2, 8, 0, 0\0"
+#define PTW32_VERSION 2,9,0,0
+#define PTW32_VERSION_STRING "2, 9, 0, 0\0"
 
 /* There are three implementations of cancel cleanup.
  * Note that pthread.h is included in both application
@@ -104,7 +104,7 @@
 
 #define PTW32_LEVEL_MAX 3
 
-#if !defined(PTW32_LEVEL)
+#if ( defined(_POSIX_C_SOURCE) && _POSIX_C_SOURCE >= 200112 )  || !defined(PTW32_LEVEL)
 #define PTW32_LEVEL PTW32_LEVEL_MAX
 /* Include everything */
 #endif
@@ -112,7 +112,7 @@
 #ifdef _UWIN
 #   define HAVE_STRUCT_TIMESPEC 1
 #   define HAVE_SIGNAL_H        1
-#   undef HAVE_CONFIG_H
+#   undef HAVE_PTW32_CONFIG_H
 #   pragma comment(lib, "pthread")
 #endif
 
@@ -190,7 +190,7 @@
  */
 
 /* Try to avoid including windows.h */
-#if defined(__MINGW32__) && defined(__cplusplus)
+#if (defined(__MINGW64__) || defined(__MINGW32__)) && defined(__cplusplus)
 #define PTW32_INCLUDE_WINDOWS_H
 #endif
 
@@ -210,9 +210,9 @@ typedef unsigned long DWORD_PTR;
  * -----------------
  */
 
-#if HAVE_CONFIG_H
+#if HAVE_PTW32_CONFIG_H
 #include "config.h"
-#endif /* HAVE_CONFIG_H */
+#endif /* HAVE_PTW32_CONFIG_H */
 
 #ifndef NEED_FTIME
 #include <time.h>
@@ -245,7 +245,10 @@ enum {
 #    define NEED_ERRNO
 #    define NEED_SEM
 #  endif
-#  if defined(_UWIN) || defined(__MINGW32__)
+#  if defined(__MINGW64__)
+#    define HAVE_STRUCT_TIMESPEC
+#    define HAVE_MODE_T
+#  elif defined(_UWIN) || defined(__MINGW32__)
 #    define HAVE_MODE_T
 #  endif
 #endif
@@ -270,7 +273,7 @@ enum {
 #endif
 
 #ifndef ETIMEDOUT
-#  define ETIMEDOUT 10060     /* This is the value in winsock.h. */
+#  define ETIMEDOUT 10060 /* Same as WSAETIMEDOUT */
 #endif
 
 #ifndef ENOSYS
@@ -283,6 +286,14 @@ enum {
 #  else
 #    define EDEADLK 36     /* This is the value in MSVC. */
 #  endif
+#endif
+
+/* POSIX 2008 - related to robust mutexes */
+#ifndef EOWNERDEAD
+#  define EOWNERDEAD 43
+#endif
+#ifndef ENOTRECOVERABLE
+#  define ENOTRECOVERABLE 44
 #endif
 
 #include <sched.h>
@@ -303,11 +314,14 @@ enum {
 #endif
 
 #ifndef HAVE_STRUCT_TIMESPEC
-#define HAVE_STRUCT_TIMESPEC 1
+#define HAVE_STRUCT_TIMESPEC
+#ifndef _TIMESPEC_DEFINED
+#define _TIMESPEC_DEFINED
 struct timespec {
-        long tv_sec;
+        time_t tv_sec;
         long tv_nsec;
 };
+#endif /* _TIMESPEC_DEFINED */
 #endif /* HAVE_STRUCT_TIMESPEC */
 
 #ifndef SIG_BLOCK
@@ -418,22 +432,22 @@ extern "C"
  * POSIX Options
  */
 #undef _POSIX_THREADS
-#define _POSIX_THREADS 200112L
+#define _POSIX_THREADS 200809L
 
 #undef _POSIX_READER_WRITER_LOCKS
-#define _POSIX_READER_WRITER_LOCKS 200112L
+#define _POSIX_READER_WRITER_LOCKS 200809L
 
 #undef _POSIX_SPIN_LOCKS
-#define _POSIX_SPIN_LOCKS 200112L
+#define _POSIX_SPIN_LOCKS 200809L
 
 #undef _POSIX_BARRIERS
-#define _POSIX_BARRIERS 200112L
+#define _POSIX_BARRIERS 200809L
 
 #undef _POSIX_THREAD_SAFE_FUNCTIONS
-#define _POSIX_THREAD_SAFE_FUNCTIONS 200112L
+#define _POSIX_THREAD_SAFE_FUNCTIONS 200809L
 
 #undef _POSIX_THREAD_ATTR_STACKSIZE
-#define _POSIX_THREAD_ATTR_STACKSIZE 200112L
+#define _POSIX_THREAD_ATTR_STACKSIZE 200809L
 
 /*
  * The following options are not supported
@@ -528,12 +542,12 @@ extern "C"
 #endif
 
 /*
- * When building the DLL code, you should define PTW32_BUILD so that
- * the variables/functions are exported correctly. When using the DLL,
+ * When building the library, you should define PTW32_BUILD so that
+ * the variables/functions are exported correctly. When using the library,
  * do NOT define PTW32_BUILD, and then the variables/functions will
  * be imported correctly.
  */
-#ifndef PTW32_STATIC_LIB
+#if !defined(PTW32_STATIC_LIB)
 #  ifdef PTW32_BUILD
 #    define PTW32_DLLPORT __declspec (dllexport)
 #  else
@@ -628,6 +642,12 @@ enum {
  */
   PTHREAD_PROCESS_PRIVATE       = 0,
   PTHREAD_PROCESS_SHARED        = 1,
+
+/*
+ * pthread_mutexattr_{get,set}robust
+ */
+  PTHREAD_MUTEX_STALLED         = 0,  /* Default */
+  PTHREAD_MUTEX_ROBUST          = 1,
 
 /*
  * pthread_barrier_wait
@@ -899,13 +919,13 @@ PTW32_DLLPORT int PTW32_CDECL pthread_attr_setschedparam (pthread_attr_t *attr,
 PTW32_DLLPORT int PTW32_CDECL pthread_attr_setschedpolicy (pthread_attr_t *,
                                          int);
 
-PTW32_DLLPORT int PTW32_CDECL pthread_attr_getschedpolicy (pthread_attr_t *,
+PTW32_DLLPORT int PTW32_CDECL pthread_attr_getschedpolicy (const pthread_attr_t *,
                                          int *);
 
 PTW32_DLLPORT int PTW32_CDECL pthread_attr_setinheritsched(pthread_attr_t * attr,
                                          int inheritsched);
 
-PTW32_DLLPORT int PTW32_CDECL pthread_attr_getinheritsched(pthread_attr_t * attr,
+PTW32_DLLPORT int PTW32_CDECL pthread_attr_getinheritsched(const pthread_attr_t * attr,
                                          int * inheritsched);
 
 PTW32_DLLPORT int PTW32_CDECL pthread_attr_setscope (pthread_attr_t *,
@@ -984,7 +1004,14 @@ PTW32_DLLPORT int PTW32_CDECL pthread_mutexattr_setpshared (pthread_mutexattr_t 
                                           int pshared);
 
 PTW32_DLLPORT int PTW32_CDECL pthread_mutexattr_settype (pthread_mutexattr_t * attr, int kind);
-PTW32_DLLPORT int PTW32_CDECL pthread_mutexattr_gettype (pthread_mutexattr_t * attr, int *kind);
+PTW32_DLLPORT int PTW32_CDECL pthread_mutexattr_gettype (const pthread_mutexattr_t * attr, int *kind);
+
+PTW32_DLLPORT int PTW32_CDECL pthread_mutexattr_setrobust(
+                                           pthread_mutexattr_t *attr,
+                                           int robust);
+PTW32_DLLPORT int PTW32_CDECL pthread_mutexattr_getrobust(
+                                           const pthread_mutexattr_t * attr,
+                                           int * robust);
 
 /*
  * Barrier Attribute Functions
@@ -1010,12 +1037,14 @@ PTW32_DLLPORT int PTW32_CDECL pthread_mutex_destroy (pthread_mutex_t * mutex);
 
 PTW32_DLLPORT int PTW32_CDECL pthread_mutex_lock (pthread_mutex_t * mutex);
 
-PTW32_DLLPORT int PTW32_CDECL pthread_mutex_timedlock(pthread_mutex_t *mutex,
+PTW32_DLLPORT int PTW32_CDECL pthread_mutex_timedlock(pthread_mutex_t * mutex,
                                     const struct timespec *abstime);
 
 PTW32_DLLPORT int PTW32_CDECL pthread_mutex_trylock (pthread_mutex_t * mutex);
 
 PTW32_DLLPORT int PTW32_CDECL pthread_mutex_unlock (pthread_mutex_t * mutex);
+
+PTW32_DLLPORT int PTW32_CDECL pthread_mutex_consistent (pthread_mutex_t * mutex);
 
 /*
  * Spinlock Functions
@@ -1147,6 +1176,7 @@ PTW32_DLLPORT int PTW32_CDECL pthread_mutexattr_getkind_np(pthread_mutexattr_t *
  */
 PTW32_DLLPORT int PTW32_CDECL pthread_delay_np (struct timespec * interval);
 PTW32_DLLPORT int PTW32_CDECL pthread_num_processors_np(void);
+PTW32_DLLPORT unsigned long long PTW32_CDECL pthread_getunique_np(pthread_t thread);
 
 /*
  * Useful if an application wants to statically link
@@ -1184,6 +1214,10 @@ PTW32_DLLPORT void * PTW32_CDECL pthread_timechange_handler_np(void *);
  * Returns the Win32 HANDLE for the POSIX thread.
  */
 PTW32_DLLPORT HANDLE PTW32_CDECL pthread_getw32threadhandle_np(pthread_t thread);
+/*
+ * Returns the win32 thread ID for POSIX thread.
+ */
+PTW32_DLLPORT DWORD PTW32_CDECL pthread_getw32threadid_np (pthread_t thread);
 
 
 /*
@@ -1222,40 +1256,6 @@ PTW32_DLLPORT int PTW32_CDECL pthreadCancelableTimedWait (HANDLE waitHandle,
 #    endif
 #  endif
 #endif
-
-/*
- * WIN32 C runtime library had been made thread-safe
- * without affecting the user interface. Provide
- * mappings from the UNIX thread-safe versions to
- * the standard C runtime library calls.
- * Only provide function mappings for functions that
- * actually exist on WIN32.
- */
-
-#if !defined(__MINGW32__)
-#define strtok_r( _s, _sep, _lasts ) \
-        ( *(_lasts) = strtok( (_s), (_sep) ) )
-#endif /* !__MINGW32__ */
-
-#define asctime_r( _tm, _buf ) \
-        ( strcpy( (_buf), asctime( (_tm) ) ), \
-          (_buf) )
-
-#define ctime_r( _clock, _buf ) \
-        ( strcpy( (_buf), ctime( (_clock) ) ),  \
-          (_buf) )
-
-#define gmtime_r( _clock, _result ) \
-        ( *(_result) = *gmtime( (_clock) ), \
-          (_result) )
-
-#define localtime_r( _clock, _result ) \
-        ( *(_result) = *localtime( (_clock) ), \
-          (_result) )
-
-#define rand_r( _seed ) \
-        ( _seed == _seed? rand() : rand() )
-
 
 /*
  * Some compiler environments don't define some things.

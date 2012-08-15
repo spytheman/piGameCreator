@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090600">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: mingw32-libarchive.xml -->
 
@@ -37,8 +37,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="libarchive-%-mingw32-%-lic.tar" />
-      <source tarname="libarchive-%-mingw32-%-src.tar" />
+      <licence tarname="libarchive-%-mingw32-%-lic.tar.%" />
+      <source tarname="libarchive-%-mingw32-%-src.tar.%" />
 
       <component class="doc">
         <release tarname="libarchive-2.8.3-1-mingw32-doc.tar.bz2" />
@@ -106,8 +106,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="libarchive-%-mingw32-%-lic.tar" />
-      <source tarname="libarchive-%-mingw32-%-src.tar" />
+      <licence tarname="libarchive-%-mingw32-%-lic.tar.%" />
+      <source tarname="libarchive-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <release tarname="bsdtar-2.8.3-1-mingw32-bin.tar.bz2" >
@@ -152,8 +152,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="libarchive-%-mingw32-%-lic.tar" />
-      <source tarname="libarchive-%-mingw32-%-src.tar" />
+      <licence tarname="libarchive-%-mingw32-%-lic.tar.%" />
+      <source tarname="libarchive-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <release tarname="bsdcpio-2.8.3-1-mingw32-bin.tar.bz2" >

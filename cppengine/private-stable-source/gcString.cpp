@@ -1,36 +1,55 @@
 #include "globals.h"
 #include "gcString.h"
 #include <cstdlib>
-#include <cstring>
 
-gcString::gcString(const char *strdata)
-{
-    //MUST be FASTER than C++'s buildin string!
-    mLength = 0;
-    const char* newdata = strdata;
-    while(*(newdata++))++mLength;
-    //mLength is correct now;
+/*
+gcString& operator = (const char* strdata);
+gcString(const char *strdata);
+gcString();
+gcString(const gcString& string);
+~gcString();
+CBString data;
+gcString& operator =(const gcString &s);
+gcString& operator =(const char* s);
 
-    //TODO: do word alignment to int instead of memcpy
-    mData = new char[mLength];
+const gcString operator +(const gcString& s);
+const gcString operator +(const char* s);
 
-    //copy the char* to the gcString data
-    memcpy( mData, strdata, mLength);
-}
+gcString& operator+=(gcString s);
+
+*/
+
+
+
+gcString::gcString(const char *strdata){data = CBString(strdata);}
+gcString::gcString(const gcString &string){data = string.data;}
+gcString::gcString(const CBString &string){data = string;}
+gcString::gcString(const gcString* string){data = string->data;}
 gcString::gcString(){}
-gcString& gcString::operator = (const char* strdata)
-{
 
+gcString& gcString::operator =(const char* s){data = s;}
+//gcString& gcString::operator =(const gcString& s){data = s;}
+
+gcString& gcString::operator+=(const gcString& s){data += s.data; return *this;}
+gcString& gcString::operator+=(const char* s){data += s; return *this;}
+
+gcString gcString::operator +(const gcString& s)
+{
+    gcString t(this);
+    t.data += s.data;
+    return t;
 }
 
-gcString::~gcString()
+gcString gcString::operator +(const char* s)
 {
-
+    gcString t(this);
+    t.data += s;
+    return t;
 }
 
 std::ostream& operator << (std::ostream& cout, const gcString s)
 {
-    cout.write(s.mData,s.mLength);
+    cout.write((char*)s.data.data,s.data.length());
     return cout;
 }
 
@@ -96,7 +115,7 @@ gcString gcString::toUpper()
 
 int gcString::length()
 {
-	gcThrow("Feature not implemented: \nint string::length","NOT_IMPLEMENTED");
+    return data.length();
 }
 
 gcString gcString::trimmed()
@@ -117,4 +136,18 @@ gcString gcString::join(gcArray<gcString>* array, gcString delimiter, bool ignor
 int gcString::lines()
 {
 	gcThrow("Feature not implemented: \nint string::lines","NOT_IMPLEMENTED");
+}
+
+gcString gcString::gcFromInt(int value)
+{
+    CBString s;
+    s.format("%d",value);
+    return gcString(s);
+}
+
+gcString operator+(const char* l, const gcString& r)
+{
+    CBString s(l);
+    s+=r.data;
+    return gcString(s);
 }

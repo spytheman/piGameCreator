@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090600">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: mingw32-pexports.xml -->
 
@@ -28,8 +28,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="pexports-%-mingw32-%-lic.tar" />
-      <source tarname="pexports-%-mingw32-%-src.tar" />
+      <licence tarname="pexports-%-mingw32-%-lic.tar.%" />
+      <source tarname="pexports-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
         <requires eq="mingw32-gcc-core-*-mingw32-*-bin.tar" />

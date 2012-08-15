@@ -9,6 +9,7 @@ public:
     rsSound();
     QString mainFolderName();
     QString kind();
+    bool addToProject(gameproject *p);
 };
 
 #endif // RSSOUND_H

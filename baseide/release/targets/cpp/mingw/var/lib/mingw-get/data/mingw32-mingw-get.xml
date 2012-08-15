@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://www.mingw.org" issue="2011031600">
+<software-distribution project="MinGW" home="http://www.mingw.org" issue="2012042600">
 
   <!-- File: mingw32-mingw-get.xml ~~ mingw-get self-upgrade manifest -->
 
@@ -27,23 +27,40 @@
       </description>
 
       <component class="bin">
-        <release tarname="mingw-get-0.2-mingw32-alpha-2-bin.tar.gz" />
-        <release tarname="mingw-get-0.2-mingw32-alpha-1-bin.tar.gz" />
-        <release tarname="mingw-get-0.1-mingw32-alpha-5.2-bin.tar.gz" />
-        <release tarname="mingw-get-0.1-mingw32-alpha-5.1-bin.tar.gz" />
-        <release tarname="mingw-get-0.1-mingw32-alpha-5-bin.tar.gz" />
-        <release tarname="mingw-get-0.1-mingw32-alpha-4-bin.tar.gz" />
-        <release tarname="mingw-get-0.1-mingw32-alpha-3-bin.tar.gz" />
+        <release tarname="mingw-get-0.5-mingw32-beta-20120426-1-bin.tar.xz" />
+        <release tarname="mingw-get-0.5-mingw32-beta-20120416-1-bin.tar.xz" />
+        <release tarname="mingw-get-0.4-mingw32-alpha-1-bin.tar.xz" />
+        <release tarname="mingw-get-0.3-mingw32-alpha-2.1-bin.tar.xz" />
+        <release tarname="mingw-get-0.3-mingw32-alpha-2-bin.tar.gz" />
+        <release tarname="mingw-get-0.3-mingw32-alpha-1-bin.tar.gz" />
+        <release tarname="mingw-get-0.2-mingw32-alpha-4-bin.tar.gz" />
+
+        <action class="post-install">
+          setup = require "setup"
+          print( " running post-install hooks for mingw-get-bin" )
+          setup.create_shortcuts(
+            '--description="Manage MinGW Package Installation"',
+            setup.libexec_path( "gui.exe" ), "mingw-get"
+          )
+        </action>
+        <action class="pre-remove">
+          setup = require "setup"
+          print( " running pre-remove hooks for mingw-get-bin" )
+          setup.delete_shortcuts(
+            "--if-linked="..setup.libexec_path( "gui.exe" ),
+            "--force", "mingw-get"
+          )
+        </action>
       </component>
 
       <component class="lic">
-        <release tarname="mingw-get-0.2-mingw32-alpha-2-lic.tar.gz" />
-        <release tarname="mingw-get-0.2-mingw32-alpha-1-lic.tar.gz" />
-        <release tarname="mingw-get-0.1-mingw32-alpha-5.2-lic.tar.gz" />
-        <release tarname="mingw-get-0.1-mingw32-alpha-5.1-lic.tar.gz" />
-        <release tarname="mingw-get-0.1-mingw32-alpha-5-lic.tar.gz" />
-        <release tarname="mingw-get-0.1-mingw32-alpha-4-lic.tar.gz" />
-        <release tarname="mingw-get-0.1-mingw32-alpha-3-lic.tar.gz" />
+        <release tarname="mingw-get-0.5-mingw32-beta-20120426-1-lic.tar.xz" />
+        <release tarname="mingw-get-0.5-mingw32-beta-20120416-1-lic.tar.xz" />
+        <release tarname="mingw-get-0.4-mingw32-alpha-1-lic.tar.xz" />
+        <release tarname="mingw-get-0.3-mingw32-alpha-2.1-lic.tar.xz" />
+        <release tarname="mingw-get-0.3-mingw32-alpha-2-lic.tar.gz" />
+        <release tarname="mingw-get-0.3-mingw32-alpha-1-lic.tar.gz" />
+        <release tarname="mingw-get-0.2-mingw32-alpha-4-lic.tar.gz" />
       </component>
     </package>
 
@@ -62,13 +79,17 @@
         </paragraph>
       </description>
 
-      <licence tarname="mingw-get-%-mingw32-%-lic.tar" />
-      <source tarname="mingw-get-%-mingw32-%-src.tar" />
+      <licence tarname="mingw-get-%-mingw32-%-lic.tar.%" />
+      <source tarname="mingw-get-%-mingw32-%-src.tar.%" />
 
       <component class="bin">
-        <release tarname="pkginfo-0.2-mingw32-alpha-2-bin.tar.gz" />
-        <release tarname="pkginfo-0.1-mingw32-alpha-5.2-bin.tar.gz" />
-        <release tarname="pkginfo-0.1-mingw32-alpha-4-bin.tar.gz" />
+        <release tarname="pkginfo-0.5-mingw32-beta-20120426-1-bin.tar.xz" />
+        <release tarname="pkginfo-0.5-mingw32-beta-20120416-1-bin.tar.xz" />
+        <release tarname="pkginfo-0.4-mingw32-alpha-1-bin.tar.xz" />
+        <release tarname="pkginfo-0.3-mingw32-alpha-2.1-bin.tar.xz" />
+        <release tarname="pkginfo-0.3-mingw32-alpha-2-bin.tar.gz" />
+        <release tarname="pkginfo-0.3-mingw32-alpha-1-bin.tar.gz" />
+        <release tarname="pkginfo-0.2-mingw32-alpha-4-bin.tar.gz" />
       </component>
     </package>
 

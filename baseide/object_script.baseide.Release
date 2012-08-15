@@ -35,6 +35,7 @@ INPUT(
 ./release\scripttestwindow.o
 ./release\timer.o
 ./release\codeeditor.o
+./release\buildtargets.o
 ./release\moc_mainwindow.o
 ./release\moc_splashscreen.o
 ./release\moc_gcide.o
@@ -49,6 +50,7 @@ INPUT(
 ./release\moc_settingswindow.o
 ./release\moc_scripttestwindow.o
 ./release\moc_codeeditor.o
+./release\moc_buildtargets.o
 ./release\qrc_resources.o
 ./release\qrc_res_ide.o
 );

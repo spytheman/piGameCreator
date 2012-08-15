@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<software-distribution project="MinGW" home="http://mingw.org" issue="2010090600">
+<software-distribution project="MinGW" home="http://mingw.org" issue="2011101100">
 
   <!-- File: msys-lpr-enhanced.xml -->
 
@@ -43,8 +43,8 @@
         </paragraph>
       </description>
 
-      <licence tarname="lpr-enhanced-%-msys-%-lic.tar" />
-      <source tarname="lpr-enhanced-%-msys-%-src.tar" />
+      <licence tarname="lpr-enhanced-%-msys-%-lic.tar.%" />
+      <source tarname="lpr-enhanced-%-msys-%-src.tar.%" />
 
       <component class="bin">
         <!-- msys-coreutils-ext provides /bin/pr, which is used by

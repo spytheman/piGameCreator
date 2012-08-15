@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'gameframeworkclassdef.h'
 **
-** Created: Sat 11. Aug 03:44:20 2012
+** Created: Sun 12. Aug 04:53:47 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
