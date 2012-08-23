@@ -83,7 +83,6 @@ double highPerformanceTimer::getElapsedTimeInMicroSec()
     startTimeInMicroSec = (startCount.tv_sec * 1000000.0) + startCount.tv_usec;   
     endTimeInMicroSec = (endCount.tv_sec * 1000000.0) + endCount.tv_usec;   
 #endif   
-   
     return endTimeInMicroSec - startTimeInMicroSec;   
 }   
    

@@ -11,6 +11,10 @@ LIBS += ../freeglut/lib/libfreeglut32_static.a ../glew/lib/libglew32.a -lglu32 -
 
 
 SOURCES += \
+	gcstring/bsafe.c \
+	gcstring/bstraux.c \
+	gcstring/bstrlib.c \
+	gcstring/bstrwrap.cpp \
 	application.cpp \
 	color.cpp \
 	draw.cpp \
@@ -28,7 +32,7 @@ SOURCES += \
 	light.cpp \
 	lightSettings.cpp \
 	lightVolume.cpp \
-	object.cpp \
+	map.cpp \
 	objectRepresentation.cpp \
 	path.cpp \
 	physicsSettings.cpp \
@@ -40,12 +44,10 @@ SOURCES += \
 	sceneGraph.cpp \
 	timer.cpp \
 	transition.cpp \
+	variant.cpp \
 	vertexShader.cpp \
 	window.cpp \
-    gcstring/bstrwrap.cpp \
-    gcstring/bstrlib.c \
-    gcstring/bstraux.c \
-    gcstring/bsafe.c
+        iManaged.cpp
 
 HEADERS += \
 	application.h \
@@ -65,7 +67,7 @@ HEADERS += \
 	light.h \
 	lightSettings.h \
 	lightVolume.h \
-	object.h \
+	map.h \
 	objectRepresentation.h \
 	path.h \
 	pgframework.h \
@@ -78,9 +80,7 @@ HEADERS += \
 	sceneGraph.h \
 	timer.h \
 	transition.h \
+	variant.h \
 	vertexShader.h \
 	window.h \
-    gcstring/bstrwrap.h \
-    gcstring/bstrlib.h \
-    gcstring/bstraux.h \
-    gcstring/bsafe.h
+    gcmanaged.h

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'gameframeworkclassdef.ui'
 **
-** Created: Sat 11. Aug 03:43:40 2012
+** Created: Wed 22. Aug 20:10:24 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -963,7 +963,7 @@ public:
 
     void retranslateUi(QDialog *GameFrameworkClassDef)
     {
-        GameFrameworkClassDef->setWindowTitle(QApplication::translate("GameFrameworkClassDef", "DEVTOOL: Class editor", 0, QApplication::UnicodeUTF8));
+        GameFrameworkClassDef->setWindowTitle(QApplication::translate("GameFrameworkClassDef", "GameScript database editor", 0, QApplication::UnicodeUTF8));
         QTreeWidgetItem *___qtreewidgetitem = treeWidget->headerItem();
         ___qtreewidgetitem->setText(0, QApplication::translate("GameFrameworkClassDef", "Entities", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("GameFrameworkClassDef", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

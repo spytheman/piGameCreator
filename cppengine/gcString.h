@@ -1,14 +1,44 @@
 #ifndef GCSTRING_H
 #define GCSTRING_H
+
+// comment for std::string
+// #define GCSTRING_IS_CBSTRING
+
 #include "gcArray.h"
 #include "pgframework.h"
 #include <iostream>
+
+
+
+#ifdef GCSTRING_IS_CBSTRING
 #include "gcstring/bstrwrap.h"
 using namespace Bstrlib;
+#else
+#include <string>
+#include <sstream>
+#endif
+
+
 
 class gcString
 {
 public:		
+	
+/*
+	Sets the lingth of the string to a length , filling it with flood at the end if new size is greater than current, or truncating it otherwise from the end . 
+*/
+	void setrw(int newlength, gcString flood = " ");
+	
+/*
+	Sets the lingth of the string to a length , filling it with flood at the beginning if new size is greater than current, or truncating it otherwise from the end . 
+*/
+	void setw(int newlength, gcString flood = " ");
+	
+/*
+	Replaces the character in given position with a new character. 
+*/
+    void setchar(int index, gcString character);
+	
 /*
     For gcString to work, it must be implemented to act like string.
     So following methods and overloads are nessesary
@@ -16,7 +46,11 @@ public:
 
     gcString(const char *strdata);
     gcString(const gcString& string);
+#ifdef GCSTRING_IS_CBSTRING
     gcString(const CBString& string);
+#else
+    gcString(const std::string& string);
+#endif
     gcString(const gcString* string);
     gcString();
 
@@ -28,23 +62,22 @@ public:
 
     gcString& operator += (const gcString& s);
     gcString& operator += (const char* s);
+
+    bool operator == (const char* s);
+    bool operator == (const gcString& s);
+
+    bool operator < (const gcString s);
+    bool operator < (const char* s);
+
+    const char* c_str();
     /**/
 
-	
-/*
-	Sets the lingth of the string to a length , filling it with flood at the beginning if new size is greater than current, or truncating it otherwise from the end . 
-*/
-	void setw(int length, gcString flood = " ");
-	
-/*
-	Sets the lingth of the string to a length , filling it with flood at the end if new size is greater than current, or truncating it otherwise from the end . 
-*/
-	void setrw(int length, gcString flood = " ");
 	
 /*
 	Returns the i -th symbol from the string. Also accessible with the array access operator[] 
 */
 	gcString gcAt(int i);
+    gcString operator[](int i);
 	
 /*
 	Returns a new string with only the latin letters and the underscore from the string. 
@@ -125,7 +158,12 @@ public:
 
     friend gcString operator+(const char* l, const gcString& r);
     friend std::ostream& operator << (std::ostream& cout, const gcString s);
+
+#ifdef GCSTRING_IS_CBSTRING
     CBString data;
+#else
+    std::string data;
+#endif
 };
 
 extern gcString operator+(const char* l, const gcString& r);

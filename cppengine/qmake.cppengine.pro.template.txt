@@ -11,6 +11,10 @@ LIBS += ../freeglut/lib/libfreeglut32_static.a ../glew/lib/libglew32.a -lglu32 -
 
 
 SOURCES += \
+	gcstring/bsafe.c \
+	gcstring/bstraux.c \
+	gcstring/bstrlib.c \
+	gcstring/bstrwrap.cpp \
 {{SOURCES}}
 
 HEADERS += \

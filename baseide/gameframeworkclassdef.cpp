@@ -1423,9 +1423,9 @@ void GameFrameworkClassDef::genCpp(vObject Class,int when)
                 OUT->setText(cmfTemplate);
                 OUT->setWindowTitle("CMAKE makefile");
                 OUT->setAttribute(Qt::WA_DeleteOnClose);
-                OUT->setParent(this);
-                OUT->setWindowFlags(Qt::Window);
-                OUT->show();
+                //OUT->setParent(this);
+                //OUT->setWindowFlags(Qt::Window);
+                //OUT->show();
             }
 
         }
@@ -1456,9 +1456,9 @@ void GameFrameworkClassDef::genCpp(vObject Class,int when)
                 PRO->setText(Template);
                 PRO->setWindowTitle("QMAKE makefile");
                 PRO->setAttribute(Qt::WA_DeleteOnClose);
-                PRO->setParent(this);
-                PRO->setWindowFlags(Qt::Window);
-                PRO->show();
+                //PRO->setParent(this);
+                //PRO->setWindowFlags(Qt::Window);
+                //PRO->show();
             }
         }
         break;

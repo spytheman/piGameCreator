@@ -1,4 +1,8 @@
 INPUT(
+./release\bsafe.o
+./release\bstraux.o
+./release\bstrlib.o
+./release\bstrwrap.o
 ./release\application.o
 ./release\color.o
 ./release\draw.o
@@ -16,7 +20,7 @@ INPUT(
 ./release\light.o
 ./release\lightSettings.o
 ./release\lightVolume.o
-./release\object.o
+./release\map.o
 ./release\objectRepresentation.o
 ./release\path.o
 ./release\physicsSettings.o
@@ -28,10 +32,7 @@ INPUT(
 ./release\sceneGraph.o
 ./release\timer.o
 ./release\transition.o
+./release\variant.o
 ./release\vertexShader.o
 ./release\window.o
-./release\bstrwrap.o
-./release\bstrlib.o
-./release\bstraux.o
-./release\bsafe.o
 );

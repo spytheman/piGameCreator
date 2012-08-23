@@ -37,12 +37,15 @@ void gcThrow(gcString text, gcString type, gcString data, bool fatal)
 #ifdef WIN32
     std::cout.flush();
     char* txt = new char[text.length()];
-    strncpy(txt,(char*)text.data.data,text.length());
+
+    strncpy(txt,(char*)text.c_str(),text.length());
+
     txt[text.length()] = 0;
     MessageBox(NULL,txt, "Exception",NULL);
     delete txt;
     //RaiseException(0x0BADC0DE, 0x0BADC0DE, 0x0BADC0DE, 0);
 #endif
+    exit(-1);
 }
 
 

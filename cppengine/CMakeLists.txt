@@ -8,14 +8,6 @@ include_directories(
 )
 link_directories(${CPPENGINE_BINARY_DIR})
 
-set(gcstring_sources
-	gcstring/bsafe.c
-	gcstring/bstraux.c
-	gcstring/bstrlib.c
-	gcstring/bstrwrap.cpp
-)
-
-
 set(cppengine_sources
 	application.cpp 
 	color.cpp 
@@ -34,7 +26,7 @@ set(cppengine_sources
 	light.cpp 
 	lightSettings.cpp 
 	lightVolume.cpp 
-	object.cpp 
+	map.cpp 
 	objectRepresentation.cpp 
 	path.cpp 
 	physicsSettings.cpp 
@@ -46,8 +38,15 @@ set(cppengine_sources
 	sceneGraph.cpp 
 	timer.cpp 
 	transition.cpp 
+	variant.cpp 
 	vertexShader.cpp 
 	window.cpp
+)
+
+set(cbstring_sources
+	gcstring/bstraux.c
+	gcstring/bstrlib.c
+	gcstring/bstrwrap.cpp
 )
 
 set(gs2cpp_sources
@@ -69,5 +68,5 @@ endif()
 set(CMAKE_CXX_FLAGS "-static-libgcc -static-libstdc++")
 
 add_definitions(${defines})
-add_executable(cppengine-cmake game.cpp ${cppengine_sources} ${gs2cpp_sources} ${gcstring_sources})
+add_executable(cppengine-cmake game.cpp ${cppengine_sources} ${gs2cpp_sources} ${cbstring_sources})
 target_link_libraries(cppengine-cmake ${libs} ${w32libs})

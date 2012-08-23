@@ -12,6 +12,12 @@ set(cppengine_sources
 {{SOURCES}}
 )
 
+set(cbstring_sources
+	gcstring/bstraux.c
+	gcstring/bstrlib.c
+	gcstring/bstrwrap.cpp
+)
+
 set(gs2cpp_sources
 )
 
@@ -31,5 +37,5 @@ endif()
 set(CMAKE_CXX_FLAGS "-static-libgcc -static-libstdc++")
 
 add_definitions(${defines})
-add_executable(cppengine-cmake game.cpp ${cppengine_sources} ${gs2cpp_sources})
+add_executable(cppengine-cmake game.cpp ${cppengine_sources} ${gs2cpp_sources} ${cbstring_sources})
 target_link_libraries(cppengine-cmake ${libs} ${w32libs})

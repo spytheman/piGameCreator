@@ -587,7 +587,20 @@ PGSXML framework definition file.
 </p></var>
     </class>
     <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>A 2D or 3D shape in which bounds lighting will occur.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Layer or scene can by itself be set as a light volume.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Light volumes are not respected by layers and every light-capable object that falls in it will be processed by the lighting subsystem.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>This class is available as a tool for shapes in a scene or a world.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>" name="lightVolume"/>
-    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>The Object class provides generic data objects with any properties.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-weight:600;&quot;>Note for C++ and Java-targeted projects:&lt;/span> In native compiled languages, this class will be slower, because it uses string-based hashtables. If your project targets maximal performance, avoid this class.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>In HTML5 JavaScript based projects, this class uses native JavaScript objects (JSON) so it will not impact performance!&lt;/p>" doc="Generic object" hidden="true" name="object"/>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>The Map class provides generic data objects with any properties.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;span style=&quot; font-weight:600;&quot;>Note for C++ and Java-targeted projects:&lt;/span> In native compiled languages, this class will be slower, because it uses string-based hashtables. If your project targets maximal performance, avoid this class.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>In HTML5 JavaScript based projects, this class uses native JavaScript objects (JSON) so it will not impact performance!&lt;/p>" hidden="true" name="map">
+        <func arg1desc="The key which value you want." type="variant" name="val" arg1="string key"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Gets the value stored into given </span>
+<span style=" font-size:8pt; font-weight:600;">key</span>
+<span style=" font-size:8pt;">. If the key do not exists, exception will be thrown.</span>
+</p></func>
+        <func arg1desc="The key which to be used." arg2desc="The value to set." type="void" name="set" arg1="string key" arg2="variant value"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">Sets given </span>
+<span style=" font-size:8pt; font-weight:600;">value</span>
+<span style=" font-size:8pt;"> into given </span>
+<span style=" font-size:8pt; font-weight:600;">key</span>
+<span style=" font-size:8pt;">.</span>
+</p></func>
+    </class>
     <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Defines data for object's representation on the screen.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Representation can be one of the following:&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>None, 2D Image, 3D Model, Rectangle, Vector Path, Graph or Text.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>" name="objectRepresentation">
         <func arg1desc="The rectangle to be set. Only its width/height and offset data will be used. Its position will not be taken." type="void" name="setRectangle" arg1="rectangle r"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Sets a rectangle representation</span>
@@ -673,18 +686,21 @@ PGSXML framework definition file.
         <func type="string" name="at" arg1="int i"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Returns the </span>
 <span style=" font-size:8pt; font-style:italic;">i</span>
-<span style=" font-size:8pt;">-th symbol from the string. Also accessible with the array access operator[]</span>
+<span style=" font-size:8pt;"> -th symbol from the string. Also accessible with the array access operator[] </span>
 </p></func>
         <func type="string" name="digits"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
-<span style=" font-size:8pt;">Returns a new string with only the digits from the string.</span>
+<span style=" font-size:8pt;">Returns a new string with only the digits from the string. </span>
 </p></func>
         <func arg1desc="The value to format" arg2desc="The pattern to use for formatting." type="string" name="format" static="true" arg1="real value" arg2="string pattern"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Formats given real or integer value according to some rules. </span>
 </p>
 <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt; font-style:italic;">may not get implemented in this way!</span>
+<span style=" font-size:8pt;"/>
 </p></func>
-        <func arg1desc="Value that to be set for this string. If you need formatting, use the format() instead" type="string" name="fromInt" static="true" arg1="int value"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">If you need formatting, use the format() instead.</p></func>
+        <func arg1desc="Value that to be set for this string. If you need formatting, use the format() instead" type="string" name="fromInt" static="true" arg1="int value"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+<span style=" font-size:8pt;">If you need formatting, use the format() instead.</span>
+</p></func>
         <func arg1desc="The string array to join" arg2desc="The delimiter string to use for joining." arg3desc="Ignore empty strings." type="string" arg3value="true" name="join" static="true" arg1="string[] array" arg2="string delimiter" arg3="bool ignoreEmpty"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Returns a string with all strings in the given </span>
 <span style=" font-size:8pt; font-style:italic;">array</span>
@@ -732,7 +748,8 @@ PGSXML framework definition file.
 <span style=" font-size:8pt; font-style:italic;">delimiter.</span>
 <span style=" font-size:8pt;"/>
 </p></func>
-        <func arg1desc="New string length" arg2desc="The data to fill the string if new size is larger than previous." type="void" name="setrw" arg2value="&quot; &quot;" arg1="int length" arg2="string flood"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+        <func arg1desc="The character which to replace" arg2desc="First symbol of this string will be used to replace the current character in the index position." type="void" name="setchar" arg1="int index" arg2="string character"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-size:8pt;">Replaces the character in given position with a new character. </span></p></func>
+        <func arg1desc="New string length" arg2desc="The data to fill the string if new size is larger than previous." type="void" name="setrw" arg2value="&quot; &quot;" arg1="int newlength" arg2="string flood"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Sets the lingth of the string to a </span>
 <span style=" font-size:8pt; font-style:italic;">length</span>
 <span style=" font-size:8pt;"> , filling it with </span>
@@ -742,7 +759,7 @@ PGSXML framework definition file.
 <span style=" font-size:8pt; text-decoration: underline;">from the end</span>
 <span style=" font-size:8pt;"> . </span>
 </p></func>
-        <func arg1desc="New string length" arg2desc="The data to fill the string if new size is larger than previous." type="void" name="setw" arg2value="&quot; &quot;" arg1="int length" arg2="string flood"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
+        <func arg1desc="New string length" arg2desc="The data to fill the string if new size is larger than previous." type="void" name="setw" arg2value="&quot; &quot;" arg1="int newlength" arg2="string flood"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">
 <span style=" font-size:8pt;">Sets the lingth of the string to a </span>
 <span style=" font-size:8pt; font-style:italic;">length</span>
 <span style=" font-size:8pt;"> , filling it with </span>
@@ -769,6 +786,7 @@ PGSXML framework definition file.
         <func type="void" name="stop"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Stops the timer.</p></func>
     </class>
     <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Provides transition effects between 2 images. Most useful for scene transition effects.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>There are several built-in effects but you can also make your own by specifying drawing function to draw both images as you like.&lt;/p>" name="transition"/>
+    <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>This class can hold any value from any type. Using it in arrays can make multy-typed arrays.&lt;/p>" doc="Variant" name="variant"/>
     <class desc="&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>" name="vertexShader"/>
     <class desc="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Provides game windows.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>By default there is only one window, but, multiple windows can be active at the same time. However, more than one window may degrade performance.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Closing all windows will end the application.&lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Each &lt;span style=&quot; font-style:italic;&quot;>window&lt;/span> have set of &lt;span style=&quot; font-style:italic;&quot;>layers&lt;/span>, each layer have &lt;span style=&quot; font-style:italic;&quot;>objects&lt;/span> that live in it. &lt;/p>&#xa;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>Also, each window have a default layer, which can be used as usual.&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>&#xa;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;>&lt;br />&lt;/p>" name="window">
         <func arg1desc="The layer to add to the window" arg2desc="Replace layer with same name if this name already exists." type="bool" name="addLayer" arg2value="false" arg1="layer newLayer" arg2="bool force"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">

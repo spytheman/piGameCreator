@@ -1,4 +1,8 @@
 INPUT(
+./debug\bsafe.o
+./debug\bstraux.o
+./debug\bstrlib.o
+./debug\bstrwrap.o
 ./debug\application.o
 ./debug\color.o
 ./debug\draw.o
@@ -16,7 +20,7 @@ INPUT(
 ./debug\light.o
 ./debug\lightSettings.o
 ./debug\lightVolume.o
-./debug\object.o
+./debug\map.o
 ./debug\objectRepresentation.o
 ./debug\path.o
 ./debug\physicsSettings.o
@@ -28,10 +32,7 @@ INPUT(
 ./debug\sceneGraph.o
 ./debug\timer.o
 ./debug\transition.o
+./debug\variant.o
 ./debug\vertexShader.o
 ./debug\window.o
-./debug\bstrwrap.o
-./debug\bstrlib.o
-./debug\bstraux.o
-./debug\bsafe.o
 );

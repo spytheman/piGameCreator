@@ -1,4 +1,6 @@
 /*
+  AVOID being REGENERATED!
+
 void gcArray::reverse()
 {
 	gcThrow("Feature not implemented: \nvoid gcArray::reverse","NOT_IMPLEMENTED");
@@ -25,13 +27,13 @@ void gcArray::remove(int n)
 
 void gcArray::clear()
 {
-	gcThrow("Feature not implemented: \nvoid gcArray::clear","NOT_IMPLEMENTED");
+    gcThrow("Feature not implemented: \nvoid gcArray::clear","NOT_IMPLEMENTED");
 }
 
 
 gcArray<T*>* gcArray::clone()
 {
-	gcThrow("Feature not implemented: \ngcArray<T*>* gcArray::clone","NOT_IMPLEMENTED");
+    gcThrow("Feature not implemented: \ngcArray<T*>* gcArray::clone","NOT_IMPLEMENTED");
 }
 
 
@@ -43,7 +45,7 @@ int gcArray::count()
 
 gcArray<T*>* gcArray::getDuplicates()
 {
-	gcThrow("Feature not implemented: \ngcArray<T*>* gcArray::getDuplicates","NOT_IMPLEMENTED");
+    gcThrow("Feature not implemented: \ngcArray<T*>* gcArray::getDuplicates","NOT_IMPLEMENTED");
 }
 
 

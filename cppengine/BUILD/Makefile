@@ -326,30 +326,6 @@ gcString.cpp.s:
 	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/gcString.cpp.s
 .PHONY : gcString.cpp.s
 
-gcstring/bsafe.obj: gcstring/bsafe.c.obj
-.PHONY : gcstring/bsafe.obj
-
-# target to build an object file
-gcstring/bsafe.c.obj:
-	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/gcstring/bsafe.c.obj
-.PHONY : gcstring/bsafe.c.obj
-
-gcstring/bsafe.i: gcstring/bsafe.c.i
-.PHONY : gcstring/bsafe.i
-
-# target to preprocess a source file
-gcstring/bsafe.c.i:
-	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/gcstring/bsafe.c.i
-.PHONY : gcstring/bsafe.c.i
-
-gcstring/bsafe.s: gcstring/bsafe.c.s
-.PHONY : gcstring/bsafe.s
-
-# target to generate assembly for a file
-gcstring/bsafe.c.s:
-	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/gcstring/bsafe.c.s
-.PHONY : gcstring/bsafe.c.s
-
 gcstring/bstraux.obj: gcstring/bstraux.c.obj
 .PHONY : gcstring/bstraux.obj
 
@@ -614,29 +590,29 @@ lightVolume.cpp.s:
 	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/lightVolume.cpp.s
 .PHONY : lightVolume.cpp.s
 
-object.obj: object.cpp.obj
-.PHONY : object.obj
+map.obj: map.cpp.obj
+.PHONY : map.obj
 
 # target to build an object file
-object.cpp.obj:
-	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/object.cpp.obj
-.PHONY : object.cpp.obj
+map.cpp.obj:
+	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/map.cpp.obj
+.PHONY : map.cpp.obj
 
-object.i: object.cpp.i
-.PHONY : object.i
+map.i: map.cpp.i
+.PHONY : map.i
 
 # target to preprocess a source file
-object.cpp.i:
-	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/object.cpp.i
-.PHONY : object.cpp.i
+map.cpp.i:
+	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/map.cpp.i
+.PHONY : map.cpp.i
 
-object.s: object.cpp.s
-.PHONY : object.s
+map.s: map.cpp.s
+.PHONY : map.s
 
 # target to generate assembly for a file
-object.cpp.s:
-	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/object.cpp.s
-.PHONY : object.cpp.s
+map.cpp.s:
+	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/map.cpp.s
+.PHONY : map.cpp.s
 
 objectRepresentation.obj: objectRepresentation.cpp.obj
 .PHONY : objectRepresentation.obj
@@ -902,6 +878,30 @@ transition.cpp.s:
 	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/transition.cpp.s
 .PHONY : transition.cpp.s
 
+variant.obj: variant.cpp.obj
+.PHONY : variant.obj
+
+# target to build an object file
+variant.cpp.obj:
+	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/variant.cpp.obj
+.PHONY : variant.cpp.obj
+
+variant.i: variant.cpp.i
+.PHONY : variant.i
+
+# target to preprocess a source file
+variant.cpp.i:
+	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/variant.cpp.i
+.PHONY : variant.cpp.i
+
+variant.s: variant.cpp.s
+.PHONY : variant.s
+
+# target to generate assembly for a file
+variant.cpp.s:
+	$(MAKE) -f CMakeFiles\cppengine-cmake.dir\build.make CMakeFiles/cppengine-cmake.dir/variant.cpp.s
+.PHONY : variant.cpp.s
+
 vertexShader.obj: vertexShader.cpp.obj
 .PHONY : vertexShader.obj
 
@@ -986,9 +986,6 @@ help:
 	@echo ... gcString.obj
 	@echo ... gcString.i
 	@echo ... gcString.s
-	@echo ... gcstring/bsafe.obj
-	@echo ... gcstring/bsafe.i
-	@echo ... gcstring/bsafe.s
 	@echo ... gcstring/bstraux.obj
 	@echo ... gcstring/bstraux.i
 	@echo ... gcstring/bstraux.s
@@ -1022,9 +1019,9 @@ help:
 	@echo ... lightVolume.obj
 	@echo ... lightVolume.i
 	@echo ... lightVolume.s
-	@echo ... object.obj
-	@echo ... object.i
-	@echo ... object.s
+	@echo ... map.obj
+	@echo ... map.i
+	@echo ... map.s
 	@echo ... objectRepresentation.obj
 	@echo ... objectRepresentation.i
 	@echo ... objectRepresentation.s
@@ -1058,6 +1055,9 @@ help:
 	@echo ... transition.obj
 	@echo ... transition.i
 	@echo ... transition.s
+	@echo ... variant.obj
+	@echo ... variant.i
+	@echo ... variant.s
 	@echo ... vertexShader.obj
 	@echo ... vertexShader.i
 	@echo ... vertexShader.s
