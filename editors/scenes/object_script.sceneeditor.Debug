@@ -16,6 +16,8 @@ INPUT(
 ./debug\rssound.o
 ./debug\rsmodel.o
 ./debug\rsgraphicseffect.o
+./debug\resourcetree.o
+./debug\idesettings.o
 ./debug\moc_sceneeditor.o
 ./debug\moc_qwidgetwithclosesignal.o
 ./debug\qrc_resources.o

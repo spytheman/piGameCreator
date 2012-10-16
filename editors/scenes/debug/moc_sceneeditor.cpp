@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'sceneeditor.h'
 **
-** Created: Fri 20. Jul 17:22:58 2012
+** Created: Thu 11. Oct 18:33:14 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -42,8 +42,8 @@ static const uint qt_meta_data_SceneEditor[] = {
      289,  249,   12,   12, 0x0a,
      326,  249,   12,   12, 0x0a,
      357,   12,   12,   12, 0x0a,
-     374,   12,   12,   12, 0x08,
-     406,   12,   12,   12, 0x08,
+     377,   12,   12,   12, 0x08,
+     409,   12,   12,   12, 0x08,
 
        0        // eod
 };
@@ -59,7 +59,7 @@ static const char qt_meta_stringdata_SceneEditor[] = {
     "on_actionLayers_triggered(bool)\0"
     "on_actionToolOptions_triggered(bool)\0"
     "on_actionViews_triggered(bool)\0"
-    "updateViewport()\0on_action100percent_triggered()\0"
+    "reloadWindowState()\0on_action100percent_triggered()\0"
     "on_actionTerrain_tool_triggered()\0"
 };
 
@@ -79,7 +79,7 @@ void SceneEditor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 7: _t->on_actionLayers_triggered((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 8: _t->on_actionToolOptions_triggered((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 9: _t->on_actionViews_triggered((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 10: _t->updateViewport(); break;
+        case 10: _t->reloadWindowState(); break;
         case 11: _t->on_action100percent_triggered(); break;
         case 12: _t->on_actionTerrain_tool_triggered(); break;
         default: ;

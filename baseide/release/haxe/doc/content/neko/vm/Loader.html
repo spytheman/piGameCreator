@@ -1,0 +1,142 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>neko.vm.Loader</div><div class="platforms">Available in neko</div><div class="classdoc"><p>Loaders can be used to dynamicly load Neko primitives stored in NDLL libraries.</p>
+<p>Loaders can be used to dynamicly load other Neko modules (.n bytecode files).
+	Modules are referenced by names. To lookup the corresponding bytecode file, the
+	default loader first look in its cache, then eventually adds the .n extension
+	to the name and lookup the bytecode in its path.</p>
+<p>Loaders can be used for sandbox security. When a Module is loaded with a given
+	Loader, this loader can manager the module security by filtering which
+	primitives can be loaded by this module or by rewrapping them at loading-time
+	with custom securized versions. Loaders are inherited in loaded submodules.</p></div><dl><dt><span class="kwd">var </span>l : <a href="../../neko/vm/LoaderHandle.html" class="type">LoaderHandle</a></dt><dd>The abstract handle.</dd><dt><span class="kwd">function </span>new(l : <a href="../../neko/vm/LoaderHandle.html" class="type">LoaderHandle</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>addPath(s : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Adds a directory to the search path. See <code>getPath</code></dd><dt><span class="kwd">function </span>backupCache(c : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd>Change the cache value and returns the old value. This can be used
+		to backup the loader cache and restore it later.</dd><dt><span class="kwd">function </span>getCache() : <a href="../../Hash.html" class="type">Hash</a>&lt;<a href="../../neko/vm/Module.html" class="type">Module</a>&gt;</dt><dd>The default loader contains a cache of already loaded modules. It's
+		ensuring that the same module does not get loaded twice when circular
+		references are occuring. The same module can eventually be loaded twice
+		but with different names, for example with two relatives paths reprensenting
+		the same file, since the cache is done on a by-name basic.</dd><dt><span class="kwd">function </span>getPath() : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../String.html" class="type">String</a>&gt;</dt><dd>The default loader contains a search path in its <code>path</code> field. It's a
+		linked list of Neko strings that is a parsed version of the <code>NEKOPATH</code>.
+		This path is used to lookup for modules and libraries.</dd><dt><span class="kwd">function </span>loadModule(modName : <a href="../../String.html" class="type">String</a>, ?loader : <a href="../../neko/vm/Loader.html" class="type">Loader</a>) : <a href="../../neko/vm/Module.html" class="type">Module</a></dt><dd>Loads a Module with the given name. If <code>loader</code> is defined, this will be
+		this Module loader, else this loader will be inherited. When loaded this
+		way, the module is directly executed.</dd><dt><span class="kwd">function </span>loadPrimitive(prim : <a href="../../String.html" class="type">String</a>, nargs : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd>Loads a neko primitive. By default, the name is of the form <code>library@method</code>.
+		The primitive might not be used directly in haXe since some of the Neko values
+		needs an object wrapper in haXe.</dd><dt><span class="kwd">function </span>setCache(name : <a href="../../String.html" class="type">String</a>, m : <a href="../../neko/vm/Module.html" class="type">Module</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Set a module in the loader cache.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>local() : <a href="../../neko/vm/Loader.html" class="type">Loader</a></dt><dd>Returns the local Loader. This is the loader that was used to load the
+		module in which the code is defined.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>make(loadPrim : <a href="../../String.html" class="type">String</a> -> <a href="../../Int.html" class="type">Int</a> -> <a href="../../Dynamic.html" class="type">Dynamic</a>, loadModule : <a href="../../String.html" class="type">String</a> -> <a href="../../neko/vm/Loader.html" class="type">Loader</a> -> <a href="../../neko/vm/Module.html" class="type">Module</a>) : <a href="../../neko/vm/Loader.html" class="type">Loader</a></dt><dd>Creates a loader using two methods. This loader will not have an accessible cache or path,
+		although you can implement such mecanism in the methods body.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

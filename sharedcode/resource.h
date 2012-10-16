@@ -12,6 +12,7 @@ class gcresource
 
 public:
     gcresource();
+    ~gcresource();
     QString
         name,       // resource name
         path,       // virtual path resource is placed
@@ -44,7 +45,10 @@ public:
     virtual QString mainFolderName();   //returns the main folder name
     virtual QString kind();             //returns the resource kind
 
+    //What does this make?
     virtual bool addToProject(gameproject* p);
+
+    gameproject* project;
 
     // Team Collaboration Server / Version control statuses - will not be used for now
     QString csLastEditedBy, csCreatedBy;    //usernames

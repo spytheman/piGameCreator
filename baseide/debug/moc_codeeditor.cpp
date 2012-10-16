@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'codeeditor.h'
 **
-** Created: Sun 12. Aug 05:52:09 2012
+** Created: Tue 16. Oct 03:23:08 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_CodeEditor[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       1,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,23 +32,12 @@ static const uint qt_meta_data_CodeEditor[] = {
 
  // slots: signature, parameters, type, tag, flags
       14,   12,   11,   11, 0x08,
-      44,   42,   11,   11, 0x08,
-      74,   11,   11,   11, 0x08,
-      96,   11,   11,   11, 0x08,
-     111,   11,   11,   11, 0x08,
-     135,   11,   11,   11, 0x08,
-     168,   11,   11,   11, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_CodeEditor[] = {
-    "CodeEditor\0\0y\0verticalScrollBarMoved(int)\0"
-    "x\0horizontalScrollBarMoved(int)\0"
-    "toggleCursorVisible()\0gswCompleted()\0"
-    "gswProgressChanged(int)\0"
-    "highlighterReapplyFontSettings()\0"
-    "onIDESettingsChanged()\0"
+    "CodeEditor\0\0b\0loadCompleted(bool)\0"
 };
 
 void CodeEditor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -57,13 +46,7 @@ void CodeEditor::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_ASSERT(staticMetaObject.cast(_o));
         CodeEditor *_t = static_cast<CodeEditor *>(_o);
         switch (_id) {
-        case 0: _t->verticalScrollBarMoved((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 1: _t->horizontalScrollBarMoved((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 2: _t->toggleCursorVisible(); break;
-        case 3: _t->gswCompleted(); break;
-        case 4: _t->gswProgressChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 5: _t->highlighterReapplyFontSettings(); break;
-        case 6: _t->onIDESettingsChanged(); break;
+        case 0: _t->loadCompleted((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -101,9 +84,9 @@ int CodeEditor::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 1)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 1;
     }
     return _id;
 }

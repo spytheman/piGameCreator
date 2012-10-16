@@ -32,7 +32,9 @@ SOURCES +=  sceneedit.cpp \
     ../../sharedcode/frameworkdata.cpp \
     ../../sharedcode/rssound.cpp \
     ../../sharedcode/rsmodel.cpp \
-    ../../sharedcode/rsgraphicseffect.cpp
+    ../../sharedcode/rsgraphicseffect.cpp \
+    ../../sharedcode/resourcetree.cpp \
+    ../../sharedcode/idesettings.cpp
 
 HEADERS +=  sceneedit.h \
             sceneeditor.h \
@@ -46,7 +48,9 @@ HEADERS +=  sceneedit.h \
             ../../baseide/workspacewidget.h \
     sceneeditor.h \
     sceneview.h \
-    ../../sharedcode/frameworkdata.h
+    ../../sharedcode/frameworkdata.h \
+    ../../sharedcode/resourcetree.h \
+    ../../sharedcode/idesettings.h
 
 
 FORMS    += sceneeditor.ui \

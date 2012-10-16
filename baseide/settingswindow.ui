@@ -14,17 +14,11 @@
    <string>piGameCreator settings</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../sharedcode/resources.qrc">
+   <iconset>
     <normaloff>:/resources/RES/ffficons/cog_edit.png</normaloff>:/resources/RES/ffficons/cog_edit.png</iconset>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <property name="horizontalSpacing">
-    <number>3</number>
-   </property>
-   <property name="verticalSpacing">
-    <number>9</number>
-   </property>
-   <item row="1" column="0">
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
     <widget class="QListWidget" name="leftListWidget">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
@@ -52,7 +46,7 @@
        <string>General</string>
       </property>
       <property name="icon">
-       <iconset resource="../sharedcode/resources.qrc">
+       <iconset>
         <normaloff>:/resources/RES/ffficons/application_form.png</normaloff>:/resources/RES/ffficons/application_form.png</iconset>
       </property>
       <property name="flags">
@@ -64,7 +58,7 @@
        <string>Class editor</string>
       </property>
       <property name="icon">
-       <iconset resource="../sharedcode/resources.qrc">
+       <iconset>
         <normaloff>:/resources/RES/ffficons/brick.png</normaloff>:/resources/RES/ffficons/brick.png</iconset>
       </property>
       <property name="flags">
@@ -76,7 +70,7 @@
        <string>Code formatting</string>
       </property>
       <property name="icon">
-       <iconset resource="../sharedcode/resources.qrc">
+       <iconset>
         <normaloff>:/resources/RES/ffficons/paintcan.png</normaloff>:/resources/RES/ffficons/paintcan.png</iconset>
       </property>
       <property name="flags">
@@ -88,7 +82,7 @@
        <string>Content servers</string>
       </property>
       <property name="icon">
-       <iconset resource="../sharedcode/resources.qrc">
+       <iconset>
         <normaloff>:/resources/RES/ffficons/server_connect.png</normaloff>:/resources/RES/ffficons/server_connect.png</iconset>
       </property>
       <property name="flags">
@@ -100,7 +94,7 @@
        <string>Collaboration</string>
       </property>
       <property name="icon">
-       <iconset resource="../sharedcode/resources.qrc">
+       <iconset>
         <normaloff>:/resources/RES/ffficons/group.png</normaloff>:/resources/RES/ffficons/group.png</iconset>
       </property>
       <property name="flags">
@@ -109,7 +103,7 @@
      </item>
     </widget>
    </item>
-   <item row="1" column="1">
+   <item row="0" column="1">
     <widget class="QStackedWidget" name="stackedWidget">
      <property name="currentIndex">
       <number>2</number>
@@ -627,444 +621,129 @@
       </layout>
      </widget>
      <widget class="QWidget" name="cfgCodeFormatting">
-      <layout class="QVBoxLayout" name="verticalLayout_5">
-       <property name="leftMargin">
-        <number>1</number>
-       </property>
-       <property name="topMargin">
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="margin">
         <number>0</number>
        </property>
-       <property name="rightMargin">
-        <number>1</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_6">
+       <item row="0" column="0">
+        <widget class="QLabel" name="titleLabel_5">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Code editor settings</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
          <property name="spacing">
-          <number>2</number>
+          <number>3</number>
          </property>
          <item>
-          <widget class="QLabel" name="titleLabel_5">
+          <widget class="QComboBox" name="themeComboBox"/>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QFontComboBox" name="editorFontComboBox">
            <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
-           <property name="font">
+           <property name="toolTip">
+            <string>Font face</string>
+           </property>
+           <property name="fontFilters">
+            <set>QFontComboBox::MonospacedFonts</set>
+           </property>
+           <property name="currentFont">
             <font>
-             <pointsize>11</pointsize>
-             <weight>75</weight>
-             <bold>true</bold>
+             <family>Courier New</family>
+             <pointsize>10</pointsize>
             </font>
            </property>
-           <property name="text">
-            <string>Code formatting settings</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-           </property>
           </widget>
          </item>
          <item>
-          <widget class="QToolButton" name="toolButton">
-           <property name="text">
-            <string>Save scheme</string>
+          <widget class="QSpinBox" name="fontSize">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
-           <property name="icon">
-            <iconset resource="../sharedcode/resources.qrc">
-             <normaloff>:/resources/RES/ffficons/disk.png</normaloff>:/resources/RES/ffficons/disk.png</iconset>
+           <property name="toolTip">
+            <string>Font size</string>
            </property>
-           <property name="toolButtonStyle">
-            <enum>Qt::ToolButtonTextBesideIcon</enum>
+           <property name="suffix">
+            <string> pt</string>
            </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QToolButton" name="toolButton_2">
-           <property name="text">
-            <string>Load scheme</string>
+           <property name="prefix">
+            <string>Size: </string>
            </property>
-           <property name="icon">
-            <iconset resource="../sharedcode/resources.qrc">
-             <normaloff>:/resources/RES/ffficons/folder.png</normaloff>:/resources/RES/ffficons/folder.png</iconset>
+           <property name="minimum">
+            <number>4</number>
            </property>
-           <property name="toolButtonStyle">
-            <enum>Qt::ToolButtonTextBesideIcon</enum>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="value">
+            <number>10</number>
            </property>
           </widget>
          </item>
         </layout>
        </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <property name="spacing">
-          <number>3</number>
+       <item row="2" column="0" colspan="2">
+        <widget class="QFrame" name="codeEditorWidget">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
          </property>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_8">
-           <property name="spacing">
-            <number>3</number>
-           </property>
-           <property name="rightMargin">
-            <number>2</number>
-           </property>
-           <item>
-            <widget class="QListWidget" name="keywordsListWidget">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="currentRow">
-              <number>0</number>
-             </property>
-             <item>
-              <property name="text">
-               <string>Keyword</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Function</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Variable</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Resource</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Class</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Number</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>String</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Operator</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Comment</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Preprocessor</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Plain text</string>
-              </property>
-             </item>
-             <item>
-              <property name="text">
-               <string>Error</string>
-              </property>
-             </item>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGroupBox" name="TokenGroupBox">
-             <property name="title">
-              <string>TokenType</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_11">
-              <property name="spacing">
-               <number>3</number>
-              </property>
-              <property name="margin">
-               <number>3</number>
-              </property>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0">
-                <property name="spacing">
-                 <number>3</number>
-                </property>
-                <item>
-                 <widget class="QToolButton" name="TextColorButton">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../sharedcode/resources.qrc">
-                    <normaloff>:/resources/RES/ffficons/style.png</normaloff>:/resources/RES/ffficons/style.png</iconset>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QFrame" name="TextColorFrame">
-                  <property name="frameShape">
-                   <enum>QFrame::Panel</enum>
-                  </property>
-                  <property name="frameShadow">
-                   <enum>QFrame::Sunken</enum>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_4">
-                <property name="spacing">
-                 <number>3</number>
-                </property>
-                <item>
-                 <widget class="QToolButton" name="BoldTextButton">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../sharedcode/resources.qrc">
-                    <normaloff>:/resources/RES/ffficons/text_bold.png</normaloff>:/resources/RES/ffficons/text_bold.png</iconset>
-                  </property>
-                  <property name="checkable">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QToolButton" name="ItalicTextButton">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../sharedcode/resources.qrc">
-                    <normaloff>:/resources/RES/ffficons/text_italic.png</normaloff>:/resources/RES/ffficons/text_italic.png</iconset>
-                  </property>
-                  <property name="checkable">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QToolButton" name="UnderlineTextButton">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="text">
-                   <string/>
-                  </property>
-                  <property name="icon">
-                   <iconset resource="../sharedcode/resources.qrc">
-                    <normaloff>:/resources/RES/ffficons/text_underline.png</normaloff>:/resources/RES/ffficons/text_underline.png</iconset>
-                  </property>
-                  <property name="checkable">
-                   <bool>true</bool>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_9">
-           <property name="spacing">
-            <number>3</number>
-           </property>
-           <item>
-            <layout class="QHBoxLayout" name="horizontalLayout_3">
-             <property name="spacing">
-              <number>3</number>
-             </property>
-             <item>
-              <widget class="QFontComboBox" name="editorFontComboBox">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="toolTip">
-                <string>Font face</string>
-               </property>
-               <property name="fontFilters">
-                <set>QFontComboBox::MonospacedFonts</set>
-               </property>
-               <property name="currentFont">
-                <font>
-                 <family>Courier New</family>
-                 <pointsize>10</pointsize>
-                </font>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QSpinBox" name="fontSize">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="toolTip">
-                <string>Font size</string>
-               </property>
-               <property name="suffix">
-                <string> pt</string>
-               </property>
-               <property name="prefix">
-                <string>Size: </string>
-               </property>
-               <property name="minimum">
-                <number>4</number>
-               </property>
-               <property name="maximum">
-                <number>100</number>
-               </property>
-               <property name="value">
-                <number>10</number>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_5">
-               <property name="spacing">
-                <number>3</number>
-               </property>
-               <item>
-                <widget class="QToolButton" name="toolButton_5">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="toolTip">
-                  <string>Background color</string>
-                 </property>
-                 <property name="text">
-                  <string>Background color</string>
-                 </property>
-                 <property name="icon">
-                  <iconset resource="../sharedcode/resources.qrc">
-                   <normaloff>:/resources/RES/ffficons/palette.png</normaloff>:/resources/RES/ffficons/palette.png</iconset>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="fontColorFrame">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Fixed" vsizetype="Ignored">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>50</width>
-                   <height>0</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>50</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="toolTip">
-                  <string>Background color</string>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::Panel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Sunken</enum>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <widget class="QFrame" name="codeEditorWidget">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Sunken</enum>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_10">
-              <property name="spacing">
-               <number>0</number>
-              </property>
-              <property name="margin">
-               <number>0</number>
-              </property>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </item>
-        </layout>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Sunken</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_10">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="margin">
+           <number>0</number>
+          </property>
+         </layout>
+        </widget>
        </item>
       </layout>
      </widget>
@@ -1150,7 +829,7 @@
      </widget>
     </widget>
    </item>
-   <item row="2" column="0" colspan="2">
+   <item row="1" column="0" colspan="2">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -1165,12 +844,7 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../sharedcode/resources.qrc"/>
-  <include location="../sharedcode/resources.qrc"/>
-  <include location="../sharedcode/resources.qrc"/>
-  <include location="../sharedcode/resources.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>

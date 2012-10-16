@@ -1,0 +1,7 @@
+<!DOCTYPE creatorIDE_NewProjects>
+<projects>
+	<group name="New projects" src="data/newprojects" icon=":/resources/RES/ffficons/folder_page_white.png" />
+	<group name="Sample projects" src="samples" icon=":/resources/RES/ffficons/folder_lightbulb.png" />
+	<group name="User templates" src="templates" icon=":/resources/RES/ffficons/folder_user.png" />
+	<group name="Recent projects" src="@RECENT" icon=":/resources/RES/ffficons/folder_table.png" />
+</projects>

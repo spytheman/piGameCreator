@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.geom.Matrix</div><div class="platforms">Available in flash</div><dl><dt><span class="kwd">var </span>a : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>b : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>c : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>d : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>tx : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>ty : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">function </span>new(?a : <a href="../../Float.html" class="type">Float</a>, ?b : <a href="../../Float.html" class="type">Float</a>, ?c : <a href="../../Float.html" class="type">Float</a>, ?d : <a href="../../Float.html" class="type">Float</a>, ?tx : <a href="../../Float.html" class="type">Float</a>, ?ty : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>clone() : <a href="../../flash/geom/Matrix.html" class="type">Matrix</a></dt><dd></dd><dt><span class="kwd">function </span>concat(m : <a href="../../flash/geom/Matrix.html" class="type">Matrix</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>copyColumnFrom(column : <a href="../../UInt.html" class="type">UInt</a>, vector3D : <a href="../../flash/geom/Vector3D.html" class="type">Vector3D</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>copyColumnTo(column : <a href="../../UInt.html" class="type">UInt</a>, vector3D : <a href="../../flash/geom/Vector3D.html" class="type">Vector3D</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>copyFrom(sourceMatrix : <a href="../../flash/geom/Matrix.html" class="type">Matrix</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>copyRowFrom(row : <a href="../../UInt.html" class="type">UInt</a>, vector3D : <a href="../../flash/geom/Vector3D.html" class="type">Vector3D</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>copyRowTo(row : <a href="../../UInt.html" class="type">UInt</a>, vector3D : <a href="../../flash/geom/Vector3D.html" class="type">Vector3D</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>createBox(scaleX : <a href="../../Float.html" class="type">Float</a>, scaleY : <a href="../../Float.html" class="type">Float</a>, ?rotation : <a href="../../Float.html" class="type">Float</a>, ?tx : <a href="../../Float.html" class="type">Float</a>, ?ty : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>createGradientBox(width : <a href="../../Float.html" class="type">Float</a>, height : <a href="../../Float.html" class="type">Float</a>, ?rotation : <a href="../../Float.html" class="type">Float</a>, ?tx : <a href="../../Float.html" class="type">Float</a>, ?ty : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>deltaTransformPoint(point : <a href="../../flash/geom/Point.html" class="type">Point</a>) : <a href="../../flash/geom/Point.html" class="type">Point</a></dt><dd></dd><dt><span class="kwd">function </span>identity() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>invert() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>rotate(angle : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>scale(sx : <a href="../../Float.html" class="type">Float</a>, sy : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setTo(aa : <a href="../../Float.html" class="type">Float</a>, ba : <a href="../../Float.html" class="type">Float</a>, ca : <a href="../../Float.html" class="type">Float</a>, da : <a href="../../Float.html" class="type">Float</a>, txa : <a href="../../Float.html" class="type">Float</a>, tya : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>toString() : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>transformPoint(point : <a href="../../flash/geom/Point.html" class="type">Point</a>) : <a href="../../flash/geom/Point.html" class="type">Point</a></dt><dd></dd><dt><span class="kwd">function </span>translate(dx : <a href="../../Float.html" class="type">Float</a>, dy : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

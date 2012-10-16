@@ -1,0 +1,129 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>Date</div><div class="platforms">Available in flash8, neko, js, flash, php, cpp, cs, java</div><div class="classdoc">The Date class is used for date manipulation. There is some extra functions
+	available in the <code>DateTools</code> class.</div><dl><dt><span class="kwd">function </span>new(year : <a href="Int.html" class="type">Int</a>, month : <a href="Int.html" class="type">Int</a>, day : <a href="Int.html" class="type">Int</a>, hour : <a href="Int.html" class="type">Int</a>, min : <a href="Int.html" class="type">Int</a>, sec : <a href="Int.html" class="type">Int</a>) : <a href="Void.html" class="type">Void</a></dt><dd>Creates a new date object.</dd><dt><span class="kwd">function </span>getDate() : <a href="Int.html" class="type">Int</a></dt><dd>Returns the day of the date (1-31 range).</dd><dt><span class="kwd">function </span>getDay() : <a href="Int.html" class="type">Int</a></dt><dd>Returns the week day of the date (0-6 range).</dd><dt><span class="kwd">function </span>getFullYear() : <a href="Int.html" class="type">Int</a></dt><dd>Returns the full year of the date.</dd><dt><span class="kwd">function </span>getHours() : <a href="Int.html" class="type">Int</a></dt><dd>Returns the hours value of the date (0-23 range).</dd><dt><span class="kwd">function </span>getMinutes() : <a href="Int.html" class="type">Int</a></dt><dd>Returns the minutes value of the date (0-59 range).</dd><dt><span class="kwd">function </span>getMonth() : <a href="Int.html" class="type">Int</a></dt><dd>Returns the month of the date (0-11 range).</dd><dt><span class="kwd">function </span>getSeconds() : <a href="Int.html" class="type">Int</a></dt><dd>Returns the seconds of the date (0-59 range).</dd><dt><span class="kwd">function </span>getTime() : <a href="Float.html" class="type">Float</a></dt><dd>Returns the timestamp of the date. It's the number of milliseconds
+		elapsed since 1st January 1970. It might only have a per-second precision
+		depending on the platforms.</dd><dt><span class="kwd">function </span>toString() : <a href="String.html" class="type">String</a></dt><dd>Returns a string representation for the Date, by using the
+		standard format <code>YYYY-MM-DD HH:MM:SS</code>. See <code>DateTools.format</code> for
+		other formating rules.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>fromString(s : <a href="String.html" class="type">String</a>) : <a href="Date.html" class="type">Date</a></dt><dd>Returns a Date from a formated string of one of the following formats :
+		<code>YYYY-MM-DD hh:mm:ss</code> or <code>YYYY-MM-DD</code> or <code>hh:mm:ss</code>. The first two formats
+		are expressed in local time, the third in UTC Epoch.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>fromTime(t : <a href="Float.html" class="type">Float</a>) : <a href="Date.html" class="type">Date</a></dt><dd>Returns a Date from a timestamp <code>t</code> which is the number of
+		milliseconds elapsed since 1st January 1970.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>now() : <a href="Date.html" class="type">Date</a></dt><dd>Returns a Date representing the current local time.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE creatorIDEProject>
+<project description="Just a description" name="New project">
+    <resources>
+        <images/>
+        <models/>
+        <sounds/>
+        <scenes/>
+        <classes/>
+        <fonts/>
+        <filters/>
+        <effects/>
+    </resources>
+    <targets>
+        <target exporter="cpp" name="Windows_Demo">
+            <name>Windows Demo</name>
+            <description>Builds the demo version</description>
+        </target>
+        <target exporter="cpp" name="Windows_Full">
+            <name>Windows Full</name>
+            <description></description>
+        </target>
+    </targets>
+</project>

@@ -17,6 +17,7 @@ public:
     explicit wwMainPage(QWidget *parent = 0);
     ~wwMainPage();
     void changeEvent(QEvent *);
+    void refresh();
     
 private slots:
     void on_webView_linkClicked(QUrl u);

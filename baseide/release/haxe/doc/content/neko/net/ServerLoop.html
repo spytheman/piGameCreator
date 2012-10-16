@@ -1,0 +1,141 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>neko.net.ServerLoop&lt;ClientData&gt;</div><div class="platforms">Available in neko</div><div class="classdoc">This class enables you to quickly create a custom server that can
+	serve several clients in parallel. This server is using a single
+	thread and process so the server itself processing is not parallel.
+	Non-blocking sockets are used to ensure that a slow client does not
+	block the others.</div><dl><dt><span class="kwd">var </span>clients : <a href="../../List.html" class="type">List</a>&lt;ClientData&gt;</dt><dd></dd><dt><span class="kwd">var </span>listenCount : <a href="../../Int.html" class="type">Int</a></dt><dd>This is the value of number client requests that the server socket
+		listen for. By default this number is 10 but can be increased for
+		servers supporting a large number of simultaneous requests.</dd><dt><span class="kwd">var </span>updateTime : <a href="../../Float.html" class="type">Float</a></dt><dd>See <code>update</code>.</dd><dt><span class="kwd">function </span>new(?newData : _ : <a href="../../sys/net/Socket.html" class="type">sys.net.Socket</a> -> ClientData) : <a href="../../Void.html" class="type">Void</a></dt><dd>Creates a server instance. The <code>newData</code> methods must return
+		the data associated with the Client.</dd><dt><span class="kwd">function </span>clientDisconnected(d : ClientData) : <a href="../../Void.html" class="type">Void</a></dt><dd>This method is called after a client has been disconnected.</dd><dt><span class="kwd">function </span>clientWrite(s : <a href="../../sys/net/Socket.html" class="type">sys.net.Socket</a>, buf : <a href="../../haxe/io/Bytes.html" class="type">haxe.io.Bytes</a>, pos : <a href="../../Int.html" class="type">Int</a>, len : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>This method can be used instead of writing directly to the socket.
+		It ensures that all the data is correctly sent. If an error occurs
+		while sending the data, no exception will occur but the client will
+		be gracefully disconnected.</dd><dt><span class="kwd">function </span>closeConnection(s : <a href="../../sys/net/Socket.html" class="type">sys.net.Socket</a>) : <a href="../../Bool.html" class="type">Bool</a></dt><dd>Closes the client connection and removes it from the client List.</dd><dt><span class="kwd">function </span>onError(e : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Called when an error occured. This enable you to log the error somewhere.
+		By default the error is displayed using <code>trace</code>.</dd><dt><span class="kwd">function </span>processClientData(d : ClientData, buf : <a href="../../haxe/io/Bytes.html" class="type">haxe.io.Bytes</a>, bufpos : <a href="../../Int.html" class="type">Int</a>, buflen : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd>This method is called when some data has been readed into a Client buffer.
+		If the data can be handled, then you can return the number of bytes handled
+		that needs to be removed from the buffer. It the data can't be handled (some
+		part of the message is missing for example), returns 0.</dd><dt><span class="kwd">function </span>run(host : <a href="../../sys/net/Host.html" class="type">sys.net.Host</a>, port : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Run the server. This function should never return.</dd><dt><span class="kwd">function </span>update() : <a href="../../Void.html" class="type">Void</a></dt><dd>The <code>update</code> method is called after each socket event has been
+		processed or when <code>updateTime</code> has been reached. It can be used
+		to perform time-regular tasks such as pings. By default <code>updateTime</code>
+		is set to one second.</dd><dt><span class="kwd">static </span><span class="kwd">var </span>DEFAULT_BUFSIZE : <a href="../../Int.html" class="type">Int</a></dt><dd>Each client has an associated buffer. This is the initial buffer size which
+		is set to 128 bytes by default.</dd><dt><span class="kwd">static </span><span class="kwd">var </span>MAX_BUFSIZE : <a href="../../Int.html" class="type">Int</a></dt><dd>Each client has an associated buffer. This is the maximum buffer size which
+		is set to 64K by default. When that size is reached and some data can't be processed,
+		the client is disconnected.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

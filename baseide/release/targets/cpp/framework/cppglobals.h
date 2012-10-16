@@ -1,4 +1,0 @@
-#ifndef CPPGLOBALS_H
-#define CPPGLOBALS_H
-
-#endif //CPPGLOBALS_H

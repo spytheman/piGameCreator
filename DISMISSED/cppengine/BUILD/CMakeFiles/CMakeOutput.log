@@ -1,0 +1,280 @@
+The system is: Windows - 6.1 - x86
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: P:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/bin/gcc.exe 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.exe"
+
+The C compiler identification is GNU, found in "P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CompilerIdC/a.exe"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: P:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/bin/g++.exe 
+Build flags: 
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+
+The CXX compiler identification is GNU, found in "P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CompilerIdCXX/a.exe"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\mingw32-make.exe "cmTryCompileExec/fast"
+P:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/bin/mingw32-make -f CMakeFiles\cmTryCompileExec.dir\build.make CMakeFiles/cmTryCompileExec.dir/build
+mingw32-make[1]: Entering directory `P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp'
+P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E cmake_progress_report P:\CPP\piGameCreator\cppengine\BUILD\CMakeFiles\CMakeTmp\CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/testCCompiler.c.obj
+P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\gcc.exe    -o CMakeFiles\cmTryCompileExec.dir\testCCompiler.c.obj   -c P:\CPP\piGameCreator\cppengine\BUILD\CMakeFiles\CMakeTmp\testCCompiler.c
+Linking C executable cmTryCompileExec.exe
+P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E cmake_link_script CMakeFiles\cmTryCompileExec.dir\link.txt --verbose=1
+P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E remove -f CMakeFiles\cmTryCompileExec.dir/objects.a
+P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\ar.exe cr CMakeFiles\cmTryCompileExec.dir/objects.a @CMakeFiles\cmTryCompileExec.dir\objects1.rsp
+P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\gcc.exe         -Wl,--whole-archive CMakeFiles\cmTryCompileExec.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec.exe -Wl,--out-implib,libcmTryCompileExec.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+mingw32-make[1]: Leaving directory `P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\mingw32-make.exe "cmTryCompileExec/fast"
+P:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/bin/mingw32-make -f CMakeFiles\cmTryCompileExec.dir\build.make CMakeFiles/cmTryCompileExec.dir/build
+mingw32-make[1]: Entering directory `P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp'
+P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E cmake_progress_report P:\CPP\piGameCreator\cppengine\BUILD\CMakeFiles\CMakeTmp\CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.obj
+P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\gcc.exe    -o CMakeFiles\cmTryCompileExec.dir\CMakeCCompilerABI.c.obj   -c P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\share\cmake-2.8\Modules\CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec.exe
+P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E cmake_link_script CMakeFiles\cmTryCompileExec.dir\link.txt --verbose=1
+P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E remove -f CMakeFiles\cmTryCompileExec.dir/objects.a
+P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\ar.exe cr CMakeFiles\cmTryCompileExec.dir/objects.a @CMakeFiles\cmTryCompileExec.dir\objects1.rsp
+P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\gcc.exe       -v -Wl,--whole-archive CMakeFiles\cmTryCompileExec.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec.exe -Wl,--out-implib,libcmTryCompileExec.dll.a -Wl,--major-image-version,0,--minor-image-version,0   
+Using built-in specs.
+COLLECT_GCC=P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\gcc.exe
+COLLECT_LTO_WRAPPER=p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/mingw32/4.6.2/lto-wrapper.exe
+Target: mingw32
+Configured with: ../gcc-4.6.2/configure --enable-languages=c,c++,ada,fortran,objc,obj-c++ --disable-sjlj-exceptions --with-dwarf2 --enable-shared --enable-libgomp --disable-win32-registry --enable-libstdcxx-debug --enable-version-specific-runtime-libs --build=mingw32 --prefix=/mingw
+Thread model: win32
+gcc version 4.6.2 (GCC) 
+COMPILER_PATH=p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/mingw32/4.6.2/;p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/;p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/bin/
+LIBRARY_PATH=p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/;p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/;p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/lib/;p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec.exe' '-mtune=i386' '-march=i386'
+ p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/mingw32/4.6.2/collect2.exe -Bdynamic -o cmTryCompileExec.exe p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../crt2.o p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/crtbegin.o -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2 -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/lib -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../.. --whole-archive CMakeFiles\cmTryCompileExec.dir/objects.a --no-whole-archive --out-implib libcmTryCompileExec.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc_eh -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_eh -lgcc -lmoldname -lmingwex -lmsvcrt p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/crtend.o
+mingw32-make[1]: Leaving directory `P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld.exe|ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\mingw32-make.exe "cmTryCompileExec/fast"]
+  ignore line: [P:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/bin/mingw32-make -f CMakeFiles\cmTryCompileExec.dir\build.make CMakeFiles/cmTryCompileExec.dir/build]
+  ignore line: [mingw32-make[1]: Entering directory `P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp']
+  ignore line: [P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E cmake_progress_report P:\CPP\piGameCreator\cppengine\BUILD\CMakeFiles\CMakeTmp\CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\gcc.exe    -o CMakeFiles\cmTryCompileExec.dir\CMakeCCompilerABI.c.obj   -c P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\share\cmake-2.8\Modules\CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec.exe]
+  ignore line: [P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E cmake_link_script CMakeFiles\cmTryCompileExec.dir\link.txt --verbose=1]
+  ignore line: [P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E remove -f CMakeFiles\cmTryCompileExec.dir/objects.a]
+  ignore line: [P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\ar.exe cr CMakeFiles\cmTryCompileExec.dir/objects.a @CMakeFiles\cmTryCompileExec.dir\objects1.rsp]
+  ignore line: [P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\gcc.exe       -v -Wl,--whole-archive CMakeFiles\cmTryCompileExec.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec.exe -Wl,--out-implib,libcmTryCompileExec.dll.a -Wl,--major-image-version,0,--minor-image-version,0   ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\gcc.exe]
+  ignore line: [COLLECT_LTO_WRAPPER=p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/mingw32/4.6.2/lto-wrapper.exe]
+  ignore line: [Target: mingw32]
+  ignore line: [Configured with: ../gcc-4.6.2/configure --enable-languages=c,c++,ada,fortran,objc,obj-c++ --disable-sjlj-exceptions --with-dwarf2 --enable-shared --enable-libgomp --disable-win32-registry --enable-libstdcxx-debug --enable-version-specific-runtime-libs --build=mingw32 --prefix=/mingw]
+  ignore line: [Thread model: win32]
+  ignore line: [gcc version 4.6.2 (GCC) ]
+  ignore line: [COMPILER_PATH=p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/mingw32/4.6.2/]
+  ignore line: [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/]
+  ignore line: [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/bin/]
+  ignore line: [LIBRARY_PATH=p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/]
+  ignore line: [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/]
+  ignore line: [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/lib/]
+  ignore line: [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec.exe' '-mtune=i386' '-march=i386']
+  link line: [ p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/mingw32/4.6.2/collect2.exe -Bdynamic -o cmTryCompileExec.exe p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../crt2.o p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/crtbegin.o -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2 -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/lib -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../.. --whole-archive CMakeFiles\cmTryCompileExec.dir/objects.a --no-whole-archive --out-implib libcmTryCompileExec.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc_eh -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_eh -lgcc -lmoldname -lmingwex -lmsvcrt p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/crtend.o]
+    arg [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/mingw32/4.6.2/collect2.exe] ==> ignore
+    arg [-Bdynamic] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec.exe] ==> ignore
+    arg [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../crt2.o] ==> ignore
+    arg [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/crtbegin.o] ==> ignore
+    arg [-Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2] ==> dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2]
+    arg [-Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc] ==> dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc]
+    arg [-Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/lib] ==> dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/lib]
+    arg [-Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../..] ==> dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../..]
+    arg [--whole-archive] ==> ignore
+    arg [CMakeFiles\cmTryCompileExec.dir/objects.a] ==> ignore
+    arg [--no-whole-archive] ==> ignore
+    arg [--out-implib] ==> ignore
+    arg [libcmTryCompileExec.dll.a] ==> ignore
+    arg [--major-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [--minor-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc_eh] ==> lib [gcc_eh]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [-ladvapi32] ==> lib [advapi32]
+    arg [-lshell32] ==> lib [shell32]
+    arg [-luser32] ==> lib [user32]
+    arg [-lkernel32] ==> lib [kernel32]
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc_eh] ==> lib [gcc_eh]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/crtend.o] ==> ignore
+  remove lib [gcc_eh]
+  remove lib [gcc]
+  remove lib [gcc_eh]
+  remove lib [gcc]
+  collapse dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2] ==> [p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/lib/gcc/mingw32/4.6.2]
+  collapse dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc] ==> [p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/lib/gcc]
+  collapse dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/lib] ==> [p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/mingw32/lib]
+  collapse dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../..] ==> [p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/lib]
+  implicit libs: [mingw32;moldname;mingwex;msvcrt;advapi32;shell32;user32;kernel32;mingw32;moldname;mingwex;msvcrt]
+  implicit dirs: [p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/lib/gcc/mingw32/4.6.2;p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/lib/gcc;p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/mingw32/lib;p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/lib]
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\mingw32-make.exe "cmTryCompileExec/fast"
+P:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/bin/mingw32-make -f CMakeFiles\cmTryCompileExec.dir\build.make CMakeFiles/cmTryCompileExec.dir/build
+mingw32-make[1]: Entering directory `P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp'
+P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E cmake_progress_report P:\CPP\piGameCreator\cppengine\BUILD\CMakeFiles\CMakeTmp\CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec.dir/testCXXCompiler.cxx.obj
+P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\g++.exe     -o CMakeFiles\cmTryCompileExec.dir\testCXXCompiler.cxx.obj -c P:\CPP\piGameCreator\cppengine\BUILD\CMakeFiles\CMakeTmp\testCXXCompiler.cxx
+Linking CXX executable cmTryCompileExec.exe
+P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E cmake_link_script CMakeFiles\cmTryCompileExec.dir\link.txt --verbose=1
+P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E remove -f CMakeFiles\cmTryCompileExec.dir/objects.a
+P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\ar.exe cr CMakeFiles\cmTryCompileExec.dir/objects.a @CMakeFiles\cmTryCompileExec.dir\objects1.rsp
+P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\g++.exe         -Wl,--whole-archive CMakeFiles\cmTryCompileExec.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec.exe -Wl,--out-implib,libcmTryCompileExec.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
+mingw32-make[1]: Leaving directory `P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp
+
+Run Build Command:P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\mingw32-make.exe "cmTryCompileExec/fast"
+P:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/bin/mingw32-make -f CMakeFiles\cmTryCompileExec.dir\build.make CMakeFiles/cmTryCompileExec.dir/build
+mingw32-make[1]: Entering directory `P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp'
+P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E cmake_progress_report P:\CPP\piGameCreator\cppengine\BUILD\CMakeFiles\CMakeTmp\CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.obj
+P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\g++.exe     -o CMakeFiles\cmTryCompileExec.dir\CMakeCXXCompilerABI.cpp.obj -c P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\share\cmake-2.8\Modules\CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTryCompileExec.exe
+P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E cmake_link_script CMakeFiles\cmTryCompileExec.dir\link.txt --verbose=1
+P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E remove -f CMakeFiles\cmTryCompileExec.dir/objects.a
+P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\ar.exe cr CMakeFiles\cmTryCompileExec.dir/objects.a @CMakeFiles\cmTryCompileExec.dir\objects1.rsp
+P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\g++.exe       -v -Wl,--whole-archive CMakeFiles\cmTryCompileExec.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec.exe -Wl,--out-implib,libcmTryCompileExec.dll.a -Wl,--major-image-version,0,--minor-image-version,0   
+Using built-in specs.
+COLLECT_GCC=P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\g++.exe
+COLLECT_LTO_WRAPPER=p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/mingw32/4.6.2/lto-wrapper.exe
+Target: mingw32
+Configured with: ../gcc-4.6.2/configure --enable-languages=c,c++,ada,fortran,objc,obj-c++ --disable-sjlj-exceptions --with-dwarf2 --enable-shared --enable-libgomp --disable-win32-registry --enable-libstdcxx-debug --enable-version-specific-runtime-libs --build=mingw32 --prefix=/mingw
+Thread model: win32
+gcc version 4.6.2 (GCC) 
+COMPILER_PATH=p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/mingw32/4.6.2/;p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/;p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/bin/
+LIBRARY_PATH=p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/;p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/;p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/lib/;p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec.exe' '-shared-libgcc' '-mtune=i386' '-march=i386'
+ p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/mingw32/4.6.2/collect2.exe -Bdynamic -u ___register_frame_info -u ___deregister_frame_info -o cmTryCompileExec.exe p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../crt2.o p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/crtbegin.o -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2 -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/lib -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../.. --whole-archive CMakeFiles\cmTryCompileExec.dir/objects.a --no-whole-archive --out-implib libcmTryCompileExec.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/crtend.o
+mingw32-make[1]: Leaving directory `P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld.exe|ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\mingw32-make.exe "cmTryCompileExec/fast"]
+  ignore line: [P:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/bin/mingw32-make -f CMakeFiles\cmTryCompileExec.dir\build.make CMakeFiles/cmTryCompileExec.dir/build]
+  ignore line: [mingw32-make[1]: Entering directory `P:/CPP/piGameCreator/cppengine/BUILD/CMakeFiles/CMakeTmp']
+  ignore line: [P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E cmake_progress_report P:\CPP\piGameCreator\cppengine\BUILD\CMakeFiles\CMakeTmp\CMakeFiles 1]
+  ignore line: [Building CXX object CMakeFiles/cmTryCompileExec.dir/CMakeCXXCompilerABI.cpp.obj]
+  ignore line: [P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\g++.exe     -o CMakeFiles\cmTryCompileExec.dir\CMakeCXXCompilerABI.cpp.obj -c P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\share\cmake-2.8\Modules\CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTryCompileExec.exe]
+  ignore line: [P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E cmake_link_script CMakeFiles\cmTryCompileExec.dir\link.txt --verbose=1]
+  ignore line: [P:\CPP\piGameCreator\baseide\release\targets\cpp\cmake\bin\cmake.exe -E remove -f CMakeFiles\cmTryCompileExec.dir/objects.a]
+  ignore line: [P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\ar.exe cr CMakeFiles\cmTryCompileExec.dir/objects.a @CMakeFiles\cmTryCompileExec.dir\objects1.rsp]
+  ignore line: [P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\g++.exe       -v -Wl,--whole-archive CMakeFiles\cmTryCompileExec.dir/objects.a -Wl,--no-whole-archive  -o cmTryCompileExec.exe -Wl,--out-implib,libcmTryCompileExec.dll.a -Wl,--major-image-version,0,--minor-image-version,0   ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=P:\CPP\piGameCreator\baseide\release\targets\cpp\mingw\bin\g++.exe]
+  ignore line: [COLLECT_LTO_WRAPPER=p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/mingw32/4.6.2/lto-wrapper.exe]
+  ignore line: [Target: mingw32]
+  ignore line: [Configured with: ../gcc-4.6.2/configure --enable-languages=c,c++,ada,fortran,objc,obj-c++ --disable-sjlj-exceptions --with-dwarf2 --enable-shared --enable-libgomp --disable-win32-registry --enable-libstdcxx-debug --enable-version-specific-runtime-libs --build=mingw32 --prefix=/mingw]
+  ignore line: [Thread model: win32]
+  ignore line: [gcc version 4.6.2 (GCC) ]
+  ignore line: [COMPILER_PATH=p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/mingw32/4.6.2/]
+  ignore line: [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/]
+  ignore line: [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/bin/]
+  ignore line: [LIBRARY_PATH=p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/]
+  ignore line: [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/]
+  ignore line: [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/lib/]
+  ignore line: [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec.exe' '-shared-libgcc' '-mtune=i386' '-march=i386']
+  link line: [ p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/mingw32/4.6.2/collect2.exe -Bdynamic -u ___register_frame_info -u ___deregister_frame_info -o cmTryCompileExec.exe p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../crt2.o p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/crtbegin.o -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2 -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/lib -Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../.. --whole-archive CMakeFiles\cmTryCompileExec.dir/objects.a --no-whole-archive --out-implib libcmTryCompileExec.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc_s -lgcc -lmoldname -lmingwex -lmsvcrt p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/crtend.o]
+    arg [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../libexec/gcc/mingw32/4.6.2/collect2.exe] ==> ignore
+    arg [-Bdynamic] ==> ignore
+    arg [-u] ==> ignore
+    arg [___register_frame_info] ==> ignore
+    arg [-u] ==> ignore
+    arg [___deregister_frame_info] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec.exe] ==> ignore
+    arg [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../crt2.o] ==> ignore
+    arg [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/crtbegin.o] ==> ignore
+    arg [-Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2] ==> dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2]
+    arg [-Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc] ==> dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc]
+    arg [-Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/lib] ==> dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/lib]
+    arg [-Lp:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../..] ==> dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../..]
+    arg [--whole-archive] ==> ignore
+    arg [CMakeFiles\cmTryCompileExec.dir/objects.a] ==> ignore
+    arg [--no-whole-archive] ==> ignore
+    arg [--out-implib] ==> ignore
+    arg [libcmTryCompileExec.dll.a] ==> ignore
+    arg [--major-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [--minor-image-version] ==> ignore
+    arg [0] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [-ladvapi32] ==> lib [advapi32]
+    arg [-lshell32] ==> lib [shell32]
+    arg [-luser32] ==> lib [user32]
+    arg [-lkernel32] ==> lib [kernel32]
+    arg [-lmingw32] ==> lib [mingw32]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lmoldname] ==> lib [moldname]
+    arg [-lmingwex] ==> lib [mingwex]
+    arg [-lmsvcrt] ==> lib [msvcrt]
+    arg [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/crtend.o] ==> ignore
+  remove lib [gcc_s]
+  remove lib [gcc]
+  remove lib [gcc_s]
+  remove lib [gcc]
+  collapse dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2] ==> [p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/lib/gcc/mingw32/4.6.2]
+  collapse dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc] ==> [p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/lib/gcc]
+  collapse dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../../../mingw32/lib] ==> [p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/mingw32/lib]
+  collapse dir [p:/cpp/pigamecreator/baseide/release/targets/cpp/mingw/bin/../lib/gcc/mingw32/4.6.2/../../..] ==> [p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/lib]
+  implicit libs: [stdc++;mingw32;moldname;mingwex;msvcrt;advapi32;shell32;user32;kernel32;mingw32;moldname;mingwex;msvcrt]
+  implicit dirs: [p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/lib/gcc/mingw32/4.6.2;p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/lib/gcc;p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/mingw32/lib;p:/CPP/piGameCreator/baseide/release/targets/cpp/mingw/lib]
+
+

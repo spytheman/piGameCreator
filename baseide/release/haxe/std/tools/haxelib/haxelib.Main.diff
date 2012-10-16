@@ -1,0 +1,9 @@
+736a737,738
+> 		var temp = project.split(":");
+> 		project = temp[0];
+741c743,745
+< 		var version = sys.io.File.getContent(pdir+".current");
+---
+> 		var version;
+> 		if(temp.length > 1) version = temp[1];
+> 		else version = sys.io.File.getContent(pdir+".current");

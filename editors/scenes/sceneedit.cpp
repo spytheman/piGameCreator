@@ -50,13 +50,14 @@ DLLEXPORT QList<vObject> newResources()
     return res;
 }
 
-DLLEXPORT gcresource* createResource(QString kind,QString type,QString name)
+DLLEXPORT gcresource* createResource(gameproject* project, QString kind,QString type,QString name)
 {
     //gcmessage("Created");
 
     if(kind=="scene")
     {
         rsScene* r = new rsScene;
+        r->project = project;
         r->type="image";
         r->name = name;
         r->icon = ffficon("application");

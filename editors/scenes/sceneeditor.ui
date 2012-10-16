@@ -1319,7 +1319,7 @@
      <item>
       <widget class="QStackedWidget" name="ToolOptionsSW">
        <property name="currentIndex">
-        <number>0</number>
+        <number>5</number>
        </property>
        <widget class="QWidget" name="pgObjectInspector">
         <layout class="QVBoxLayout" name="verticalLayout_17">
@@ -2199,7 +2199,7 @@ Select an object to edit its properties.</string>
          <item>
           <widget class="QStackedWidget" name="terrainOptionsSW">
            <property name="currentIndex">
-            <number>0</number>
+            <number>1</number>
            </property>
            <widget class="QWidget" name="pgTerrainOptionsNotSelected">
             <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -2464,7 +2464,7 @@ Select an object to edit its properties.</string>
              <item>
               <widget class="QStackedWidget" name="HeightMapTerrainTools">
                <property name="currentIndex">
-                <number>5</number>
+                <number>3</number>
                </property>
                <widget class="QWidget" name="pgHmTHeight">
                 <layout class="QVBoxLayout" name="verticalLayout_24">
@@ -3777,6 +3777,7 @@ p, li { white-space: pre-wrap; }
   <tabstop>toolButton</tabstop>
  </tabstops>
  <resources>
+  <include location="../../sharedcode/resources.qrc"/>
   <include location="../../sharedcode/resources.qrc"/>
   <include location="../../sharedcode/resources.qrc"/>
   <include location="../../sharedcode/resources.qrc"/>

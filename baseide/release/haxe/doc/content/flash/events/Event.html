@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.events.Event</div><div class="platforms">Available in flash</div><dl><dt><span class="kwd">var </span>bubbles(default,null) : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>cancelable(default,null) : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>currentTarget(default,null) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">var </span>eventPhase(default,null) : <a href="../../flash/events/EventPhase.html" class="type">EventPhase</a></dt><dd></dd><dt><span class="kwd">var </span>target(default,null) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">var </span>type(default,null) : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>new(type : <a href="../../String.html" class="type">String</a>, ?bubbles : <a href="../../Bool.html" class="type">Bool</a>, ?cancelable : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>clone() : <a href="../../flash/events/Event.html" class="type">Event</a></dt><dd></dd><dt><span class="kwd">function </span>formatToString(className : <a href="../../String.html" class="type">String</a>, ?p1 : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?p2 : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?p3 : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?p4 : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?p5 : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>isDefaultPrevented() : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">function </span>preventDefault() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>stopImmediatePropagation() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>stopPropagation() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>toString() : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>ACTIVATE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>ADDED : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>ADDED_TO_STAGE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>CANCEL : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>CHANGE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>CLEAR : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>CLOSE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>COMPLETE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>CONNECT : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>CONTEXT3D_CREATE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>COPY : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>CUT : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>DEACTIVATE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>ENTER_FRAME : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>EXIT_FRAME : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>FRAME_CONSTRUCTED : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>FRAME_LABEL : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>FULLSCREEN : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>ID3 : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>INIT : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>MOUSE_LEAVE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>OPEN : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>PASTE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>REMOVED : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>REMOVED_FROM_STAGE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>RENDER : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>RESIZE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>SCROLL : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>SELECT : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>SELECT_ALL : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>SOUND_COMPLETE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>SUSPEND : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>TAB_CHILDREN_CHANGE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>TAB_ENABLED_CHANGE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>TAB_INDEX_CHANGE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>TEXTURE_READY : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>TEXT_INTERACTION_MODE_CHANGE : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>UNLOAD : <a href="../../String.html" class="type">String</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

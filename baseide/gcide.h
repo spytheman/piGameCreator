@@ -6,8 +6,7 @@
 #include "../sharedcode/frameworkdata.h"
 #include "../sharedcode/rsclass.h"
 #include "../sharedcode/globals.h"
-
-#define CODE_FORMATS_TOTAL_COUNT 12
+#include "../sharedcode/resourcetree.h"
 
 class WorkspaceWidget;
 class ResourceEditor;
@@ -57,8 +56,6 @@ public:
     OpenedProject* currentProject;  //which project is treated as current?
     gcresource* currentResource;
 
-    QDialog* getNewDialogForKind(QString kind);
-
     //creates a new project - opens the wizard and returns true if project was created, NULL if canceled
     //Created oroject will then be opened directly into the IDE
     bool newProject();
@@ -75,6 +72,7 @@ public:
     //closes a project - from index or from gameproject pointer
     bool closeProject(int index);
     bool closeProject(gameproject* project);
+    bool closeProject(OpenedProject* project);
 
     //All opened workspace widgets
     QList<WorkspaceWidget*> openedWidgets;
@@ -102,12 +100,14 @@ public:
     //Resource misc
     QIcon iconFromKind(QString kind);
     QIcon addIconFromKind(QString kind);
+    QIcon delIconFromKind(QString kind);
+
     QString folderNameFromKind(QString kind);
     gcresource* resourceFromKind(QString kind);
 
     //Code Editor settings - part of the IDE, not the class editor
     void loadSettings();
-    fontsetting codeFormats[CODE_FORMATS_TOTAL_COUNT];
+    //fontsetting codeFormats[CODE_FORMATS_TOTAL_COUNT];
 
     void emitConfigChanged();
 

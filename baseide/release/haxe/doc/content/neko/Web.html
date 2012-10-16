@@ -1,0 +1,137 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>neko.Web</div><div class="platforms">Available in neko</div><div class="classdoc">This class is used for accessing the local Web server and the current
+	client request and informations.</div><dl><dt><span class="kwd">static </span><span class="kwd">var </span>isModNeko(default,null) : <a href="../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>isTora(default,null) : <a href="../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>cacheModule(f : <a href="../Void.html" class="type">Void</a> -> <a href="../Void.html" class="type">Void</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Set the main entry point function used to handle requests.
+		Setting it back to null will disable code caching.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>flush() : <a href="../Void.html" class="type">Void</a></dt><dd>Flush the data sent to the client. By default on Apache, outgoing data is buffered so
+		this can be useful for displaying some long operation progress.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getAuthorization() : { user : <a href="../String.html" class="type">String</a>, pass : <a href="../String.html" class="type">String</a>}</dt><dd>Returns an object with the authorization sent by the client (Basic scheme only).</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getClientHeader(k : <a href="../String.html" class="type">String</a>) : <a href="../String.html" class="type">String</a></dt><dd>Retrieve a client header value sent with the request.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getClientHeaders() : <a href="../List.html" class="type">List</a>&lt;{ value : <a href="../String.html" class="type">String</a>, header : <a href="../String.html" class="type">String</a>}&gt;</dt><dd>Retrieve all the client headers.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getClientIP() : <a href="../String.html" class="type">String</a></dt><dd>Surprisingly returns the client IP address.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getCookies() : <a href="../Hash.html" class="type">Hash</a>&lt;<a href="../String.html" class="type">String</a>&gt;</dt><dd>Returns an hashtable of all Cookies sent by the client.
+		Modifying the hashtable will not modify the cookie, use setCookie instead.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getCwd() : <a href="../String.html" class="type">String</a></dt><dd>Get the current script directory in the local filesystem.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getHostName() : <a href="../String.html" class="type">String</a></dt><dd>Returns the local server host name</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getMethod() : <a href="../String.html" class="type">String</a></dt><dd>Get the HTTP method used by the client. This api requires Neko 1.7.1+</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getMultipart(maxSize : <a href="../Int.html" class="type">Int</a>) : <a href="../Hash.html" class="type">Hash</a>&lt;<a href="../String.html" class="type">String</a>&gt;</dt><dd>Get the multipart parameters as an hashtable. The data
+		cannot exceed the maximum size specified.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getParamValues(param : <a href="../String.html" class="type">String</a>) : <a href="../Array.html" class="type">Array</a>&lt;<a href="../String.html" class="type">String</a>&gt;</dt><dd>Returns an Array of Strings built using GET / POST values.
+		If you have in your URL the parameters <code>a[]=foo;a[]=hello;a[5]=bar;a[3]=baz</code> then
+		<code>neko.Web.getParamValues("a")</code> will return <code>["foo","hello",null,"baz",null,"bar"]</code></dd><dt><span class="kwd">static </span><span class="kwd">function </span>getParams() : <a href="../Hash.html" class="type">Hash</a>&lt;<a href="../String.html" class="type">String</a>&gt;</dt><dd>Returns the GET and POST parameters.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getParamsString() : <a href="../String.html" class="type">String</a></dt><dd>Returns all the GET parameters String</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getPostData() : <a href="../String.html" class="type">String</a></dt><dd>Returns all the POST data. POST Data is always parsed as
+		being application/x-www-form-urlencoded and is stored into
+		the getParams hashtable. POST Data is maximimized to 256K
+		unless the content type is multipart/form-data. In that
+		case, you will have to use <code>getMultipart</code> or <code>parseMultipart</code>
+		methods.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getURI() : <a href="../String.html" class="type">String</a></dt><dd>Returns the original request URL (before any server internal redirections)</dd><dt><span class="kwd">static </span><span class="kwd">function </span>logMessage(msg : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Write a message into the web server log file. This api requires Neko 1.7.1+</dd><dt><span class="kwd">static </span><span class="kwd">function </span>parseMultipart(onPart : <a href="../String.html" class="type">String</a> -> <a href="../String.html" class="type">String</a> -> <a href="../Void.html" class="type">Void</a>, onData : <a href="../haxe/io/Bytes.html" class="type">haxe.io.Bytes</a> -> <a href="../Int.html" class="type">Int</a> -> <a href="../Int.html" class="type">Int</a> -> <a href="../Void.html" class="type">Void</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Parse the multipart data. Call <code>onPart</code> when a new part is found
+		with the part name and the filename if present
+		and <code>onData</code> when some part data is readed. You can this way
+		directly save the data on hard drive in the case of a file upload.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>redirect(url : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Tell the client to redirect to the given url ("Location" header)</dd><dt><span class="kwd">static </span><span class="kwd">function </span>setCookie(key : <a href="../String.html" class="type">String</a>, value : <a href="../String.html" class="type">String</a>, ?expire : <a href="../Date.html" class="type">Date</a>, ?domain : <a href="../String.html" class="type">String</a>, ?path : <a href="../String.html" class="type">String</a>, ?secure : <a href="../Bool.html" class="type">Bool</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Set a Cookie value in the HTTP headers. Same remark as setHeader.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>setHeader(h : <a href="../String.html" class="type">String</a>, v : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Set an output header value. If some data have been printed, the headers have
+		already been sent so this will raise an exception.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>setReturnCode(r : <a href="../Int.html" class="type">Int</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Set the HTTP return code. Same remark as setHeader.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

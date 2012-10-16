@@ -1,9 +1,27 @@
 #include "resourceeditor.h"
 #include "../sharedcode/resource.h"
+#include "gcide.h"
+#include <QMainWindow>
 
 ResourceEditor::ResourceEditor()
 {
+    updateTimer.setSingleShot(true);
+    initialized = false;
 }
+
+void ResourceEditor::initResourceEditor(QWidget* w)
+{
+    widget = w;
+    //Resource editor specific:
+    widget->setAttribute(Qt::WA_DeleteOnClose);
+    widget->setProperty("editor",true);
+}
+
+void ResourceEditor::reloadWindowState()
+{
+    gcerror("Not intended to be called. Overload it in your class and place RE_WINDOW_STATE_LOAD macro in its body");
+}
+
 bool ResourceEditor::isResourceEditor()
 {
     return true;
@@ -22,7 +40,9 @@ QString ResourceEditor::title()
 }
 bool ResourceEditor::init()
 {
-    gcmessage("PLEASE IMPLEMENT the INIT() call to your DLL class");
+    updateTimer.setInterval(1);
+    updateTimer.setSingleShot(true);
+    widget->connect(&updateTimer, SIGNAL(timeout()), creatorIDE, SLOT(ResourceEditorReloadStateWrapper()));
 }
 bool ResourceEditor::saveAs()
 {

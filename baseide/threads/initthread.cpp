@@ -9,6 +9,10 @@
 #include "gcide.h"
 #include "dllforexport.h"
 #include "dllforresourceeditor.h"
+#include <stdlib.h>
+#include <QProcess>
+#include <iostream>
+#include "../sharedcode/imageio.h"
 
 void initThread::run()
 {
@@ -16,6 +20,35 @@ void initThread::run()
     //Load and initialize ALL stuff needed for piGameCreator.
     emit messageChanged("Initializing pi|game CREATOR...");
     QThread::yieldCurrentThread();
+
+
+    QString path = getenv("PATH");
+    QString cpath = QFileInfo( QDir::currentPath() ).canonicalFilePath();
+
+#ifdef WIN32
+    cpath = cpath.replace("/", "\\");
+    putenv( QString( "HAXE_LIBRARY_PATH="+
+                     cpath+"\\haxe\\std:."
+    ).toLocal8Bit());
+
+    putenv( QString( "HAXEPATH="+
+                     cpath+"\\haxe"
+    ).toLocal8Bit());
+
+    putenv( QString( "NEKOPATH"+
+                     cpath+"\\neko"
+    ).toLocal8Bit());
+
+    putenv( QString( "PATH="+
+                path+";"+
+                cpath+"\\imagick;"+
+                cpath+"\\haxe;"+
+                cpath+"\\neko;"
+    ).toLocal8Bit() );
+#else
+    gcerror("initthread.cpp: Set the proper environment for your system!");
+#endif
+
     QApplication::processEvents();
     //load settings
     emit messageChanged("Loading language exporters...");
@@ -60,34 +93,18 @@ void initThread::run()
     QApplication::processEvents();
     QString allf, fmts;
     QList<QByteArray> FMT = QImageReader::supportedImageFormats();
-    for(int i=0;i<FMT.count();i++)
-    {
-        allf += "*."+FMT.at(i);
-        fmts += QObject::tr("%1 image (*.%2)").arg(QString(FMT.at(i).toUpper())).arg(QString(FMT.at(i)));
-        if(i<FMT.count()-1)
-        {
-            fmts+=";;";
-            allf += " ";
-        }
-    }
+
+    //Load the image formats:
+    char* c = getenv("PATH");
+    gcprint(  QString(c) );
+    //system("identify -list format");
+
+    imageio::init();
+
     gcprint("2D Image formats READ:");
-    gcprint(allf);
-    creatorIDE->gc2DformatsRead=QObject::tr("All supported image types (%1);;%2").arg(allf).arg(fmts);
-    allf="";fmts="";
-    QList<QByteArray> FMTW = QImageWriter::supportedImageFormats();
-    for(int i=0;i<FMTW.count();i++)
-    {
-        allf += "*."+FMTW.at(i);
-        fmts += QObject::tr("%1 image (*.%2)").arg(QString(FMTW.at(i).toUpper())).arg(QString(FMTW.at(i)));
-        if(i<FMTW.count()-1)
-        {
-            fmts+=";;";
-            allf += " ";
-        }
-    }
-    creatorIDE->gc2DformatsWrite=QObject::tr("All supported image types (%1);;%2").arg(allf).arg(fmts);
+
     gcprint("2D Image formats WRITE:");
-    gcprint(allf);
+
 
     emit messageChanged("Loading IDE settings...");
     QThread::yieldCurrentThread();

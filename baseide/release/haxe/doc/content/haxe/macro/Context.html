@@ -1,0 +1,122 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>haxe.macro.Context</div><div class="platforms">Available in neko</div><div class="classdoc">This is an API that can be used by macros implementations.</div><dl><dt><span class="kwd">static </span><span class="kwd">function </span>addResource(name : <a href="../../String.html" class="type">String</a>, data : <a href="../../haxe/io/Bytes.html" class="type">haxe.io.Bytes</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Add or modify a resource that will be accessible with haxe.Resource api.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>currentPos() : <a href="../../haxe/macro/Position.html" class="type">Position</a></dt><dd>Returns the position at which the macro is called</dd><dt><span class="kwd">static </span><span class="kwd">function </span>defineType(t : <a href="../../haxe/macro/TypeDefinition.html" class="type">TypeDefinition</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Define a new type based on the given definition.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>defined(s : <a href="../../String.html" class="type">String</a>) : <a href="../../Bool.html" class="type">Bool</a></dt><dd>Tells is the given compiler directive has been defined with -D</dd><dt><span class="kwd">static </span><span class="kwd">function </span>error(msg : <a href="../../String.html" class="type">String</a>, pos : <a href="../../haxe/macro/Position.html" class="type">Position</a>) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd>Display a compilation error at the given position in code and abort the current macro call</dd><dt><span class="kwd">static </span><span class="kwd">function </span>follow(t : <a href="../../haxe/macro/Type.html" class="type">Type</a>, ?once : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../haxe/macro/Type.html" class="type">Type</a></dt><dd>Follow all typedefs to reach the actual real type</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getBuildFields() : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../haxe/macro/Field.html" class="type">Field</a>&gt;</dt><dd>Returns the list of fields for the current type inside the build macro.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getClassPath() : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../String.html" class="type">String</a>&gt;</dt><dd>Return the current classpath</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getLocalClass() : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../haxe/macro/Ref.html" class="type">Ref</a>&lt;<a href="../../haxe/macro/ClassType.html" class="type">ClassType</a>&gt;&gt;</dt><dd>Returns the current class in which the macro is called</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getLocalMethod() : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../String.html" class="type">String</a>&gt;</dt><dd>Returns the name of the method from which the macro was called</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getLocalType() : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../haxe/macro/Type.html" class="type">Type</a>&gt;</dt><dd>Returns the current type in/on which the macro is called</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getModule(name : <a href="../../String.html" class="type">String</a>) : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../haxe/macro/Type.html" class="type">Type</a>&gt;</dt><dd>Return the list of types defined in the given compilation unit module</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getPosInfos(p : <a href="../../haxe/macro/Position.html" class="type">Position</a>) : { min : <a href="../../Int.html" class="type">Int</a>, max : <a href="../../Int.html" class="type">Int</a>, file : <a href="../../String.html" class="type">String</a>}</dt><dd>Get the informations stored into a given position.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getType(name : <a href="../../String.html" class="type">String</a>) : <a href="../../haxe/macro/Type.html" class="type">Type</a></dt><dd>Resolve a type from its name.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getTypedExpr(t : <a href="../../haxe/macro/TypedExpr.html" class="type">TypedExpr</a>) : <a href="../../haxe/macro/Expr.html" class="type">Expr</a></dt><dd>Return the raw expression corresponding to the given typed expression.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>makeExpr(v : <a href="../../Dynamic.html" class="type">Dynamic</a>, pos : <a href="../../haxe/macro/Position.html" class="type">Position</a>) : <a href="../../haxe/macro/Expr.html" class="type">Expr</a></dt><dd>Build an expression corresponding to the given runtime value. Only basic types + enums are supported.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>makePosition(inf : { min : <a href="../../Int.html" class="type">Int</a>, max : <a href="../../Int.html" class="type">Int</a>, file : <a href="../../String.html" class="type">String</a>}) : <a href="../../haxe/macro/Position.html" class="type">Position</a></dt><dd>Build a position with the given informations.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>onGenerate(callb : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../haxe/macro/Type.html" class="type">Type</a>&gt; -> <a href="../../Void.html" class="type">Void</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Set a callback function that will return all the types compiled before they get generated.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>parse(expr : <a href="../../String.html" class="type">String</a>, pos : <a href="../../haxe/macro/Position.html" class="type">Position</a>) : <a href="../../haxe/macro/Expr.html" class="type">Expr</a></dt><dd>Parse a constructed string into the corresponding expression.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>parseInlineString(expr : <a href="../../String.html" class="type">String</a>, pos : <a href="../../haxe/macro/Position.html" class="type">Position</a>) : <a href="../../haxe/macro/Expr.html" class="type">Expr</a></dt><dd>Parse a string contained into source code into the corresponding expression. Errors positions are reported within this string</dd><dt><span class="kwd">static </span><span class="kwd">function </span>registerModuleDependency(modulePath : <a href="../../String.html" class="type">String</a>, externFile : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Manually add a dependency between a module and a third party file :
+		make sure the module gets recompiled (if it was cached) in case the extern file has been modified as well.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>registerModuleReuseCall(modulePath : <a href="../../String.html" class="type">String</a>, macroCall : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Add a macro call to perform in case the module is reused by the compilation cache.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>resolvePath(file : <a href="../../String.html" class="type">String</a>) : <a href="../../String.html" class="type">String</a></dt><dd>Resolve a filename based on current classpath.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>signature(v : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../String.html" class="type">String</a></dt><dd>Quickly build an hashed MD5 signature for any given value</dd><dt><span class="kwd">static </span><span class="kwd">function </span>typeof(e : <a href="../../haxe/macro/Expr.html" class="type">Expr</a>) : <a href="../../haxe/macro/Type.html" class="type">Type</a></dt><dd>Evaluate the type a given expression would have in the context of the current macro call.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>warning(msg : <a href="../../String.html" class="type">String</a>, pos : <a href="../../haxe/macro/Position.html" class="type">Position</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Display a compilation warning at the given position in code</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

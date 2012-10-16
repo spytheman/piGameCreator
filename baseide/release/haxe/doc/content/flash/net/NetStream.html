@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.net.NetStream</div><div class="extends">extends <a href="../../flash/events/EventDispatcher.html" class="type">flash.events.EventDispatcher</a></div><div class="platforms">Available in flash</div><dl><dt><span class="kwd">var </span>audioCodec(default,null) : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">var </span>audioReliable : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>audioSampleAccess : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>backBufferLength(default,null) : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>backBufferTime : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>bufferLength(default,null) : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>bufferTime : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>bufferTimeMax : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>bytesLoaded(default,null) : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">var </span>bytesTotal(default,null) : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">var </span>checkPolicyFile : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>client : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">var </span>currentFPS(default,null) : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>dataReliable : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>decodedFrames(default,null) : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">var </span>farID(default,null) : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>farNonce(default,null) : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>inBufferSeek : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>info(default,null) : <a href="../../flash/net/NetStreamInfo.html" class="type">NetStreamInfo</a></dt><dd></dd><dt><span class="kwd">var </span>liveDelay(default,null) : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>maxPauseBufferTime : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>multicastAvailabilitySendToAll : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>multicastAvailabilityUpdatePeriod : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>multicastFetchPeriod : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>multicastInfo(default,null) : <a href="../../flash/net/NetStreamMulticastInfo.html" class="type">NetStreamMulticastInfo</a></dt><dd></dd><dt><span class="kwd">var </span>multicastPushNeighborLimit : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>multicastRelayMarginDuration : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>multicastWindowDuration : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>nearNonce(default,null) : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>objectEncoding(default,null) : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">var </span>peerStreams(default,null) : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Dynamic.html" class="type">Dynamic</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>soundTransform : <a href="../../flash/media/SoundTransform.html" class="type">flash.media.SoundTransform</a></dt><dd></dd><dt><span class="kwd">var </span>time(default,null) : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>useHardwareDecoder : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>useJitterBuffer : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>videoCodec(default,null) : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">var </span>videoReliable : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>videoSampleAccess : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>videoStreamSettings : <a href="../../flash/media/VideoStreamSettings.html" class="type">flash.media.VideoStreamSettings</a></dt><dd></dd><dt><span class="kwd">function </span>new(connection : <a href="../../flash/net/NetConnection.html" class="type">NetConnection</a>, ?peerID : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>appendBytes(bytes : <a href="../../flash/utils/ByteArray.html" class="type">flash.utils.ByteArray</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>appendBytesAction(netStreamAppendBytesAction : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>attach(connection : <a href="../../flash/net/NetConnection.html" class="type">NetConnection</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>attachAudio(microphone : <a href="../../flash/media/Microphone.html" class="type">flash.media.Microphone</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>attachCamera(theCamera : <a href="../../flash/media/Camera.html" class="type">flash.media.Camera</a>, ?snapshotMilliseconds : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>close() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>dispose() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>onPeerConnect(subscriber : <a href="../../flash/net/NetStream.html" class="type">NetStream</a>) : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">function </span>pause() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>play(?p1 : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?p2 : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?p3 : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?p4 : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?p5 : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>play2(param : <a href="../../flash/net/NetStreamPlayOptions.html" class="type">NetStreamPlayOptions</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>publish(?name : <a href="../../String.html" class="type">String</a>, ?type : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>receiveAudio(flag : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>receiveVideo(flag : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>receiveVideoFPS(FPS : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>resume() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>seek(offset : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>send(handlerName : <a href="../../String.html" class="type">String</a>, ?p1 : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?p2 : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?p3 : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?p4 : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?p5 : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>step(frames : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>togglePause() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>CONNECT_TO_FMS : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>DIRECT_CONNECTIONS : <a href="../../String.html" class="type">String</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

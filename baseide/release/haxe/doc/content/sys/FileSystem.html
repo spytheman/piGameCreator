@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>sys.FileSystem</div><div class="platforms">Available in neko, php, cpp</div><div class="classdoc">This class allows you to get informations about the files and directories.</div><dl><dt><span class="kwd">static </span><span class="kwd">function </span>createDirectory(path : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Create the given directory. Not recursive : the parent directory must exists.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>deleteDirectory(path : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Delete a given directory.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>deleteFile(path : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Delete a given file.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>exists(path : <a href="../String.html" class="type">String</a>) : <a href="../Bool.html" class="type">Bool</a></dt><dd>Tells if the given file or directory exists.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>fullPath(relpath : <a href="../String.html" class="type">String</a>) : <a href="../String.html" class="type">String</a></dt><dd>Returns the full path for the given path which is relative to the current working directory.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>isDirectory(path : <a href="../String.html" class="type">String</a>) : <a href="../Bool.html" class="type">Bool</a></dt><dd>Tells if the given path is a directory. Throw an exception if it does not exists or is not accesible.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>readDirectory(path : <a href="../String.html" class="type">String</a>) : <a href="../Array.html" class="type">Array</a>&lt;<a href="../String.html" class="type">String</a>&gt;</dt><dd>Read all the files/directories stored into the given directory.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>rename(path : <a href="../String.html" class="type">String</a>, newpath : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Rename the corresponding file or directory, allow to move it accross directories as well.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>stat(path : <a href="../String.html" class="type">String</a>) : <a href="../sys/FileStat.html" class="type">FileStat</a></dt><dd>Returns informations for the given file/directory.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

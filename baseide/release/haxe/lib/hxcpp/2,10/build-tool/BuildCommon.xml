@@ -1,0 +1,158 @@
+<xml>
+
+<echo value="Using config : ${HXCPP_CONFIG}" if="verbose" />
+
+<set name="DBG" value="-debug" if="debug"/>
+<set name="M64" value="64" if="HXCPP_M64"/>
+<set name="F32" value="-f32" if="HXCPP_FLOAT32"/>
+<set name="NEEDS_NC" value="-nc" if="windows"/>
+<set name="NOCONSOLE" value="${NEEDS_NC}" if="no_console"/>
+
+<set name="STD_MODULE_LINK" value="dll"/>
+
+<set name="static" value="1" if="iphoneos"/>
+<set name="static" value="1" if="iphonesim"/>
+
+<set name="STAT" value="-stat" if="static" />
+
+<set name="OBJEXT" value="${M64}${F32}${STAT}${DBG}${NOCONSOLE}" />
+
+<set name="STD_MODULE_LINK" value="static" if="static"/>
+
+
+<set name="LIBEXTRA" value=".iphoneos" if="iphoneos"/>
+<set name="LIBEXTRA" value=".iphonesim" if="iphonesim"/>
+
+
+
+<set name="haxelink" value="exe" unless="static"/>
+<set name="haxelink" value="static" if="static"/>
+<set name="haxelink" value="dll" if="android"/>
+
+
+<include name="${HXCPP_CONFIG}" section="vars" noerror="1"/>
+
+<set name="IPHONE_VER" value="4.2" unless="IPHONE_VER" />
+
+
+<!-- You can override the exes an "exe" section on your own .hxcpp_config -->
+<!-- You can use replace="1" to change the compiler, or omit to add flags -->
+
+<include name="${toolchain}-toolchain.xml"/>
+
+
+<!-- Library files & targets -------------------------------------->
+
+<!-- Additional dependencies for haxe target -->
+<files id="haxe">
+  <depend name="${HXCPP}/include/hxcpp.h"/>
+  <depend name="${HXCPP}/include/hx/Object.h"/>
+  <depend name="${HXCPP}/include/hx/Macros.h"/>
+  <depend name="${HXCPP}/include/hx/Thread.h"/>
+  <depend name="${HXCPP}/include/hx/GC.h"/>
+  <depend name="${HXCPP}/include/hx/CFFI.h"/>
+  <depend name="${HXCPP}/include/hx/CFFIAPI.h"/>
+  <depend name="${HXCPP}/include/hx/CFFILoader.h"/>
+  <depend name="${HXCPP}/include/hx/OS.h"/>
+  <depend name="${HXCPP}/include/hxMath.h"/>
+  <depend name="${HXCPP}/build-tool/BuildCommon.xml"/>
+  <depend name="${HXCPP}/build-tool/${toolchain}-toolchain.xml"/>
+  <depend name="${HXCPP}/run.n"/>
+  <options name="Options.txt"/>
+
+  <precompiledheader name="hxcpp" dir="${HXCPP}/include" if="USE_PRECOMPILED_HEADERS"/>
+</files>
+
+<files id="__main__">
+  <depend name="${HXCPP}/include/hx/Macros.h"/>
+  <depend name="${HXCPP}/build-tool/${toolchain}-toolchain.xml"/>
+</files>
+
+<files id="__lib__">
+  <depend name="${HXCPP}/include/hx/Macros.h"/>
+  <depend name="${HXCPP}/build-tool/${toolchain}-toolchain.xml"/>
+</files>
+
+<files id="runtime" dir="${HXCPP}">
+  <depend name="${HXCPP}/include/hxcpp.h"/>
+  <depend name="${HXCPP}/include/hx/Object.h"/>
+  <depend name="${HXCPP}/include/hx/Macros.h"/>
+  <depend name="${HXCPP}/include/hxMath.h"/>
+
+  <depend name="${HXCPP}/include/hx/Thread.h"/>
+  <depend name="${HXCPP}/include/hx/GC.h"/>
+  <depend name="${HXCPP}/include/hx/CFFI.h"/>
+  <depend name="${HXCPP}/include/hx/CFFIAPI.h"/>
+  <depend name="${HXCPP}/include/hx/CFFILoader.h"/>
+  <depend name="${HXCPP}/include/hx/OS.h"/>
+  <depend name="${HXCPP}/include/hxMath.h"/>
+  <depend name="${HXCPP}/build-tool/BuildCommon.xml"/>
+  <depend name="${HXCPP}/build-tool/${toolchain}-toolchain.xml"/>
+  <depend name="${HXCPP}/run.n"/>
+  <options name="Options.txt"/>
+
+
+  <compilerflag value="-D_CRT_SECURE_NO_DEPRECATE"/>
+
+  <compilerflag value='-DHXCPP_DEBUG_HOST="${HXCPP_DEBUG_HOST}"' if="HXCPP_DEBUG_TOOL" />
+
+  <compilerflag value="-DHX_UNDEFINE_H" />
+
+  <precompiledheader name="hxcpp" dir="${HXCPP}/include" if="USE_PRECOMPILED_HEADERS"/>
+
+  <file name = "src/hx/Anon.cpp"/>
+  <file name = "src/hx/Boot.cpp"/>
+  <file name = "src/hx/CFFI.cpp"/>
+  <file name = "src/hx/Date.cpp"/>
+  <file name = "src/hx/GC.cpp"/>
+  <file name = "src/hx/GCInternal.cpp"/>
+  <file name = "src/hx/Hash.cpp"/>
+  <file name = "src/hx/Interface.cpp"/>
+  <file name = "src/hx/Lib.cpp"/>
+  <file name = "src/hx/Object.cpp"/>
+  <file name = "src/hx/StdLibs.cpp"/>
+  <file name = "src/hx/Debug.cpp"/>
+  <file name = "src/hx/Thread.cpp"/>
+  <file name = "src/hx/RunLibs.cpp" if="static"/>
+
+  <file name = "src/Array.cpp"/>
+  <file name = "src/Class.cpp"/>
+  <file name = "src/Dynamic.cpp"/>
+  <file name = "src/Enum.cpp"/>
+  <file name = "src/Math.cpp"/>
+  <file name = "src/String.cpp"/>
+
+</files>
+
+
+<target id="default">
+   <target id="haxe"/>
+</target>
+
+
+<target id="clean" tool="clean">
+  <dir name="obj"/>
+</target>
+
+<set name="IOS_EXT" value=".iphoneos-v7.a" if="HXCPP_ARMV7" />
+<set name="IOS_EXT" value=".iphoneos.a" unless="HXCPP_ARMV7" />
+
+<target id="haxe" tool="linker" toolid="${haxelink}" output="${HAXE_OUTPUT}${DBG}">
+  <files id="haxe"/>
+  <depend name="Options.txt"/>
+  <ext value="${IOS_EXT}" if="iphoneos"  />
+  <ext value=".iphonesim.a" if="iphonesim"/>
+  <files id="__main__" unless="static"/>
+  <files id="__lib__" if="static"/>
+  <files id="runtime"/>
+  <lib name="-lpthread" if="linux" unless="static"/>
+  <lib name="-ldl" if="linux" unless="static"/>
+</target>
+
+<!-- Add user config if provided, "exes" section ------------------>
+
+<include name="${HXCPP_CONFIG}" section="exes" if ="HXCPP_CONFIG" noerror="1"/>
+
+</xml>
+
+

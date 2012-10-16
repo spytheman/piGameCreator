@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>newProjectWizard</class>
+ <widget class="QWizard" name="newProjectWizard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>561</width>
+    <height>451</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Wizard</string>
+  </property>
+  <property name="wizardStyle">
+   <enum>QWizard::AeroStyle</enum>
+  </property>
+  <widget class="QWizardPage" name="wpProjectTemplate">
+   <property name="title">
+    <string>New project</string>
+   </property>
+   <property name="subTitle">
+    <string>Select the type of the project to create</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QTreeWidget" name="treeWidget">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Ignored" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <column>
+         <property name="text">
+          <string>Project template</string>
+         </property>
+        </column>
+        <item>
+         <property name="text">
+          <string>New projects</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="icon">
+          <iconset resource="../sharedcode/resources.qrc">
+           <normaloff>:/resources/RES/ffficons/folder_page_white.png</normaloff>:/resources/RES/ffficons/folder_page_white.png</iconset>
+         </property>
+         <item>
+          <property name="text">
+           <string>Empty project</string>
+          </property>
+          <property name="whatsThis">
+           <string>A totally empty project with no classes.</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../sharedcode/resources.qrc">
+            <normaloff>:/resources/RES/ffficons/page_white.png</normaloff>:/resources/RES/ffficons/page_white.png</iconset>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2D game</string>
+          </property>
+          <property name="whatsThis">
+           <string>A project pre-set for two-dimensional games and most platforms.</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../sharedcode/resources.qrc">
+            <normaloff>:/resources/RES/2d.png</normaloff>:/resources/RES/2d.png</iconset>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>3D game</string>
+          </property>
+          <property name="whatsThis">
+           <string>A project pre-set for three-dimensional games, only supports native desktop applications.</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../sharedcode/resources.qrc">
+            <normaloff>:/resources/RES/3d.png</normaloff>:/resources/RES/3d.png</iconset>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>2,5D game</string>
+          </property>
+          <property name="whatsThis">
+           <string>A project pre-set for games with two-dimensional gameplay and optional 3D graphics.</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../sharedcode/resources.qrc">
+            <normaloff>:/resources/RES/25d.png</normaloff>:/resources/RES/25d.png</iconset>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Social game</string>
+          </property>
+          <property name="whatsThis">
+           <string>A project pre-set for making social games for Facebook and Google Plus. This project utilizes the Web Server Foundation API for providing online services.</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../sharedcode/resources.qrc">
+            <normaloff>:/resources/RES/ffficons/group.png</normaloff>:/resources/RES/ffficons/group.png</iconset>
+          </property>
+         </item>
+        </item>
+        <item>
+         <property name="text">
+          <string>Sample projects</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="icon">
+          <iconset resource="../sharedcode/resources.qrc">
+           <normaloff>:/resources/RES/ffficons/folder_lightbulb.png</normaloff>:/resources/RES/ffficons/folder_lightbulb.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>User templates</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="icon">
+          <iconset resource="../sharedcode/resources.qrc">
+           <normaloff>:/resources/RES/ffficons/folder_user.png</normaloff>:/resources/RES/ffficons/folder_user.png</iconset>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Recent projects</string>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="icon">
+          <iconset resource="../sharedcode/resources.qrc">
+           <normaloff>:/resources/RES/ffficons/folder_table.png</normaloff>:/resources/RES/ffficons/folder_table.png</iconset>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <spacer name="HORIZONTAL_HINT">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Ignored</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>160</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="projectType">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>11</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Project Type</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="projectDescription">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Project description</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QFormLayout" name="formLayout">
+         <property name="fieldGrowthPolicy">
+          <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Project title:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <widget class="QLabel" name="label_6">
+           <property name="font">
+            <font>
+             <italic>true</italic>
+            </font>
+           </property>
+           <property name="text">
+            <string>The title of the project, e.g. the name of your game. It can be easily changed afterwards.</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0" colspan="2">
+          <widget class="Line" name="line_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0" colspan="2">
+          <widget class="QLabel" name="label_4">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Project description</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0" colspan="2">
+          <widget class="QPlainTextEdit" name="projectDescTextEdit"/>
+         </item>
+         <item row="7" column="0" colspan="2">
+          <widget class="QLabel" name="label_7">
+           <property name="font">
+            <font>
+             <italic>true</italic>
+            </font>
+           </property>
+           <property name="text">
+            <string>Can be filled later, of course</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0" colspan="2">
+          <widget class="Line" name="line_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="0">
+          <widget class="QLabel" name="label_8">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Create in:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="9" column="1">
+          <widget class="QLabel" name="label_2">
+           <property name="font">
+            <font>
+             <italic>true</italic>
+            </font>
+           </property>
+           <property name="text">
+            <string>Select base folder and type project's own folder name</string>
+           </property>
+          </widget>
+         </item>
+         <item row="10" column="0" colspan="2">
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <property name="spacing">
+            <number>3</number>
+           </property>
+           <item>
+            <widget class="QToolButton" name="browseButton">
+             <property name="text">
+              <string>Browse</string>
+             </property>
+             <property name="icon">
+              <iconset resource="../sharedcode/resources.qrc">
+               <normaloff>:/resources/RES/ffficons/folder.png</normaloff>:/resources/RES/ffficons/folder.png</iconset>
+             </property>
+             <property name="toolButtonStyle">
+              <enum>Qt::ToolButtonTextBesideIcon</enum>
+             </property>
+             <property name="autoRaise">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="dirSeparatorLabel">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>DIR_SEP</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="projectdirname"/>
+           </item>
+          </layout>
+         </item>
+         <item row="0" column="1">
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QToolButton" name="toolButton">
+             <property name="text">
+              <string>Icon</string>
+             </property>
+             <property name="icon">
+              <iconset resource="../sharedcode/resources.qrc">
+               <normaloff>:/resources/RES/ffficons/page_white.png</normaloff>:/resources/RES/ffficons/page_white.png</iconset>
+             </property>
+             <property name="autoRaise">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="projectTitleLineEdit"/>
+           </item>
+          </layout>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Main class:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0" colspan="2">
+          <widget class="QLabel" name="label_9">
+           <property name="font">
+            <font>
+             <italic>true</italic>
+            </font>
+           </property>
+           <property name="text">
+            <string>Type the name of the main class. Typyng more than one name here will create more than one classes.</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="mainClassName">
+           <property name="text">
+            <string>Main</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWizardPage" name="wpProjectTargets">
+   <property name="title">
+    <string>Targets and platforms</string>
+   </property>
+   <property name="subTitle">
+    <string>Define the targets and platforms for this project.</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout"/>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../sharedcode/resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>

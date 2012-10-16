@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.display.Graphics</div><div class="platforms">Available in flash</div><dl><dt><span class="kwd">function </span>new() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>beginBitmapFill(bitmap : <a href="../../flash/display/BitmapData.html" class="type">BitmapData</a>, ?matrix : <a href="../../flash/geom/Matrix.html" class="type">flash.geom.Matrix</a>, ?repeat : <a href="../../Bool.html" class="type">Bool</a>, ?smooth : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>beginFill(color : <a href="../../UInt.html" class="type">UInt</a>, ?alpha : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>beginGradientFill(type : <a href="../../flash/display/GradientType.html" class="type">GradientType</a>, colors : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../UInt.html" class="type">UInt</a>&gt;, alphas : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Dynamic.html" class="type">Dynamic</a>&gt;, ratios : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Dynamic.html" class="type">Dynamic</a>&gt;, ?matrix : <a href="../../flash/geom/Matrix.html" class="type">flash.geom.Matrix</a>, ?spreadMethod : <a href="../../flash/display/SpreadMethod.html" class="type">SpreadMethod</a>, ?interpolationMethod : <a href="../../flash/display/InterpolationMethod.html" class="type">InterpolationMethod</a>, ?focalPointRatio : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>beginShaderFill(shader : <a href="../../flash/display/Shader.html" class="type">Shader</a>, ?matrix : <a href="../../flash/geom/Matrix.html" class="type">flash.geom.Matrix</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>clear() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>copyFrom(sourceGraphics : <a href="../../flash/display/Graphics.html" class="type">Graphics</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>cubicCurveTo(controlX1 : <a href="../../Float.html" class="type">Float</a>, controlY1 : <a href="../../Float.html" class="type">Float</a>, controlX2 : <a href="../../Float.html" class="type">Float</a>, controlY2 : <a href="../../Float.html" class="type">Float</a>, anchorX : <a href="../../Float.html" class="type">Float</a>, anchorY : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>curveTo(controlX : <a href="../../Float.html" class="type">Float</a>, controlY : <a href="../../Float.html" class="type">Float</a>, anchorX : <a href="../../Float.html" class="type">Float</a>, anchorY : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>drawCircle(x : <a href="../../Float.html" class="type">Float</a>, y : <a href="../../Float.html" class="type">Float</a>, radius : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>drawEllipse(x : <a href="../../Float.html" class="type">Float</a>, y : <a href="../../Float.html" class="type">Float</a>, width : <a href="../../Float.html" class="type">Float</a>, height : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>drawGraphicsData(graphicsData : <a href="../../flash/Vector.html" class="type">flash.Vector</a>&lt;<a href="../../flash/display/IGraphicsData.html" class="type">IGraphicsData</a>&gt;) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>drawPath(commands : <a href="../../flash/Vector.html" class="type">flash.Vector</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, data : <a href="../../flash/Vector.html" class="type">flash.Vector</a>&lt;<a href="../../Float.html" class="type">Float</a>&gt;, ?winding : <a href="../../flash/display/GraphicsPathWinding.html" class="type">GraphicsPathWinding</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>drawRect(x : <a href="../../Float.html" class="type">Float</a>, y : <a href="../../Float.html" class="type">Float</a>, width : <a href="../../Float.html" class="type">Float</a>, height : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>drawRoundRect(x : <a href="../../Float.html" class="type">Float</a>, y : <a href="../../Float.html" class="type">Float</a>, width : <a href="../../Float.html" class="type">Float</a>, height : <a href="../../Float.html" class="type">Float</a>, ellipseWidth : <a href="../../Float.html" class="type">Float</a>, ?ellipseHeight : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>drawRoundRectComplex(x : <a href="../../Float.html" class="type">Float</a>, y : <a href="../../Float.html" class="type">Float</a>, width : <a href="../../Float.html" class="type">Float</a>, height : <a href="../../Float.html" class="type">Float</a>, topLeftRadius : <a href="../../Float.html" class="type">Float</a>, topRightRadius : <a href="../../Float.html" class="type">Float</a>, bottomLeftRadius : <a href="../../Float.html" class="type">Float</a>, bottomRightRadius : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>drawTriangles(vertices : <a href="../../flash/Vector.html" class="type">flash.Vector</a>&lt;<a href="../../Float.html" class="type">Float</a>&gt;, ?indices : <a href="../../flash/Vector.html" class="type">flash.Vector</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, ?uvtData : <a href="../../flash/Vector.html" class="type">flash.Vector</a>&lt;<a href="../../Float.html" class="type">Float</a>&gt;, ?culling : <a href="../../flash/display/TriangleCulling.html" class="type">TriangleCulling</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>endFill() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>lineBitmapStyle(bitmap : <a href="../../flash/display/BitmapData.html" class="type">BitmapData</a>, ?matrix : <a href="../../flash/geom/Matrix.html" class="type">flash.geom.Matrix</a>, ?repeat : <a href="../../Bool.html" class="type">Bool</a>, ?smooth : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>lineGradientStyle(type : <a href="../../flash/display/GradientType.html" class="type">GradientType</a>, colors : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../UInt.html" class="type">UInt</a>&gt;, alphas : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Dynamic.html" class="type">Dynamic</a>&gt;, ratios : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Dynamic.html" class="type">Dynamic</a>&gt;, ?matrix : <a href="../../flash/geom/Matrix.html" class="type">flash.geom.Matrix</a>, ?spreadMethod : <a href="../../flash/display/SpreadMethod.html" class="type">SpreadMethod</a>, ?interpolationMethod : <a href="../../flash/display/InterpolationMethod.html" class="type">InterpolationMethod</a>, ?focalPointRatio : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>lineShaderStyle(shader : <a href="../../flash/display/Shader.html" class="type">Shader</a>, ?matrix : <a href="../../flash/geom/Matrix.html" class="type">flash.geom.Matrix</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>lineStyle(?thickness : <a href="../../Float.html" class="type">Float</a>, ?color : <a href="../../UInt.html" class="type">UInt</a>, ?alpha : <a href="../../Float.html" class="type">Float</a>, ?pixelHinting : <a href="../../Bool.html" class="type">Bool</a>, ?scaleMode : <a href="../../flash/display/LineScaleMode.html" class="type">LineScaleMode</a>, ?caps : <a href="../../flash/display/CapsStyle.html" class="type">CapsStyle</a>, ?joints : <a href="../../flash/display/JointStyle.html" class="type">JointStyle</a>, ?miterLimit : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>lineTo(x : <a href="../../Float.html" class="type">Float</a>, y : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>moveTo(x : <a href="../../Float.html" class="type">Float</a>, y : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

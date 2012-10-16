@@ -14,9 +14,10 @@ INCLUDEPATH += ../freeglut/include
 DEFINES += FREEGLUT_STATIC GLEW_STATIC CREATOR_IDE
 # LIBS += ../freeglut/lib/libfreeglut32_static.a #-lopengl32 -luser32 -lgdi32 -lkernel32 -lwinmm -lQtWebkit4
 
-SOURCES += main.cpp\
+SOURCES += main.cpp \
     mainwindow.cpp \
     splashscreen.cpp \
+    ../sharedcode/pgshighlighter.cpp \
     ../sharedcode/qtwin.cpp \
     ../sharedcode/globals.cpp \
     ../sharedcode/gcexporter.cpp \
@@ -27,37 +28,41 @@ SOURCES += main.cpp\
     ../sharedcode/rsclass.cpp \
     ../sharedcode/resource.cpp \
     ../sharedcode/gameproject.cpp \
+    ../sharedcode/gamescript.cpp \
+    ../sharedcode/pgsparser.cpp \
+    ../sharedcode/ideobjectrepresentation.cpp \
+    ../sharedcode/rsgraphicseffect.cpp \
+    ../sharedcode/frameworkdata.cpp \
+    ../sharedcode/idesettings.cpp \
+    ../sharedcode/timer.cpp \
     workspacewidget.cpp \
     wwmainpage.cpp \
     gcide.cpp \
     threads/initthread.cpp \
-    resourceeditor.cpp \
-    ../sharedcode/gamescript.cpp \
+    resourceeditor.cpp \  
     openedproject.cpp \
     model/projecttreemodel.cpp \
     dllforexport.cpp \
     dllforresourceeditor.cpp \
     newimage.cpp \
     inputresourcename.cpp \
-    ../sharedcode/pgsparser.cpp \
-    gameframeworkclassdef.cpp \
-    scriptwindow.cpp \
     ntdialog.cpp \
     settingswindow.cpp \
-    ../sharedcode/ideobjectrepresentation.cpp \
-    ../sharedcode/rsgraphicseffect.cpp \
-    ../sharedcode/frameworkdata.cpp \
     scripttestwindow.cpp \
-    ../sharedcode/timer.cpp \
     codeeditor.cpp \
-    buildtargets.cpp
+    buildtargets.cpp \
+    ../sharedcode/resourcetree.cpp \
+    ../sharedcode/imageio.cpp \
+    newresource.cpp \
+    newprojectwizard.cpp \
+    ../sharedcode/selecticon.cpp \
+    ../sharedcode/imagepreviewer.cpp \
+    ../sharedcode/filereference.cpp
+
 
 
 HEADERS  += mainwindow.h \
     splashscreen.h \
-    gcide.h \
-    threads/initthread.h \
-    resourceeditor.h \
     ../sharedcode/rssound.h \
     ../sharedcode/rsscene.h \
     ../sharedcode/rsmodel.h \
@@ -65,9 +70,17 @@ HEADERS  += mainwindow.h \
     ../sharedcode/rsclass.h \
     ../sharedcode/resource.h \
     ../sharedcode/gameproject.h \
+    ../sharedcode/ideobjectrepresentation.h \
+    ../sharedcode/rsgraphicseffect.h \
+    ../sharedcode/frameworkdata.h \
+    ../sharedcode/timer.h \
+    ../sharedcode/idesettings.h \
+    ../sharedcode/gamescript.h \
+    gcide.h \
+    threads/initthread.h \
+    resourceeditor.h \
     workspacewidget.h \
     wwmainpage.h \
-    ../sharedcode/gamescript.h \
     openedproject.h \
     model/projecttreemodel.h \
     dllforexport.h \
@@ -75,29 +88,34 @@ HEADERS  += mainwindow.h \
     editors/imgedit.h \
     newimage.h \
     inputresourcename.h \
-    gameframeworkclassdef.h \
-    scriptwindow.h \
     ntdialog.h \
     settingswindow.h \
-    ../sharedcode/ideobjectrepresentation.h \
-    ../sharedcode/rsgraphicseffect.h \
-    ../sharedcode/frameworkdata.h \
     scripttestwindow.h \
-    ../sharedcode/timer.h \
     codeeditor.h \
-    buildtargets.h
+    buildtargets.h \
+    pgshighlighter.h \
+    ../sharedcode/resourcetree.h \
+    ../sharedcode/imageio.h \
+    newresource.h \
+    newprojectwizard.h \
+    ../sharedcode/selecticon.h \
+    ../sharedcode/imagepreviewer.h \
+    ../sharedcode/filereference.h
+
 
 FORMS    += mainwindow.ui \
     splashscreen.ui \
     wwmainpage.ui \
     newimage.ui \
     inputresourcename.ui \
-    gameframeworkclassdef.ui \
-    scriptwindow.ui \
     ntdialog.ui \
     settingswindow.ui \
     scripttestwindow.ui \
-    buildtargets.ui
+    buildtargets.ui \
+    newresource.ui \
+    newprojectwizard.ui \
+    ../sharedcode/selecticon.ui \
+    ../sharedcode/imagepreviewer.ui
 
 RESOURCES += \
     ../sharedcode/resources.qrc \

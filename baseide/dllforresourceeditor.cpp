@@ -24,7 +24,8 @@ dllForResourceEditor::dllForResourceEditor(QString fn)
         pContextMenuItems=(QList<QAction*>(*)(QString, QString, bool, gcresource*))l.resolve("contextMenuItems");
         pGetGUI=(ResourceEditor*(*)(QString, QString, gcresource*))l.resolve("getGUI");
         pNewResources=(QList<vObject>(*)())l.resolve("newResources");
-        pCreateResource=(gcresource*(*)(QString, QString, QString))l.resolve("createResource");
+        pCreateResource=(gcresource*(*)(gameproject*, QString, QString, QString))l.resolve("createResource");
+        pContextMenuItemClicked=(bool(*)(QAction*))l.resolve("contextMenuItemClicked");
 
         valid = true;
         gcprint("----------------------------------------------------\nEditor: "+getName());
@@ -87,9 +88,9 @@ QList<vObject> dllForResourceEditor::newResources()
     else gcprint("The resource editor "+binaryFile()+" does not implement the newResources() API");
     return QList<vObject>();
 }
-gcresource* dllForResourceEditor::createResource(QString kind, QString type, QString name)
+gcresource* dllForResourceEditor::createResource(gameproject *project, QString kind, QString type, QString name)
 {
-    if(pCreateResource)return pCreateResource(kind,type,name);
+    if(pCreateResource)return pCreateResource(project,kind,type,name);
     else return 0;
 }
 bool dllForResourceEditor::init()
@@ -110,7 +111,11 @@ bool dllForResourceEditor::load()
     else valid=false;
     return 0;
 }
-
+bool dllForResourceEditor::contextMenuItemClicked(QAction* action)
+{
+    if(pContextMenuItemClicked!=0)return pContextMenuItemClicked(action);
+    return 0;
+}
 bool dllForResourceEditor::saveAs(QString newname)
 {
     if(pSaveAs!=0)return pSaveAs(newname);

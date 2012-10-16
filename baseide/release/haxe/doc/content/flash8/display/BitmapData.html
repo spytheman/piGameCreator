@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.display.BitmapData</div><div class="platforms">Available in flash8</div><dl><dt><span class="kwd">var </span>height : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>rectangle : <a href="../../flash8/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>transparent : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>width : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>new(width : <a href="../../Int.html" class="type">Int</a>, height : <a href="../../Int.html" class="type">Int</a>, ?transparent : <a href="../../Bool.html" class="type">Bool</a>, ?fillcolor : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>applyFilter(source : <a href="../../flash8/display/BitmapData.html" class="type">BitmapData</a>, sourceRect : <a href="../../flash8/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, dest : <a href="../../flash8/geom/Point.html" class="type">flash.geom.Point</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, filter : <a href="../../flash8/filters/BitmapFilter.html" class="type">flash.filters.BitmapFilter</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>clone() : <a href="../../flash8/display/BitmapData.html" class="type">BitmapData</a></dt><dd></dd><dt><span class="kwd">function </span>colorTransform(r : <a href="../../flash8/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, trans : <a href="../../flash8/geom/ColorTransform.html" class="type">flash.geom.ColorTransform</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>compare(b : <a href="../../flash8/display/BitmapData.html" class="type">BitmapData</a>) : <a href="../../flash8/display/BitmapData.html" class="type">BitmapData</a></dt><dd>FP9 only</dd><dt><span class="kwd">function </span>copyChannel(source : <a href="../../flash8/display/BitmapData.html" class="type">BitmapData</a>, sourceRect : <a href="../../flash8/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, dest : <a href="../../flash8/geom/Point.html" class="type">flash.geom.Point</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, sourceChannel : <a href="../../Int.html" class="type">Int</a>, destChannel : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>copyPixels(src : <a href="../../flash8/display/BitmapData.html" class="type">BitmapData</a>, srcRect : <a href="../../flash8/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, dst : <a href="../../flash8/geom/Point.html" class="type">flash.geom.Point</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, ?alpha : <a href="../../flash8/display/BitmapData.html" class="type">BitmapData</a>, ?alphaPos : <a href="../../flash8/geom/Point.html" class="type">flash.geom.Point</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, ?mergeAlpha : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>dispose() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>draw(source : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?matrix : <a href="../../flash8/geom/Matrix.html" class="type">flash.geom.Matrix</a>, ?colortrans : <a href="../../flash8/geom/ColorTransform.html" class="type">flash.geom.ColorTransform</a>, ?blendMode : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?clipRect : <a href="../../flash8/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, ?smooth : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>fillRect(r : <a href="../../flash8/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, color : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>floodFill(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>, color : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>generateFilterRect(sourceRect : <a href="../../flash8/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, filter : <a href="../../flash8/filters/BitmapFilter.html" class="type">flash.filters.BitmapFilter</a>) : <a href="../../flash8/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;</dt><dd></dd><dt><span class="kwd">function </span>getColorBoundsRect(mask : <a href="../../Int.html" class="type">Int</a>, color : <a href="../../Int.html" class="type">Int</a>, ?fillColor : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../flash8/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;</dt><dd></dd><dt><span class="kwd">function </span>getPixel(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>getPixel32(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>hitTest(firstPoint : <a href="../../flash8/geom/Point.html" class="type">flash.geom.Point</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, firstAlpha : <a href="../../Int.html" class="type">Int</a>, object : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?secondPoint : <a href="../../flash8/geom/Point.html" class="type">flash.geom.Point</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, ?secondAlpha : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">function </span>merge(src : <a href="../../flash8/display/BitmapData.html" class="type">BitmapData</a>, srcRect : <a href="../../flash8/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, dst : <a href="../../flash8/geom/Point.html" class="type">flash.geom.Point</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, redMult : <a href="../../Int.html" class="type">Int</a>, greenMult : <a href="../../Int.html" class="type">Int</a>, blueMult : <a href="../../Int.html" class="type">Int</a>, alphaMult : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>noise(seed : <a href="../../Int.html" class="type">Int</a>, ?low : <a href="../../Int.html" class="type">Int</a>, ?high : <a href="../../Int.html" class="type">Int</a>, ?channels : <a href="../../Int.html" class="type">Int</a>, ?gray : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>paletteMap(source : <a href="../../flash8/display/BitmapData.html" class="type">BitmapData</a>, srcRect : <a href="../../flash8/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, dst : <a href="../../flash8/geom/Point.html" class="type">flash.geom.Point</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, ?reds : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Dynamic.html" class="type">Dynamic</a>&gt;, ?greens : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Dynamic.html" class="type">Dynamic</a>&gt;, ?blues : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Dynamic.html" class="type">Dynamic</a>&gt;, ?alphas : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Dynamic.html" class="type">Dynamic</a>&gt;) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>perlinNoise(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>, num : <a href="../../Int.html" class="type">Int</a>, seed : <a href="../../Int.html" class="type">Int</a>, stitch : <a href="../../Bool.html" class="type">Bool</a>, noise : <a href="../../Bool.html" class="type">Bool</a>, ?channels : <a href="../../Int.html" class="type">Int</a>, ?gray : <a href="../../Bool.html" class="type">Bool</a>, ?offsets : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../flash8/geom/Point.html" class="type">flash.geom.Point</a>&lt;<a href="../../Float.html" class="type">Float</a>&gt;&gt;) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>pixelDissolve(src : <a href="../../flash8/display/BitmapData.html" class="type">BitmapData</a>, srcRect : <a href="../../flash8/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, dst : <a href="../../flash8/geom/Point.html" class="type">flash.geom.Point</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, ?seed : <a href="../../Int.html" class="type">Int</a>, ?npixels : <a href="../../Int.html" class="type">Int</a>, ?fillColor : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>scroll(dx : <a href="../../Int.html" class="type">Int</a>, dy : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setPixel(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>, color : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setPixel32(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>, color : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>threshold(src : <a href="../../flash8/display/BitmapData.html" class="type">BitmapData</a>, srcRect : <a href="../../flash8/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, dstPoint : <a href="../../flash8/geom/Point.html" class="type">flash.geom.Point</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, op : <a href="../../String.html" class="type">String</a>, threshold : <a href="../../Int.html" class="type">Int</a>, ?color : <a href="../../Int.html" class="type">Int</a>, ?mask : <a href="../../Int.html" class="type">Int</a>, ?copy : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>loadBitmap(id : <a href="../../String.html" class="type">String</a>) : <a href="../../flash8/display/BitmapData.html" class="type">BitmapData</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

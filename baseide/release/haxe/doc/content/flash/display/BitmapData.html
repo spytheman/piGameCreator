@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.display.BitmapData</div><div class="implements">implements <a href="../../flash/display/IBitmapDrawable.html" class="type">IBitmapDrawable</a></div><div class="platforms">Available in flash</div><dl><dt><span class="kwd">var </span>height(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>rect(default,null) : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a></dt><dd></dd><dt><span class="kwd">var </span>transparent(default,null) : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>width(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>new(width : <a href="../../Int.html" class="type">Int</a>, height : <a href="../../Int.html" class="type">Int</a>, ?transparent : <a href="../../Bool.html" class="type">Bool</a>, ?fillColor : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>applyFilter(sourceBitmapData : <a href="../../flash/display/BitmapData.html" class="type">BitmapData</a>, sourceRect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, destPoint : <a href="../../flash/geom/Point.html" class="type">flash.geom.Point</a>, filter : <a href="../../flash/filters/BitmapFilter.html" class="type">flash.filters.BitmapFilter</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>clone() : <a href="../../flash/display/BitmapData.html" class="type">BitmapData</a></dt><dd></dd><dt><span class="kwd">function </span>colorTransform(rect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, colorTransform : <a href="../../flash/geom/ColorTransform.html" class="type">flash.geom.ColorTransform</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>compare(otherBitmapData : <a href="../../flash/display/BitmapData.html" class="type">BitmapData</a>) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">function </span>copyChannel(sourceBitmapData : <a href="../../flash/display/BitmapData.html" class="type">BitmapData</a>, sourceRect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, destPoint : <a href="../../flash/geom/Point.html" class="type">flash.geom.Point</a>, sourceChannel : <a href="../../UInt.html" class="type">UInt</a>, destChannel : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>copyPixels(sourceBitmapData : <a href="../../flash/display/BitmapData.html" class="type">BitmapData</a>, sourceRect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, destPoint : <a href="../../flash/geom/Point.html" class="type">flash.geom.Point</a>, ?alphaBitmapData : <a href="../../flash/display/BitmapData.html" class="type">BitmapData</a>, ?alphaPoint : <a href="../../flash/geom/Point.html" class="type">flash.geom.Point</a>, ?mergeAlpha : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>dispose() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>draw(source : <a href="../../flash/display/IBitmapDrawable.html" class="type">IBitmapDrawable</a>, ?matrix : <a href="../../flash/geom/Matrix.html" class="type">flash.geom.Matrix</a>, ?colorTransform : <a href="../../flash/geom/ColorTransform.html" class="type">flash.geom.ColorTransform</a>, ?blendMode : <a href="../../flash/display/BlendMode.html" class="type">BlendMode</a>, ?clipRect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, ?smoothing : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>drawWithQuality(source : <a href="../../flash/display/IBitmapDrawable.html" class="type">IBitmapDrawable</a>, ?matrix : <a href="../../flash/geom/Matrix.html" class="type">flash.geom.Matrix</a>, ?colorTransform : <a href="../../flash/geom/ColorTransform.html" class="type">flash.geom.ColorTransform</a>, ?blendMode : <a href="../../flash/display/BlendMode.html" class="type">BlendMode</a>, ?clipRect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, ?smoothing : <a href="../../Bool.html" class="type">Bool</a>, ?quality : <a href="../../flash/display/StageQuality.html" class="type">StageQuality</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>encode(rect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, compressor : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?byteArray : <a href="../../flash/utils/ByteArray.html" class="type">flash.utils.ByteArray</a>) : <a href="../../flash/utils/ByteArray.html" class="type">flash.utils.ByteArray</a></dt><dd></dd><dt><span class="kwd">function </span>fillRect(rect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, color : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>floodFill(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>, color : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>generateFilterRect(sourceRect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, filter : <a href="../../flash/filters/BitmapFilter.html" class="type">flash.filters.BitmapFilter</a>) : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a></dt><dd></dd><dt><span class="kwd">function </span>getColorBoundsRect(mask : <a href="../../UInt.html" class="type">UInt</a>, color : <a href="../../UInt.html" class="type">UInt</a>, ?findColor : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a></dt><dd></dd><dt><span class="kwd">function </span>getPixel(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>) : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">function </span>getPixel32(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>) : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">function </span>getPixels(rect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>) : <a href="../../flash/utils/ByteArray.html" class="type">flash.utils.ByteArray</a></dt><dd></dd><dt><span class="kwd">function </span>getVector(rect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>) : <a href="../../flash/Vector.html" class="type">flash.Vector</a>&lt;<a href="../../UInt.html" class="type">UInt</a>&gt;</dt><dd></dd><dt><span class="kwd">function </span>histogram(?hRect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>) : <a href="../../flash/Vector.html" class="type">flash.Vector</a>&lt;<a href="../../flash/Vector.html" class="type">flash.Vector</a>&lt;<a href="../../Float.html" class="type">Float</a>&gt;&gt;</dt><dd></dd><dt><span class="kwd">function </span>hitTest(firstPoint : <a href="../../flash/geom/Point.html" class="type">flash.geom.Point</a>, firstAlphaThreshold : <a href="../../UInt.html" class="type">UInt</a>, secondObject : <a href="../../Dynamic.html" class="type">Dynamic</a>, ?secondBitmapDataPoint : <a href="../../flash/geom/Point.html" class="type">flash.geom.Point</a>, ?secondAlphaThreshold : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">function </span>lock() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>merge(sourceBitmapData : <a href="../../flash/display/BitmapData.html" class="type">BitmapData</a>, sourceRect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, destPoint : <a href="../../flash/geom/Point.html" class="type">flash.geom.Point</a>, redMultiplier : <a href="../../UInt.html" class="type">UInt</a>, greenMultiplier : <a href="../../UInt.html" class="type">UInt</a>, blueMultiplier : <a href="../../UInt.html" class="type">UInt</a>, alphaMultiplier : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>noise(randomSeed : <a href="../../Int.html" class="type">Int</a>, ?low : <a href="../../UInt.html" class="type">UInt</a>, ?high : <a href="../../UInt.html" class="type">UInt</a>, ?channelOptions : <a href="../../UInt.html" class="type">UInt</a>, ?grayScale : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>paletteMap(sourceBitmapData : <a href="../../flash/display/BitmapData.html" class="type">BitmapData</a>, sourceRect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, destPoint : <a href="../../flash/geom/Point.html" class="type">flash.geom.Point</a>, ?redArray : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, ?greenArray : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, ?blueArray : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;, ?alphaArray : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Int.html" class="type">Int</a>&gt;) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>perlinNoise(baseX : <a href="../../Float.html" class="type">Float</a>, baseY : <a href="../../Float.html" class="type">Float</a>, numOctaves : <a href="../../UInt.html" class="type">UInt</a>, randomSeed : <a href="../../Int.html" class="type">Int</a>, stitch : <a href="../../Bool.html" class="type">Bool</a>, fractalNoise : <a href="../../Bool.html" class="type">Bool</a>, ?channelOptions : <a href="../../UInt.html" class="type">UInt</a>, ?grayScale : <a href="../../Bool.html" class="type">Bool</a>, ?offsets : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../flash/geom/Point.html" class="type">flash.geom.Point</a>&gt;) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>pixelDissolve(sourceBitmapData : <a href="../../flash/display/BitmapData.html" class="type">BitmapData</a>, sourceRect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, destPoint : <a href="../../flash/geom/Point.html" class="type">flash.geom.Point</a>, ?randomSeed : <a href="../../Int.html" class="type">Int</a>, ?numPixels : <a href="../../Int.html" class="type">Int</a>, ?fillColor : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>scroll(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setPixel(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>, color : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setPixel32(x : <a href="../../Int.html" class="type">Int</a>, y : <a href="../../Int.html" class="type">Int</a>, color : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setPixels(rect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, inputByteArray : <a href="../../flash/utils/ByteArray.html" class="type">flash.utils.ByteArray</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setVector(rect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, inputVector : <a href="../../flash/Vector.html" class="type">flash.Vector</a>&lt;<a href="../../UInt.html" class="type">UInt</a>&gt;) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>threshold(sourceBitmapData : <a href="../../flash/display/BitmapData.html" class="type">BitmapData</a>, sourceRect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>, destPoint : <a href="../../flash/geom/Point.html" class="type">flash.geom.Point</a>, operation : <a href="../../String.html" class="type">String</a>, threshold : <a href="../../UInt.html" class="type">UInt</a>, ?color : <a href="../../UInt.html" class="type">UInt</a>, ?mask : <a href="../../UInt.html" class="type">UInt</a>, ?copySource : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">function </span>unlock(?changeRect : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

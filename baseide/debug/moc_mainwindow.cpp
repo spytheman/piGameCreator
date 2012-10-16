@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Sun 12. Aug 05:52:02 2012
+** Created: Fri 12. Oct 01:25:39 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      15,   14, // methods
+      28,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -43,9 +43,22 @@ static const uint qt_meta_data_MainWindow[] = {
      238,  145,   11,   11, 0x08,
      278,  274,   11,   11, 0x08,
      328,   11,   11,   11, 0x08,
-     366,   11,   11,   11, 0x08,
-     400,   11,   11,   11, 0x08,
-     439,   11,   11,   11, 0x08,
+     362,   11,   11,   11, 0x08,
+     401,   11,   11,   11, 0x08,
+     431,   11,   11,   11, 0x08,
+     459,   11,   11,   11, 0x08,
+     503,  486,   11,   11, 0x08,
+     555,  145,   11,   11, 0x08,
+     592,  145,   11,   11, 0x08,
+     630,   11,   11,   11, 0x08,
+     654,   11,   11,   11, 0x08,
+     680,  145,   11,   11, 0x08,
+     729,  724,   11,   11, 0x08,
+     764,   11,   11,   11, 0x08,
+     794,   11,   11,   11, 0x08,
+     818,   11,   11,   11, 0x08,
+     845,   11,   11,   11, 0x08,
+     879,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -60,10 +73,23 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_projectTree_doubleClicked(QModelIndex)\0"
     "on_projectTree_clicked(QModelIndex)\0"
     "pos\0on_projectTree_customContextMenuRequested(QPoint)\0"
-    "on_actionFramework_editor_triggered()\0"
     "on_action_Preferences_triggered()\0"
     "on_actionGameScript_tester_triggered()\0"
     "on_action_Targets_triggered()\0"
+    "on_action_Debug_triggered()\0"
+    "on_actionBuild_triggered()\0current,previous\0"
+    "projectTreeSelection(QItemSelection,QItemSelection)\0"
+    "on_projectTree_expanded(QModelIndex)\0"
+    "on_projectTree_collapsed(QModelIndex)\0"
+    "on_toolButton_clicked()\0"
+    "on_toolButton_2_clicked()\0"
+    "on_projectComboBox_currentIndexChanged(int)\0"
+    "item\0ProjectItemChanged(QStandardItem*)\0"
+    "routeRightMenuClickToItsDLL()\0"
+    "on_pushButton_clicked()\0"
+    "on_action_Save_triggered()\0"
+    "on_actionOpen_project_triggered()\0"
+    "on_actionCreate_project_triggered()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -83,10 +109,23 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 8: _t->on_projectTree_doubleClicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         case 9: _t->on_projectTree_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         case 10: _t->on_projectTree_customContextMenuRequested((*reinterpret_cast< const QPoint(*)>(_a[1]))); break;
-        case 11: _t->on_actionFramework_editor_triggered(); break;
-        case 12: _t->on_action_Preferences_triggered(); break;
-        case 13: _t->on_actionGameScript_tester_triggered(); break;
-        case 14: _t->on_action_Targets_triggered(); break;
+        case 11: _t->on_action_Preferences_triggered(); break;
+        case 12: _t->on_actionGameScript_tester_triggered(); break;
+        case 13: _t->on_action_Targets_triggered(); break;
+        case 14: _t->on_action_Debug_triggered(); break;
+        case 15: _t->on_actionBuild_triggered(); break;
+        case 16: _t->projectTreeSelection((*reinterpret_cast< QItemSelection(*)>(_a[1])),(*reinterpret_cast< QItemSelection(*)>(_a[2]))); break;
+        case 17: _t->on_projectTree_expanded((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+        case 18: _t->on_projectTree_collapsed((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+        case 19: _t->on_toolButton_clicked(); break;
+        case 20: _t->on_toolButton_2_clicked(); break;
+        case 21: _t->on_projectComboBox_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 22: _t->ProjectItemChanged((*reinterpret_cast< QStandardItem*(*)>(_a[1]))); break;
+        case 23: _t->routeRightMenuClickToItsDLL(); break;
+        case 24: _t->on_pushButton_clicked(); break;
+        case 25: _t->on_action_Save_triggered(); break;
+        case 26: _t->on_actionOpen_project_triggered(); break;
+        case 27: _t->on_actionCreate_project_triggered(); break;
         default: ;
         }
     }
@@ -124,9 +163,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 15)
+        if (_id < 28)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
+        _id -= 28;
     }
     return _id;
 }

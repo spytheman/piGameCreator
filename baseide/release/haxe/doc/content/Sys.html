@@ -1,0 +1,125 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>Sys</div><div class="platforms">Available in neko, php, cpp</div><div class="classdoc">This class gives you access to many base functionalities of system platforms. Looks in <code>sys</code> sub packages for more system APIs.</div><dl><dt><span class="kwd">static </span><span class="kwd">function </span>args() : <a href="Array.html" class="type">Array</a>&lt;<a href="String.html" class="type">String</a>&gt;</dt><dd>Returns all the arguments that were passed by the commandline.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>command(cmd : <a href="String.html" class="type">String</a>, ?args : <a href="Array.html" class="type">Array</a>&lt;<a href="String.html" class="type">String</a>&gt;) : <a href="Int.html" class="type">Int</a></dt><dd>Run the given command with the list of arguments. The command output will be printed on the same output as the current process.
+		The current process will block until the command terminates and it will return the command result (0 if there was no error).
+		Read the <code>sys.io.Process</code> api for a more complete way to start background processes.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>cpuTime() : <a href="Float.html" class="type">Float</a></dt><dd>Gives the most precise timestamp value (in seconds) but only account for the actual time spent running on the CPU for the current thread/process.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>environment() : <a href="Hash.html" class="type">Hash</a>&lt;<a href="String.html" class="type">String</a>&gt;</dt><dd>Returns the whole environement variables.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>executablePath() : <a href="String.html" class="type">String</a></dt><dd>Returns the path to the current executable that we are running.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>exit(code : <a href="Int.html" class="type">Int</a>) : <a href="Void.html" class="type">Void</a></dt><dd>Exit the current process with the given error code.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getChar(echo : <a href="Bool.html" class="type">Bool</a>) : <a href="Int.html" class="type">Int</a></dt><dd>Read a single input character from the standard input (without blocking) and returns it. Setting <code>echo</code> to true will also display it on the output.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getCwd() : <a href="String.html" class="type">String</a></dt><dd>Get the current working directory (usually the one in which the program was started)</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getEnv(s : <a href="String.html" class="type">String</a>) : <a href="String.html" class="type">String</a></dt><dd>Returns the value of the given environment variable.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>print(v : <a href="Dynamic.html" class="type">Dynamic</a>) : <a href="Void.html" class="type">Void</a></dt><dd>Print any value on the standard output.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>println(v : <a href="Dynamic.html" class="type">Dynamic</a>) : <a href="Void.html" class="type">Void</a></dt><dd>Print any value on the standard output, followed by a newline</dd><dt><span class="kwd">static </span><span class="kwd">function </span>putEnv(s : <a href="String.html" class="type">String</a>, v : <a href="String.html" class="type">String</a>) : <a href="Void.html" class="type">Void</a></dt><dd>Set the value of the given environment variable.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>setCwd(s : <a href="String.html" class="type">String</a>) : <a href="Void.html" class="type">Void</a></dt><dd>Change the current working directory.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>setTimeLocale(loc : <a href="String.html" class="type">String</a>) : <a href="Bool.html" class="type">Bool</a></dt><dd>Change the current time locale, which will affect <code>DateTools.format</code> date formating.
+		Returns true if the locale was successfully changed</dd><dt><span class="kwd">static </span><span class="kwd">function </span>sleep(seconds : <a href="Float.html" class="type">Float</a>) : <a href="Void.html" class="type">Void</a></dt><dd>Suspend the current execution for the given time (in seconds).</dd><dt><span class="kwd">static </span><span class="kwd">function </span>stderr() : <a href="haxe/io/Output.html" class="type">haxe.io.Output</a></dt><dd>Returns the process standard error on which you can write.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>stdin() : <a href="haxe/io/Input.html" class="type">haxe.io.Input</a></dt><dd>Returns the process standard input, from which you can read what user enters. Usually it will block until the user send a full input line. See <code>getChar</code> for an alternative.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>stdout() : <a href="haxe/io/Output.html" class="type">haxe.io.Output</a></dt><dd>Returns the process standard output on which you can write.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>systemName() : <a href="String.html" class="type">String</a></dt><dd>Returns the name of the system you are running on. For instance :
+			"Windows", "Linux", "BSD" and "Mac" depending on your desktop OS.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>time() : <a href="Float.html" class="type">Float</a></dt><dd>Gives the most precise timestamp value (in seconds).</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

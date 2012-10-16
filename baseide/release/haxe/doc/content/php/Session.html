@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>php.Session</div><div class="platforms">Available in php</div><div class="classdoc"> TODO: TEST IT!</div><dl><dt><span class="kwd">static </span><span class="kwd">var </span>started(default,null) : <a href="../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>clear() : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>close() : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>exists(name : <a href="../String.html" class="type">String</a>) : Unknown</dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>get(name : <a href="../String.html" class="type">String</a>) : <a href="../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>getCacheExpire() : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>getCacheLimiter() : <a href="../php/CacheLimiter.html" class="type">CacheLimiter</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>getCookieParams() : { secure : <a href="../Bool.html" class="type">Bool</a>, path : <a href="../String.html" class="type">String</a>, lifetime : <a href="../Int.html" class="type">Int</a>, httponly : <a href="../Bool.html" class="type">Bool</a>, domain : <a href="../String.html" class="type">String</a>}</dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>getId() : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>getModule() : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>getName() : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>getSavePath() : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>regenerateId(?deleteold : <a href="../Bool.html" class="type">Bool</a>) : <a href="../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>remove(name : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>set(name : <a href="../String.html" class="type">String</a>, value : <a href="../Dynamic.html" class="type">Dynamic</a>) : Unknown</dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>setCacheExpire(minutes : <a href="../Int.html" class="type">Int</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>setCacheLimiter(l : <a href="../php/CacheLimiter.html" class="type">CacheLimiter</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>setCookieParams(?lifetime : <a href="../Int.html" class="type">Int</a>, ?path : <a href="../String.html" class="type">String</a>, ?domain : <a href="../String.html" class="type">String</a>, ?secure : <a href="../Bool.html" class="type">Bool</a>, ?httponly : <a href="../Bool.html" class="type">Bool</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>setId(id : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>setModule(module : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>setName(name : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>setSaveHandler(open : <a href="../String.html" class="type">String</a> -> <a href="../String.html" class="type">String</a> -> <a href="../Bool.html" class="type">Bool</a>, close : <a href="../Void.html" class="type">Void</a> -> <a href="../Bool.html" class="type">Bool</a>, read : <a href="../String.html" class="type">String</a> -> <a href="../String.html" class="type">String</a>, write : <a href="../String.html" class="type">String</a> -> <a href="../String.html" class="type">String</a> -> <a href="../Bool.html" class="type">Bool</a>, destroy : Unknown, gc : Unknown) : <a href="../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>setSavePath(path : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>start() : <a href="../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

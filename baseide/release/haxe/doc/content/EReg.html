@@ -1,0 +1,135 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>EReg</div><div class="platforms">Available in flash8, neko, js, flash, php, cpp, cs, java</div><div class="classdoc">Regular expressions are a way to find regular patterns into
+	Strings. Have a look at the tutorial on haXe website to learn
+	how to use them.</div><dl><dt><span class="kwd">function </span>new(r : <a href="String.html" class="type">String</a>, opt : <a href="String.html" class="type">String</a>) : <a href="Void.html" class="type">Void</a></dt><dd>Creates a new regular expression with pattern <code>r</code> and
+		options <code>opt</code>.</dd><dt><span class="kwd">function </span>customReplace(s : <a href="String.html" class="type">String</a>, f : <a href="EReg.html" class="type">EReg</a> -> <a href="String.html" class="type">String</a>) : <a href="String.html" class="type">String</a></dt><dd>For each occurence of the pattern in the string <code>s</code>, the function <code>f</code> is called and
+		can return the string that needs to be replaced. All occurences are matched anyway,
+		and setting the <code>g</code> flag might cause some incorrect behavior on some platforms.</dd><dt><span class="kwd">function </span>match(s : <a href="String.html" class="type">String</a>) : <a href="Bool.html" class="type">Bool</a></dt><dd>Tells if the regular expression matches the String.
+		Updates the internal state accordingly.</dd><dt><span class="kwd">function </span>matched(n : <a href="Int.html" class="type">Int</a>) : <a href="String.html" class="type">String</a></dt><dd>Returns a matched group or throw an expection if there
+		is no such group. If <code>n = 0</code>, the whole matched substring
+		is returned.</dd><dt><span class="kwd">function </span>matchedLeft() : <a href="String.html" class="type">String</a></dt><dd>Returns the part of the string that was as the left of
+		of the matched substring.</dd><dt><span class="kwd">function </span>matchedPos() : { pos : <a href="Int.html" class="type">Int</a>, len : <a href="Int.html" class="type">Int</a>}</dt><dd>Returns the position of the matched substring within the
+		original matched string.</dd><dt><span class="kwd">function </span>matchedRight() : <a href="String.html" class="type">String</a></dt><dd>Returns the part of the string that was at the right of
+		of the matched substring.</dd><dt><span class="kwd">function </span>replace(s : <a href="String.html" class="type">String</a>, by : <a href="String.html" class="type">String</a>) : <a href="String.html" class="type">String</a></dt><dd>Replaces a pattern by another string. The <code>by</code> format can
+		contains <code>$1</code> to <code>$9</code> that will correspond to groups matched
+		while replacing. <code>$$</code> means the <code>$</code> character.</dd><dt><span class="kwd">function </span>split(s : <a href="String.html" class="type">String</a>) : <a href="Array.html" class="type">Array</a>&lt;<a href="String.html" class="type">String</a>&gt;</dt><dd>Split a string by using the regular expression to match
+		the separators.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

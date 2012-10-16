@@ -1,14 +1,7 @@
 #include <QString>
 #include <QDebug>
 #include "config.h"
-#include "compilingstatus.h"
 #include "cppexport.h"
-#include <xmmintrin.h>
-
-bool cppExporter::exportResource(QString file)
-{
-    qDebug() << "Exporting " + file;
-}
 
 /*
     All these functions are required for a plugin DLL to work.
@@ -16,12 +9,7 @@ bool cppExporter::exportResource(QString file)
 
 extern "C" QString getName()
 {
-    __m128 a, b;
-    a = _mm_set_ps(1.0f,2.0f,-1.0f,0.0f);
-    b = _mm_set_ps1(3.0f);
-    __m128 result = _mm_mul_ps(a,b);
-
-    return "C++ / MingW";
+    return "Windows C++";
 }
 
 extern "C" QString getDescription()
@@ -33,28 +21,19 @@ extern "C" QString getDescription()
 
 extern "C" bool build(QString projectfile, bool final)
 {
-    CompilingStatus c;
-    c.build();
-    c.exec();
+    qDebug() << "BUILDING APPLICATION: \n"+projectfile;
     return true;
 }
 
 extern "C" bool run(QString projectfile)
 {
-    CompilingStatus c;
-    c.project = projectfile;
-    c.run();
-    c.exec();
+    qDebug() << "RUNNING APPLICATION: \n"+projectfile;
     return true;
-//    qDebug() << "RUNNING APPLICATION: \n"+projectfile;
 }
 
 extern "C" bool debug(QString projectfile)
 {
-    CompilingStatus c;
-    c.project = projectfile;
-    c.debug();
-    c.exec();
+    qDebug() << "DEBUGGING APPLICATION: \n"+projectfile;
     return true;
 }
 
@@ -73,4 +52,9 @@ extern "C" QString configure(QString)
 extern "C" QString parameters(QString)
 {
 
+}
+
+bool cppExporter::exportResource(QString name)
+{
+    qDebug() << "Exporting " + name;
 }

@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.display3D.Context3D</div><div class="extends">extends <a href="../../flash/events/EventDispatcher.html" class="type">flash.events.EventDispatcher</a></div><div class="platforms">Available in flash</div><dl><dt><span class="kwd">var </span>driverInfo(default,null) : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>enableErrorChecking : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">function </span>clear(?red : <a href="../../Float.html" class="type">Float</a>, ?green : <a href="../../Float.html" class="type">Float</a>, ?blue : <a href="../../Float.html" class="type">Float</a>, ?alpha : <a href="../../Float.html" class="type">Float</a>, ?depth : <a href="../../Float.html" class="type">Float</a>, ?stencil : <a href="../../UInt.html" class="type">UInt</a>, ?mask : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>configureBackBuffer(width : <a href="../../Int.html" class="type">Int</a>, height : <a href="../../Int.html" class="type">Int</a>, antiAlias : <a href="../../Int.html" class="type">Int</a>, ?enableDepthAndStencil : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>createCubeTexture(size : <a href="../../Int.html" class="type">Int</a>, format : <a href="../../flash/display3D/Context3DTextureFormat.html" class="type">Context3DTextureFormat</a>, optimizeForRenderToTexture : <a href="../../Bool.html" class="type">Bool</a>, ?streamingLevels : <a href="../../Int.html" class="type">Int</a>) : <a href="../../flash/display3D/textures/CubeTexture.html" class="type">flash.display3D.textures.CubeTexture</a></dt><dd></dd><dt><span class="kwd">function </span>createIndexBuffer(numIndices : <a href="../../Int.html" class="type">Int</a>) : <a href="../../flash/display3D/IndexBuffer3D.html" class="type">IndexBuffer3D</a></dt><dd></dd><dt><span class="kwd">function </span>createProgram() : <a href="../../flash/display3D/Program3D.html" class="type">Program3D</a></dt><dd></dd><dt><span class="kwd">function </span>createTexture(width : <a href="../../Int.html" class="type">Int</a>, height : <a href="../../Int.html" class="type">Int</a>, format : <a href="../../flash/display3D/Context3DTextureFormat.html" class="type">Context3DTextureFormat</a>, optimizeForRenderToTexture : <a href="../../Bool.html" class="type">Bool</a>, ?streamingLevels : <a href="../../Int.html" class="type">Int</a>) : <a href="../../flash/display3D/textures/Texture.html" class="type">flash.display3D.textures.Texture</a></dt><dd></dd><dt><span class="kwd">function </span>createVertexBuffer(numVertices : <a href="../../Int.html" class="type">Int</a>, data32PerVertex : <a href="../../Int.html" class="type">Int</a>) : <a href="../../flash/display3D/VertexBuffer3D.html" class="type">VertexBuffer3D</a></dt><dd></dd><dt><span class="kwd">function </span>dispose() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>drawToBitmapData(destination : <a href="../../flash/display/BitmapData.html" class="type">flash.display.BitmapData</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>drawTriangles(indexBuffer : <a href="../../flash/display3D/IndexBuffer3D.html" class="type">IndexBuffer3D</a>, ?firstIndex : <a href="../../Int.html" class="type">Int</a>, ?numTriangles : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>present() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setBlendFactors(sourceFactor : <a href="../../flash/display3D/Context3DBlendFactor.html" class="type">Context3DBlendFactor</a>, destinationFactor : <a href="../../flash/display3D/Context3DBlendFactor.html" class="type">Context3DBlendFactor</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setColorMask(red : <a href="../../Bool.html" class="type">Bool</a>, green : <a href="../../Bool.html" class="type">Bool</a>, blue : <a href="../../Bool.html" class="type">Bool</a>, alpha : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setCulling(triangleFaceToCull : <a href="../../flash/display3D/Context3DTriangleFace.html" class="type">Context3DTriangleFace</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setDepthTest(depthMask : <a href="../../Bool.html" class="type">Bool</a>, passCompareMode : <a href="../../flash/display3D/Context3DCompareMode.html" class="type">Context3DCompareMode</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setProgram(program : <a href="../../flash/display3D/Program3D.html" class="type">Program3D</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setProgramConstantsFromByteArray(programType : <a href="../../flash/display3D/Context3DProgramType.html" class="type">Context3DProgramType</a>, firstRegister : <a href="../../Int.html" class="type">Int</a>, numRegisters : <a href="../../Int.html" class="type">Int</a>, data : <a href="../../flash/utils/ByteArray.html" class="type">flash.utils.ByteArray</a>, byteArrayOffset : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setProgramConstantsFromMatrix(programType : <a href="../../flash/display3D/Context3DProgramType.html" class="type">Context3DProgramType</a>, firstRegister : <a href="../../Int.html" class="type">Int</a>, matrix : <a href="../../flash/geom/Matrix3D.html" class="type">flash.geom.Matrix3D</a>, ?transposedMatrix : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setProgramConstantsFromVector(programType : <a href="../../flash/display3D/Context3DProgramType.html" class="type">Context3DProgramType</a>, firstRegister : <a href="../../Int.html" class="type">Int</a>, data : <a href="../../flash/Vector.html" class="type">flash.Vector</a>&lt;<a href="../../Float.html" class="type">Float</a>&gt;, ?numRegisters : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setRenderToBackBuffer() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setRenderToTexture(texture : <a href="../../flash/display3D/textures/TextureBase.html" class="type">flash.display3D.textures.TextureBase</a>, ?enableDepthAndStencil : <a href="../../Bool.html" class="type">Bool</a>, ?antiAlias : <a href="../../Int.html" class="type">Int</a>, ?surfaceSelector : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setScissorRectangle(rectangle : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setStencilActions(?triangleFace : <a href="../../flash/display3D/Context3DTriangleFace.html" class="type">Context3DTriangleFace</a>, ?compareMode : <a href="../../flash/display3D/Context3DCompareMode.html" class="type">Context3DCompareMode</a>, ?actionOnBothPass : <a href="../../flash/display3D/Context3DStencilAction.html" class="type">Context3DStencilAction</a>, ?actionOnDepthFail : <a href="../../flash/display3D/Context3DStencilAction.html" class="type">Context3DStencilAction</a>, ?actionOnDepthPassStencilFail : <a href="../../flash/display3D/Context3DStencilAction.html" class="type">Context3DStencilAction</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setStencilReferenceValue(referenceValue : <a href="../../UInt.html" class="type">UInt</a>, ?readMask : <a href="../../UInt.html" class="type">UInt</a>, ?writeMask : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setTextureAt(sampler : <a href="../../Int.html" class="type">Int</a>, texture : <a href="../../flash/display3D/textures/TextureBase.html" class="type">flash.display3D.textures.TextureBase</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setVertexBufferAt(index : <a href="../../Int.html" class="type">Int</a>, buffer : <a href="../../flash/display3D/VertexBuffer3D.html" class="type">VertexBuffer3D</a>, ?bufferOffset : <a href="../../Int.html" class="type">Int</a>, ?format : <a href="../../flash/display3D/Context3DVertexBufferFormat.html" class="type">Context3DVertexBufferFormat</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'settingswindow.ui'
 **
-** Created: Sat 21. Jul 03:40:00 2012
+** Created: Thu 11. Oct 18:31:02 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -15,6 +15,7 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QCheckBox>
+#include <QtGui/QComboBox>
 #include <QtGui/QDialog>
 #include <QtGui/QDialogButtonBox>
 #include <QtGui/QFontComboBox>
@@ -29,7 +30,6 @@
 #include <QtGui/QSpacerItem>
 #include <QtGui/QSpinBox>
 #include <QtGui/QStackedWidget>
-#include <QtGui/QToolButton>
 #include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
@@ -38,7 +38,7 @@ QT_BEGIN_NAMESPACE
 class Ui_SettingsWindow
 {
 public:
-    QGridLayout *gridLayout;
+    QGridLayout *gridLayout_2;
     QListWidget *leftListWidget;
     QStackedWidget *stackedWidget;
     QWidget *cfgGeneral;
@@ -91,31 +91,13 @@ public:
     QSpacerItem *verticalSpacer_8;
     QSpacerItem *verticalSpacer_4;
     QWidget *cfgCodeFormatting;
-    QVBoxLayout *verticalLayout_5;
-    QHBoxLayout *horizontalLayout_6;
+    QGridLayout *gridLayout;
     QLabel *titleLabel_5;
-    QToolButton *toolButton;
-    QToolButton *toolButton_2;
-    QHBoxLayout *horizontalLayout;
-    QVBoxLayout *verticalLayout_8;
-    QListWidget *keywordsListWidget;
-    QGroupBox *TokenGroupBox;
-    QVBoxLayout *verticalLayout_11;
-    QHBoxLayout *horizontalLayout_2;
-    QToolButton *TextColorButton;
-    QFrame *TextColorFrame;
-    QHBoxLayout *horizontalLayout_4;
-    QToolButton *BoldTextButton;
-    QToolButton *ItalicTextButton;
-    QToolButton *UnderlineTextButton;
-    QVBoxLayout *verticalLayout_9;
     QHBoxLayout *horizontalLayout_3;
+    QComboBox *themeComboBox;
+    QSpacerItem *horizontalSpacer;
     QFontComboBox *editorFontComboBox;
     QSpinBox *fontSize;
-    QSpacerItem *horizontalSpacer;
-    QHBoxLayout *horizontalLayout_5;
-    QToolButton *toolButton_5;
-    QFrame *fontColorFrame;
     QFrame *codeEditorWidget;
     QVBoxLayout *verticalLayout_10;
     QWidget *cfgContentServers;
@@ -136,10 +118,8 @@ public:
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/resources/RES/ffficons/cog_edit.png"), QSize(), QIcon::Normal, QIcon::Off);
         SettingsWindow->setWindowIcon(icon);
-        gridLayout = new QGridLayout(SettingsWindow);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        gridLayout->setHorizontalSpacing(3);
-        gridLayout->setVerticalSpacing(9);
+        gridLayout_2 = new QGridLayout(SettingsWindow);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         leftListWidget = new QListWidget(SettingsWindow);
         QIcon icon1;
         icon1.addFile(QString::fromUtf8(":/resources/RES/ffficons/application_form.png"), QSize(), QIcon::Normal, QIcon::Off);
@@ -175,7 +155,7 @@ public:
         leftListWidget->setMaximumSize(QSize(140, 16777215));
         leftListWidget->setIconSize(QSize(16, 16));
 
-        gridLayout->addWidget(leftListWidget, 1, 0, 1, 1);
+        gridLayout_2->addWidget(leftListWidget, 0, 0, 1, 1);
 
         stackedWidget = new QStackedWidget(SettingsWindow);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
@@ -480,155 +460,30 @@ public:
         stackedWidget->addWidget(cfgClassEditor);
         cfgCodeFormatting = new QWidget();
         cfgCodeFormatting->setObjectName(QString::fromUtf8("cfgCodeFormatting"));
-        verticalLayout_5 = new QVBoxLayout(cfgCodeFormatting);
-        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        verticalLayout_5->setContentsMargins(1, 0, 1, 0);
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setSpacing(2);
-        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        gridLayout = new QGridLayout(cfgCodeFormatting);
+        gridLayout->setContentsMargins(0, 0, 0, 0);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         titleLabel_5 = new QLabel(cfgCodeFormatting);
         titleLabel_5->setObjectName(QString::fromUtf8("titleLabel_5"));
-        QSizePolicy sizePolicy6(QSizePolicy::Expanding, QSizePolicy::Ignored);
-        sizePolicy6.setHorizontalStretch(0);
-        sizePolicy6.setVerticalStretch(0);
-        sizePolicy6.setHeightForWidth(titleLabel_5->sizePolicy().hasHeightForWidth());
-        titleLabel_5->setSizePolicy(sizePolicy6);
+        sizePolicy1.setHeightForWidth(titleLabel_5->sizePolicy().hasHeightForWidth());
+        titleLabel_5->setSizePolicy(sizePolicy1);
         titleLabel_5->setFont(font);
         titleLabel_5->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
 
-        horizontalLayout_6->addWidget(titleLabel_5);
+        gridLayout->addWidget(titleLabel_5, 0, 0, 1, 1);
 
-        toolButton = new QToolButton(cfgCodeFormatting);
-        toolButton->setObjectName(QString::fromUtf8("toolButton"));
-        QIcon icon6;
-        icon6.addFile(QString::fromUtf8(":/resources/RES/ffficons/disk.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton->setIcon(icon6);
-        toolButton->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-
-        horizontalLayout_6->addWidget(toolButton);
-
-        toolButton_2 = new QToolButton(cfgCodeFormatting);
-        toolButton_2->setObjectName(QString::fromUtf8("toolButton_2"));
-        QIcon icon7;
-        icon7.addFile(QString::fromUtf8(":/resources/RES/ffficons/folder.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton_2->setIcon(icon7);
-        toolButton_2->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-
-        horizontalLayout_6->addWidget(toolButton_2);
-
-
-        verticalLayout_5->addLayout(horizontalLayout_6);
-
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setSpacing(3);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        verticalLayout_8 = new QVBoxLayout();
-        verticalLayout_8->setSpacing(3);
-        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
-        verticalLayout_8->setContentsMargins(-1, -1, 2, -1);
-        keywordsListWidget = new QListWidget(cfgCodeFormatting);
-        new QListWidgetItem(keywordsListWidget);
-        new QListWidgetItem(keywordsListWidget);
-        new QListWidgetItem(keywordsListWidget);
-        new QListWidgetItem(keywordsListWidget);
-        new QListWidgetItem(keywordsListWidget);
-        new QListWidgetItem(keywordsListWidget);
-        new QListWidgetItem(keywordsListWidget);
-        new QListWidgetItem(keywordsListWidget);
-        new QListWidgetItem(keywordsListWidget);
-        new QListWidgetItem(keywordsListWidget);
-        new QListWidgetItem(keywordsListWidget);
-        new QListWidgetItem(keywordsListWidget);
-        keywordsListWidget->setObjectName(QString::fromUtf8("keywordsListWidget"));
-        sizePolicy.setHeightForWidth(keywordsListWidget->sizePolicy().hasHeightForWidth());
-        keywordsListWidget->setSizePolicy(sizePolicy);
-        keywordsListWidget->setMaximumSize(QSize(100, 16777215));
-
-        verticalLayout_8->addWidget(keywordsListWidget);
-
-        TokenGroupBox = new QGroupBox(cfgCodeFormatting);
-        TokenGroupBox->setObjectName(QString::fromUtf8("TokenGroupBox"));
-        verticalLayout_11 = new QVBoxLayout(TokenGroupBox);
-        verticalLayout_11->setSpacing(3);
-        verticalLayout_11->setContentsMargins(3, 3, 3, 3);
-        verticalLayout_11->setObjectName(QString::fromUtf8("verticalLayout_11"));
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setSpacing(3);
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        TextColorButton = new QToolButton(TokenGroupBox);
-        TextColorButton->setObjectName(QString::fromUtf8("TextColorButton"));
-        sizePolicy3.setHeightForWidth(TextColorButton->sizePolicy().hasHeightForWidth());
-        TextColorButton->setSizePolicy(sizePolicy3);
-        QIcon icon8;
-        icon8.addFile(QString::fromUtf8(":/resources/RES/ffficons/style.png"), QSize(), QIcon::Normal, QIcon::Off);
-        TextColorButton->setIcon(icon8);
-
-        horizontalLayout_2->addWidget(TextColorButton);
-
-        TextColorFrame = new QFrame(TokenGroupBox);
-        TextColorFrame->setObjectName(QString::fromUtf8("TextColorFrame"));
-        TextColorFrame->setFrameShape(QFrame::Panel);
-        TextColorFrame->setFrameShadow(QFrame::Sunken);
-
-        horizontalLayout_2->addWidget(TextColorFrame);
-
-
-        verticalLayout_11->addLayout(horizontalLayout_2);
-
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setSpacing(3);
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        BoldTextButton = new QToolButton(TokenGroupBox);
-        BoldTextButton->setObjectName(QString::fromUtf8("BoldTextButton"));
-        QSizePolicy sizePolicy7(QSizePolicy::Ignored, QSizePolicy::Fixed);
-        sizePolicy7.setHorizontalStretch(0);
-        sizePolicy7.setVerticalStretch(0);
-        sizePolicy7.setHeightForWidth(BoldTextButton->sizePolicy().hasHeightForWidth());
-        BoldTextButton->setSizePolicy(sizePolicy7);
-        QIcon icon9;
-        icon9.addFile(QString::fromUtf8(":/resources/RES/ffficons/text_bold.png"), QSize(), QIcon::Normal, QIcon::Off);
-        BoldTextButton->setIcon(icon9);
-        BoldTextButton->setCheckable(true);
-
-        horizontalLayout_4->addWidget(BoldTextButton);
-
-        ItalicTextButton = new QToolButton(TokenGroupBox);
-        ItalicTextButton->setObjectName(QString::fromUtf8("ItalicTextButton"));
-        sizePolicy7.setHeightForWidth(ItalicTextButton->sizePolicy().hasHeightForWidth());
-        ItalicTextButton->setSizePolicy(sizePolicy7);
-        QIcon icon10;
-        icon10.addFile(QString::fromUtf8(":/resources/RES/ffficons/text_italic.png"), QSize(), QIcon::Normal, QIcon::Off);
-        ItalicTextButton->setIcon(icon10);
-        ItalicTextButton->setCheckable(true);
-
-        horizontalLayout_4->addWidget(ItalicTextButton);
-
-        UnderlineTextButton = new QToolButton(TokenGroupBox);
-        UnderlineTextButton->setObjectName(QString::fromUtf8("UnderlineTextButton"));
-        sizePolicy7.setHeightForWidth(UnderlineTextButton->sizePolicy().hasHeightForWidth());
-        UnderlineTextButton->setSizePolicy(sizePolicy7);
-        QIcon icon11;
-        icon11.addFile(QString::fromUtf8(":/resources/RES/ffficons/text_underline.png"), QSize(), QIcon::Normal, QIcon::Off);
-        UnderlineTextButton->setIcon(icon11);
-        UnderlineTextButton->setCheckable(true);
-
-        horizontalLayout_4->addWidget(UnderlineTextButton);
-
-
-        verticalLayout_11->addLayout(horizontalLayout_4);
-
-
-        verticalLayout_8->addWidget(TokenGroupBox);
-
-
-        horizontalLayout->addLayout(verticalLayout_8);
-
-        verticalLayout_9 = new QVBoxLayout();
-        verticalLayout_9->setSpacing(3);
-        verticalLayout_9->setObjectName(QString::fromUtf8("verticalLayout_9"));
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(3);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        themeComboBox = new QComboBox(cfgCodeFormatting);
+        themeComboBox->setObjectName(QString::fromUtf8("themeComboBox"));
+
+        horizontalLayout_3->addWidget(themeComboBox);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_3->addItem(horizontalSpacer);
+
         editorFontComboBox = new QFontComboBox(cfgCodeFormatting);
         editorFontComboBox->setObjectName(QString::fromUtf8("editorFontComboBox"));
         sizePolicy3.setHeightForWidth(editorFontComboBox->sizePolicy().hasHeightForWidth());
@@ -651,50 +506,16 @@ public:
 
         horizontalLayout_3->addWidget(fontSize);
 
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        horizontalLayout_3->addItem(horizontalSpacer);
-
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setSpacing(3);
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        toolButton_5 = new QToolButton(cfgCodeFormatting);
-        toolButton_5->setObjectName(QString::fromUtf8("toolButton_5"));
-        sizePolicy3.setHeightForWidth(toolButton_5->sizePolicy().hasHeightForWidth());
-        toolButton_5->setSizePolicy(sizePolicy3);
-        QIcon icon12;
-        icon12.addFile(QString::fromUtf8(":/resources/RES/ffficons/palette.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton_5->setIcon(icon12);
-
-        horizontalLayout_5->addWidget(toolButton_5);
-
-        fontColorFrame = new QFrame(cfgCodeFormatting);
-        fontColorFrame->setObjectName(QString::fromUtf8("fontColorFrame"));
-        QSizePolicy sizePolicy8(QSizePolicy::Fixed, QSizePolicy::Ignored);
-        sizePolicy8.setHorizontalStretch(0);
-        sizePolicy8.setVerticalStretch(0);
-        sizePolicy8.setHeightForWidth(fontColorFrame->sizePolicy().hasHeightForWidth());
-        fontColorFrame->setSizePolicy(sizePolicy8);
-        fontColorFrame->setMinimumSize(QSize(50, 0));
-        fontColorFrame->setMaximumSize(QSize(50, 16777215));
-        fontColorFrame->setFrameShape(QFrame::Panel);
-        fontColorFrame->setFrameShadow(QFrame::Sunken);
-
-        horizontalLayout_5->addWidget(fontColorFrame);
-
-
-        horizontalLayout_3->addLayout(horizontalLayout_5);
-
-
-        verticalLayout_9->addLayout(horizontalLayout_3);
+        gridLayout->addLayout(horizontalLayout_3, 1, 0, 1, 2);
 
         codeEditorWidget = new QFrame(cfgCodeFormatting);
         codeEditorWidget->setObjectName(QString::fromUtf8("codeEditorWidget"));
-        QSizePolicy sizePolicy9(QSizePolicy::Expanding, QSizePolicy::Expanding);
-        sizePolicy9.setHorizontalStretch(0);
-        sizePolicy9.setVerticalStretch(0);
-        sizePolicy9.setHeightForWidth(codeEditorWidget->sizePolicy().hasHeightForWidth());
-        codeEditorWidget->setSizePolicy(sizePolicy9);
+        QSizePolicy sizePolicy6(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy6.setHorizontalStretch(0);
+        sizePolicy6.setVerticalStretch(0);
+        sizePolicy6.setHeightForWidth(codeEditorWidget->sizePolicy().hasHeightForWidth());
+        codeEditorWidget->setSizePolicy(sizePolicy6);
         codeEditorWidget->setFrameShape(QFrame::StyledPanel);
         codeEditorWidget->setFrameShadow(QFrame::Sunken);
         verticalLayout_10 = new QVBoxLayout(codeEditorWidget);
@@ -702,13 +523,7 @@ public:
         verticalLayout_10->setContentsMargins(0, 0, 0, 0);
         verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
 
-        verticalLayout_9->addWidget(codeEditorWidget);
-
-
-        horizontalLayout->addLayout(verticalLayout_9);
-
-
-        verticalLayout_5->addLayout(horizontalLayout);
+        gridLayout->addWidget(codeEditorWidget, 2, 0, 1, 2);
 
         stackedWidget->addWidget(cfgCodeFormatting);
         cfgContentServers = new QWidget();
@@ -748,7 +563,7 @@ public:
 
         stackedWidget->addWidget(cfgCollaboration);
 
-        gridLayout->addWidget(stackedWidget, 1, 1, 1, 1);
+        gridLayout_2->addWidget(stackedWidget, 0, 1, 1, 1);
 
         buttonBox = new QDialogButtonBox(SettingsWindow);
         buttonBox->setObjectName(QString::fromUtf8("buttonBox"));
@@ -756,7 +571,7 @@ public:
         buttonBox->setStandardButtons(QDialogButtonBox::Cancel|QDialogButtonBox::Ok);
         buttonBox->setCenterButtons(false);
 
-        gridLayout->addWidget(buttonBox, 2, 0, 1, 2);
+        gridLayout_2->addWidget(buttonBox, 1, 0, 1, 2);
 
 
         retranslateUi(SettingsWindow);
@@ -765,7 +580,6 @@ public:
 
         leftListWidget->setCurrentRow(-1);
         stackedWidget->setCurrentIndex(2);
-        keywordsListWidget->setCurrentRow(0);
 
 
         QMetaObject::connectSlotsByName(SettingsWindow);
@@ -819,42 +633,7 @@ public:
         groupBox_6->setTitle(QApplication::translate("SettingsWindow", "Completed manually", 0, QApplication::UnicodeUTF8));
         cmWriteSig->setText(QApplication::translate("SettingsWindow", "Write signature", 0, QApplication::UnicodeUTF8));
         cmShowSig->setText(QApplication::translate("SettingsWindow", "Show signature", 0, QApplication::UnicodeUTF8));
-        titleLabel_5->setText(QApplication::translate("SettingsWindow", "Code formatting settings", 0, QApplication::UnicodeUTF8));
-        toolButton->setText(QApplication::translate("SettingsWindow", "Save scheme", 0, QApplication::UnicodeUTF8));
-        toolButton_2->setText(QApplication::translate("SettingsWindow", "Load scheme", 0, QApplication::UnicodeUTF8));
-
-        const bool __sortingEnabled1 = keywordsListWidget->isSortingEnabled();
-        keywordsListWidget->setSortingEnabled(false);
-        QListWidgetItem *___qlistwidgetitem5 = keywordsListWidget->item(0);
-        ___qlistwidgetitem5->setText(QApplication::translate("SettingsWindow", "Keyword", 0, QApplication::UnicodeUTF8));
-        QListWidgetItem *___qlistwidgetitem6 = keywordsListWidget->item(1);
-        ___qlistwidgetitem6->setText(QApplication::translate("SettingsWindow", "Function", 0, QApplication::UnicodeUTF8));
-        QListWidgetItem *___qlistwidgetitem7 = keywordsListWidget->item(2);
-        ___qlistwidgetitem7->setText(QApplication::translate("SettingsWindow", "Variable", 0, QApplication::UnicodeUTF8));
-        QListWidgetItem *___qlistwidgetitem8 = keywordsListWidget->item(3);
-        ___qlistwidgetitem8->setText(QApplication::translate("SettingsWindow", "Resource", 0, QApplication::UnicodeUTF8));
-        QListWidgetItem *___qlistwidgetitem9 = keywordsListWidget->item(4);
-        ___qlistwidgetitem9->setText(QApplication::translate("SettingsWindow", "Class", 0, QApplication::UnicodeUTF8));
-        QListWidgetItem *___qlistwidgetitem10 = keywordsListWidget->item(5);
-        ___qlistwidgetitem10->setText(QApplication::translate("SettingsWindow", "Number", 0, QApplication::UnicodeUTF8));
-        QListWidgetItem *___qlistwidgetitem11 = keywordsListWidget->item(6);
-        ___qlistwidgetitem11->setText(QApplication::translate("SettingsWindow", "String", 0, QApplication::UnicodeUTF8));
-        QListWidgetItem *___qlistwidgetitem12 = keywordsListWidget->item(7);
-        ___qlistwidgetitem12->setText(QApplication::translate("SettingsWindow", "Operator", 0, QApplication::UnicodeUTF8));
-        QListWidgetItem *___qlistwidgetitem13 = keywordsListWidget->item(8);
-        ___qlistwidgetitem13->setText(QApplication::translate("SettingsWindow", "Comment", 0, QApplication::UnicodeUTF8));
-        QListWidgetItem *___qlistwidgetitem14 = keywordsListWidget->item(9);
-        ___qlistwidgetitem14->setText(QApplication::translate("SettingsWindow", "Preprocessor", 0, QApplication::UnicodeUTF8));
-        QListWidgetItem *___qlistwidgetitem15 = keywordsListWidget->item(10);
-        ___qlistwidgetitem15->setText(QApplication::translate("SettingsWindow", "Plain text", 0, QApplication::UnicodeUTF8));
-        QListWidgetItem *___qlistwidgetitem16 = keywordsListWidget->item(11);
-        ___qlistwidgetitem16->setText(QApplication::translate("SettingsWindow", "Error", 0, QApplication::UnicodeUTF8));
-        keywordsListWidget->setSortingEnabled(__sortingEnabled1);
-
-        TokenGroupBox->setTitle(QApplication::translate("SettingsWindow", "TokenType", 0, QApplication::UnicodeUTF8));
-        BoldTextButton->setText(QString());
-        ItalicTextButton->setText(QString());
-        UnderlineTextButton->setText(QString());
+        titleLabel_5->setText(QApplication::translate("SettingsWindow", "Code editor settings", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP
         editorFontComboBox->setToolTip(QApplication::translate("SettingsWindow", "Font face", 0, QApplication::UnicodeUTF8));
 #endif // QT_NO_TOOLTIP
@@ -863,13 +642,6 @@ public:
 #endif // QT_NO_TOOLTIP
         fontSize->setSuffix(QApplication::translate("SettingsWindow", " pt", 0, QApplication::UnicodeUTF8));
         fontSize->setPrefix(QApplication::translate("SettingsWindow", "Size: ", 0, QApplication::UnicodeUTF8));
-#ifndef QT_NO_TOOLTIP
-        toolButton_5->setToolTip(QApplication::translate("SettingsWindow", "Background color", 0, QApplication::UnicodeUTF8));
-#endif // QT_NO_TOOLTIP
-        toolButton_5->setText(QApplication::translate("SettingsWindow", "Background color", 0, QApplication::UnicodeUTF8));
-#ifndef QT_NO_TOOLTIP
-        fontColorFrame->setToolTip(QApplication::translate("SettingsWindow", "Background color", 0, QApplication::UnicodeUTF8));
-#endif // QT_NO_TOOLTIP
         titleLabel_6->setText(QApplication::translate("SettingsWindow", "Content servers", 0, QApplication::UnicodeUTF8));
         titleLabel_7->setText(QApplication::translate("SettingsWindow", "Collaboration options", 0, QApplication::UnicodeUTF8));
     } // retranslateUi

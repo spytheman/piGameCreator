@@ -1,0 +1,128 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>php.Lib</div><div class="platforms">Available in php</div><dl><dt><span class="kwd">static </span><span class="kwd">function </span>associativeArrayOfHash(hash : <a href="../Hash.html" class="type">Hash</a>&lt;<a href="../Dynamic.html" class="type">Dynamic</a>&gt;) : <a href="../php/NativeArray.html" class="type">NativeArray</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>associativeArrayOfObject(ob : <a href="../Dynamic.html" class="type">Dynamic</a>) : <a href="../php/NativeArray.html" class="type">NativeArray</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>dump(v : <a href="../Dynamic.html" class="type">Dynamic</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>extensionLoaded(name : <a href="../String.html" class="type">String</a>) : Unknown</dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>getClasses() : { }</dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>hashOfAssociativeArray&lt;T&gt;(arr : <a href="../php/NativeArray.html" class="type">NativeArray</a>) : <a href="../Hash.html" class="type">Hash</a>&lt;T&gt;</dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>isCli() : <a href="../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>loadLib(pathToLib : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>  Loads types defined in the specified directory.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>mail(to : <a href="../String.html" class="type">String</a>, subject : <a href="../String.html" class="type">String</a>, message : <a href="../String.html" class="type">String</a>, ?additionalHeaders : <a href="../String.html" class="type">String</a>, ?additionalParameters : <a href="../String.html" class="type">String</a>) : <a href="../Bool.html" class="type">Bool</a></dt><dd> See the documentation for the equivalent PHP function for details on usage:
+	  http://php.net/manual/en/function.mail.php
+	  @param	to
+	  @param	subject
+	  @param	message
+	  @param	?additionalHeaders
+	  @param	?additionalParameters</dd><dt><span class="kwd">static </span><span class="kwd">function </span>objectOfAssociativeArray(arr : <a href="../php/NativeArray.html" class="type">NativeArray</a>) : <a href="../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>print(v : <a href="../Dynamic.html" class="type">Dynamic</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Print the specified value on the default output.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>printFile(file : <a href="../String.html" class="type">String</a>) : Unknown</dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>println(v : <a href="../Dynamic.html" class="type">Dynamic</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Print the specified value on the default output followed by a newline character.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>rethrow(e : <a href="../Dynamic.html" class="type">Dynamic</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>For neko compatibility only.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>serialize(v : <a href="../Dynamic.html" class="type">Dynamic</a>) : <a href="../String.html" class="type">String</a></dt><dd>Serialize using native PHP serialization. This will return a Binary string that can be
+		stored for long term usage.</dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>toHaxeArray(a : <a href="../php/NativeArray.html" class="type">NativeArray</a>) : <a href="../Array.html" class="type">Array</a>&lt;<a href="../Dynamic.html" class="type">Dynamic</a>&gt;</dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>toPhpArray(a : <a href="../Array.html" class="type">Array</a>&lt;<a href="../Dynamic.html" class="type">Dynamic</a>&gt;) : <a href="../php/NativeArray.html" class="type">NativeArray</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>unserialize(s : <a href="../String.html" class="type">String</a>) : <a href="../Dynamic.html" class="type">Dynamic</a></dt><dd>Unserialize a string using native PHP serialization. See <code>serialize</code>.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

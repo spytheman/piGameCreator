@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-class scriptwindow;
+class CodeEditor;
 namespace Ui {
     class scripttestwindow;
 }
@@ -21,7 +21,7 @@ protected:
 
 private:
     Ui::scripttestwindow *ui;
-    scriptwindow* source;
+    CodeEditor* source;
 
 private slots:
     void on_actionSettings_triggered();

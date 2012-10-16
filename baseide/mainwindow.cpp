@@ -8,10 +8,11 @@
 #include "dllforresourceeditor.h"
 #include "openedproject.h"
 #include "inputresourcename.h"
-#include "gameframeworkclassdef.h"
 #include "scripttestwindow.h"
 #include "settingswindow.h"
 #include "buildtargets.h"
+#include "newresource.h"
+#include "../sharedcode/qtwin.h"
 #include "../sharedcode/gameproject.h"
 #include "../sharedcode/globals.h"
 #include "../sharedcode/resource.h"
@@ -20,6 +21,7 @@
 #include "../sharedcode/rssound.h"
 #include "../sharedcode/rsclass.h"
 #include "../sharedcode/rsscene.h"
+#include <QMessageBox>
 #include <QPushButton>
 #include <QStandardItem>
 #include <QDir>
@@ -35,6 +37,7 @@ MainWindow::MainWindow(QWidget *parent) :
    // int argc = QApplication::instance()->argc();
    // glutInit(&argc,QApplication::instance()->argv());
 
+    setWindowTitle("pi|engine CREATOR");
     ui->setupUi(this);
     creatorIDE->mainWindow=this;
     ui->centralWidget->layout()->setContentsMargins(0,0,0,0);
@@ -51,7 +54,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //Exporter selector
     targetsCB = new QComboBox;
     connect(targetsCB, SIGNAL(currentIndexChanged(int)), this, SLOT(BuildTargetChanged(int)));
-    RebuildTargetsCB(0);
+    UpdateTargetsCB(0);
     ui->runToolbar->insertWidget(ui->action_Targets,targetsCB);
 
     //Prepare the skins menu:
@@ -97,11 +100,32 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->actionToolbars->setMenu( createPopupMenu() );
 
+    connect(ui->projectTree->selectionModel(),SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
+            this,SLOT(projectTreeSelection(QItemSelection,QItemSelection)));
+
+    connect(creatorIDE->projectModel, SIGNAL(itemChanged(QStandardItem*)), this, SLOT(ProjectItemChanged(QStandardItem*)));
+
     // QGLWidget Crash Workaround & GCC Linker bug workaround
     QGLWidget initializeOpenGL;
     initializeOpenGL.makeCurrent();
     char* renderer = (char*)glGetString(GL_RENDERER);
     QString s = QString::fromLocal8Bit(renderer);    
+}
+
+void MainWindow::ProjectItemChanged(QStandardItem *item)
+{
+    QString newtext = item->text();
+    if(newtext=="")newtext = "Folder";
+    ResourceTreeNode* node = (ResourceTreeNode*)item->data(TIDATA).value<void*>();
+    if(!node)gcerror("NULL ResourceTreeNode* ?");
+    node->name = newtext;
+    ui->projectTree->blockSignals(true);
+    item->setText(newtext);
+    ui->projectTree->blockSignals(false);
+    creatorIDE->currentProject->project->save();
+    // These lead to crashes
+    //updateProjectExplorer();
+    //focusProjectExplorer();
 }
 
 void MainWindow::ResViewChange()
@@ -165,7 +189,7 @@ void MainWindow::openWorkspaceWidget(WorkspaceWidget *w)
     w->widget->setProperty("WorkspaceWidget",qVariantFromValue(  (void*)w ) );
 }
 
-void MainWindow::RebuildTargetsCB(OpenedProject* p)
+void MainWindow::UpdateTargetsCB(OpenedProject* p)
 {
     gameproject* gp;
     if(p==0) gp=0;
@@ -182,12 +206,12 @@ void MainWindow::RebuildTargetsCB(OpenedProject* p)
                 targetsCB->addItem(QIcon(),T->name,qVariantFromValue((void*)T));
             targetsCB->setCurrentIndex(p->selectedTarget);
         }
-        else RebuildTargetsCB(0);
+        else UpdateTargetsCB(0);
     }
     else
     {
         targetsCB->setEnabled(false);
-        targetsCB->addItem(tr("No targets available"));
+        targetsCB->addItem(tr("No project opened"));
     }
     targetsCB->blockSignals(false);
 }
@@ -242,11 +266,6 @@ void MainWindow::setSkin()
     creatorIDE->settings->setValue("creatorIDE/Skin",a->data().toString());
 }
 
-void MainWindow::on_action_Run_triggered()
-{
-
-}
-
 void MainWindow::on_WorkSpaceTabWidget_tabCloseRequested(int index)
 {
     WorkspaceWidget* w =  (WorkspaceWidget*) ui->WorkSpaceTabWidget->widget(index)->property("WorkspaceWidget").value<void*>();
@@ -285,7 +304,7 @@ void MainWindow::LastWWClosed()
 {
     creatorIDE->openWorkspaceWidget(new wwMainPage);
 }
-
+/*
 bool MainWindow::addResourceEntry(OpenedProject *opr, gcresource *r, bool open)
 {
     gcprint(r->kind());
@@ -346,170 +365,161 @@ bool MainWindow::addResourceEntry(OpenedProject *opr, gcresource *r, bool open)
         on_projectTree_doubleClicked( creatorIDE->projectModel->indexFromItem(rn) );
     }
 }
-
-void MainWindow::addProjectEntry(OpenedProject *opr)
+*/
+void MainWindow::updateProjectExplorer()
 {
-    gameproject* p = opr->project;
-
-    //Adds project to the TREE and ALL comboboxes
-
-    QStandardItem* projectNode = new QStandardItem(p->title());
-    QFont f; f.setBold(true);
-    projectNode->setEditable(false);
-    projectNode->setFont(f);
-    projectNode->setBackground( QColor(0,0,0,15) );
-    projectNode->setIcon( ffficon("human-joystick") );
-    projectNode->setDropEnabled(1);
-
-    // "project" node: Project AND data are OpenedProject* pointers
-    projectNode->setData( qVariantFromValue((void*)opr), TIPROJECT);
-    projectNode->setData( qVariantFromValue((void*)opr), TIDATA);
-    projectNode->setData( "project",TIKIND);
-
-    creatorIDE->projectModel->appendRow(projectNode);
-    ui->projectTree->expand(creatorIDE->projectModel->indexFromItem(projectNode));
-
-    // Add the project to the project combobox as well:
-    ui->projectComboBox->addItem(projectNode->icon(),projectNode->text(), projectNode->data(TIPROJECT));
-    if(ui->projectComboBox->count()>1)ui->projectComboBox->setVisible(true);
-    else ui->projectComboBox->setVisible(false);
-    creatorIDE->currentProject = opr;
-
-    // update targets combo box:
-    RebuildTargetsCB(opr);
-
-    // @RESOURCES
-    // Now for each resource, add it to the tree:
-    foreach(gcresource* r,p->images())  addResourceEntry(opr,r);
-    foreach(gcresource* r,p->models())  addResourceEntry(opr,r);
-    foreach(gcresource* r,p->sounds())  addResourceEntry(opr,r);
-    foreach(gcresource* r,p->classes()) addResourceEntry(opr,r);
-    foreach(gcresource* r,p->scenes())  addResourceEntry(opr,r);
-    return; //rest code is unused old code
-
-    //images:
-    QStandardItem* imagesFolder = new QStandardItem("Images");
-    imagesFolder->setIcon( qApp->style()->standardIcon(QStyle::SP_DirClosedIcon));
-    imagesFolder->setEditable(false);
-    imagesFolder->setData("image",TIKIND);
-    imagesFolder->setData(qVariantFromValue((void*)opr), TIPROJECT);
-    imagesFolder->setData(NULL,TIDATA);
-    imagesFolder->setFont(f);
-    foreach(gcresource* r,p->images())
-    {
-        QStandardItem* rn = new QStandardItem();
-        rn->setIcon(r->icon);
-        rn->setText(r->name);
-        rn->setData("image",TIKIND);
-        rn->setData(qVariantFromValue((void*)opr), TIPROJECT);
-        rn->setData(qVariantFromValue((void*)r), TIDATA);
-        rn->setDropEnabled(0);
-        imagesFolder->appendRow(rn);
-    }
-    if(p->images().count()>0)projectNode->appendRow(imagesFolder);
-    else delete imagesFolder;
-
-
-    //sounds:
-    QStandardItem* soundsFolder = new QStandardItem("Sounds");
-    soundsFolder->setIcon( qApp->style()->standardIcon(QStyle::SP_DirClosedIcon));
-    soundsFolder->setEditable(false);
-    soundsFolder->setData("sound",TIKIND);
-    soundsFolder->setData(qVariantFromValue((void*)opr), TIPROJECT);
-    soundsFolder->setData(NULL,TIDATA);
-    soundsFolder->setFont(f);
-    foreach(gcresource* r,p->sounds())
-    {
-        QStandardItem* rn = new QStandardItem();
-        rn->setIcon(r->icon);
-        rn->setText(r->name);
-        rn->setData("sound",TIKIND);
-        rn->setData(qVariantFromValue((void*)opr), TIPROJECT);
-        rn->setData(qVariantFromValue((void*)r), TIDATA);
-        rn->setDropEnabled(0);
-        soundsFolder->appendRow(rn);
-    }
-    if(p->sounds().count()>0)projectNode->appendRow(soundsFolder);
-    else delete soundsFolder;
-
-
-    //models:
-    QStandardItem* modelsFolder = new QStandardItem("Models");
-    modelsFolder->setIcon( qApp->style()->standardIcon(QStyle::SP_DirClosedIcon));
-    modelsFolder->setEditable(false);
-    modelsFolder->setData("model",TIKIND);
-    modelsFolder->setData(qVariantFromValue((void*)opr), TIPROJECT);
-    modelsFolder->setData(NULL,TIDATA);
-    modelsFolder->setFont(f);
-    foreach(gcresource* r,p->models())
-    {
-        QStandardItem* rn = new QStandardItem();
-        rn->setIcon(r->icon);
-        rn->setText(r->name);
-        rn->setData("model",TIKIND);
-        rn->setData(qVariantFromValue((void*)opr), TIPROJECT);
-        rn->setData(qVariantFromValue((void*)r), TIDATA);
-        rn->setDropEnabled(0);
-        modelsFolder->appendRow(rn);
-    }
-    if(p->models().count()>0)projectNode->appendRow(modelsFolder);
-    else delete modelsFolder;
-
-    //classes:
-    QStandardItem* classesFolder = new QStandardItem("Classes");
-    classesFolder->setIcon( qApp->style()->standardIcon(QStyle::SP_DirClosedIcon));
-    classesFolder->setEditable(false);
-    classesFolder->setData("model",TIKIND);
-    classesFolder->setData(qVariantFromValue((void*)opr), TIPROJECT);
-    classesFolder->setData(NULL,TIDATA);
-    classesFolder->setFont(f);
-    foreach(gcresource* r,p->classes())
-    {
-        QStandardItem* rn = new QStandardItem();
-        rn->setIcon(r->icon);
-        rn->setText(r->name);
-        rn->setData("class",TIKIND);
-        rn->setData(qVariantFromValue((void*)opr), TIPROJECT);
-        rn->setData(qVariantFromValue((void*)r), TIDATA);
-        rn->setDropEnabled(0);
-        classesFolder->appendRow(rn);
-    }
-    if(p->classes().count()>0)projectNode->appendRow(classesFolder);
-    else delete classesFolder;
-
-    //scenes:
-    QStandardItem* scenesFolder = new QStandardItem("Scenes");
-    scenesFolder->setIcon( qApp->style()->standardIcon(QStyle::SP_DirClosedIcon));
-    scenesFolder->setEditable(false);
-    scenesFolder->setData("scene",TIKIND);
-    scenesFolder->setData(qVariantFromValue((void*)opr), TIPROJECT);
-    scenesFolder->setData(NULL,TIDATA);
-    scenesFolder->setFont(f);
-    foreach(gcresource* r,p->scenes())
-    {
-        QStandardItem* rn = new QStandardItem();
-        rn->setIcon(r->icon);
-        rn->setText(r->name);
-        rn->setData("scene",TIKIND);
-        rn->setData(qVariantFromValue((void*)opr), TIPROJECT);
-        rn->setData(qVariantFromValue((void*)r), TIDATA);
-        rn->setDropEnabled(0);
-        scenesFolder->appendRow(rn);
-    }
-    if(p->scenes().count()>0)projectNode->appendRow(scenesFolder);
-    else delete scenesFolder;
-
-
-    //Add the rest here!
-
-    QStandardItemModel* sim = qobject_cast<QStandardItemModel*>(ui->projectTree->model());
-    if(sim) sim->appendRow(projectNode);
-    ui->projectTree->expand(sim->indexFromItem(projectNode));
-
-    // Add the project to the project combobox as well:
-    ui->projectComboBox->addItem(projectNode->icon(),projectNode->text(), projectNode->data(TIPROJECT));
-    creatorIDE->currentProject = opr;
+    //updates currently selected view
+    updateProjectTrees();
 }
+void MainWindow::focusProjectExplorer()
+{
+    //focuses currently opened project's active widget - project tree, image library, class library and so on...
+    ui->projectTree->setFocus();
+}
+
+void MainWindow::rec_addResourceEntry(ResourceTreeNode* node, QStandardItem* target, int level, OpenedProject* project)
+{
+    if(node->folder)
+    {
+        QStandardItem* folderNode = new QStandardItem(node->name);
+        folderNode->setEditable(true);
+        if(level==0)
+        {
+            QFont f;f.setBold(true);
+            folderNode->setFont(f);
+            folderNode->setEditable(false);
+        }
+        folderNode->setDropEnabled(true);
+        folderNode->setIcon( ffficon("folder") );
+        folderNode->setData( qVariantFromValue((void*)project), TIPROJECT);
+        folderNode->setData( qVariantFromValue((void*)node), TIDATA );
+        folderNode->setData( "folder", TIKIND);
+        //if(creatorIDE->currentProject == project)
+        if(project->selectedResource == node)
+        {
+            selectedWhileTreeRefresh = folderNode;
+        }
+        foreach(ResourceTreeNode* R, node->childs)
+            rec_addResourceEntry(R,folderNode,++level,project);
+
+        //For now all folders them!
+        target->appendRow(folderNode);
+
+        /*
+        if(level>1 || folderNode->rowCount()>0)
+            target->appendRow(folderNode);
+        else delete folderNode; */
+
+        if(project->expandedResources.contains(node))
+            creatorIDE->mainWindow->ui->projectTree->expand( creatorIDE->projectModel->indexFromItem(folderNode) );
+    }
+    else
+    {
+        QStandardItem* res = new QStandardItem(node->name);
+        res->setIcon(node->resource->icon);
+        res->setEditable(false);
+        res->setDropEnabled(false);
+        res->setData( qVariantFromValue((void*)project), TIPROJECT);
+        res->setData( qVariantFromValue((void*)node ), TIDATA );
+        res->setData( node->resource->kind(), TIKIND);
+        target->appendRow(res);
+
+        //if(creatorIDE->currentProject == project)
+        if(project->selectedResource == node)
+        {
+            selectedWhileTreeRefresh = res;
+        }
+    }
+}
+
+void MainWindow::updateProjectTrees()
+{
+    if(creatorIDE->currentProject == NULL)
+    {
+        creatorIDE->projectModel->clear();
+        targetsCB->blockSignals(true);
+        targetsCB->clear();
+        targetsCB->setEnabled(false);
+        targetsCB->addItem("No project opened");
+        targetsCB->blockSignals(false);
+        return;
+    }
+
+    //Updates the project tree
+    ui->projectComboBox->blockSignals(true);
+    creatorIDE->projectModel->clear();
+    ui->projectComboBox->clear();
+    selectedWhileTreeRefresh = NULL;
+
+    int I = 0;
+    foreach(OpenedProject* p, creatorIDE->projects)
+    {
+        // Add the project to the project combobox as well:
+        ui->projectComboBox->addItem( ffficon("human-joystick") ,p->project->title,
+                                     qVariantFromValue( (void*)p ));
+
+        if(ui->projectComboBox->count()>1)ui->projectComboBox->setVisible(true);
+        else ui->projectComboBox->setVisible(false);
+        if(p == creatorIDE->currentProject)ui->projectComboBox->setCurrentIndex(I);
+        ++I;
+    }
+    ui->projectComboBox->blockSignals(false);
+    OpenedProject* p = creatorIDE->currentProject;
+    {
+        QStandardItem* projectNode = new QStandardItem(p->project->title);
+        QFont f; f.setBold(true);
+        if(p=creatorIDE->currentProject)selectedWhileTreeRefresh = projectNode;
+        projectNode->setEditable(false);
+        projectNode->setFont(f);
+        projectNode->setBackground( QColor(0,0,0,15) );
+        projectNode->setIcon( ffficon("human-joystick") );
+        projectNode->setDropEnabled(1);
+
+        // "project" node: Project AND data are OpenedProject* pointers
+        projectNode->setData( qVariantFromValue((void*)p), TIPROJECT);
+        projectNode->setData( qVariantFromValue((void*)p), TIDATA);
+        projectNode->setData( "project",TIKIND);
+
+        creatorIDE->projectModel->appendRow(projectNode);
+
+        ui->projectTree->blockSignals(true);
+        ui->projectTree->expand(creatorIDE->projectModel->indexFromItem(projectNode));
+        ui->projectTree->blockSignals(false);
+
+
+
+        // update targets combo box:
+        UpdateTargetsCB(p);
+
+        // Create the project resource tree
+        ResourceTreeNode root = p->project->getRootNode();
+        foreach(ResourceTreeNode* R, root.childs)
+            rec_addResourceEntry(R, projectNode, 0, p);
+
+        //Add some fixed features:
+        QStandardItem* dashboard = new QStandardItem("Dashboard");
+        dashboard->setIcon(ffficon("application_form"));
+        dashboard->setData("dashboard", TIKIND);
+        dashboard->setData( qVariantFromValue( (void*)p ),TIPROJECT );
+        dashboard->setDropEnabled(false);
+        dashboard->setEditable(false);
+        QFont bf; bf.setBold(1); dashboard->setFont(bf);
+        projectNode->insertRow(0,dashboard);
+        if(p->isDashboardSelected)
+        {
+            ui->projectTree->setCurrentIndex( creatorIDE->projectModel->indexFromItem(dashboard) );
+            return;
+        }
+    }
+
+    //For more than 1 projects, proper project must be specified!
+    if(selectedWhileTreeRefresh != NULL)
+    {
+        ui->projectTree->setCurrentIndex( creatorIDE->projectModel->indexFromItem(selectedWhileTreeRefresh));
+    }
+    selectedWhileTreeRefresh = NULL;
+}
+
 
 void MainWindow::on_projectTree_doubleClicked(const QModelIndex &index)
 {
@@ -523,7 +533,7 @@ void MainWindow::on_projectTree_doubleClicked(const QModelIndex &index)
         The DLL instance being used is determined by the following algorithm:
         • It must support the proper resource kind AND type.
         • If NO DLL supports both KIND and TYPE, TYPE will be set to * (asterisk) string
-        • And piGameCreator's DEFAULT resource editor for that type will be used
+        • And creatorIDE's DEFAULT resource editor for that type will be used
           (because ALL default editors implement the type * as well as default type, OR maybe...)
         • If for some reason, there is NOT a DLL that supports this kind with * TYPE,
         ERROR will occur! [for example invalid resource kind was specified in the project XML]
@@ -531,14 +541,23 @@ void MainWindow::on_projectTree_doubleClicked(const QModelIndex &index)
     QStandardItem* item = creatorIDE->projectModel->itemFromIndex(index);
 
     //FOLDERS:
-    if(item->data(TIDATA)==NULL)return;
+    ResourceTreeNode* node = (ResourceTreeNode*)item->data(TIDATA).value<void*>();
+    if(!node && item->data(TIKIND).toString() == "dashboard")
+    {
+        //This will open the project sadhboard
+        gcerror("Dashboard is not implemented!");
+        return;
+    }
+    gcresource* resource = node->resource;
+    if(!node)return;
+    if(node->folder)return;
 
     //projects:
     if(item->data(TIKIND).toString()=="project")return;
 
     //else it is resource
-    kind = item->data(TIKIND).toString();
-    res = (gcresource*)(item->data(TIDATA).value<void*>());
+    res = node->resource;
+    kind = res->kind();
     type = res->type;
     name = res->name;
     //gcmessage(name + ": " + kind + " " + type);
@@ -590,7 +609,7 @@ void MainWindow::on_projectTree_doubleClicked(const QModelIndex &index)
         //and if now, again, there is NOTHING, we
         if(possibleEditors.count()==0)
         {
-            gcerror("piGameCreator is unable to edit this type of resource!\n Maybe it is created by newer version of piGameCreator or some of the files are missing.\n\nTry reinstalling piGameCreator");
+            gcerror("pi|engine CREATOR is unable to edit this type of resource!\n Maybe it is created by newer version of pi|engine CREATOR or some of the files are missing.\n\nTry reinstalling pi|engine");
             return;
         }
     }
@@ -617,6 +636,7 @@ void MainWindow::on_projectTree_doubleClicked(const QModelIndex &index)
         //Each resource editor must KNOW the IDE
         editor->creatorIDE = creatorIDE;
         editor->resource = res;
+        editor->project = res->project;
         editor->init();
         openWorkspaceWidget(editor);
     }
@@ -626,6 +646,7 @@ void MainWindow::on_projectTree_doubleClicked(const QModelIndex &index)
 void MainWindow::on_projectTree_clicked(const QModelIndex &index)
 {
     //Update the project that is selected in the Project Selector
+    ui->projectComboBox->blockSignals(true);
     void* opr =  creatorIDE->projectModel->itemFromIndex(index)->data(TIPROJECT).value<void*>();
     for(int i=0;i<ui->projectComboBox->count();i++)
         if(ui->projectComboBox->itemData(i).value<void*>() == opr)
@@ -635,7 +656,8 @@ void MainWindow::on_projectTree_clicked(const QModelIndex &index)
             creatorIDE->currentProject = (OpenedProject*)opr;
         }
     //update the TARGETS
-    RebuildTargetsCB(creatorIDE->currentProject);
+    ui->projectComboBox->blockSignals(false);
+    UpdateTargetsCB(creatorIDE->currentProject);
 }
 
 void MainWindow::BuildTargetChanged(int row)
@@ -659,23 +681,31 @@ void MainWindow::on_projectTree_customContextMenuRequested(const QPoint &pos)
         QMenu m;
         QAction save(tr("&Save project"),0); save.setIcon(ffficon("disk"));
         QAction saveas(tr("Save &as..."),0);
-        QAction closeproject(tr("&Close project")+" "+gp->title(),0); closeproject.setIcon(ffficon("cross"));
+        QAction closeproject(tr("&Close project")+" "+gp->title,0); closeproject.setIcon(ffficon("cross"));
         m.addAction(&save);m.addAction(&saveas);
         m.addSeparator();
         m.addAction(&closeproject);
         QAction* res = m.exec(QCursor::pos());
+        //Close project
+        if(res==&closeproject) creatorIDE->closeProject(op);
         return;
     }
 
     //FOLDERS:
-    if(item->data(TIDATA)==NULL)
+    ResourceTreeNode* node = (ResourceTreeNode*)item->data(TIDATA).value<void*>();
+    if(!node && item->data(TIKIND).toString()=="dashboard")
+    {
+        gcprint("Dashboard right click");
+        return;
+    }
+    if(node->folder)
     {
         OpenedProject* op = ((OpenedProject*)(item->data(TIPROJECT).value<void*>()));
         gameproject* gp = op->project;
-        kind = item->data(TIKIND).toString();
-
+        kind = node->kind;
         QMenu m;
-        QAction add("Add "+kind+"...",0); add.setIcon(creatorIDE->addIconFromKind(kind));
+        QAction add("Add "+kind+"...",0);
+        add.setIcon(creatorIDE->addIconFromKind(kind));
 
         //folder management TODO:
         QAction folder(tr("Add &folder..."),0);folder.setIcon(ffficon("folder_add"));
@@ -693,53 +723,156 @@ void MainWindow::on_projectTree_customContextMenuRequested(const QPoint &pos)
         QAction* res = m.exec(QCursor::pos());
         if(res==&add)
         {
-            // Add the required resource.
-            QDialog* w = creatorIDE->getNewDialogForKind(kind);
-            if(w)
+            newResource* w = new newResource(this);
+            w->setKind( node->kind );
+            if(w->exec())
             {
-                w->exec();  //How should I pass the taken data? IN PROPERTIES
-                vObject o = w->property("data").toHash();
-                if(!o.isEmpty())
-                {
-                    InputResourceName irn;
-                    irn.exec();
-                    if(irn.enteredName!="")
-                    {
-                        //exec problem???
-                        name = irn.enteredName;
-                        kind = o.value("kind").toString();
-                        type = o.value("type").toString();
-                        dllForResourceEditor* re = (dllForResourceEditor*) o.value("pluginlibpointer").value<void*>();
-
-                        //gcmessage(re->getName());
-                        gcresource* newres = re->createResource(kind,type,name);
-                        if(newres)
-                        {
-                            //resource was created! Add it to the project AND to the views
-                            creatorIDE->addResource(op,newres,true);
-                        }
-                        //else do nothnig
-                        else gcprint("Cannot add NULL resource to the project");
-                    }
-                }
+                gcresource* r = w->resource;
+                if(!r->project)gcerror("Your ResourceEditor MUST fill the PROJECT field of the gcResource, returned by its CreateResource(gameproject*, QString, QString, QString) function");
+                //it must fill its project.
+                ResourceTreeNode* nn = new ResourceTreeNode;
+                nn->kind = r->kind();
+                nn->name = r->name;
+                nn->folder = false;
+                nn->resource = r;
+                nn->root = false;
+                node->childs.append(nn);
+                creatorIDE->currentProject->selectedResource = nn;
+                nn->resource->project->save();
+                updateProjectExplorer();
+                on_projectTree_doubleClicked(ui->projectTree->currentIndex());
             }
-            else gcerror("Cannot add "+kind+"\nFeature not implemented");
+
+        }
+        else if (res==&folder)
+        {
+            ResourceTreeNode* f = new ResourceTreeNode;
+            f->name = "Folder";
+            f->folder = true;
+            f->root = false;
+            f->kind = node->kind;
+            node->childs.append(f);
+            creatorIDE->currentProject->selectedResource = f;
+            creatorIDE->currentProject->project->save();
+            updateProjectExplorer();
+            ui->projectTree->edit(ui->projectTree->currentIndex());
+        }
+        else if (res==&rename)
+        {
+            ui->projectTree->edit( creatorIDE->projectModel->indexFromItem(item) );
+        }
+        else if(res==&delete_item)
+        {
+            if( QMessageBox::question(this,"Delete "+node->name,
+                                      "Do you want to permanently delete this folder?",
+                                      QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes )
+            {
+                gcprint("DELETE ITEM called");
+                QList<gcresource*> resources = gp->getResourcesUnderNode(node);
+                gp->removeTreeNode(node);
+                delete node;
+                foreach(gcresource* r, resources)
+                {
+                    //must delete EVERYTHING from the resource folder!
+                    QString folderpath = r->project->absoluteFolder() + "/" + r->relativeFolder();
+                    gcRemoveFolder(folderpath);
+                    QDir d(folderpath); d.cdUp();
+                    gcRemoveFiles( d.absolutePath(), r->name +".*");
+                    gcprint("REMOVING RESOURCE: "+r->name);
+
+                    //Close resource if opened
+                    foreach(WorkspaceWidget* ww, creatorIDE->openedWidgets)
+                        if(ww->isResourceEditor())
+                            if( ((ResourceEditor*)ww)->resource == r )
+                            {
+                                ww->widget->close();
+                                creatorIDE->openedWidgets.removeAll(ww);
+                            }
+                    delete r;
+                }
+                //This saves only the tree
+                gp->save();
+                updateProjectExplorer();
+                focusProjectExplorer();
+            }
         }
         return;
     }
 
     //RESOURCES:
     kind = item->data(TIKIND).toString();
-    res = (gcresource*)(item->data(TIDATA).value<void*>());
+    ResourceTreeNode* rtn = (ResourceTreeNode*)(item->data(TIDATA).value<void*>());
+    res = rtn->resource;
     type = res->type;
     name = res->name;
+
+    //Default resource menu:
+    QMenu menu;
+    QIcon deleteIcon = ffficon("cancel");
+    QAction clone(ffficon("page_white_copy"),"Duplicate "+kind, &menu);
+    QAction exportResource(ffficon("package_go"),"Export this "+kind, &menu);
+    QAction del(deleteIcon, "Delete "+kind, &menu);
+    menu.addAction(&clone);
+    menu.addAction(&exportResource);
+    menu.addAction(&del);
+
+    //query ALL resource editors for additional menu items:
+    foreach(dllForResourceEditor* re, creatorIDE->resourceEditorLibs)
+    {
+        QList<QAction*> items = re->contextMenuItems(kind,type,false,res);
+        if(items.count()>0)
+        {
+            menu.addSeparator();
+            foreach(QAction* a,items)
+            {
+                connect(a,SIGNAL(triggered()),this, SLOT(routeRightMenuClickToItsDLL()));
+                a->setProperty("DLLINSTANCE", qVariantFromValue( (void*)re ) );
+            }
+            menu.addActions(items);
+        }
+    }
+    menu.addSeparator();
+    QAction* lastAction = menu.actions().at(menu.actions().count()-1);
+    if(lastAction->isSeparator())delete lastAction;
+    //menu.addSeparator();
+    QAction* r = menu.exec(QCursor::pos());
+
+    //now let's do the job with selected option:
+    if(r==&del)
+    {
+        //we must DELETE anything related to this resource!
+        if( QMessageBox::question(this,"Delete "+res->name,
+                                  "Do you want to permanently delete this resource?",
+                                  QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes )
+        {
+            //must delete EVERYTHING from the resource folder!
+            QString folderpath = res->project->absoluteFolder() + "/" + res->relativeFolder();
+            gcRemoveFolder(folderpath);
+            QDir d(folderpath); d.cdUp();
+            gcRemoveFiles( d.absolutePath(), res->name +".*");
+            res->project->removeResource(res);
+
+            //Close resource if opened
+            foreach(WorkspaceWidget* ww, creatorIDE->openedWidgets)
+                if(ww->isResourceEditor())
+                    if( ((ResourceEditor*)ww)->resource == res )
+                    {
+                        ww->widget->close();
+                        creatorIDE->openedWidgets.removeAll(ww);
+                    }
+            res->project->save();   //only the tree
+            delete res;
+            updateProjectExplorer();
+            focusProjectExplorer();
+        }
+    }
 }
 
-void MainWindow::on_actionFramework_editor_triggered()
+void MainWindow::routeRightMenuClickToItsDLL()
 {
-    GameFrameworkClassDef w(this);
-    w.setWindowFlags(Qt::Window);
-    w.exec();
+    QAction* a = (QAction*) sender();
+    dllForResourceEditor* re = (dllForResourceEditor*) a->property("DLLINSTANCE").value<void*>();
+    re->contextMenuItemClicked(a);
 }
 
 void MainWindow::on_action_Preferences_triggered()
@@ -763,5 +896,126 @@ void MainWindow::on_action_Targets_triggered()
     w.setParent(this);
     w.setWindowFlags(Qt::Window);
     w.exec();
-    RebuildTargetsCB(creatorIDE->currentProject);
+    UpdateTargetsCB(creatorIDE->currentProject);
+}
+
+void MainWindow::on_action_Run_triggered()
+{
+    if(creatorIDE->currentProject==0)return;
+    OpenedProject* op = creatorIDE->currentProject;
+
+    //must not go out of bounds...
+    buildtarget* bt = op->project->buildTargets().at(op->selectedTarget);
+    if(bt->exporter->isValid())
+        bt->exporter->run(op->project->filename());
+    else on_action_Targets_triggered();
+}
+
+void MainWindow::on_action_Debug_triggered()
+{
+    if(creatorIDE->currentProject==0)return;
+    OpenedProject* op = creatorIDE->currentProject;
+
+    //must not go out of bounds...
+    buildtarget* bt = op->project->buildTargets().at(op->selectedTarget);
+    if(bt->exporter->isValid())
+        bt->exporter->debug(op->project->filename());
+    else on_action_Targets_triggered();
+}
+
+void MainWindow::on_actionBuild_triggered()
+{
+    if(creatorIDE->currentProject==0)return;
+    OpenedProject* op = creatorIDE->currentProject;
+
+    //must not go out of bounds...
+    buildtarget* bt = op->project->buildTargets().at(op->selectedTarget);
+    if(bt->exporter->isValid())
+        bt->exporter->build(op->project->filename(),false);
+    else on_action_Targets_triggered();
+}
+
+void MainWindow::on_projectTree_expanded(const QModelIndex &index)
+{
+    ResourceTreeNode* r = (ResourceTreeNode*)index.data(TIDATA).value<void*>();
+    OpenedProject* p = (OpenedProject*)index.data(TIPROJECT).value<void*>();
+    // if p and r are same this is a project node so ignore it
+    if( (void*)p == (void*)r ) return;
+    p->expandedResources.append(r);
+    gcprint("Expanding "+r->name);
+}
+
+void MainWindow::on_projectTree_collapsed(const QModelIndex &index)
+{
+    if(index.data(TIKIND).toString()=="project")return;
+    ResourceTreeNode* r = (ResourceTreeNode*)index.data(TIDATA).value<void*>();
+    if(!r)return;
+    OpenedProject* p = (OpenedProject*)index.data(TIPROJECT).value<void*>();
+    p->expandedResources.removeAll(r);
+    gcprint("Collapsing "+r->name);
+}
+
+void MainWindow::on_toolButton_clicked()
+{
+    updateProjectExplorer();
+}
+
+void MainWindow::on_toolButton_2_clicked()
+{
+    updateProjectExplorer();
+}
+
+void MainWindow::projectTreeSelection(QItemSelection current, QItemSelection previous)
+{
+    QModelIndexList l = current.indexes();
+    if(l.count()!=1)return;
+    QModelIndex index = l.at(0);
+    ResourceTreeNode* node = (ResourceTreeNode*)index.data(TIDATA).value<void*>();
+    QStandardItem* i = creatorIDE->projectModel->itemFromIndex(index);
+    OpenedProject* op = (OpenedProject*)i->data(TIPROJECT).value<void*>();
+    op->isDashboardSelected = false;
+    if(!node && i->data(TIKIND).toString() == "dashboard")
+    {
+        op->isDashboardSelected = true;
+    }
+    if(!node) return;
+    op->selectedResource = node;
+
+    //This must also update the targets combobox
+    creatorIDE->currentProject = op;
+    creatorIDE->mainWindow->UpdateTargetsCB(op);
+}
+
+void MainWindow::on_projectComboBox_currentIndexChanged(int index)
+{
+    OpenedProject* op = (OpenedProject*) ui->projectComboBox->itemData(index).value<void*>();
+    if(!op)return;
+    creatorIDE->currentProject = op;
+    gcprint("Setting project " +op->project->title + " as current" );
+    updateProjectExplorer();
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    QStringList names = creatorIDE->currentProject->project->getAllResourceNames();
+    QListWidget* ww = new QListWidget;
+    ww->addItems(names);
+    ww->setAttribute(Qt::WA_DeleteOnClose);
+    ww->show();
+}
+
+void MainWindow::on_action_Save_triggered()
+{
+    //Just to test that
+    creatorIDE->currentProject->project->save();
+}
+
+void MainWindow::on_actionOpen_project_triggered()
+{
+    creatorIDE->openProject();
+}
+
+void MainWindow::on_actionCreate_project_triggered()
+{
+    creatorIDE->newProject();
 }

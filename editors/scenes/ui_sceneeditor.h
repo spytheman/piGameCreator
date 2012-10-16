@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'sceneeditor.ui'
 **
-** Created: Sun 12. Aug 04:54:15 2012
+** Created: Thu 11. Oct 18:32:52 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -2439,9 +2439,9 @@ public:
         retranslateUi(SceneEditor);
 
         GridStackedWidget->setCurrentIndex(0);
-        ToolOptionsSW->setCurrentIndex(0);
-        terrainOptionsSW->setCurrentIndex(0);
-        HeightMapTerrainTools->setCurrentIndex(5);
+        ToolOptionsSW->setCurrentIndex(5);
+        terrainOptionsSW->setCurrentIndex(1);
+        HeightMapTerrainTools->setCurrentIndex(3);
         comboBox_2->setCurrentIndex(0);
 
 

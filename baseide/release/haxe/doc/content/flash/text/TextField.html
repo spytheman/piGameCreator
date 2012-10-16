@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.text.TextField</div><div class="extends">extends <a href="../../flash/display/InteractiveObject.html" class="type">flash.display.InteractiveObject</a></div><div class="platforms">Available in flash</div><dl><dt><span class="kwd">var </span>alwaysShowSelection : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>antiAliasType : <a href="../../flash/text/AntiAliasType.html" class="type">AntiAliasType</a></dt><dd></dd><dt><span class="kwd">var </span>autoSize : <a href="../../flash/text/TextFieldAutoSize.html" class="type">TextFieldAutoSize</a></dt><dd></dd><dt><span class="kwd">var </span>background : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>backgroundColor : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">var </span>border : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>borderColor : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">var </span>bottomScrollV(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>caretIndex(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>condenseWhite : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>defaultTextFormat : <a href="../../flash/text/TextFormat.html" class="type">TextFormat</a></dt><dd></dd><dt><span class="kwd">var </span>displayAsPassword : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>embedFonts : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>gridFitType : <a href="../../flash/text/GridFitType.html" class="type">GridFitType</a></dt><dd></dd><dt><span class="kwd">var </span>htmlText : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>length(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>maxChars : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>maxScrollH(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>maxScrollV(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>mouseWheelEnabled : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>multiline : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>numLines(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>restrict : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>scrollH : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>scrollV : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>selectable : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>selectedText(default,null) : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>selectionBeginIndex(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>selectionEndIndex(default,null) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>sharpness : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>styleSheet : <a href="../../flash/text/StyleSheet.html" class="type">StyleSheet</a></dt><dd></dd><dt><span class="kwd">var </span>text : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>textColor : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">var </span>textHeight(default,null) : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>textInteractionMode(default,null) : <a href="../../flash/text/TextInteractionMode.html" class="type">TextInteractionMode</a></dt><dd></dd><dt><span class="kwd">var </span>textWidth(default,null) : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>thickness : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>type : <a href="../../flash/text/TextFieldType.html" class="type">TextFieldType</a></dt><dd></dd><dt><span class="kwd">var </span>useRichTextClipboard : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>wordWrap : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">function </span>new() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>appendText(newText : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>copyRichText() : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>getCharBoundaries(charIndex : <a href="../../Int.html" class="type">Int</a>) : <a href="../../flash/geom/Rectangle.html" class="type">flash.geom.Rectangle</a></dt><dd></dd><dt><span class="kwd">function </span>getCharIndexAtPoint(x : <a href="../../Float.html" class="type">Float</a>, y : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>getFirstCharInParagraph(charIndex : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>getImageReference(id : <a href="../../String.html" class="type">String</a>) : <a href="../../flash/display/DisplayObject.html" class="type">flash.display.DisplayObject</a></dt><dd></dd><dt><span class="kwd">function </span>getLineIndexAtPoint(x : <a href="../../Float.html" class="type">Float</a>, y : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>getLineIndexOfChar(charIndex : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>getLineLength(lineIndex : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>getLineMetrics(lineIndex : <a href="../../Int.html" class="type">Int</a>) : <a href="../../flash/text/TextLineMetrics.html" class="type">TextLineMetrics</a></dt><dd></dd><dt><span class="kwd">function </span>getLineOffset(lineIndex : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>getLineText(lineIndex : <a href="../../Int.html" class="type">Int</a>) : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>getParagraphLength(charIndex : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>getRawText() : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>getTextFormat(?beginIndex : <a href="../../Int.html" class="type">Int</a>, ?endIndex : <a href="../../Int.html" class="type">Int</a>) : <a href="../../flash/text/TextFormat.html" class="type">TextFormat</a></dt><dd></dd><dt><span class="kwd">function </span>getTextRuns(?beginIndex : <a href="../../Int.html" class="type">Int</a>, ?endIndex : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Dynamic.html" class="type">Dynamic</a>&gt;</dt><dd></dd><dt><span class="kwd">function </span>getXMLText(?beginIndex : <a href="../../Int.html" class="type">Int</a>, ?endIndex : <a href="../../Int.html" class="type">Int</a>) : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>insertXMLText(beginIndex : <a href="../../Int.html" class="type">Int</a>, endIndex : <a href="../../Int.html" class="type">Int</a>, richText : <a href="../../String.html" class="type">String</a>, ?pasting : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>pasteRichText(richText : <a href="../../String.html" class="type">String</a>) : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">function </span>replaceSelectedText(value : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>replaceText(beginIndex : <a href="../../Int.html" class="type">Int</a>, endIndex : <a href="../../Int.html" class="type">Int</a>, newText : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setSelection(beginIndex : <a href="../../Int.html" class="type">Int</a>, endIndex : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setTextFormat(format : <a href="../../flash/text/TextFormat.html" class="type">TextFormat</a>, ?beginIndex : <a href="../../Int.html" class="type">Int</a>, ?endIndex : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>isFontCompatible(fontName : <a href="../../String.html" class="type">String</a>, fontStyle : <a href="../../String.html" class="type">String</a>) : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

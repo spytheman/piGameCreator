@@ -18,6 +18,7 @@ QString rsClass::kind()
 
 bool rsClass::addToProject(gameproject *p)
 {
-    if(p->isResource(name))return false;
-    p->mClasses.append(this);
+    gccrash("DEPRECATED function call", __FILE__, __LINE__);
+    //if(p->isResource(name))return false;
+    //p->mClasses.append(this);
 }

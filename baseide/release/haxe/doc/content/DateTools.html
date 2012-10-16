@@ -1,0 +1,128 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>DateTools</div><div class="platforms">Available in flash8, neko, js, flash, php, cpp, cs, java</div><div class="classdoc">The DateTools class contains some extra functionalities for <code>Date</code>
+	manipulation. It's stored in a different class in order to prevent
+	the standard <code>Date</code> of being bloated and thus increasing the size of
+	each application using it.</div><dl><dt><span class="kwd">static </span><span class="kwd">function </span>days(n : <a href="Float.html" class="type">Float</a>) : <a href="Float.html" class="type">Float</a></dt><dd>Convert a number of days to a date-time</dd><dt><span class="kwd">static </span><span class="kwd">function </span>delta(d : <a href="Date.html" class="type">Date</a>, t : <a href="Float.html" class="type">Float</a>) : <a href="Date.html" class="type">Date</a></dt><dd>Returns a Date which time has been changed by <code>t</code> milliseconds.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>format(d : <a href="Date.html" class="type">Date</a>, f : <a href="String.html" class="type">String</a>) : <a href="String.html" class="type">String</a></dt><dd>Format the date <code>d</code> according to the format <code>f</code>. The format
+		is compatible with the <code>strftime</code> standard format, except that there
+		is no support in Flash and JS for day and months names (due to lack
+		of proper internationalization API). On haXe/Neko/Windows, some
+		formats are not supported.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getMonthDays(d : <a href="Date.html" class="type">Date</a>) : <a href="Int.html" class="type">Int</a></dt><dd>Returns the number of days in a month</dd><dt><span class="kwd">static </span><span class="kwd">function </span>hours(n : <a href="Float.html" class="type">Float</a>) : <a href="Float.html" class="type">Float</a></dt><dd>Convert a number of hours to a date-time</dd><dt><span class="kwd">static </span><span class="kwd">function </span>make(o : { seconds : <a href="Int.html" class="type">Int</a>, ms : <a href="Float.html" class="type">Float</a>, minutes : <a href="Int.html" class="type">Int</a>, hours : <a href="Int.html" class="type">Int</a>, days : <a href="Int.html" class="type">Int</a>}) : <a href="Float.html" class="type">Float</a></dt><dd>Build a date-time from several components</dd><dt><span class="kwd">static </span><span class="kwd">function </span>minutes(n : <a href="Float.html" class="type">Float</a>) : <a href="Float.html" class="type">Float</a></dt><dd>Convert a number of minutes to a date-time</dd><dt><span class="kwd">static </span><span class="kwd">function </span>parse(t : <a href="Float.html" class="type">Float</a>) : { seconds : <a href="Int.html" class="type">Int</a>, ms : <a href="Float.html" class="type">Float</a>, minutes : <a href="Int.html" class="type">Int</a>, hours : <a href="Int.html" class="type">Int</a>, days : <a href="Int.html" class="type">Int</a>}</dt><dd>Separate a date-time into several components</dd><dt><span class="kwd">static </span><span class="kwd">function </span>seconds(n : <a href="Float.html" class="type">Float</a>) : <a href="Float.html" class="type">Float</a></dt><dd>Convert a number of seconds to a date-time</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

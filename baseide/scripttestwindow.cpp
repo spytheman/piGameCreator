@@ -4,9 +4,10 @@
 #include "settingswindow.h"
 #include <QFile>
 #include "../sharedcode/pgsparser.h"
-#include "scriptwindow.h"
+#include "../sharedcode/idesettings.h"
 #include "codeeditor.h"
 #include "mainwindow.h"
+#include "../sharedcode/pgshighlighter.h"
 
 scripttestwindow::scripttestwindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,18 +16,18 @@ scripttestwindow::scripttestwindow(QWidget *parent) :
     ui->setupUi(this);
     setAttribute(Qt::WA_DeleteOnClose);
 
-    source = new scriptwindow;
+    source = new CodeEditor;
     ui->frame->layout()->addWidget(source);
     QFile f("test.pgs"); QString S;
     if(f.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         S=f.readAll();
     }
-    source->codeEditor->setSyntaxHighlighter(new pgsHighlighter);
+    //source->setSyntaxHighlighter(new pgsHighlighter);
     source->setText(S);
-    source->codeEditor->setFocus();
+    source->setFocus();
 
-    connect(creatorIDE, SIGNAL(IDEConfigChanged()), source->codeEditor, SLOT(onIDESettingsChanged()));
+    connect(creatorIDE, SIGNAL(IDEConfigChanged()), source, SLOT(onIDESettingsChanged()));
 
     setContentsMargins(0,0,0,0);
 }
@@ -52,8 +53,6 @@ void scripttestwindow::on_actionSettings_triggered()
 {
     SettingsWindow w;
     w.exec();
-    source->recolorize();
-    source->setBackgroundColor(creatorIDE->settings->value("CodeEditor/BackgroundColor").value<QColor>());
 }
 
 void scripttestwindow::codeChanged()
@@ -81,14 +80,7 @@ void scripttestwindow::codeChanged()
 
 void scripttestwindow::on_actionExpression_triggered()
 {
-    QString s;
-    pgsParser p;
-    pgsParser::expression e = p.parseExpression(source->codeEditor->getText());
-    foreach(pgsParser::token t, e.parts)
-    {
-        OUTIT
-    }
-    ui->debug->setHtml(s);
+
 }
 
 void scripttestwindow::on_actionCreator_IDE_triggered()
@@ -99,64 +91,21 @@ void scripttestwindow::on_actionCreator_IDE_triggered()
 
 void scripttestwindow::on_actionPreprocess_triggered()
 {
-    QString s;
-    //must do something
-    pgsParser p;
-    pgsParser::tokenlist l = p.tokenize(source->codeEditor->getText());
 
-    pgsParser::tokenlist defs = p.tokenize( ui->defines->text() );
-    QStringList deflist;
-    bool invdef = false;
-    foreach(pgsParser::token def, defs)
-    {
-        if(p.isTextToken(def.kind)) deflist += def.text;
-        else invdef = true;
-    }
-
-    l = p.preProcess(&l,ui->target->currentText(), ui->exporter->text(), deflist);
-
-    foreach(pgsParser::parseError err, p.parseErrors)
-    {
-        ERROR(err)
-    }
-
-    if(invdef)
-    {
-        s = "Invalid defines!";
-    }
-    else
-    foreach(pgsParser::token t, l)
-    {
-        OUTIT
-    }
-    ui->debug->setHtml(s); /**/
 }
 
 void scripttestwindow::on_actionParse_triggered()
 {
-    //parse
-    QString s;
-    //must do something
-    pgsParser p;
-    pgsParser::tokenlist l = p.tokenize(source->codeEditor->getText());
-
-    pgsParser::tokenlist defs = p.tokenize( ui->defines->text() );
-    QStringList deflist;
-    bool invdef = false;
-    foreach(pgsParser::token def, defs)
+    dllForExport* dll;
+    dllForExport* i;
+    foreach(i, creatorIDE->exporterLibs)
     {
-        if(p.isTextToken(def.kind)) deflist += def.text;
-        else invdef = true;
+        if(i->exporterName()==ui->exporter->text())
+            dll = i;
     }
-
-    l = p.preProcess(&l,ui->target->currentText(), ui->exporter->text(), deflist);
-    if(!invdef)
-    {
-        p.parse(&l);
-    }
-    else s="Invalid defines";
-    //else
-    ui->debug->setHtml(s); /**/
+    //Call RUN on the exporter, but with WHICH project???
+    gcerror("well... to delete!");
+    i->run("Invalid project?");
 }
 
 #undef OUTIT

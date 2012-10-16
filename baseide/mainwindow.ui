@@ -10,9 +10,6 @@
     <height>590</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>pi|game CREATOR</string>
-  </property>
   <property name="windowIcon">
    <iconset resource="../sharedcode/resources.qrc">
     <normaloff>:/resources/RES/pi16x16.png</normaloff>:/resources/RES/pi16x16.png</iconset>
@@ -74,10 +71,13 @@
     </property>
     <addaction name="actionCreate_project"/>
     <addaction name="actionOpen_project"/>
+    <addaction name="separator"/>
     <addaction name="action_Save"/>
     <addaction name="actionSave_as"/>
-    <addaction name="action_Pack_project"/>
     <addaction name="actionSave_a_ll"/>
+    <addaction name="separator"/>
+    <addaction name="action_Pack_project"/>
+    <addaction name="actionExport_project"/>
     <addaction name="separator"/>
     <addaction name="actionSet_up_collaboration"/>
     <addaction name="action_Preferences"/>
@@ -127,7 +127,6 @@
     <addaction name="actionAdd_Effect"/>
     <addaction name="separator"/>
     <addaction name="actionCreate_2D_scene"/>
-    <addaction name="actionCreate_3D_scene"/>
     <addaction name="actionImport_resources_from_project"/>
     <addaction name="actionClone_resource"/>
     <addaction name="actionExport_resource"/>
@@ -142,19 +141,22 @@
     <addaction name="action_Run"/>
     <addaction name="action_Debug"/>
     <addaction name="actionBuild"/>
+    <addaction name="actionClean"/>
     <addaction name="action_Parameters"/>
     <addaction name="actionTarget_options"/>
     <addaction name="separator"/>
     <addaction name="action_Targets"/>
     <addaction name="action_Project_options"/>
+    <addaction name="separator"/>
+    <addaction name="actionExport_project"/>
    </widget>
    <widget class="QMenu" name="menuDeveloper">
     <property name="title">
      <string>&amp;Developer</string>
     </property>
-    <addaction name="actionGameScript_tester"/>
     <addaction name="actionSkin_editor"/>
     <addaction name="actionFramework_editor"/>
+    <addaction name="actionEdit_Haxe_stdlib"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -173,7 +175,6 @@
     <addaction name="actionGlobal_functions"/>
     <addaction name="separator"/>
     <addaction name="actionScenes"/>
-    <addaction name="actionWorlds"/>
     <addaction name="separator"/>
     <addaction name="actionFonts"/>
     <addaction name="actionFilters"/>
@@ -273,8 +274,15 @@
          <item>
           <layout class="QHBoxLayout" name="searchboxLayout_4">
            <property name="spacing">
-            <number>3</number>
+            <number>0</number>
            </property>
+           <item>
+            <widget class="QToolButton" name="toolButton">
+             <property name="text">
+              <string>...</string>
+             </property>
+            </widget>
+           </item>
            <item>
             <widget class="QLineEdit" name="searchbox_4"/>
            </item>
@@ -318,7 +326,7 @@
             <enum>Qt::CustomContextMenu</enum>
            </property>
            <property name="editTriggers">
-            <set>QAbstractItemView::NoEditTriggers</set>
+            <set>QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
            </property>
            <property name="showDropIndicator" stdset="0">
             <bool>true</bool>
@@ -832,7 +840,6 @@
    <addaction name="actionGlobal_functions"/>
    <addaction name="separator"/>
    <addaction name="actionScenes"/>
-   <addaction name="actionWorlds"/>
    <addaction name="separator"/>
    <addaction name="actionFonts"/>
    <addaction name="actionFilters"/>
@@ -880,7 +887,7 @@
      <normaloff>:/resources/RES/ffficons/help.png</normaloff>:/resources/RES/ffficons/help.png</iconset>
    </property>
    <property name="text">
-    <string>piGameCreator help</string>
+    <string>Creator IDE help</string>
    </property>
    <property name="shortcut">
     <string>F1</string>
@@ -913,7 +920,7 @@
      <normaloff>:/resources/RES/ffficons/world_link.png</normaloff>:/resources/RES/ffficons/world_link.png</iconset>
    </property>
    <property name="text">
-    <string>Visit piGameCreator website</string>
+    <string>Visit &lt;b&gt;pi|engine&lt;/b&gt; website</string>
    </property>
   </action>
   <action name="actionCheck_for_updates">
@@ -1016,25 +1023,13 @@
   <action name="actionCreate_2D_scene">
    <property name="icon">
     <iconset resource="../sharedcode/resources.qrc">
-     <normaloff>:/resources/RES/ffficons/application_add.png</normaloff>:/resources/RES/ffficons/application_add.png</iconset>
-   </property>
-   <property name="text">
-    <string>Create 2D Scene</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+Alt+S</string>
-   </property>
-  </action>
-  <action name="actionCreate_3D_scene">
-   <property name="icon">
-    <iconset resource="../sharedcode/resources.qrc">
      <normaloff>:/resources/RES/ffficons/world_add.png</normaloff>:/resources/RES/ffficons/world_add.png</iconset>
    </property>
    <property name="text">
-    <string>Create 3D World</string>
+    <string>Create scene</string>
    </property>
    <property name="shortcut">
-    <string>Ctrl+Alt+3</string>
+    <string>Ctrl+Alt+S</string>
    </property>
   </action>
   <action name="actionCreate_grid_based_2D_scene">
@@ -1209,7 +1204,7 @@
      <normaloff>:/resources/RES/ffficons/bug_delete.png</normaloff>:/resources/RES/ffficons/bug_delete.png</iconset>
    </property>
    <property name="text">
-    <string>&amp;Debug...</string>
+    <string>&amp;Debug</string>
    </property>
   </action>
   <action name="action_Parameters">
@@ -1254,7 +1249,7 @@
      <normaloff>:/resources/RES/compile.png</normaloff>:/resources/RES/compile.png</iconset>
    </property>
    <property name="text">
-    <string>Build...</string>
+    <string>Build</string>
    </property>
   </action>
   <action name="actionCreate_Shader">
@@ -1283,7 +1278,7 @@
   <action name="action_Pack_project">
    <property name="icon">
     <iconset resource="../sharedcode/resources.qrc">
-     <normaloff>:/resources/RES/ffficons/package_go.png</normaloff>:/resources/RES/ffficons/package_go.png</iconset>
+     <normaloff>:/resources/RES/ffficons/package_green.png</normaloff>:/resources/RES/ffficons/package_green.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Pack project...</string>
@@ -1321,7 +1316,7 @@
   </action>
   <action name="actionGameScript_tester">
    <property name="text">
-    <string>GameScript tester</string>
+    <string>Haxe playground</string>
    </property>
   </action>
   <action name="actionSkin_editor">
@@ -1331,7 +1326,7 @@
   </action>
   <action name="actionFramework_editor">
    <property name="text">
-    <string>Framework editor</string>
+    <string>Edit pi|engine</string>
    </property>
   </action>
   <action name="actionProject_tree">
@@ -1379,7 +1374,7 @@
    </property>
    <property name="icon">
     <iconset resource="../sharedcode/resources.qrc">
-     <normaloff>:/resources/RES/ffficons/application.png</normaloff>:/resources/RES/ffficons/application.png</iconset>
+     <normaloff>:/resources/RES/ffficons/world.png</normaloff>:/resources/RES/ffficons/world.png</iconset>
    </property>
    <property name="text">
     <string>Scenes</string>
@@ -1407,18 +1402,6 @@
    </property>
    <property name="text">
     <string>Models</string>
-   </property>
-  </action>
-  <action name="actionWorlds">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../sharedcode/resources.qrc">
-     <normaloff>:/resources/RES/ffficons/world.png</normaloff>:/resources/RES/ffficons/world.png</iconset>
-   </property>
-   <property name="text">
-    <string>Worlds</string>
    </property>
   </action>
   <action name="actionFonts">
@@ -1478,9 +1461,33 @@
     <string>Global scripts</string>
    </property>
   </action>
+  <action name="actionEdit_Haxe_stdlib">
+   <property name="text">
+    <string>Edit Haxe stdlib</string>
+   </property>
+  </action>
+  <action name="actionExport_project">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/package_go.png</normaloff>:/resources/RES/ffficons/package_go.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export project...</string>
+   </property>
+  </action>
+  <action name="actionClean">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/bin.png</normaloff>:/resources/RES/ffficons/bin.png</iconset>
+   </property>
+   <property name="text">
+    <string>Clean</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
+  <include location="../sharedcode/resources.qrc"/>
   <include location="../sharedcode/resources.qrc"/>
   <include location="../sharedcode/resources.qrc"/>
   <include location="../sharedcode/resources.qrc"/>

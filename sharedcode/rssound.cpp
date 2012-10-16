@@ -17,6 +17,6 @@ QString rsSound::kind()
 
 bool rsSound::addToProject(gameproject *p)
 {
-    if(p->isResource(name))return false;
-    p->mSounds.append(this);
+    //if(p->isResource(name))return false;
+    //p->mSounds->childs.append( (gcresource*)this);
 }

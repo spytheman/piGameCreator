@@ -109,6 +109,7 @@ public:
     typedef QVector<token> tokenlist;
     typedef QVector<token>::const_iterator tokenlistConstIterator;
     typedef QVector<token>::iterator tokenlistIterator;
+
     enum tokenkind
     {
         //original tokens.txt file coming
@@ -293,7 +294,8 @@ public:
         ~parseTreeNode();
         virtual QString nodeType(); //node type as a string
         virtual QString data();
-        //and what about LEVELs?
+        QString comment;
+        int currentLevel(); //nesting level
     };
     //All the node types:
     enum constantType{integerType, realType, booleanType, stringType};
@@ -314,6 +316,8 @@ public:
     {
         QString nodeType();
         QString data();
+        QString name,type;
+
     };
     struct variableDefinitionNode: public parseTreeNode
     {
@@ -357,6 +361,13 @@ public:
     {
         QString nodeType();
         QString data();
+        QString name, type;
+        QString className();
+        /*  Function definition:
+          in some class:   type name(arguments) { statements; }
+        */
+        QList<variableDefinitionNode> arguments;
+        // Allowed childs: statementNode
     };
     struct classNode: public parseTreeNode
     {

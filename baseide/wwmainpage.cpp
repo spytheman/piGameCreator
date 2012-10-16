@@ -18,6 +18,7 @@ wwMainPage::wwMainPage(QWidget *parent) :
     ui->setupUi(this);
     widget = this;
     setTitle("Welcome");
+    setProperty("mainpage",true);
     QWebSettings::setObjectCacheCapacities(0,0,0);
     setAttribute(Qt::WA_DeleteOnClose,true);
     ui->setupUi(this);
@@ -25,6 +26,7 @@ wwMainPage::wwMainPage(QWidget *parent) :
     connect(ui->webView,SIGNAL(loadFinished(bool)),this,SLOT(on_webView_loadFinished(bool)));
     connect(ui->webView,SIGNAL(linkClicked(QUrl)),this,SLOT(on_webView_linkClicked(QUrl)));
 
+    ui->webView->setAcceptDrops(false);
     ui->webView->page()->setLinkDelegationPolicy(QWebPage::DelegateAllLinks);
     ui->webView->setContextMenuPolicy(Qt::NoContextMenu);
     ui->webView->setUrl( QUrl::fromLocalFile(QDir::currentPath()+"/data/mainpage.html"));
@@ -64,13 +66,12 @@ void wwMainPage::on_webView_linkClicked(QUrl u)
     if(u.scheme()=="http")QDesktopServices::openUrl(u);
     if(u.scheme()=="recent")
     {
-        //projects.open(u.toString().mid(8));
         creatorIDE->openProject(u.toString().mid(8));
     }
     if(u.path()=="newproject" and u.scheme()=="ui")
     {
         gcprint("Creating new project");
-        gcmessage("Creating a new project... TODO: Implement it!");
+        creatorIDE->newProject();
     }
     if(u.path()=="openproject" and u.scheme()=="ui")
     {
@@ -101,4 +102,9 @@ void wwMainPage::on_webView_loadFinished(bool b)
             rf.appendInside(TheHTML);
         }
     }/**/
+}
+
+void wwMainPage::refresh()
+{
+    ui->webView->reload();
 }

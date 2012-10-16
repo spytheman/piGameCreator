@@ -15,20 +15,17 @@ DEFINES += CPPTARGET_LIBRARY
 
 SOURCES += cppexport.cpp \
     config.cpp \
-    compilingstatus.cpp \
     ../../sharedcode/gcexporter.cpp
 
 HEADERS += \
     config.h \
-    compilingstatus.h \
     ../../sharedcode/gcexporter.h \
     cppexport.h
 
 DESTDIR = ../cpp
 
 FORMS += \
-    config.ui \
-    compilingstatus.ui
+    config.ui
 
 QMAKE_POST_LINK = copy /y "cpptarget.dll" "..\..\baseide\release\targets\cpp\target.dll"
 

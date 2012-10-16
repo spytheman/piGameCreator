@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.text.TextFormat</div><div class="platforms">Available in flash</div><dl><dt><span class="kwd">var </span>align : <a href="../../flash/text/TextFormatAlign.html" class="type">TextFormatAlign</a></dt><dd></dd><dt><span class="kwd">var </span>blockIndent : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../Float.html" class="type">Float</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>bold : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../Bool.html" class="type">Bool</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>bullet : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../Bool.html" class="type">Bool</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>color : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../UInt.html" class="type">UInt</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>display : <a href="../../flash/text/TextFormatDisplay.html" class="type">TextFormatDisplay</a></dt><dd></dd><dt><span class="kwd">var </span>font : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>indent : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../Float.html" class="type">Float</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>italic : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../Bool.html" class="type">Bool</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>kerning : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../Bool.html" class="type">Bool</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>leading : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../Float.html" class="type">Float</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>leftMargin : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../Float.html" class="type">Float</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>letterSpacing : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../Float.html" class="type">Float</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>rightMargin : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../Float.html" class="type">Float</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>size : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../Float.html" class="type">Float</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>tabStops : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../UInt.html" class="type">UInt</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>target : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>underline : <a href="../../Null.html" class="type">Null</a>&lt;<a href="../../Bool.html" class="type">Bool</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>url : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>new(?font : <a href="../../String.html" class="type">String</a>, ?size : <a href="../../Float.html" class="type">Float</a>, ?color : <a href="../../UInt.html" class="type">UInt</a>, ?bold : <a href="../../Bool.html" class="type">Bool</a>, ?italic : <a href="../../Bool.html" class="type">Bool</a>, ?underline : <a href="../../Bool.html" class="type">Bool</a>, ?url : <a href="../../String.html" class="type">String</a>, ?target : <a href="../../String.html" class="type">String</a>, ?align : <a href="../../flash/text/TextFormatAlign.html" class="type">TextFormatAlign</a>, ?leftMargin : <a href="../../Float.html" class="type">Float</a>, ?rightMargin : <a href="../../Float.html" class="type">Float</a>, ?indent : <a href="../../Float.html" class="type">Float</a>, ?leading : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

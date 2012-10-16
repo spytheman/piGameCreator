@@ -1,0 +1,128 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>sys.net.Socket</div><div class="platforms">Available in neko, php, cpp, cs, java</div><div class="classdoc">A TCP socket class : allow you to both connect to a given server and exchange messages or start your own server and wait for connections.</div><dl><dt><span class="kwd">var </span>custom : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd>A custom value that can be associated with the socket. Can be used to retreive your custom infos after a <code>select</code>.
+</dd><dt><span class="kwd">var </span>input(default,null) : <a href="../../haxe/io/Input.html" class="type">haxe.io.Input</a></dt><dd>The stream on which you can read available data. By default the stream is blocking until the requested data is available,
+		use <code>setBlocking(false)</code> or <code>setTimeout</code> to prevent infinite waiting.</dd><dt><span class="kwd">var </span>output(default,null) : <a href="../../haxe/io/Output.html" class="type">haxe.io.Output</a></dt><dd>The stream on which you can send data. Please note that in case the output buffer you will block while writing the data, use <code>setBlocking(false)</code> or <code>setTimeout</code> to prevent that.</dd><dt><span class="kwd">function </span>new() : <a href="../../Void.html" class="type">Void</a></dt><dd>Creates a new unconnected socket.</dd><dt><span class="kwd">function </span>accept() : <a href="../../sys/net/Socket.html" class="type">Socket</a></dt><dd>Accept a new connected client. This will return a connected socket on which you can read/write some data.</dd><dt><span class="kwd">function </span>bind(host : <a href="../../sys/net/Host.html" class="type">Host</a>, port : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Bind the socket to the given host/port so it can afterwards listen for connections there.</dd><dt><span class="kwd">function </span>close() : <a href="../../Void.html" class="type">Void</a></dt><dd>Closes the socket : make sure to properly close all your sockets or you will crash when you run out of file descriptors.</dd><dt><span class="kwd">function </span>connect(host : <a href="../../sys/net/Host.html" class="type">Host</a>, port : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Connect to the given server host/port. Throw an exception in case we couldn't sucessfully connect.</dd><dt><span class="kwd">function </span>host() : { port : <a href="../../Int.html" class="type">Int</a>, host : <a href="../../sys/net/Host.html" class="type">Host</a>}</dt><dd>Return the informations about our side of a connected socket.</dd><dt><span class="kwd">function </span>listen(connections : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Allow the socket to listen for incoming questions. The parameter tells how many pending connections we can have until they get refused. Use <code>accept()</code> to accept incoming connections.</dd><dt><span class="kwd">function </span>peer() : { port : <a href="../../Int.html" class="type">Int</a>, host : <a href="../../sys/net/Host.html" class="type">Host</a>}</dt><dd>Return the informations about the other side of a connected socket.</dd><dt><span class="kwd">function </span>read() : <a href="../../String.html" class="type">String</a></dt><dd>Read the whole data available on the socket.</dd><dt><span class="kwd">function </span>setBlocking(b : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Change the blocking mode of the socket. A blocking socket is the default behavior. A non-blocking socket will abort blocking operations immediatly by throwing a haxe.io.Error.Blocking value.</dd><dt><span class="kwd">function </span>setFastSend(b : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Allows the socket to immediatly send the data when written to its output : this will cause less ping but might increase the number of packets / data size, especially when doing a lot of small writes.</dd><dt><span class="kwd">function </span>setTimeout(timeout : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Gives a timeout after which blocking socket operations (such as reading and writing) will abort and throw an exception.</dd><dt><span class="kwd">function </span>shutdown(read : <a href="../../Bool.html" class="type">Bool</a>, write : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Shutdown the socket, either for reading or writing.</dd><dt><span class="kwd">function </span>waitForRead() : <a href="../../Void.html" class="type">Void</a></dt><dd>Block until some data is available for read on the socket.</dd><dt><span class="kwd">function </span>write(content : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Write the whole data to the socket output.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>select(read : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../sys/net/Socket.html" class="type">Socket</a>&gt;, write : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../sys/net/Socket.html" class="type">Socket</a>&gt;, others : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../sys/net/Socket.html" class="type">Socket</a>&gt;, ?timeout : <a href="../../Float.html" class="type">Float</a>) : { write : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../sys/net/Socket.html" class="type">Socket</a>&gt;, read : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../sys/net/Socket.html" class="type">Socket</a>&gt;, others : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../sys/net/Socket.html" class="type">Socket</a>&gt;}</dt><dd>Wait until one of the sockets groups is ready for the given operation :
+		<code>read</code> contains sockets on which we want to wait for available data to be read,
+		<code>write</code> contains sockets on which we want to wait until we are allowed to write some data to their output buffers,
+		<code>others</code> contains sockets on which we want to wait for exceptional conditions.
+		<code>select</code> will block until one of the condition is met, in which case it will return the sockets for which the condition was true.
+		In case a <code>timeout</code> (in seconds) is specified, select might wait at worse until the timeout expires.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

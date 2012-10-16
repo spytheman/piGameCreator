@@ -1,0 +1,18 @@
+<class base="" representation="blockIMG" resizable="0" collision="2d">
+ <variables>
+  <variable array="0" type="int" name="hit">0</variable>
+  <variable array="1" type="int" name="hit_2">
+   <value>12</value>
+   <value>2</value>
+   <value>3</value>
+   <value>4</value>
+   <value>5</value>
+   <value>89</value>
+  </variable>
+ </variables>
+ <properties/>
+ <events>
+  <event class="ball" type="collision" src="Collision ball.pgs"/>
+ </events>
+ <functions/>
+</class>

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'scriptwindow.ui'
 **
-** Created: Fri 20. Jul 17:13:29 2012
+** Created: Sun 23. Sep 20:00:08 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

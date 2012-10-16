@@ -5,6 +5,7 @@
 #include <cmath>
 #include <QtXml/QDomDocument>
 #include <QTextStream>
+#include <QFileInfo>
 #ifdef WIN32
 #include "windows.h"
 #endif
@@ -34,6 +35,16 @@ void gcerror(QString message)
     mb.setText(message);
     mb.exec();
 }
+void gcerror(QIcon icon, QString title, QString message)
+{
+    QMessageBox mb;
+    mb.setIcon(QMessageBox::Critical);
+    mb.setWindowIcon(icon);
+    mb.setText(message);
+    mb.setWindowTitle(title);
+    mb.exec();
+}
+
 QIcon ffficon(QString filename)
 {
     return QIcon(":/resources/RES/ffficons/"+filename+".png");
@@ -134,6 +145,17 @@ bool gcRemoveFolder(QString dirName)
        }
        return result;
 }
+bool gcRemoveFiles(QString dir, QString mask)
+{
+    QDir d(dir);
+    QFileInfoList files = d.entryInfoList(QStringList()<<mask);
+    foreach(QFileInfo i, files)
+    {
+        QFile file;
+        file.setFileName(i.absoluteFilePath());
+        file.remove();
+    }
+}
 
 fontsetting::fontsetting()
 {
@@ -199,4 +221,54 @@ QString HTMLBodyContents(QString s)
     QRegExp r("\\<body.*\\>(.*)\\<\\/body\\>");
     if(r.indexIn(s)>=0)s=r.cap(1);
     return s.trimmed();
+}
+QIcon gcResIcon(QString kind, QString iconfile)
+{
+    if(iconfile=="")
+    {
+        //return the default icon for TYPE
+        if(kind=="image")return ffficon("image");
+        else if(kind=="class")return ffficon("brick");
+        else if(kind=="scene")return ffficon("application");
+        else return ffficon("page_white");
+    }
+    else
+    {
+        if(QFile::exists(iconfile))
+        return QIcon(iconfile);
+        else return gcResIcon(kind,"");
+    }
+}
+
+QString fixName(QStringList R,QString name)
+{
+    int N=2;QString s=name;
+    while(R.contains(s))
+    {
+        s=name+"_"+QString::number(N);
+        N++;
+    }
+    return s;
+}
+
+
+QStringList findFilesRecursively ( QStringList paths, QStringList fileTypes )
+{
+    if(fileTypes.isEmpty()) fileTypes << "*";
+    QStringList result, more;
+    QStringList::Iterator it;
+    for ( uint i = 0 ; i < paths.size() ; i++ )
+    {
+        QDir dir( paths[i] );
+        more = dir.entryList( fileTypes, QDir::Files );
+        for ( it = more.begin() ; it != more.end() ; ++it )
+            result.append( paths[i] + "/" + *it );
+        more = dir.entryList( QDir::Dirs | QDir::NoDotAndDotDot );
+        for ( it = more.begin() ; it != more.end() ; ++it )
+            *it = paths[i] + "/" + *it;
+        more = findFilesRecursively( more, fileTypes );
+        for ( it = more.begin() ; it != more.end() ; ++it )
+            result.append( *it );
+    }
+    return result; // yields absolute paths
 }

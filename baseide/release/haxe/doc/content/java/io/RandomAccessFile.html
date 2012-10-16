@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>java.io.RandomAccessFile</div><div class="platforms">Available in java</div><dl><dt><span class="kwd">function </span>new(f : <a href="../../java/io/File.html" class="type">File</a>, mode : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>close() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>getFilePointer() : <a href="../../haxe/Int64.html" class="type">haxe.Int64</a></dt><dd></dd><dt><span class="kwd">function </span>length() : <a href="../../haxe/Int64.html" class="type">haxe.Int64</a></dt><dd></dd><dt><span class="kwd">function </span>read() : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>readBoolean() : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">function </span>readByte() : <a href="../../java/Int8.html" class="type">java.Int8</a></dt><dd></dd><dt><span class="kwd">function </span>readChar() : <a href="../../java/Char16.html" class="type">java.Char16</a></dt><dd></dd><dt><span class="kwd">function </span>readDouble() : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">function </span>readFloat() : <a href="../../Single.html" class="type">Single</a></dt><dd></dd><dt><span class="kwd">function </span>readFully(b : <a href="../../haxe/io/BytesData.html" class="type">haxe.io.BytesData</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>readInt() : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>readLine() : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>readLong() : <a href="../../haxe/Int64.html" class="type">haxe.Int64</a></dt><dd></dd><dt><span class="kwd">function </span>readShort() : <a href="../../java/Int16.html" class="type">java.Int16</a></dt><dd></dd><dt><span class="kwd">function </span>readUTF() : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>readUnsignedByte() : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>readUnsignedShort() : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>seek(pos : <a href="../../haxe/Int64.html" class="type">haxe.Int64</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setLength(newLength : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>skipBytes(n : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>write(i : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeBoolean(b : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeByte(v : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeChar(v : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeChars(s : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeDouble(v : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeFloat(v : <a href="../../Single.html" class="type">Single</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeInt(v : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeLong(v : <a href="../../haxe/Int64.html" class="type">haxe.Int64</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeShort(v : <a href="../../java/Int16.html" class="type">java.Int16</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeUTF(str : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

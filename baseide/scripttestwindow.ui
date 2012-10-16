@@ -24,46 +24,6 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Target:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QComboBox" name="target">
-        <property name="maximumSize">
-         <size>
-          <width>80</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>full</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>demo</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Windows</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Android</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
        <widget class="QLabel" name="label_2">
         <property name="text">
          <string>Exporter:</string>
@@ -104,84 +64,40 @@
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
-      <widget class="QSplitter" name="splitter">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+      <widget class="QFrame" name="frame">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <widget class="QFrame" name="frame">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="frameShape">
-         <enum>QFrame::NoFrame</enum>
-        </property>
-        <property name="frameShadow">
-         <enum>QFrame::Plain</enum>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_2">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <property name="margin">
-          <number>0</number>
-         </property>
-        </layout>
-       </widget>
-       <widget class="QPlainTextEdit" name="plainTextEdit">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-       </widget>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
       </widget>
-      <widget class="QWebView" name="debug">
+      <widget class="QPlainTextEdit" name="plainTextEdit">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>200</height>
-        </size>
+       <property name="font">
+        <font>
+         <family>Fixedsys</family>
+         <pointsize>9</pointsize>
+        </font>
        </property>
-       <property name="url">
-        <url>
-         <string>about:blank</string>
-        </url>
+       <property name="plainText">
+        <string>Compiler output</string>
        </property>
       </widget>
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QToolBar" name="toolBar">
-   <property name="windowTitle">
-    <string>toolBar</string>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>16</width>
-     <height>16</height>
-    </size>
-   </property>
-   <property name="toolButtonStyle">
-    <enum>Qt::ToolButtonTextBesideIcon</enum>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-   <addaction name="actionSettings"/>
   </widget>
   <widget class="QToolBar" name="toolBar_2">
    <property name="windowTitle">
@@ -202,107 +118,22 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="actionPreprocess"/>
    <addaction name="actionParse"/>
-   <addaction name="actionExpression"/>
+   <addaction name="actionExporter_settings"/>
   </widget>
-  <widget class="QToolBar" name="toolBar_3">
-   <property name="windowTitle">
-    <string>toolBar_3</string>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>16</width>
-     <height>16</height>
-    </size>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-   <addaction name="actionC"/>
-   <addaction name="actionJAVA"/>
-   <addaction name="actionJS"/>
-   <addaction name="actionCSharp"/>
-  </widget>
-  <widget class="QToolBar" name="toolBar_4">
-   <property name="windowTitle">
-    <string>toolBar_4</string>
-   </property>
-   <property name="iconSize">
-    <size>
-     <width>16</width>
-     <height>16</height>
-    </size>
-   </property>
-   <property name="toolButtonStyle">
-    <enum>Qt::ToolButtonTextBesideIcon</enum>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-   <addaction name="actionCreator_IDE"/>
-  </widget>
-  <action name="actionSettings">
-   <property name="icon">
-    <iconset resource="../sharedcode/resources.qrc">
-     <normaloff>:/resources/RES/ffficons/cog.png</normaloff>:/resources/RES/ffficons/cog.png</iconset>
-   </property>
-   <property name="text">
-    <string>Settings</string>
-   </property>
-   <property name="shortcut">
-    <string>F1</string>
-   </property>
-  </action>
   <action name="actionParse">
    <property name="icon">
     <iconset resource="../sharedcode/resources.qrc">
      <normaloff>:/resources/RES/tango/actions/media-playback-start.png</normaloff>:/resources/RES/tango/actions/media-playback-start.png</iconset>
    </property>
    <property name="text">
-    <string>Parse</string>
+    <string>Run</string>
+   </property>
+   <property name="toolTip">
+    <string>Run</string>
    </property>
    <property name="shortcut">
     <string>F6</string>
-   </property>
-  </action>
-  <action name="actionExpression">
-   <property name="icon">
-    <iconset resource="../sharedcode/resources.qrc">
-     <normaloff>:/resources/RES/ffficons/sum.png</normaloff>:/resources/RES/ffficons/sum.png</iconset>
-   </property>
-   <property name="text">
-    <string>Expression</string>
-   </property>
-   <property name="shortcut">
-    <string>F7</string>
-   </property>
-  </action>
-  <action name="actionCreator_IDE">
-   <property name="icon">
-    <iconset resource="../sharedcode/resources.qrc">
-     <normaloff>:/resources/RES/pi16x16.png</normaloff>:/resources/RES/pi16x16.png</iconset>
-   </property>
-   <property name="text">
-    <string>Creator IDE</string>
-   </property>
-  </action>
-  <action name="actionPreprocess">
-   <property name="icon">
-    <iconset resource="../sharedcode/resources.qrc">
-     <normaloff>:/resources/RES/ffficons/asterisk_yellow.png</normaloff>:/resources/RES/ffficons/asterisk_yellow.png</iconset>
-   </property>
-   <property name="text">
-    <string>Preprocess</string>
-   </property>
-   <property name="shortcut">
-    <string>F5</string>
    </property>
   </action>
   <action name="actionC">
@@ -362,15 +193,27 @@
     <string>F12</string>
    </property>
   </action>
+  <action name="actionExporter_settings">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/checks.png</normaloff>:/resources/RES/checks.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exporter settings</string>
+   </property>
+  </action>
+  <action name="actionEdit_pi_engine">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/enginelogo.png</normaloff>:/resources/RES/enginelogo.png</iconset>
+   </property>
+   <property name="text">
+    <string>Edit pi|engine</string>
+   </property>
+  </action>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>QWebView</class>
-   <extends>QWidget</extends>
-   <header>QtWebKit/QWebView</header>
-  </customwidget>
- </customwidgets>
  <resources>
+  <include location="../sharedcode/resources.qrc"/>
   <include location="../sharedcode/resources.qrc"/>
   <include location="../sharedcode/resources.qrc"/>
   <include location="../sharedcode/resources.qrc"/>

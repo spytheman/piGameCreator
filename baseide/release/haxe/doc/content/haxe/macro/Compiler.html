@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>haxe.macro.Compiler</div><div class="platforms">Available in neko</div><div class="classdoc">All these methods can be called for compiler configuration macros.</div><dl><dt><span class="kwd">static </span><span class="kwd">function </span>addClassPath(path : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>addMetadata(meta : <a href="../../String.html" class="type">String</a>, className : <a href="../../String.html" class="type">String</a>, ?field : <a href="../../String.html" class="type">String</a>, ?isStatic : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>define(flag : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>exclude(pack : <a href="../../String.html" class="type">String</a>, ?rec : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Exclude a given class or a complete package from being generated.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>excludeFile(fileName : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Exclude classes listed in an extern file (one per line) from being generated.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getOutput() : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>include(pack : <a href="../../String.html" class="type">String</a>, ?rec : <a href="../../Bool.html" class="type">Bool</a>, ?ignore : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../String.html" class="type">String</a>&gt;, ?classPaths : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../String.html" class="type">String</a>&gt;) : <a href="../../Void.html" class="type">Void</a></dt><dd>Include for compilation all classes defined in the given package excluding the ones referenced in the ignore list.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>keep(?path : <a href="../../String.html" class="type">String</a>, ?paths : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../String.html" class="type">String</a>&gt;, ?rec : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Mark a class (or array of classes) with the metadata @:keep</dd><dt><span class="kwd">static </span><span class="kwd">function </span>patchTypes(file : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Load a type patch file that can modify declared classes fields types</dd><dt><span class="kwd">static </span><span class="kwd">function </span>removeField(className : <a href="../../String.html" class="type">String</a>, field : <a href="../../String.html" class="type">String</a>, ?isStatic : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>setCustomJSGenerator(callb : <a href="../../haxe/macro/JSGenApi.html" class="type">JSGenApi</a> -> <a href="../../Void.html" class="type">Void</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd>Change the default JS output by using a custom generator callback</dd><dt><span class="kwd">static </span><span class="kwd">function </span>setFieldType(className : <a href="../../String.html" class="type">String</a>, field : <a href="../../String.html" class="type">String</a>, type : <a href="../../String.html" class="type">String</a>, ?isStatic : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>setOutput(fileOrDir : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

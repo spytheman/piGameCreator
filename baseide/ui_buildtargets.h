@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'buildtargets.ui'
 **
-** Created: Sun 12. Aug 05:20:07 2012
+** Created: Tue 16. Oct 03:20:11 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -38,6 +38,8 @@ class Ui_BuildTargets
 {
 public:
     QGridLayout *gridLayout;
+    QWidget *InnerWidget;
+    QGridLayout *gridLayout_2;
     QHBoxLayout *horizontalLayout_2;
     QFrame *frame_2;
     QVBoxLayout *verticalLayout_5;
@@ -75,27 +77,37 @@ public:
     QLabel *exporterDescription;
     QLabel *label_6;
     QLineEdit *defines;
-    QVBoxLayout *verticalLayout_2;
+    QLabel *label_7;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *modulesLabel;
+    QToolButton *selectModules;
+    QLabel *label_2;
+    QVBoxLayout *OkCancelHelpLayout;
     QPushButton *OKbutton;
     QPushButton *cancelbutton;
     QSpacerItem *verticalSpacer;
     QPushButton *helpbutton;
-    QLabel *label_2;
 
     void setupUi(QDialog *BuildTargets)
     {
         if (BuildTargets->objectName().isEmpty())
             BuildTargets->setObjectName(QString::fromUtf8("BuildTargets"));
-        BuildTargets->resize(573, 415);
+        BuildTargets->resize(629, 397);
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/resources/RES/ffficons/computer.png"), QSize(), QIcon::Normal, QIcon::Off);
         BuildTargets->setWindowIcon(icon);
         BuildTargets->setModal(true);
         gridLayout = new QGridLayout(BuildTargets);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        InnerWidget = new QWidget(BuildTargets);
+        InnerWidget->setObjectName(QString::fromUtf8("InnerWidget"));
+        gridLayout_2 = new QGridLayout(InnerWidget);
+        gridLayout_2->setContentsMargins(0, 0, 0, 0);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        gridLayout_2->setHorizontalSpacing(6);
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        frame_2 = new QFrame(BuildTargets);
+        frame_2 = new QFrame(InnerWidget);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
@@ -170,7 +182,7 @@ public:
 
         horizontalLayout_2->addWidget(frame_2);
 
-        SettingsPart = new QWidget(BuildTargets);
+        SettingsPart = new QWidget(InnerWidget);
         SettingsPart->setObjectName(QString::fromUtf8("SettingsPart"));
         formLayout = new QFormLayout(SettingsPart);
         formLayout->setContentsMargins(0, 0, 0, 0);
@@ -214,7 +226,7 @@ public:
         label_4 = new QLabel(SettingsPart);
         label_4->setObjectName(QString::fromUtf8("label_4"));
 
-        formLayout->setWidget(3, QFormLayout::LabelRole, label_4);
+        formLayout->setWidget(4, QFormLayout::LabelRole, label_4);
 
         DescText = new QPlainTextEdit(SettingsPart);
         DescText->setObjectName(QString::fromUtf8("DescText"));
@@ -225,12 +237,12 @@ public:
         DescText->setSizePolicy(sizePolicy2);
         DescText->setMaximumSize(QSize(16777215, 60));
 
-        formLayout->setWidget(3, QFormLayout::FieldRole, DescText);
+        formLayout->setWidget(4, QFormLayout::FieldRole, DescText);
 
         label_3 = new QLabel(SettingsPart);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
-        formLayout->setWidget(4, QFormLayout::LabelRole, label_3);
+        formLayout->setWidget(5, QFormLayout::LabelRole, label_3);
 
         stackedWidget = new QStackedWidget(SettingsPart);
         stackedWidget->setObjectName(QString::fromUtf8("stackedWidget"));
@@ -296,7 +308,7 @@ public:
 
         stackedWidget->addWidget(pgExporterInvalid);
 
-        formLayout->setWidget(4, QFormLayout::FieldRole, stackedWidget);
+        formLayout->setWidget(5, QFormLayout::FieldRole, stackedWidget);
 
         frame = new QFrame(SettingsPart);
         frame->setObjectName(QString::fromUtf8("frame"));
@@ -318,7 +330,7 @@ public:
         verticalLayout_4->addWidget(exporterDescription);
 
 
-        formLayout->setWidget(5, QFormLayout::SpanningRole, frame);
+        formLayout->setWidget(6, QFormLayout::SpanningRole, frame);
 
         label_6 = new QLabel(SettingsPart);
         label_6->setObjectName(QString::fromUtf8("label_6"));
@@ -330,56 +342,85 @@ public:
 
         formLayout->setWidget(2, QFormLayout::FieldRole, defines);
 
+        label_7 = new QLabel(SettingsPart);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+
+        formLayout->setWidget(3, QFormLayout::LabelRole, label_7);
+
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setSpacing(0);
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        modulesLabel = new QLabel(SettingsPart);
+        modulesLabel->setObjectName(QString::fromUtf8("modulesLabel"));
+
+        horizontalLayout_6->addWidget(modulesLabel);
+
+        selectModules = new QToolButton(SettingsPart);
+        selectModules->setObjectName(QString::fromUtf8("selectModules"));
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8(":/resources/RES/ffficons/application_cascade.png"), QSize(), QIcon::Normal, QIcon::Off);
+        selectModules->setIcon(icon8);
+        selectModules->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+
+        horizontalLayout_6->addWidget(selectModules);
+
+
+        formLayout->setLayout(3, QFormLayout::FieldRole, horizontalLayout_6);
+
 
         horizontalLayout_2->addWidget(SettingsPart);
 
 
-        gridLayout->addLayout(horizontalLayout_2, 0, 0, 1, 1);
+        gridLayout_2->addLayout(horizontalLayout_2, 1, 0, 1, 1);
 
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        OKbutton = new QPushButton(BuildTargets);
-        OKbutton->setObjectName(QString::fromUtf8("OKbutton"));
-        QSizePolicy sizePolicy5(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        label_2 = new QLabel(InnerWidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        QSizePolicy sizePolicy5(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy5.setHorizontalStretch(0);
         sizePolicy5.setVerticalStretch(0);
-        sizePolicy5.setHeightForWidth(OKbutton->sizePolicy().hasHeightForWidth());
-        OKbutton->setSizePolicy(sizePolicy5);
+        sizePolicy5.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
+        label_2->setSizePolicy(sizePolicy5);
+        label_2->setWordWrap(true);
+
+        gridLayout_2->addWidget(label_2, 2, 0, 1, 1);
+
+        OkCancelHelpLayout = new QVBoxLayout();
+        OkCancelHelpLayout->setSpacing(5);
+        OkCancelHelpLayout->setObjectName(QString::fromUtf8("OkCancelHelpLayout"));
+        OKbutton = new QPushButton(InnerWidget);
+        OKbutton->setObjectName(QString::fromUtf8("OKbutton"));
+        QSizePolicy sizePolicy6(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy6.setHorizontalStretch(0);
+        sizePolicy6.setVerticalStretch(0);
+        sizePolicy6.setHeightForWidth(OKbutton->sizePolicy().hasHeightForWidth());
+        OKbutton->setSizePolicy(sizePolicy6);
         OKbutton->setDefault(true);
 
-        verticalLayout_2->addWidget(OKbutton);
+        OkCancelHelpLayout->addWidget(OKbutton);
 
-        cancelbutton = new QPushButton(BuildTargets);
+        cancelbutton = new QPushButton(InnerWidget);
         cancelbutton->setObjectName(QString::fromUtf8("cancelbutton"));
-        sizePolicy5.setHeightForWidth(cancelbutton->sizePolicy().hasHeightForWidth());
-        cancelbutton->setSizePolicy(sizePolicy5);
+        sizePolicy6.setHeightForWidth(cancelbutton->sizePolicy().hasHeightForWidth());
+        cancelbutton->setSizePolicy(sizePolicy6);
 
-        verticalLayout_2->addWidget(cancelbutton);
+        OkCancelHelpLayout->addWidget(cancelbutton);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_2->addItem(verticalSpacer);
+        OkCancelHelpLayout->addItem(verticalSpacer);
 
-        helpbutton = new QPushButton(BuildTargets);
+        helpbutton = new QPushButton(InnerWidget);
         helpbutton->setObjectName(QString::fromUtf8("helpbutton"));
-        sizePolicy5.setHeightForWidth(helpbutton->sizePolicy().hasHeightForWidth());
-        helpbutton->setSizePolicy(sizePolicy5);
+        sizePolicy6.setHeightForWidth(helpbutton->sizePolicy().hasHeightForWidth());
+        helpbutton->setSizePolicy(sizePolicy6);
 
-        verticalLayout_2->addWidget(helpbutton);
+        OkCancelHelpLayout->addWidget(helpbutton);
 
 
-        gridLayout->addLayout(verticalLayout_2, 0, 1, 2, 1);
+        gridLayout_2->addLayout(OkCancelHelpLayout, 1, 1, 2, 1);
 
-        label_2 = new QLabel(BuildTargets);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        QSizePolicy sizePolicy6(QSizePolicy::Preferred, QSizePolicy::Fixed);
-        sizePolicy6.setHorizontalStretch(0);
-        sizePolicy6.setVerticalStretch(0);
-        sizePolicy6.setHeightForWidth(label_2->sizePolicy().hasHeightForWidth());
-        label_2->setSizePolicy(sizePolicy6);
-        label_2->setWordWrap(true);
 
-        gridLayout->addWidget(label_2, 1, 0, 1, 1);
+        gridLayout->addWidget(InnerWidget, 0, 0, 1, 1);
 
 
         retranslateUi(BuildTargets);
@@ -401,7 +442,7 @@ public:
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Courier New,courier';\">#target</span></p></body></html>", 0, QApplication::UnicodeUTF8));
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'Courier New,courier'; font-size:8pt;\">#if</span></p></body></html>", 0, QApplication::UnicodeUTF8));
         toolButton_3->setText(QApplication::translate("BuildTargets", "revert", 0, QApplication::UnicodeUTF8));
         label_4->setText(QApplication::translate("BuildTargets", "Description:", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("BuildTargets", "Exporter:", 0, QApplication::UnicodeUTF8));
@@ -410,21 +451,20 @@ public:
         toolButton->setText(QApplication::translate("BuildTargets", "Select", 0, QApplication::UnicodeUTF8));
         OptionsButton_2->setText(QApplication::translate("BuildTargets", "Options", 0, QApplication::UnicodeUTF8));
         exporterDescription->setText(QApplication::translate("BuildTargets", "Description", 0, QApplication::UnicodeUTF8));
-        label_6->setText(QApplication::translate("BuildTargets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">Defines:</span></p></body></html>", 0, QApplication::UnicodeUTF8));
-        OKbutton->setText(QApplication::translate("BuildTargets", "OK", 0, QApplication::UnicodeUTF8));
-        cancelbutton->setText(QApplication::translate("BuildTargets", "Cancel", 0, QApplication::UnicodeUTF8));
-        helpbutton->setText(QApplication::translate("BuildTargets", "Help", 0, QApplication::UnicodeUTF8));
+        label_6->setText(QApplication::translate("BuildTargets", "Defines:", 0, QApplication::UnicodeUTF8));
+        label_7->setText(QApplication::translate("BuildTargets", "Modules:", 0, QApplication::UnicodeUTF8));
+        modulesLabel->setText(QApplication::translate("BuildTargets", "No modules", 0, QApplication::UnicodeUTF8));
+        selectModules->setText(QApplication::translate("BuildTargets", "Select", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("BuildTargets", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">To make conditional code for a target, use the </span><span style=\" font-family:'Courier New,courier'; font-size:8pt;\">#target</span><span style=\" font-size:8pt;\"> GameScript directive.</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">The </span><span style=\" font-size:8pt; font-style:italic;\">defines</span><span style=\" font-size:8pt;\"> field must contain space separated names. Use </span><span st"
-                        "yle=\" font-family:'Courier New,courier'; font-size:8pt;\">#ifdef</span><span style=\" font-size:8pt;\"> or </span><span style=\" font-family:'Courier New,courier'; font-size:8pt;\">#ifndef</span></p></body></html>", 0, QApplication::UnicodeUTF8));
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">The </span><span style=\" font-family:'Courier New,courier'; font-size:8pt;\">#if</span><span style=\" font-size:8pt;\"> field is a required define for this target. Use </span><span style=\" font-family:'Courier New,courier'; font-size:8pt;\">#if</span><span style=\" font-size:8pt;\"> haXe directive.</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt;\">The </span><span style=\" font-size:8pt; font-style:italic"
+                        ";\">defines</span><span style=\" font-size:8pt;\"> field must contain space separated names.</span></p></body></html>", 0, QApplication::UnicodeUTF8));
+        OKbutton->setText(QApplication::translate("BuildTargets", "OK", 0, QApplication::UnicodeUTF8));
+        cancelbutton->setText(QApplication::translate("BuildTargets", "Cancel", 0, QApplication::UnicodeUTF8));
+        helpbutton->setText(QApplication::translate("BuildTargets", "Help", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

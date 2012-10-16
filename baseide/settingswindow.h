@@ -3,7 +3,7 @@
 
 #include "../sharedcode/globals.h"
 #include "gcide.h"
-#include "scriptwindow.h"
+#include "codeeditor.h"
 #include <QDialog>
 #include <QListWidgetItem>
 
@@ -26,25 +26,18 @@ private:
     Ui::SettingsWindow *ui;
 
     //Settings
-    scriptwindow* source;
+    CodeEditor* source;
 
 signals:
     void codeColoringChanged();
 
 private slots:
     void on_editorFontComboBox_currentFontChanged(QFont f);
-    void on_toolButton_2_clicked();
-    void on_toolButton_clicked();
-    void on_toolButton_5_clicked();
-    void on_TextColorButton_clicked();
-    void on_UnderlineTextButton_toggled(bool checked);
-    void on_ItalicTextButton_toggled(bool checked);
-    void on_BoldTextButton_toggled(bool checked);
-    void on_keywordsListWidget_currentRowChanged(int currentRow);
     void SettingsWindow_rejected();
     void SettingsWindow_accepted();
     void listWidget_currentItemChanged(QListWidgetItem *current, QListWidgetItem *previous);
     void on_fontSize_valueChanged(int newsize);
+    void on_themeComboBox_currentIndexChanged(const QString &arg1);
 };
 
 #endif // SETTINGSWINDOW_H

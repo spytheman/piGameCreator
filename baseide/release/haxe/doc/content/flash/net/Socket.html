@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.net.Socket</div><div class="extends">extends <a href="../../flash/events/EventDispatcher.html" class="type">flash.events.EventDispatcher</a></div><div class="implements">implements <a href="../../flash/utils/IDataInput.html" class="type">flash.utils.IDataInput</a></div><div class="implements">implements <a href="../../flash/utils/IDataOutput.html" class="type">flash.utils.IDataOutput</a></div><div class="platforms">Available in flash</div><dl><dt><span class="kwd">var </span>bytesAvailable(default,null) : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">var </span>bytesPending(default,null) : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">var </span>connected(default,null) : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>endian : <a href="../../flash/utils/Endian.html" class="type">flash.utils.Endian</a></dt><dd></dd><dt><span class="kwd">var </span>objectEncoding : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">var </span>timeout : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">function </span>new(?host : <a href="../../String.html" class="type">String</a>, ?port : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>close() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>connect(host : <a href="../../String.html" class="type">String</a>, port : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>flush() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>readBoolean() : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">function </span>readByte() : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>readBytes(bytes : <a href="../../flash/utils/ByteArray.html" class="type">flash.utils.ByteArray</a>, ?offset : <a href="../../UInt.html" class="type">UInt</a>, ?length : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>readDouble() : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">function </span>readFloat() : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">function </span>readInt() : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>readMultiByte(length : <a href="../../UInt.html" class="type">UInt</a>, charSet : <a href="../../String.html" class="type">String</a>) : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>readObject() : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">function </span>readShort() : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>readUTF() : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>readUTFBytes(length : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>readUnsignedByte() : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">function </span>readUnsignedInt() : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">function </span>readUnsignedShort() : <a href="../../UInt.html" class="type">UInt</a></dt><dd></dd><dt><span class="kwd">function </span>writeBoolean(value : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeByte(value : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeBytes(bytes : <a href="../../flash/utils/ByteArray.html" class="type">flash.utils.ByteArray</a>, ?offset : <a href="../../UInt.html" class="type">UInt</a>, ?length : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeDouble(value : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeFloat(value : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeInt(value : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeMultiByte(value : <a href="../../String.html" class="type">String</a>, charSet : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeObject(object : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeShort(value : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeUTF(value : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeUTFBytes(value : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>writeUnsignedInt(value : <a href="../../UInt.html" class="type">UInt</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

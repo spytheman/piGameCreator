@@ -5,6 +5,7 @@
 #include "dllForExport.h"
 #include "openedproject.h"
 #include "ui_buildtargets.h"
+#include <QDialogButtonBox>
 
 BuildTargets::BuildTargets(OpenedProject* p, QWidget *parent) :
     QDialog(parent),
@@ -15,6 +16,7 @@ BuildTargets::BuildTargets(OpenedProject* p, QWidget *parent) :
 
     project = p;
     currentTarget = 0;
+    wizardMode = false;
 
     foreach(dllForExport* e, creatorIDE->exporterLibs)
     {
@@ -44,6 +46,8 @@ BuildTargets::BuildTargets(OpenedProject* p, QWidget *parent) :
         t["description"]=T->description;
         t["options"]=vObject();
         t["exportername"]=T->exportername;
+        t["modules"]=T->modules;
+        t["defines"]=T->defines;
         q->setData(TIDATA,qVariantFromValue(t));
         ui->TargetsLV->addItem(q);
         ui->TargetsLV->setCurrentItem(q);
@@ -177,6 +181,10 @@ void BuildTargets::on_TargetsLV_currentItemChanged(QListWidgetItem *current, QLi
     ui->DisplayName->setText(o.value("name").toString());
     ui->codeName->setText(o.value("codename").toString());
     ui->DescText->setPlainText(o.value("description").toString());
+    ui->defines->setText(o.value("defines").toStringList().join(" "));
+    ui->modulesLabel->setText(o.value("modules").toStringList().join(", "));
+    if(ui->modulesLabel->text().isEmpty())ui->modulesLabel->setText("No modules selected.");
+    ui->selectModules->setProperty("data", o.value("modules"));
     bool valid = false;
     for(int i=0;i<ui->ExporterComboBox->count();i++)
     {
@@ -196,6 +204,7 @@ void BuildTargets::on_TargetsLV_currentItemChanged(QListWidgetItem *current, QLi
     }
     else on_ExporterComboBox_currentIndexChanged(ui->ExporterComboBox->currentIndex());
 }
+
 void BuildTargets::on_OKbutton_clicked()
 {
     //check for errors and rebuild the list
@@ -220,11 +229,15 @@ void BuildTargets::on_OKbutton_clicked()
     if(valid)
     {
         project->project->setBuildTargets(newlist);
-        accept();
+        if(!wizardMode)accept();
+        else setResult(1);
     }
-    else gcerror(tr("Every target must have code name"));
-
-    creatorIDE->saveProject(project,true);
+    else
+    {
+        gcerror(tr("Every target must have code name"));
+        setResult(0);
+    }
+    if(!wizardMode)creatorIDE->saveProject(project,true);
 }
 
 void BuildTargets::on_toolButton_clicked()
@@ -242,4 +255,59 @@ void BuildTargets::on_toolButton_2_clicked()
 
     ui->exporterLineEdit->setText(d->exporterName());
     ui->stackedWidget->setCurrentWidget(ui->pgExporterInvalid);
+}
+
+void BuildTargets::setWizardMode()
+{
+    //Remove the OK, Cancel AND Help buttons
+    QLayoutItem* i;
+    while(  (i = ui->OkCancelHelpLayout->takeAt(0)) != NULL )
+    {
+        delete i->widget();
+        delete i;
+    }
+
+    //Set content margins:
+    ui->InnerWidget->setContentsMargins(9,9,9,9);
+}
+
+void BuildTargets::on_selectModules_clicked()
+{
+    if(ui->TargetsLV->currentItem()==NULL)return;
+    QStringList mods = ui->TargetsLV->currentItem()->data(TIDATA).toHash().value("modules").toStringList();
+    //list ALL project modules
+    QDialog w;
+    QListWidget l;
+    foreach(QString s,project->project->modules)
+    {
+        QListWidgetItem* wi = new QListWidgetItem;
+        wi->setText(s);
+        wi->setCheckState(mods.contains(s)?Qt::Checked:Qt::Unchecked);
+        l.addItem(wi);
+        gcprint("Module: "+s);
+    }
+    w.setWindowTitle("Select modules");
+    w.setWindowIcon(ffficon("application_cascade"));
+    w.setLayout(new QVBoxLayout);
+    w.layout()->addWidget(&l);
+    QDialogButtonBox* bg = new QDialogButtonBox( QDialogButtonBox::Ok | QDialogButtonBox::Cancel );
+    connect(bg,SIGNAL(accepted()),&w, SLOT(accept()));
+    connect(bg,SIGNAL(rejected()),&w, SLOT(reject()));
+    w.layout()->addWidget(bg);
+    w.exec();
+    if(w.result()==QDialog::Accepted)
+    {
+        QStringList nm;
+        for(int i=0;i<l.count();++i)
+        {
+            QListWidgetItem* item = l.item(i);
+            if(item->checkState()==Qt::Checked)
+                nm<<item->text();
+        }
+        vObject o = ui->TargetsLV->currentItem()->data(TIDATA).toHash();
+        o["modules"]=nm;
+        ui->TargetsLV->currentItem()->setData(TIDATA, o);
+        ui->modulesLabel->setText(nm.join(", "));
+        if(ui->modulesLabel->text().isEmpty())ui->modulesLabel->setText("No modules selected.");
+    }
 }

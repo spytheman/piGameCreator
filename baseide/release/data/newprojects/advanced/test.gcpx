@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE creatorIDEProject>
+<project description="" name="test.gcpx">
+    <resources>
+        <images/>
+        <models/>
+        <sounds/>
+        <scenes/>
+        <classes/>
+        <fonts/>
+        <filters/>
+        <effects/>
+    </resources>
+    <targets>
+        <target exporter="cpp" name="Windows_FULL">
+            <name>Windows FULL</name>
+            <description>Builds Windows FULL version of the game</description>
+        </target>
+        <target exporter="cpp" name="Windows_DEMO">
+            <name>Windows DEMO</name>
+            <description>Builds Windows DEMO version of the game</description>
+        </target>
+        <target exporter="html5" name="invalid">
+            <name>Invalid target</name>
+            <description>Testing target that must NOT crash the IDE!</description>
+        </target>
+    </targets>
+</project>

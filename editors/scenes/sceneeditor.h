@@ -4,6 +4,8 @@
 #include <QTimer>
 #include <QMainWindow>
 #include "../../baseide/resourceeditor.h"
+
+#define SCN_EDIT_SETTING_NAME "SceneEditor/State"
 class sceneview;
 
 namespace Ui {
@@ -23,14 +25,13 @@ public:
     bool saveAs(QString newname);
     bool load();
     bool exportResource(QString filename);
+    void showEvent(QShowEvent *);
+    void hideEvent(QHideEvent *);
+
     void unselectTools();
     void setGridColor(QColor c);
     void setGridAlpha(float a); //0...1
 
-    //SceneEditor specific
-    bool initialized;
-    void showEvent(QShowEvent *);
-    void hideEvent(QHideEvent *);
 
     //Converts the layer data for rendering and editing
     bool loadScene();
@@ -46,7 +47,7 @@ public slots:
     void on_actionLayers_triggered(bool checked);
     void on_actionToolOptions_triggered(bool checked);
     void on_actionViews_triggered(bool checked);
-    void updateViewport();
+    void reloadWindowState();
 
 private slots:
     void on_action100percent_triggered();
@@ -55,7 +56,6 @@ private slots:
 
 private:
     Ui::SceneEditor *ui;
-    QTimer updateTimer;
 };
 
 #endif // SCENEEDITOR_H

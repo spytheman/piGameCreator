@@ -1,0 +1,134 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>Xml</div><div class="platforms">Available in flash8, neko, js, flash, php, cpp, cs, java</div><div class="classdoc">The standard Xml class and parsing.
+	More API to manipulate XML are available in the <code>haxe.xml</code> package.</div><dl><dt><span class="kwd">var </span>nodeName(getNodeName,setNodeName) : <a href="String.html" class="type">String</a></dt><dd>Returns the node name of an Element.</dd><dt><span class="kwd">var </span>nodeType(default,null) : <a href="XmlType.html" class="type">XmlType</a></dt><dd>Returns the type of the Xml Node. This should be used before
+		accessing other functions since some might raise an exception
+		if the node type is not correct.</dd><dt><span class="kwd">var </span>nodeValue(getNodeValue,setNodeValue) : <a href="String.html" class="type">String</a></dt><dd>Returns the node value. Only works if the Xml node is not an Element or a Document.</dd><dt><span class="kwd">var </span>parent(getParent,null) : <a href="Xml.html" class="type">Xml</a></dt><dd>Returns the parent object in the Xml hierarchy.
+		The parent can be <code>null</code>, an Element or a Document.</dd><dt><span class="kwd">function </span>addChild(x : <a href="Xml.html" class="type">Xml</a>) : <a href="Void.html" class="type">Void</a></dt><dd>Adds a child node to the Document or Element.
+		One node can only be inside one given node which is indicated by the <code>parent</code> property.</dd><dt><span class="kwd">function </span>attributes() : <a href="Iterator.html" class="type">Iterator</a>&lt;<a href="String.html" class="type">String</a>&gt;</dt><dd>Returns an <code>Iterator</code> on all the attribute names.</dd><dt><span class="kwd">function </span>elements() : <a href="Iterator.html" class="type">Iterator</a>&lt;<a href="Xml.html" class="type">Xml</a>&gt;</dt><dd>Returns an iterator of all child nodes which are Elements.
+		Only works if the current node is an Element or a Document.</dd><dt><span class="kwd">function </span>elementsNamed(name : <a href="String.html" class="type">String</a>) : <a href="Iterator.html" class="type">Iterator</a>&lt;<a href="Xml.html" class="type">Xml</a>&gt;</dt><dd>Returns an iterator of all child nodes which are Elements with the given nodeName.
+		Only works if the current node is an Element or a Document.</dd><dt><span class="kwd">function </span>exists(att : <a href="String.html" class="type">String</a>) : <a href="Bool.html" class="type">Bool</a></dt><dd>Tells if the Element node has a given attribute.
+		Attributes are case-sensitive.</dd><dt><span class="kwd">function </span>firstChild() : <a href="Xml.html" class="type">Xml</a></dt><dd>Returns the first child node.</dd><dt><span class="kwd">function </span>firstElement() : <a href="Xml.html" class="type">Xml</a></dt><dd>Returns the first child node which is an Element.</dd><dt><span class="kwd">function </span>get(att : <a href="String.html" class="type">String</a>) : <a href="String.html" class="type">String</a></dt><dd>Get the given attribute of an Element node. Returns <code>null</code> if not found.
+		Attributes are case-sensitive.</dd><dt><span class="kwd">function </span>insertChild(x : <a href="Xml.html" class="type">Xml</a>, pos : <a href="Int.html" class="type">Int</a>) : <a href="Void.html" class="type">Void</a></dt><dd>Inserts a child at the given position among the other childs.</dd><dt><span class="kwd">function </span>iterator() : <a href="Iterator.html" class="type">Iterator</a>&lt;<a href="Xml.html" class="type">Xml</a>&gt;</dt><dd>Returns an iterator of all child nodes.
+		Only works if the current node is an Element or a Document.</dd><dt><span class="kwd">function </span>remove(att : <a href="String.html" class="type">String</a>) : <a href="Void.html" class="type">Void</a></dt><dd>Removes an attribute for an Element node.
+		Attributes are case-sensitive.</dd><dt><span class="kwd">function </span>removeChild(x : <a href="Xml.html" class="type">Xml</a>) : <a href="Bool.html" class="type">Bool</a></dt><dd>Removes a child from the Document or Element.
+		Returns true if the child was successfuly removed.</dd><dt><span class="kwd">function </span>set(att : <a href="String.html" class="type">String</a>, value : <a href="String.html" class="type">String</a>) : <a href="Void.html" class="type">Void</a></dt><dd>Set the given attribute value for an Element node.
+		Attributes are case-sensitive.</dd><dt><span class="kwd">function </span>toString() : <a href="String.html" class="type">String</a></dt><dd>Returns a String representation of the Xml node.</dd><dt><span class="kwd">static </span><span class="kwd">var </span>CData(default,null) : <a href="XmlType.html" class="type">XmlType</a></dt><dd>A type of Xml node.</dd><dt><span class="kwd">static </span><span class="kwd">var </span>Comment(default,null) : <a href="XmlType.html" class="type">XmlType</a></dt><dd>A type of Xml node.</dd><dt><span class="kwd">static </span><span class="kwd">var </span>DocType(default,null) : <a href="XmlType.html" class="type">XmlType</a></dt><dd>A type of Xml node.</dd><dt><span class="kwd">static </span><span class="kwd">var </span>Document(default,null) : <a href="XmlType.html" class="type">XmlType</a></dt><dd>A type of Xml node.</dd><dt><span class="kwd">static </span><span class="kwd">var </span>Element(default,null) : <a href="XmlType.html" class="type">XmlType</a></dt><dd>A type of Xml node.</dd><dt><span class="kwd">static </span><span class="kwd">var </span>PCData(default,null) : <a href="XmlType.html" class="type">XmlType</a></dt><dd>A type of Xml node.</dd><dt><span class="kwd">static </span><span class="kwd">var </span>Prolog(default,null) : <a href="XmlType.html" class="type">XmlType</a></dt><dd>A type of Xml node.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>createCData(data : <a href="String.html" class="type">String</a>) : <a href="Xml.html" class="type">Xml</a></dt><dd>Creates a node of the given type.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>createComment(data : <a href="String.html" class="type">String</a>) : <a href="Xml.html" class="type">Xml</a></dt><dd>Creates a node of the given type.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>createDocType(data : <a href="String.html" class="type">String</a>) : <a href="Xml.html" class="type">Xml</a></dt><dd>Creates a node of the given type.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>createDocument() : <a href="Xml.html" class="type">Xml</a></dt><dd>Creates a node of the given type.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>createElement(name : <a href="String.html" class="type">String</a>) : <a href="Xml.html" class="type">Xml</a></dt><dd>Creates a node of the given type.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>createPCData(data : <a href="String.html" class="type">String</a>) : <a href="Xml.html" class="type">Xml</a></dt><dd>Creates a node of the given type.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>createProlog(data : <a href="String.html" class="type">String</a>) : <a href="Xml.html" class="type">Xml</a></dt><dd>Creates a node of the given type.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>parse(str : <a href="String.html" class="type">String</a>) : <a href="Xml.html" class="type">Xml</a></dt><dd>Parse a String into an Xml object.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

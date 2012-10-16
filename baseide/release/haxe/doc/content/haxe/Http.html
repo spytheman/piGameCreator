@@ -1,0 +1,122 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>haxe.Http</div><div class="platforms">Available in flash8, neko, js, flash, php, cpp, cs, java</div><dl><dt><span class="kwd">var </span>async : <a href="../Bool.html" class="type">Bool</a><div class="platforms">Available in js</div></dt><dd></dd><dt><span class="kwd">var </span>cnxTimeout : <a href="../Float.html" class="type">Float</a><div class="platforms">Available in neko, php, cpp, cs, java</div></dt><dd></dd><dt><span class="kwd">var </span>noShutdown : <a href="../Bool.html" class="type">Bool</a><div class="platforms">Available in neko, php, cpp, cs, java</div></dt><dd></dd><dt><span class="kwd">var </span>responseHeaders : <a href="../Hash.html" class="type">Hash</a>&lt;<a href="../String.html" class="type">String</a>&gt;<div class="platforms">Available in neko, php, cpp, cs, java</div></dt><dd></dd><dt><span class="kwd">var </span>url : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>new(url : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd> In PHP Https (SSL) connections are allowed only if the OpenSSL extension is enabled.
+	  @param	url</dd><dt><span class="kwd">function </span>customRequest(post : <a href="../Bool.html" class="type">Bool</a>, api : <a href="../haxe/io/Output.html" class="type">haxe.io.Output</a>, ?sock : <a href="../haxe/_Http/AbstractSocket.html" class="type">haxe.AbstractSocket</a>, ?method : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a><div class="platforms">Available in neko, php, cpp, cs, java</div></dt><dd></dd><dt><span class="kwd">function </span>fileTransfert(argname : <a href="../String.html" class="type">String</a>, filename : <a href="../String.html" class="type">String</a>, file : <a href="../haxe/io/Input.html" class="type">haxe.io.Input</a>, size : <a href="../Int.html" class="type">Int</a>) : <a href="../Void.html" class="type">Void</a><div class="platforms">Available in neko, php, cpp, cs, java</div></dt><dd></dd><dt><span class="kwd">dynamic </span><span class="kwd">function </span>onData(data : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">dynamic </span><span class="kwd">function </span>onError(msg : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">dynamic </span><span class="kwd">function </span>onStatus(status : <a href="../Int.html" class="type">Int</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>request(post : <a href="../Bool.html" class="type">Bool</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setHeader(header : <a href="../String.html" class="type">String</a>, value : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setParameter(param : <a href="../String.html" class="type">String</a>, value : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>setPostData(data : <a href="../String.html" class="type">String</a>) : <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">var </span>PROXY : { port : <a href="../Int.html" class="type">Int</a>, host : <a href="../String.html" class="type">String</a>, auth : { user : <a href="../String.html" class="type">String</a>, pass : <a href="../String.html" class="type">String</a>}}<div class="platforms">Available in neko, php, cpp, cs, java</div></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>requestUrl(url : <a href="../String.html" class="type">String</a>) : <a href="../String.html" class="type">String</a><div class="platforms">Available in neko, js, php, cpp, cs, java</div></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style id="ide_config_style">
+		#editor{
+			-display:none;
+			font-family: "Courier New" !important;
+			font-size: 13px !important;
+		}
+	</style>
+	<style>
+    body { overflow: hidden; }
+    #editor { 
+        margin: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+	</style>
+</head>
+<body>
+
+<pre id="editor"></pre>
+    
+<script src="src/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+	var findQuery = "";
+
+	function updateHighlighting()
+	{
+		setEditorText(getEditorText());
+	}
+	function setEditMode(mode)
+	{
+		editor.getSession().setMode("ace/mode/"+mode);
+	}
+	function setEditorTheme(theme)
+	{
+		editor.setTheme("ace/theme/"+theme);
+	}
+	function setEditorText(text)
+	{
+		//document.getElementById("editor").innerHTML = text;
+		var selection = editor.getSelectionRange();
+		editor.setValue(text);
+		editor.selection.setRange(selection);
+	}
+	function getEditorText()
+	{
+		return editor.getValue();
+	}
+	function setPrintMargin(bool)
+	{
+		editor.setShowPrintMargin(bool);
+	}
+	function setReadOnly(bool)
+	{
+		editor.setReadOnly(bool);
+	}
+	
+	function setFindQuery(text,casesensitive,wholeword,regexp)
+	{
+		findQuery = text;
+		editor.find(findQuery,{
+			backwards: false,
+			wrap: false,
+			caseSensitive: casesensitive,
+			wholeWord: wholeword,
+			regExp: regexp
+		});
+	}
+	function findNext()
+	{
+		editor.findNext();
+	}
+	function findPrev()
+	{
+		editor.findPrevious();
+	}
+	function setEditorFont(font, size)
+	{
+		var newstyle = "#editor{font-family: \""+font+"\" !important;font-size: "+size+ "px !important;}";
+		document.getElementById("ide_config_style").innerHTML = newstyle;
+	}
+	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>cs.internal.Runtime</div><div class="platforms">Available in cs</div><div class="classdoc">This class is meant for internal compiler use only. It provides the Haxe runtime
+ compatibility to the host language.</div><dl><dt><span class="kwd">static </span><span class="kwd">var </span>undefined(default,null) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>callField(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>, field : <a href="../../String.html" class="type">String</a>, fieldHash : <a href="../../Int.html" class="type">Int</a>, args : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Dynamic.html" class="type">Dynamic</a>&gt;) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>callMethod(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>, methods : <a href="../../cs/NativeArray.html" class="type">cs.NativeArray</a>&lt;<a href="../../cs/system/reflection/MethodBase.html" class="type">cs.system.reflection.MethodBase</a>&gt;, methodLength : <a href="../../Int.html" class="type">Int</a>, args : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Dynamic.html" class="type">Dynamic</a>&gt;) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>closure(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>, hash : <a href="../../Int.html" class="type">Int</a>, field : <a href="../../String.html" class="type">String</a>) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>compare(v1 : <a href="../../Dynamic.html" class="type">Dynamic</a>, v2 : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>concat(s1 : <a href="../../String.html" class="type">String</a>, s2 : <a href="../../String.html" class="type">String</a>) : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>eq(v1 : <a href="../../Dynamic.html" class="type">Dynamic</a>, v2 : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>genericCast&lt;To&gt;(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>) : To</dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>getField(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>, field : <a href="../../String.html" class="type">String</a>, fieldHash : <a href="../../Int.html" class="type">Int</a>, throwErrors : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>getField_f(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>, field : <a href="../../String.html" class="type">String</a>, fieldHash : <a href="../../Int.html" class="type">Int</a>, throwErrors : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>isInt(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>mkNullable(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>, nullableType : <a href="../../cs/system/Type.html" class="type">cs.system.Type</a>) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>plus(v1 : <a href="../../Dynamic.html" class="type">Dynamic</a>, v2 : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>refEq(v1 : { }, v2 : { }) : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>setField(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>, field : <a href="../../String.html" class="type">String</a>, fieldHash : <a href="../../Int.html" class="type">Int</a>, value : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>setField_f(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>, field : <a href="../../String.html" class="type">String</a>, fieldHash : <a href="../../Int.html" class="type">Int</a>, value : <a href="../../Float.html" class="type">Float</a>) : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>slowCallField(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>, field : <a href="../../String.html" class="type">String</a>, args : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../Dynamic.html" class="type">Dynamic</a>&gt;) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>slowGetField(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>, field : <a href="../../String.html" class="type">String</a>, throwErrors : <a href="../../Bool.html" class="type">Bool</a>) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>slowHasField(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>, field : <a href="../../String.html" class="type">String</a>) : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>slowSetField(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>, field : <a href="../../String.html" class="type">String</a>, value : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>toDouble(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>toInt(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>toString(obj : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>typeEq(t1 : <a href="../../cs/system/Type.html" class="type">cs.system.Type</a>, t2 : <a href="../../cs/system/Type.html" class="type">cs.system.Type</a>) : <a href="../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>unbox(dyn : <a href="../../Dynamic.html" class="type">Dynamic</a>) : <a href="../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

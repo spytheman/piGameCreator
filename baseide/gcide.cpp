@@ -6,6 +6,8 @@
 #include "newimage.h"
 #include "dllforresourceeditor.h"
 #include "scripttestwindow.h"
+#include "wwmainpage.h"
+#include "newprojectwizard.h"
 #include "../sharedcode/gameproject.h"
 #include "../sharedcode/resource.h"
 #include "../sharedcode/rsclass.h"
@@ -19,6 +21,7 @@
 #include <QMessageBox>
 #include <QTextStream>
 #include <new>
+#include "../../sharedcode/idesettings.h"
 
 gcide* creatorIDE;
 
@@ -32,11 +35,7 @@ gcide::gcide()
 bool gcide::init()
 {
     //Prepare application configuration
-    QCoreApplication::setOrganizationName("Pi-Dev");
-    QCoreApplication::setOrganizationDomain("http://pi-dev.com");
-    QCoreApplication::setApplicationName("piGameCreator");
-    QSettings::setDefaultFormat(QSettings::IniFormat);
-    settings = new QSettings();
+    settings = ideSettings::settings();
 
     //Add plugin paths
     QString SS = QDir::currentPath()+"/data";
@@ -135,6 +134,22 @@ bool gcide::openProject()
 
 bool gcide::openProject(QString filename)
 {
+    // Does this file exists??
+    if(!QFile::exists(filename))
+    {
+        gcerror("The file you tried to open no longer exists.\nIt will be removed from this listing.");
+        QStringList recentFiles = ideSettings::get("creatorIDE/RecentFiles").toStringList();
+        recentFiles.removeAll(filename);
+        ideSettings::set("creatorIDE/RecentFiles", recentFiles);
+        foreach(WorkspaceWidget* ww,creatorIDE->openedWidgets)
+            if(ww->widget->property("mainpage").toBool()==true)
+            {
+                wwMainPage* page = (wwMainPage*)ww->widget;
+                page->refresh();
+            }
+        return false;
+    }
+
     //check if this project is already loaded
     foreach(OpenedProject* p, creatorIDE->projects)
     {
@@ -183,7 +198,7 @@ bool gcide::openProject(QString filename)
         creatorIDE->currentProject = op;
 
         // This API is not needed! Views will be updated manually by each op
-        creatorIDE->mainWindow->addProjectEntry(op);
+        creatorIDE->mainWindow->updateProjectExplorer();
     }
     else gcprint("Unable to open the project");
 }
@@ -191,25 +206,44 @@ bool gcide::openProject(QString filename)
 // @RESOURCES
 QIcon gcide::iconFromKind(QString kind)
 {
-    if(kind=="image")return ffficon("image");
-    if(kind=="class")return ffficon("brick");
-    if(kind=="model")return ffficon("car");
-    if(kind=="sound")return ffficon("sound");
-    if(kind=="world")return ffficon("world");
-    if(kind=="scene")return ffficon("application");
+    if(kind=="image") return ffficon("image");
+    if(kind=="class") return ffficon("brick");
+    if(kind=="model") return ffficon("car");
+    if(kind=="sound") return ffficon("sound");
+    if(kind=="world") return ffficon("world");
+    if(kind=="scene") return ffficon("application");
+    if(kind=="font")  return ffficon("font");
+    if(kind=="filter")return ffficon("contrast");
+    if(kind=="effect")return ffficon("rainbow");
 }
 QIcon gcide::addIconFromKind(QString kind)
 {
-    if(kind=="image")return ffficon("image_add");
-    if(kind=="class")return ffficon("brick_add");
-    if(kind=="model")return ffficon("car_add");
-    if(kind=="sound")return ffficon("sound_add");
-    if(kind=="world")return ffficon("world_add");
-    if(kind=="scene")return ffficon("application_add");
+    if(kind=="image") return ffficon("image_add");
+    if(kind=="class") return ffficon("brick_add");
+    if(kind=="model") return ffficon("car_add");
+    if(kind=="sound") return ffficon("sound_add");
+    if(kind=="world") return ffficon("world_add");
+    if(kind=="scene") return ffficon("application_add");
+    if(kind=="font")  return ffficon("font_add");
+    if(kind=="filter")return ffficon("add");
+    if(kind=="effect")return ffficon("add");
+}
+QIcon gcide::delIconFromKind(QString kind)
+{
+    if(kind=="image")return ffficon("image_delete");
+    if(kind=="class")return ffficon("brick_delete");
+    if(kind=="model")return ffficon("car_delete");
+    if(kind=="sound")return ffficon("sound_delete");
+    if(kind=="world")return ffficon("world_delete");
+    if(kind=="scene")return ffficon("application_delete");
+    if(kind=="font")  return ffficon("font_delete");
+    if(kind=="filter")return ffficon("bin");
+    if(kind=="effect")return ffficon("bin");
 }
 // @RESOURCES
 QString gcide::folderNameFromKind(QString kind)
 {
+    gcerror("Deprecated");
     if(kind=="image")return "Images";
     if(kind=="class")return "Classes";
     if(kind=="model")return "Models";
@@ -246,74 +280,18 @@ bool gcide::newResource(OpenedProject* op, QString kind)
     //add it to the views as well
 }
 
-QDialog* gcide::getNewDialogForKind(QString kind)
-{
-    //NEW dialogs @RESOURCES
-    if(kind=="image")return new newImage;
-}
-
 bool gcide::addResource(OpenedProject *gp, gcresource *resource, bool open)
 {
-    creatorIDE->mainWindow->addResourceEntry(gp,resource,open);
-    return true;
+    gcerror("What does this do?");
+    //ResourceTreeNode* target = gp->project->getKindFolder(resource->kind());
+    //target->childs.append();
+    //creatorIDE->mainWindow->addResourceEntry(gp,resource,open);
+    //return true;
 }
 
 void gcide::loadSettings()
 {
-
-    //Code formats:
-    creatorIDE->codeFormats[CFkeyword].bold = creatorIDE->settings->value("CodeEditor/format_keyword_bold").toBool();
-    creatorIDE->codeFormats[CFfunction].bold = creatorIDE->settings->value("CodeEditor/format_function_bold").toBool();
-    creatorIDE->codeFormats[CFvariable].bold = creatorIDE->settings->value("CodeEditor/format_variable_bold").toBool();
-    creatorIDE->codeFormats[CFresource].bold = creatorIDE->settings->value("CodeEditor/format_resource_bold").toBool();
-    creatorIDE->codeFormats[CFclass].bold = creatorIDE->settings->value("CodeEditor/format_class_bold").toBool();
-    creatorIDE->codeFormats[CFnumber].bold = creatorIDE->settings->value("CodeEditor/format_number_bold").toBool();
-    creatorIDE->codeFormats[CFstring].bold = creatorIDE->settings->value("CodeEditor/format_string_bold").toBool();
-    creatorIDE->codeFormats[CFoperator].bold = creatorIDE->settings->value("CodeEditor/format_operator_bold").toBool();
-    creatorIDE->codeFormats[CFcomment].bold = creatorIDE->settings->value("CodeEditor/format_comment_bold").toBool();
-    creatorIDE->codeFormats[CFpreproc].bold = creatorIDE->settings->value("CodeEditor/format_preproc_bold").toBool();
-    creatorIDE->codeFormats[CFnormaltext].bold = creatorIDE->settings->value("CodeEditor/format_normaltext_bold").toBool();
-    creatorIDE->codeFormats[CFerror].bold = creatorIDE->settings->value("CodeEditor/format_error_bold").toBool();
-
-    creatorIDE->codeFormats[CFkeyword].italic = creatorIDE->settings->value("CodeEditor/format_keyword_italic").toBool();
-    creatorIDE->codeFormats[CFfunction].italic = creatorIDE->settings->value("CodeEditor/format_function_italic").toBool();
-    creatorIDE->codeFormats[CFvariable].italic = creatorIDE->settings->value("CodeEditor/format_variable_italic").toBool();
-    creatorIDE->codeFormats[CFresource].italic = creatorIDE->settings->value("CodeEditor/format_resource_italic").toBool();
-    creatorIDE->codeFormats[CFclass].italic = creatorIDE->settings->value("CodeEditor/format_class_italic").toBool();
-    creatorIDE->codeFormats[CFnumber].italic = creatorIDE->settings->value("CodeEditor/format_number_italic").toBool();
-    creatorIDE->codeFormats[CFstring].italic = creatorIDE->settings->value("CodeEditor/format_string_italic").toBool();
-    creatorIDE->codeFormats[CFoperator].italic = creatorIDE->settings->value("CodeEditor/format_operator_italic").toBool();
-    creatorIDE->codeFormats[CFcomment].italic = creatorIDE->settings->value("CodeEditor/format_comment_italic").toBool();
-    creatorIDE->codeFormats[CFpreproc].italic = creatorIDE->settings->value("CodeEditor/format_preproc_italic").toBool();
-    creatorIDE->codeFormats[CFnormaltext].italic = creatorIDE->settings->value("CodeEditor/format_normaltext_italic").toBool();
-    creatorIDE->codeFormats[CFerror].italic = creatorIDE->settings->value("CodeEditor/format_error_italic").toBool();
-
-    creatorIDE->codeFormats[CFkeyword].underline = creatorIDE->settings->value("CodeEditor/format_keyword_underline").toBool();
-    creatorIDE->codeFormats[CFfunction].underline = creatorIDE->settings->value("CodeEditor/format_function_underline").toBool();
-    creatorIDE->codeFormats[CFvariable].underline = creatorIDE->settings->value("CodeEditor/format_variable_underline").toBool();
-    creatorIDE->codeFormats[CFresource].underline = creatorIDE->settings->value("CodeEditor/format_resource_underline").toBool();
-    creatorIDE->codeFormats[CFclass].underline = creatorIDE->settings->value("CodeEditor/format_class_underline").toBool();
-    creatorIDE->codeFormats[CFnumber].underline = creatorIDE->settings->value("CodeEditor/format_number_underline").toBool();
-    creatorIDE->codeFormats[CFstring].underline = creatorIDE->settings->value("CodeEditor/format_string_underline").toBool();
-    creatorIDE->codeFormats[CFoperator].underline = creatorIDE->settings->value("CodeEditor/format_operator_underline").toBool();
-    creatorIDE->codeFormats[CFcomment].underline = creatorIDE->settings->value("CodeEditor/format_comment_underline").toBool();
-    creatorIDE->codeFormats[CFpreproc].underline = creatorIDE->settings->value("CodeEditor/format_preproc_underline").toBool();
-    creatorIDE->codeFormats[CFnormaltext].underline = creatorIDE->settings->value("CodeEditor/format_normaltext_underline").toBool();
-    creatorIDE->codeFormats[CFerror].underline = creatorIDE->settings->value("CodeEditor/format_error_underline").toBool();
-
-    creatorIDE->codeFormats[CFkeyword].color = creatorIDE->settings->value("CodeEditor/format_keyword_color").value<QColor>();
-    creatorIDE->codeFormats[CFfunction].color = creatorIDE->settings->value("CodeEditor/format_function_color").value<QColor>();
-    creatorIDE->codeFormats[CFvariable].color = creatorIDE->settings->value("CodeEditor/format_variable_color").value<QColor>();
-    creatorIDE->codeFormats[CFresource].color = creatorIDE->settings->value("CodeEditor/format_resource_color").value<QColor>();
-    creatorIDE->codeFormats[CFclass].color = creatorIDE->settings->value("CodeEditor/format_class_color").value<QColor>();
-    creatorIDE->codeFormats[CFnumber].color = creatorIDE->settings->value("CodeEditor/format_number_color").value<QColor>();
-    creatorIDE->codeFormats[CFstring].color = creatorIDE->settings->value("CodeEditor/format_string_color").value<QColor>();
-    creatorIDE->codeFormats[CFoperator].color = creatorIDE->settings->value("CodeEditor/format_operator_color").value<QColor>();
-    creatorIDE->codeFormats[CFcomment].color = creatorIDE->settings->value("CodeEditor/format_comment_color").value<QColor>();
-    creatorIDE->codeFormats[CFpreproc].color = creatorIDE->settings->value("CodeEditor/format_preproc_color").value<QColor>();
-    creatorIDE->codeFormats[CFnormaltext].color = creatorIDE->settings->value("CodeEditor/format_normaltext_color").value<QColor>();
-    creatorIDE->codeFormats[CFerror].color = creatorIDE->settings->value("CodeEditor/format_error_color").value<QColor>();
-
+    ideSettings::initSettings();
 }
 
 dllForExport* gcide::getExporter(QString name)
@@ -326,16 +304,91 @@ dllForExport* gcide::getExporter(QString name)
 
 bool gcide::saveProject(OpenedProject *project, bool onlyTree)
 {
-    //save is not implemented??? must copy it from somewhere....
-    return false;
+    project->project->save(project->project->filename());
 }
 
 bool gcide::saveProjectAs(OpenedProject *project)
 {
+    //@TODO: Copy from old codebase
     return false;
 }
 
 bool gcide::saveProjectAs(OpenedProject *project, QString newFileName)
 {
     return false;
+}
+
+bool gcide::closeProject(OpenedProject *project)
+{
+    QList<int> removeIndexes;
+    for(int i=0;i<projects.count();i++)
+    {
+        if( projects.at(i) == project)
+        {
+            //close all editors coresponding to this project:
+            for(int wwindex=0; wwindex<openedWidgets.count();wwindex++)
+                if(openedWidgets.at(wwindex)->isResourceEditor())
+                {
+                    ResourceEditor* re = dynamic_cast<ResourceEditor*>(openedWidgets.at(wwindex));
+                    if(re->project == project->project)
+                    {
+                        // Ask to save
+                        if(re->modified)
+                            if(QMessageBox::question(
+                                        mainWindow,
+                                        "Save "+re->resource->name,
+                                        "Do you want to save changes you made to " + re->resource->kind() +": "
+                                        +re->resource->name,
+                                        QMessageBox::Yes, QMessageBox::No
+                                        ))
+                                re->save();
+
+                        //remove from the list
+                        delete openedWidgets.at(wwindex);  //possible double deallocation
+                        removeIndexes.append(wwindex);
+                    }
+                }
+
+            //remove the project from the opened projects list
+            projects.removeAt(i);
+            delete project;
+        }
+    }
+
+    //remove all the opened widgets
+    for(int i=openedWidgets.count()-1;i>=0;i--)
+        if(removeIndexes.contains(i))
+        {
+            openedWidgets.at(i)->widget->close();
+            openedWidgets.removeAt(i);
+        }
+
+    // Avoid crashes, invalidate the current project!
+    if(projects.count()>0)currentProject = projects.at(projects.count()-1);
+    else currentProject = NULL;
+
+    mainWindow->updateProjectExplorer();
+}
+
+bool gcide::newProject()
+{
+    newProjectWizard w(creatorIDE->mainWindow);
+    if(w.exec())
+    {
+        //Init the project and add it to the tree
+        QString path = w.gameProject->absoluteFolder();
+        gcmessage(path);
+        QDir d; d.mkpath(path);
+        w.gameProject->save();
+        projects.append(w.openedProject);
+        currentProject = w.openedProject;
+        mainWindow->updateProjectExplorer();
+    }
+    else
+    {
+        delete w.gameProject;
+        delete w.openedProject;
+    }
+    //Again safe workaround
+    QApplication::processEvents();
 }

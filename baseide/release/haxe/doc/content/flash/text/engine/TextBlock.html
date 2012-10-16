@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">extern </span><span class="kwd">class </span>flash.text.engine.TextBlock</div><div class="platforms">Available in flash</div><dl><dt><span class="kwd">var </span>applyNonLinearFontScaling : <a href="../../../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>baselineFontDescription : <a href="../../../flash/text/engine/FontDescription.html" class="type">FontDescription</a></dt><dd></dd><dt><span class="kwd">var </span>baselineFontSize : <a href="../../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>baselineZero : <a href="../../../flash/text/engine/TextBaseline.html" class="type">TextBaseline</a></dt><dd></dd><dt><span class="kwd">var </span>bidiLevel : <a href="../../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>content : <a href="../../../flash/text/engine/ContentElement.html" class="type">ContentElement</a></dt><dd></dd><dt><span class="kwd">var </span>firstInvalidLine(default,null) : <a href="../../../flash/text/engine/TextLine.html" class="type">TextLine</a></dt><dd></dd><dt><span class="kwd">var </span>firstLine(default,null) : <a href="../../../flash/text/engine/TextLine.html" class="type">TextLine</a></dt><dd></dd><dt><span class="kwd">var </span>lastLine(default,null) : <a href="../../../flash/text/engine/TextLine.html" class="type">TextLine</a></dt><dd></dd><dt><span class="kwd">var </span>lineRotation : <a href="../../../flash/text/engine/TextRotation.html" class="type">TextRotation</a></dt><dd></dd><dt><span class="kwd">var </span>tabStops : <a href="../../../flash/Vector.html" class="type">flash.Vector</a>&lt;<a href="../../../flash/text/engine/TabStop.html" class="type">TabStop</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>textJustifier : <a href="../../../flash/text/engine/TextJustifier.html" class="type">TextJustifier</a></dt><dd></dd><dt><span class="kwd">var </span>textLineCreationResult(default,null) : <a href="../../../flash/text/engine/TextLineCreationResult.html" class="type">TextLineCreationResult</a></dt><dd></dd><dt><span class="kwd">var </span>userData : <a href="../../../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">function </span>new(?content : <a href="../../../flash/text/engine/ContentElement.html" class="type">ContentElement</a>, ?tabStops : <a href="../../../flash/Vector.html" class="type">flash.Vector</a>&lt;<a href="../../../flash/text/engine/TabStop.html" class="type">TabStop</a>&gt;, ?textJustifier : <a href="../../../flash/text/engine/TextJustifier.html" class="type">TextJustifier</a>, ?lineRotation : <a href="../../../flash/text/engine/TextRotation.html" class="type">TextRotation</a>, ?baselineZero : <a href="../../../flash/text/engine/TextBaseline.html" class="type">TextBaseline</a>, ?bidiLevel : <a href="../../../Int.html" class="type">Int</a>, ?applyNonLinearFontScaling : <a href="../../../Bool.html" class="type">Bool</a>, ?baselineFontDescription : <a href="../../../flash/text/engine/FontDescription.html" class="type">FontDescription</a>, ?baselineFontSize : <a href="../../../Float.html" class="type">Float</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>createTextLine(?previousLine : <a href="../../../flash/text/engine/TextLine.html" class="type">TextLine</a>, ?width : <a href="../../../Float.html" class="type">Float</a>, ?lineOffset : <a href="../../../Float.html" class="type">Float</a>, ?fitSomething : <a href="../../../Bool.html" class="type">Bool</a>) : <a href="../../../flash/text/engine/TextLine.html" class="type">TextLine</a></dt><dd></dd><dt><span class="kwd">function </span>dump() : <a href="../../../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">function </span>findNextAtomBoundary(afterCharIndex : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>findNextWordBoundary(afterCharIndex : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>findPreviousAtomBoundary(beforeCharIndex : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>findPreviousWordBoundary(beforeCharIndex : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">function </span>getTextLineAtCharIndex(charIndex : <a href="../../../Int.html" class="type">Int</a>) : <a href="../../../flash/text/engine/TextLine.html" class="type">TextLine</a></dt><dd></dd><dt><span class="kwd">function </span>recreateTextLine(textLine : <a href="../../../flash/text/engine/TextLine.html" class="type">TextLine</a>, ?previousLine : <a href="../../../flash/text/engine/TextLine.html" class="type">TextLine</a>, ?width : <a href="../../../Float.html" class="type">Float</a>, ?lineOffset : <a href="../../../Float.html" class="type">Float</a>, ?fitSomething : <a href="../../../Bool.html" class="type">Bool</a>) : <a href="../../../flash/text/engine/TextLine.html" class="type">TextLine</a></dt><dd></dd><dt><span class="kwd">function </span>releaseLineCreationData() : <a href="../../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>releaseLines(firstLine : <a href="../../../flash/text/engine/TextLine.html" class="type">TextLine</a>, lastLine : <a href="../../../flash/text/engine/TextLine.html" class="type">TextLine</a>) : <a href="../../../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

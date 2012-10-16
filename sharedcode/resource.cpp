@@ -3,6 +3,11 @@
 gcresource::gcresource()
 {
     //does nothing for now
+    project = 0;
+}
+gcresource::~gcresource()
+{
+    gcprint("DELETING RESOURCE: "+name);
 }
 
 QString gcresource::relativeFolder()

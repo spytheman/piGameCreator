@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">typedef </span>js.Text</div><div class="importmod">import js.Dom</div><div class="platforms">Available in js</div><dl><dt><span class="kwd">var </span>value : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>type : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>title : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>style : <a href="../js/Style.html" class="type">Style</a></dt><dd></dd><dt><span class="kwd">var </span>size : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>setAttribute : attr : <a href="../String.html" class="type">String</a> -> val : <a href="../String.html" class="type">String</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>select : <a href="../Void.html" class="type">Void</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>scrollWidth : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>scrollTop : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>scrollLeft : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>scrollHeight : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>replaceChild : child : <a href="../js/HtmlDom.html" class="type">HtmlDom</a> -> oldChild : <a href="../js/HtmlDom.html" class="type">HtmlDom</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>removeChild : child : <a href="../js/HtmlDom.html" class="type">HtmlDom</a> -> <a href="../js/HtmlDom.html" class="type">HtmlDom</a></dt><dd></dd><dt><span class="kwd">var </span>readOnly : <a href="../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>previousSibling : <a href="../js/HtmlDom.html" class="type">HtmlDom</a></dt><dd></dd><dt><span class="kwd">var </span>parentNode : <a href="../js/HtmlDom.html" class="type">HtmlDom</a></dt><dd></dd><dt><span class="kwd">var </span>onselect : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onscroll : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onresize : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onmouseup : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onmouseover : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onmouseout : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onmousemove : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onmousedown : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onkeyup : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onkeypress : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onkeydown : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onfocus : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>ondblclick : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onclick : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onchange : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onblur : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>offsetWidth : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>offsetTop : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>offsetParent : <a href="../js/HtmlDom.html" class="type">HtmlDom</a></dt><dd></dd><dt><span class="kwd">var </span>offsetLeft : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>offsetHeight : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>nodeValue : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>nodeType : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>nodeName : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>nextSibling : <a href="../js/HtmlDom.html" class="type">HtmlDom</a></dt><dd></dd><dt><span class="kwd">var </span>name : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>maxLength : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>lastChild : <a href="../js/HtmlDom.html" class="type">HtmlDom</a></dt><dd></dd><dt><span class="kwd">var </span>lang : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>insertBefore : newChild : <a href="../js/HtmlDom.html" class="type">HtmlDom</a> -> refChild : <a href="../js/HtmlDom.html" class="type">HtmlDom</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>innerHTML : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>id : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>hasChildNodes : <a href="../Void.html" class="type">Void</a> -> <a href="../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>getElementsByTagName : tag : <a href="../String.html" class="type">String</a> -> <a href="../js/HtmlCollection.html" class="type">HtmlCollection</a>&lt;<a href="../js/HtmlDom.html" class="type">HtmlDom</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>getAttribute : attr : <a href="../String.html" class="type">String</a> -> <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>form : <a href="../js/Form.html" class="type">Form</a></dt><dd></dd><dt><span class="kwd">var </span>focus : <a href="../Void.html" class="type">Void</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>firstChild : <a href="../js/HtmlDom.html" class="type">HtmlDom</a></dt><dd></dd><dt><span class="kwd">var </span>disabled : <a href="../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>dir : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>defaultValue : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>cloneNode : deep : <a href="../Bool.html" class="type">Bool</a> -> <a href="../js/HtmlDom.html" class="type">HtmlDom</a></dt><dd></dd><dt><span class="kwd">var </span>clientWidth : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>clientHeight : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>click : <a href="../Void.html" class="type">Void</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>className : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>childNodes : <a href="../js/HtmlCollection.html" class="type">HtmlCollection</a>&lt;<a href="../js/HtmlDom.html" class="type">HtmlDom</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>blur : <a href="../Void.html" class="type">Void</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>appendChild : child : <a href="../js/HtmlDom.html" class="type">HtmlDom</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

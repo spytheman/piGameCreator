@@ -17,12 +17,15 @@ void gcprint(void*);
 
 void gcmessage(QString message);
 void gcerror(QString message);
+void gcerror(QIcon icon, QString title, QString message);
 void gccrash(QString message);
 void gccrash(QString message,QString file,int line);
 
 QIcon ffficon(QString);
+QIcon gcResIcon(QString kind, QString iconfile);
 QTreeWidgetItem* gcTreeWidgetItem(QString icon, QString text);
 QString HTMLBodyContents(QString s);
+QString fixName(QStringList L,QString name);
 
 void gcBeginWait();
 void gcEndWait();
@@ -36,6 +39,8 @@ bool rectangles_overlap(double r1x1, double r1y1,double r1x2,double r1y2,double 
 
 // FILE IO
 bool gcRemoveFolder(QString dir);
+bool gcRemoveFiles(QString dir, QString mask);
+QStringList findFilesRecursively ( QStringList paths, QStringList fileTypes );
 QDomDocument* gcReadXml(QString file);
 bool gcSaveXml(QString file, QDomDocument *xml);
 
@@ -63,6 +68,7 @@ struct buildtarget
     bool valid; //installed or not - it MUST be possible to maintain uninstalled targets [but don't show them in the editor!]
     dllForExport* exporter;
     QStringList defines;
+    QStringList modules;
     vObject settings;
 };
 #define CFkeyword 0

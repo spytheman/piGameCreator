@@ -1,0 +1,127 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>neko.Lib</div><div class="platforms">Available in neko</div><dl><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>bytesReference(s : <a href="../String.html" class="type">String</a>) : <a href="../haxe/io/Bytes.html" class="type">haxe.io.Bytes</a></dt><dd>Returns bytes referencing the content of a string.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>getClasses() : <a href="../Dynamic.html" class="type">Dynamic</a></dt><dd>Returns an object containing all compiled packages and classes.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>haxeToNeko(v : <a href="../Dynamic.html" class="type">Dynamic</a>) : <a href="../Dynamic.html" class="type">Dynamic</a></dt><dd>Converts a Neko value to its haXe equivalent. Used to unwrap String and Arrays Objects into raw Neko values.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>load(lib : <a href="../String.html" class="type">String</a>, prim : <a href="../String.html" class="type">String</a>, nargs : <a href="../Int.html" class="type">Int</a>) : <a href="../Dynamic.html" class="type">Dynamic</a></dt><dd>Load and return a Neko primitive from a NDLL library.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>loadLazy(lib : <a href="../String.html" class="type">String</a>, prim : <a href="../String.html" class="type">String</a>, nargs : <a href="../Int.html" class="type">Int</a>) : <a href="../Dynamic.html" class="type">Dynamic</a></dt><dd></dd><dt><span class="kwd">static </span><span class="kwd">function </span>localUnserialize(s : <a href="../haxe/io/Bytes.html" class="type">haxe.io.Bytes</a>) : <a href="../Dynamic.html" class="type">Dynamic</a></dt><dd>Unserialize a string using native Neko serialization. See <code>serialize</code>.
+		This function assume that all the serialized data was serialized with current
+		module, even if the module name was different. This can happen if you are unserializing
+		some data into mod_neko that was serialized on a different server using a different
+		file path.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>nekoToHaxe(v : <a href="../Dynamic.html" class="type">Dynamic</a>) : <a href="../Dynamic.html" class="type">Dynamic</a></dt><dd>Converts a Neko value to its haXe equivalent. Used for wrapping String and Arrays raw values into haXe Objects.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>print(v : <a href="../Dynamic.html" class="type">Dynamic</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Print the specified value on the default output.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>println(v : <a href="../Dynamic.html" class="type">Dynamic</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Print the specified value on the default output followed by a newline character.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>rethrow(e : <a href="../Dynamic.html" class="type">Dynamic</a>) : <a href="../Dynamic.html" class="type">Dynamic</a></dt><dd>Rethrow an exception. This is useful when manually filtering an exception in order
+		to keep the previous exception stack.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>serialize(v : <a href="../Dynamic.html" class="type">Dynamic</a>) : <a href="../haxe/io/Bytes.html" class="type">haxe.io.Bytes</a></dt><dd>Serialize using native Neko serialization. This will return a Binary string that can be
+		stored for long term usage. The serialized data is optimized for speed and not for size.</dd><dt><span class="kwd">static </span><span class="kwd">inline </span><span class="kwd">function </span>stringReference(b : <a href="../haxe/io/Bytes.html" class="type">haxe.io.Bytes</a>) : <a href="../String.html" class="type">String</a></dt><dd>Returns a string referencing the data contains in bytes.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>unserialize(s : <a href="../haxe/io/Bytes.html" class="type">haxe.io.Bytes</a>) : <a href="../Dynamic.html" class="type">Dynamic</a></dt><dd>Unserialize a string using native Neko serialization. See <code>serialize</code>.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

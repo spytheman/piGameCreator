@@ -1,0 +1,123 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>haxe.Utf8</div><div class="platforms">Available in flash8, neko, js, flash, php, cpp, cs, java</div><div class="classdoc">Since all platforms does not guarantee that String always uses UTF-8 encoding, you
+	can use this crossplatform API to perform operations on such strings.</div><dl><dt><span class="kwd">function </span>new(?size : <a href="../Int.html" class="type">Int</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Allocate a new Utf8 buffer using an optional bytes size.</dd><dt><span class="kwd">function </span>addChar(c : <a href="../Int.html" class="type">Int</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Add the given UTF8 character code to the buffer.</dd><dt><span class="kwd">function </span>toString() : <a href="../String.html" class="type">String</a></dt><dd>Returns the buffer converted to a String;</dd><dt><span class="kwd">static </span><span class="kwd">function </span>charCodeAt(s : <a href="../String.html" class="type">String</a>, index : <a href="../Int.html" class="type">Int</a>) : <a href="../Int.html" class="type">Int</a></dt><dd>Similar to <code>String.charCodeAt</code> but uses the UTF8 character position.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>compare(a : <a href="../String.html" class="type">String</a>, b : <a href="../String.html" class="type">String</a>) : <a href="../Int.html" class="type">Int</a></dt><dd>Compare two UTF8 strings, character by character.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>decode(s : <a href="../String.html" class="type">String</a>) : <a href="../String.html" class="type">String</a></dt><dd>Decode an UTF8 string back to an ISO string.
+		Throw an exception if a given UTF8 character is not supported by the decoder.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>encode(s : <a href="../String.html" class="type">String</a>) : <a href="../String.html" class="type">String</a></dt><dd>Encode the input ISO string into the corresponding UTF8 one.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>iter(s : <a href="../String.html" class="type">String</a>, chars : <a href="../Int.html" class="type">Int</a> -> <a href="../Void.html" class="type">Void</a>) : <a href="../Void.html" class="type">Void</a></dt><dd>Call the <code>chars</code> function for each UTF8 char of the string.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>length(s : <a href="../String.html" class="type">String</a>) : <a href="../Int.html" class="type">Int</a><div class="platforms">Available in flash8, neko, flash, php, cpp, cs, java</div></dt><dd>Returns the number of UTF8 chars of the String.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>sub(s : <a href="../String.html" class="type">String</a>, pos : <a href="../Int.html" class="type">Int</a>, len : <a href="../Int.html" class="type">Int</a>) : <a href="../String.html" class="type">String</a></dt><dd>This is similar to <code>String.substr</code> but the <code>pos</code> and <code>len</code> parts are considering UTF8 characters.</dd><dt><span class="kwd">static </span><span class="kwd">function </span>validate(s : <a href="../String.html" class="type">String</a>) : <a href="../Bool.html" class="type">Bool</a></dt><dd>Tells if the String is correctly encoded as UTF8.</dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a><div class="classname"><span class="kwd">typedef </span>js.Window</div><div class="importmod">import js.Dom</div><div class="platforms">Available in js</div><dl><dt><span class="kwd">var </span>top : <a href="../js/Window.html" class="type">Window</a></dt><dd></dd><dt><span class="kwd">var </span>status : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>self : <a href="../js/Window.html" class="type">Window</a></dt><dd></dd><dt><span class="kwd">var </span>scrollTo : x : <a href="../Int.html" class="type">Int</a> -> y : <a href="../Int.html" class="type">Int</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>scrollBy : dx : <a href="../Int.html" class="type">Int</a> -> dy : <a href="../Int.html" class="type">Int</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>screen : <a href="../js/Screen.html" class="type">Screen</a></dt><dd></dd><dt><span class="kwd">var </span>prompt : msg : <a href="../String.html" class="type">String</a> -> ?def : <a href="../String.html" class="type">String</a> -> <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>print : <a href="../Void.html" class="type">Void</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>parent : <a href="../js/Window.html" class="type">Window</a></dt><dd></dd><dt><span class="kwd">var </span>outerWidth : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>outerHeight : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>opener : <a href="../js/Window.html" class="type">Window</a></dt><dd></dd><dt><span class="kwd">var </span>open : url : <a href="../String.html" class="type">String</a> -> ?name : <a href="../String.html" class="type">String</a> -> ?features : <a href="../String.html" class="type">String</a> -> <a href="../js/Window.html" class="type">Window</a></dt><dd></dd><dt><span class="kwd">var </span>onunload : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onscroll : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onresize : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onload : <a href="../js/Event.html" class="type">Event</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>onerror : <a href="../String.html" class="type">String</a> -> <a href="../String.html" class="type">String</a> -> <a href="../Int.html" class="type">Int</a> -> <a href="../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>navigator : <a href="../js/Navigator.html" class="type">Navigator</a></dt><dd></dd><dt><span class="kwd">var </span>name : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>moveTo : x : <a href="../Int.html" class="type">Int</a> -> y : <a href="../Int.html" class="type">Int</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>moveBy : dx : <a href="../Int.html" class="type">Int</a> -> dy : <a href="../Int.html" class="type">Int</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>location : <a href="../js/Location.html" class="type">Location</a></dt><dd></dd><dt><span class="kwd">var </span>length : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>innerWidth : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>innerHeight : <a href="../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>history : <a href="../js/History.html" class="type">History</a></dt><dd></dd><dt><span class="kwd">var </span>frames : <a href="../js/HtmlCollection.html" class="type">HtmlCollection</a>&lt;<a href="../js/Frame.html" class="type">Frame</a>&gt;</dt><dd></dd><dt><span class="kwd">var </span>focus : <a href="../Void.html" class="type">Void</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>document : <a href="../js/Document.html" class="type">Document</a></dt><dd></dd><dt><span class="kwd">var </span>defaultStatus : <a href="../String.html" class="type">String</a></dt><dd></dd><dt><span class="kwd">var </span>confirm : msg : <a href="../String.html" class="type">String</a> -> <a href="../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>closed : <a href="../Bool.html" class="type">Bool</a></dt><dd></dd><dt><span class="kwd">var </span>close : <a href="../Void.html" class="type">Void</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>blur : <a href="../Void.html" class="type">Void</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">var </span>alert : msg : <a href="../String.html" class="type">String</a> -> <a href="../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

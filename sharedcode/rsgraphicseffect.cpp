@@ -17,6 +17,6 @@ QString rsGraphicsEffect::kind()
 
 bool rsGraphicsEffect::addToProject(gameproject *p)
 {
-    if(p->isResource(name))return false;
-    p->mGraphicsEffects.append(this);
+    //if(p->isResource(name))return false;
+    //p->mEffects.append(this);
 }

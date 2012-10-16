@@ -35,6 +35,12 @@ public:
     QList<QAction*> contextMenuItems(QString kind, QString type, bool folder, gcresource* res);
 
     /*
+        When the user selecta an option from the right menu that was created by this exporter,
+        following function will be called on it to do its job.
+    */
+    bool contextMenuItemClicked(QAction* action);
+
+    /*
         This function is normally called when user opens a resource in the IDE's Project views.
         The DLL instance being used is determined by the following algorithm:
         • It must support the proper resource kind AND type.
@@ -61,19 +67,19 @@ public:
       These entries will be shown into the NEW / Add dialog for requested kind
       Properties of these vObjects are following:
 
-        title   description     icon    kind    type    dllforresourceeditor* = this
+        title   description     icon    kind    type    pluginlibpointer* = this
 
-      The dllforresourceeditor field is filled by the loader, NOT by the DLL itself!
+      The pluginlibpointer* field is filled by the loader, NOT by the DLL itself!
     */
     QList<vObject> newResources();
 
     /*
         This function creates a default new resource from specified type and kind.
         It can also ask the user to fill in some information about newly created object.
-        It is called if the user was selected option that points to this plugin's DLL
-        the name is filled into the resource editor itself.
+        It is called if the user was selected option that points to this plugin's DLL,
+        when the user completes this wizard. The name is filled into the resource editor itself.
     */
-    gcresource* createResource(QString kind, QString type, QString name);
+    gcresource* createResource(gameproject* project, QString kind, QString type, QString name);
 
     //Management and initialization
     bool init();
@@ -93,7 +99,8 @@ private:
     QList<QAction*> (*pContextMenuItems)(QString, QString, bool, gcresource*);
     ResourceEditor* (*pGetGUI)(QString, QString, gcresource*);
     QList<vObject> (*pNewResources)();
-    gcresource* (*pCreateResource)(QString kind, QString type, QString name);
+    gcresource* (*pCreateResource)(gameproject* project, QString kind, QString type, QString name);
+    bool (*pContextMenuItemClicked)(QAction* action);
     bool (*pInit)();
     bool (*pLoad)();
     bool (*pSave)();

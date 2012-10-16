@@ -1,0 +1,67 @@
+<xml>
+
+
+<!-- WINDOWS TOOLS -------------------------------------->
+
+<set name="USE_PRECOMPILED_HEADERS" value="msvc" unless="NO_PRECOMPILED_HEADERS" />
+
+<set name="ABI" value="-MT" unless="ABI"/>
+
+<set name="HXCPP_DEBUG_LINK" value="1" if="debug"/>
+
+<compiler id="MSVC" exe="cl.exe" if="windows">
+  <flag value="-nologo"/>
+  <flag value="-Od" if="debug"/>
+  <!-- -O2 is back ! -->
+  <flag value="-O2" unless="debug"/>
+  <flag value="${ABI}" />
+  <flag value="-DHX_WINDOWS"/>
+  <flag value="-DHX_LITTLE_ENDIAN=0" if="HXCPP_BIG_ENDIAN"/>
+  <flag value="-GR"/>
+  <flag value="-Zi"/>
+  <flag value="-c"/>
+  <flag value="-EHs"/>
+  <flag value="-I${HXCPP}/include"/>
+  <include name="common-defines.xml" />
+  <flag value="-D_CRT_SECURE_NO_DEPRECATE"/>
+  <flag value="-DHX_WIN_MAIN" if="no_console" unless="HXCPP_DEBUGGER" />
+  <flag value="-wd4996"/>
+  <outflag value="-Fo"/>
+  <ext value=".obj"/>
+  <objdir value="obj/mscv${OBJEXT}" />
+</compiler>
+
+<linker id="dll" exe="link.exe" if="windows">
+  <flag value="-nologo"/>
+  <flag value="-machine:x86"/>
+  <flag value="-dll"/>
+  <flag value="-debug" if="HXCPP_DEBUG_LINK"/>
+  <ext value=".dll"/>
+  <libdir name="obj/lib"/>
+  <flag value="-libpath:lib"/>
+  <fromfile value="@"/>
+  <outflag value="-out:"/>
+</linker>
+
+<linker id="exe" exe="link.exe" if="windows">
+  <fromfile value="@"/>
+  <flag value="-nologo"/>
+  <flag value="-machine:x86"/>
+  <flag value="-debug" if="HXCPP_DEBUG_LINK"/>
+  <flag value="-subsystem:windows" if="no_console" unless="HXCPP_DEBUGGER" />
+  <flag value="-libpath:lib"/>
+  <flag value="user32.lib"/>
+  <ext value=".exe"/>
+  <outflag value="-out:"/>
+</linker>
+
+<linker id="static" exe="lib.exe" if="windows">
+  <fromfile value="@"/>
+  <flag value="-nologo"/>
+  <ext value=".lib"/>
+  <outflag value="-out:"/>
+</linker>
+
+
+
+</xml>

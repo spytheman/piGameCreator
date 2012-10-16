@@ -17,6 +17,6 @@ QString rsModel::kind()
 
 bool rsModel::addToProject(gameproject *p)
 {
-    if(p->isResource(name))return false;
-    p->mModels.append(this);
+    //if(p->isResource(name))return false;
+    //p->mModels.append(this);
 }

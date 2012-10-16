@@ -1,0 +1,121 @@
+<html>
+
+<head>
+<title>haXe API Documentation</title>
+
+<script type="text/javascript">
+<!--
+	function toggle(id) {
+		var e = document.getElementById(id);
+		e.isopen = !e.isopen;
+		e.style.display = e.isopen?"block":"none";
+		return false;
+	}
+-->
+</script>
+
+<style type="text/css">
+body {
+	text-align: center;
+	font-family: Trebuchet MS, sans-serif;
+	background-color : #7D7E86;
+}
+
+.document {
+	width : 800px;
+	position : relative;
+	margin : 10px auto 5px auto;
+	border : solid 2px #CFD0D4;
+	text-align : justify;
+	background-color: #F6FAFD;
+}
+
+.title {
+	font-size: 35;
+	font-weight: bold;
+	text-align: center;
+	background-color : #FFD473;
+	color : white;
+}
+
+ul.entry {
+	list-style-type: circle;
+	font-weight : bold;
+	margin-left : 30px;
+}
+
+.package_content {
+	display : none;
+}
+
+a {
+	color : #FFBB00;
+	font-weight : bold;
+	text-decoration : none;
+}
+
+a:hover {
+	color : #FFAE00;
+	text-decoration : underline;
+}
+
+a.package {
+	color : black;
+}
+
+.index {
+	margin-left : 10px;
+}
+
+.kwd {
+	color : #00A;
+}
+
+.classname {
+	font-size : 30;
+	font-weight : bold;
+	margin-left : 10px;
+	margin-bottom : 20px;
+}
+
+.classdoc {
+	border : 1px dashed #666;
+	margin-left : 20px;
+	margin-right : 20px;
+	padding : 5 5 5 5;
+}
+
+.importmod, .extends, .implements, .typedef, .platforms {
+	margin-left: 20px;
+	color : #777;
+}
+
+dd {
+	margin : 0 20 20 40;
+	font-size : 12pt;
+	color : #444;
+}
+
+dt {
+	margin-left : 20px;
+	margin-bottom : 5px;
+	text-align : left;
+	font-size : 10pt;
+	font-family: Courier New, monospace;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="document">
+<div class="title">haXe API Documentation</div>
+
+<a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a><div class="classname"><span class="kwd">class </span>neko.net.ThreadServer&lt;Client, Message&gt;</div><div class="platforms">Available in neko</div><dl><dt><span class="kwd">var </span>connectLag : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">var </span>errorOutput : <a href="../../haxe/io/Output.html" class="type">haxe.io.Output</a></dt><dd></dd><dt><span class="kwd">var </span>initialBufferSize : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>listen : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>maxBufferSize : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>maxSockPerThread : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>messageHeaderSize : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>nthreads : <a href="../../Int.html" class="type">Int</a></dt><dd></dd><dt><span class="kwd">var </span>updateTime : <a href="../../Float.html" class="type">Float</a></dt><dd></dd><dt><span class="kwd">function </span>new() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>addSocket(s : <a href="../../sys/net/Socket.html" class="type">sys.net.Socket</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">dynamic </span><span class="kwd">function </span>afterEvent() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">dynamic </span><span class="kwd">function </span>clientConnected(s : <a href="../../sys/net/Socket.html" class="type">sys.net.Socket</a>) : Client</dt><dd></dd><dt><span class="kwd">dynamic </span><span class="kwd">function </span>clientDisconnected(c : Client) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">dynamic </span><span class="kwd">function </span>clientMessage(c : Client, msg : Message) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">dynamic </span><span class="kwd">function </span>onError(e : <a href="../../Dynamic.html" class="type">Dynamic</a>, stack : <a href="../../Array.html" class="type">Array</a>&lt;<a href="../../haxe/StackItem.html" class="type">haxe.StackItem</a>&gt;) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">dynamic </span><span class="kwd">function </span>readClientMessage(c : Client, buf : <a href="../../haxe/io/Bytes.html" class="type">haxe.io.Bytes</a>, pos : <a href="../../Int.html" class="type">Int</a>, len : <a href="../../Int.html" class="type">Int</a>) : { msg : Message, bytes : <a href="../../Int.html" class="type">Int</a>}</dt><dd></dd><dt><span class="kwd">function </span>run(host : <a href="../../String.html" class="type">String</a>, port : <a href="../../Int.html" class="type">Int</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>sendData(s : <a href="../../sys/net/Socket.html" class="type">sys.net.Socket</a>, data : <a href="../../String.html" class="type">String</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>stopClient(s : <a href="../../sys/net/Socket.html" class="type">sys.net.Socket</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">dynamic </span><span class="kwd">function </span>update() : <a href="../../Void.html" class="type">Void</a></dt><dd></dd><dt><span class="kwd">function </span>work(f : <a href="../../Void.html" class="type">Void</a> -> <a href="../../Void.html" class="type">Void</a>) : <a href="../../Void.html" class="type">Void</a></dt><dd></dd></dl><a href="#" onclick="javascript:history.back(-1); return false" class="index">Back</a> | <a href="../../../index.html" class="index">Index</a>
+
+</div>
+
+</body>
+</html>

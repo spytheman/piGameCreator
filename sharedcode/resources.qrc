@@ -1023,5 +1023,7 @@
         <file>RES/2d.png</file>
         <file>RES/3d.png</file>
         <file>RES/25d.png</file>
+        <file>RES/enginelogo.png</file>
+        <file>RES/loader.gif</file>
     </qresource>
 </RCC>

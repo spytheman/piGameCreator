@@ -47,7 +47,7 @@ DLLEXPORT QList<vObject> newResources()
     return res;
 }
 
-DLLEXPORT gcresource* createResource(QString kind,QString type,QString name)
+DLLEXPORT gcresource* createResource(gameproject* project, QString kind,QString type,QString name)
 {
     //gcmessage("Created");
 
@@ -58,6 +58,7 @@ DLLEXPORT gcresource* createResource(QString kind,QString type,QString name)
         img->name = name;
         img->icon = ffficon("image");
         img->preview = ffficon("image").pixmap(128,128);
+        img->project = project;
         return img;
     }
     return 0;

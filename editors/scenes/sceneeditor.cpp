@@ -2,6 +2,7 @@
 #include "ui_sceneeditor.h"
 #include "../../sharedcode/resource.h"
 #include "../../baseide/gcide.h"
+#include "../../sharedcode/idesettings.h"
 #include "sceneview.h"
 
 #define UGL if(initialized)ui->TheScene->updateGL();
@@ -14,14 +15,8 @@ SceneEditor::SceneEditor(QWidget *parent) :
 {
     gcprint("Initializing SceneEditor...");
     ui->setupUi(this);
-    widget=this;
+
     ui->TheScene->editor=this;
-    setAttribute(Qt::WA_DeleteOnClose);
-    setProperty("editor",true);
-    initialized=false;
-    updateTimer.setInterval(1);
-    updateTimer.setSingleShot(true);
-    connect(&updateTimer, SIGNAL(timeout()),this,SLOT(updateViewport()));
 
     //Setup the toolbar...and WHY the designer is sooo...
     ui->toolBar->insertWidget(ui->actionZoomOut,ui->GridWidget);
@@ -40,36 +35,35 @@ SceneEditor::SceneEditor(QWidget *parent) :
     ui->GridSettingsWidget->hide();
     ui->PropertiesTW->hide();
     on_actionSelect_objects_triggered();
+
+    //widget = this;
+    initResourceEditor(this);
 }
+
 void SceneEditor::hideEvent(QHideEvent *)
 {
-    ui->GridSettingsWidget->hide();
-    gcprint("HIDING SceneEditor");
-    if(initialized)
-    {
-        gcprint("SAVING WINDOW STATE...");
-        creatorIDE->settings->setValue("SceneEditor/State", saveState(0));
-        creatorIDE->settings->sync();
-        foreach(QObject* o, children())
-        {
-            if(QString(o->metaObject()->className()) == "QDockWidget")
-            {
-                ((QWidget*)o)->hide();
-            }
-        }
-    }
-
+    gcprint(QString("HIDE Init: ")+(initialized?"true":"false"));
+    RE_HIDE_EVENT(SCN_EDIT_SETTING_NAME);
+    ui->GridSettingsWidget->hide();   
 }
 void SceneEditor::showEvent(QShowEvent *e)
 {
-    //Must reload all data - or we should use it directly
-
-    //load state
-    gcprint("SHOWING SceneEditor");
+    gcprint(QString("SHOW Init: ")+(initialized?"true":"false"));
+    RE_SHOW_EVENT(SCN_EDIT_SETTING_NAME);
     if(ui->toolButton_9->isChecked())ui->GridSettingsWidget->show();
-
-    updateTimer.start();
 }
+void SceneEditor::reloadWindowState()
+{
+    RE_WINDOW_STATE_LOAD(SCN_EDIT_SETTING_NAME);
+
+    ui->TheScene->resizeGL(ui->TheScene->width(),ui->TheScene->height());
+    UGL ;
+
+    ui->actionToolOptions->setChecked(ui->ToolOptionsDockWidget->isVisible());
+    ui->actionLayers->setChecked(ui->LayersDockWidget->isVisible());
+    ui->actionViews->setChecked(ui->ViewsDockWidget->isVisible());
+}
+
 SceneEditor::~SceneEditor()
 {
     delete ui;
@@ -77,11 +71,8 @@ SceneEditor::~SceneEditor()
 
 bool SceneEditor::init()
 {
-    QApplication::processEvents();
+    RE_INIT(SCN_EDIT_SETTING_NAME);
     setTitle(resource->name);
-    //
-    gcprint("LOADING WINDOW STATE... [INIT]");
-    restoreState( creatorIDE->settings->value("SceneEditor/State").toByteArray() );
     return true;
 }
 
@@ -199,16 +190,4 @@ void SceneEditor::on_action100percent_triggered()
 {
     restoreState( creatorIDE->settings->value("SceneEditor/State").toByteArray() );
 }
-void SceneEditor::updateViewport()
-{
-    ui->TheScene->resizeGL(ui->TheScene->width(),ui->TheScene->height());
-    UGL
-    if(initialized)
-    {
-        gcprint("LOADING WINDOW STATE...");
-        restoreState( creatorIDE->settings->value("SceneEditor/State").toByteArray() );
-        ui->actionToolOptions->setChecked(ui->ToolOptionsDockWidget->isVisible());
-        ui->actionLayers->setChecked(ui->LayersDockWidget->isVisible());
-        ui->actionViews->setChecked(ui->ViewsDockWidget->isVisible());
-    }
-}
+
