@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!DOCTYPE creatorIDEProject>
-<project description="" name="Testing project 2">
+<project dbcolor="" version="" description="Experience like NEVER before" author="" name="Super Mario 2012">
     <resources>
         <images>
             <image name="blockIMG"/>
@@ -39,14 +39,21 @@
         <target exporter="cpp" name="Windows_FULL">
             <name>Windows FULL</name>
             <description>Builds Windows FULL version of the game</description>
+            <defines></defines>
+            <modules></modules>
         </target>
         <target exporter="cpp" name="Windows_DEMO">
             <name>Windows DEMO</name>
             <description>Builds Windows DEMO version of the game</description>
+            <defines></defines>
+            <modules></modules>
         </target>
         <target exporter="html5" name="invalid">
             <name>Invalid target</name>
             <description>Testing target that must NOT crash the IDE!</description>
+            <defines></defines>
+            <modules></modules>
         </target>
     </targets>
+    <modules></modules>
 </project>

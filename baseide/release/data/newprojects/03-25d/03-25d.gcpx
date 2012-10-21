@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE creatorIDEProject>
+<project dbcolor="#000000" version="" description="A project preconfigured for games with two-dimensional gameplay and optional three-dimensional graphics." author="" name="2,5D Game">
+    <resources>
+        <images/>
+        <models/>
+        <sounds/>
+        <scenes/>
+        <classes>
+            <class name="Main"/>
+        </classes>
+        <fonts/>
+        <filters/>
+        <effects/>
+    </resources>
+    <targets>
+        <target exporter="cpp" name="Windows">
+            <name>Windows</name>
+            <description></description>
+            <defines></defines>
+            <modules></modules>
+        </target>
+    </targets>
+    <modules></modules>
+</project>

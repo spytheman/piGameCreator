@@ -14,7 +14,7 @@
    <string>Theme editor</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="resources.qrc">
+   <iconset resource="../sharedcode/resources.qrc">
     <normaloff>:/resources/RES/ffficons/palette.png</normaloff>:/resources/RES/ffficons/palette.png</iconset>
   </property>
   <layout class="QGridLayout" name="gridLayout">
@@ -106,7 +106,7 @@
               <string>...</string>
              </property>
              <property name="icon">
-              <iconset resource="resources.qrc">
+              <iconset resource="../sharedcode/resources.qrc">
                <normaloff>:/resources/RES/ffficons/shield.png</normaloff>:/resources/RES/ffficons/shield.png</iconset>
              </property>
              <property name="autoRaise">
@@ -120,7 +120,7 @@
               <string>...</string>
              </property>
              <property name="icon">
-              <iconset resource="resources.qrc">
+              <iconset resource="../sharedcode/resources.qrc">
                <normaloff>:/resources/RES/ffficons/star.png</normaloff>:/resources/RES/ffficons/star.png</iconset>
              </property>
              <property name="popupMode">
@@ -159,6 +159,13 @@
           </widget>
          </item>
          <item>
+          <widget class="Line" name="line_3">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QRadioButton" name="radioButton">
            <property name="enabled">
             <bool>false</bool>
@@ -169,6 +176,13 @@
           </widget>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_5">
@@ -441,6 +455,9 @@
              <property name="text">
               <string>Command Link</string>
              </property>
+             <property name="checkable">
+              <bool>true</bool>
+             </property>
              <property name="description">
               <string>Description of it</string>
              </property>
@@ -520,6 +537,29 @@
            </item>
           </layout>
          </widget>
+         <widget class="QWidget" name="tab_4">
+          <attribute name="title">
+           <string>Stuff</string>
+          </attribute>
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="0">
+            <widget class="QCalendarWidget" name="calendarWidget"/>
+           </item>
+           <item row="1" column="0">
+            <widget class="QDateTimeEdit" name="dateTimeEdit">
+             <property name="calendarPopup">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QDateEdit" name="dateEdit"/>
+           </item>
+           <item row="0" column="1">
+            <widget class="QDial" name="dial"/>
+           </item>
+          </layout>
+         </widget>
          <widget class="QWidget" name="tab">
           <attribute name="title">
            <string>Tree Widget</string>
@@ -563,6 +603,145 @@
                 <string>Desc</string>
                </property>
               </item>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_7">
+          <attribute name="title">
+           <string>Table</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QTableWidget" name="tableWidget">
+             <property name="autoScrollMargin">
+              <number>0</number>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>16</width>
+               <height>16</height>
+              </size>
+             </property>
+             <property name="showGrid">
+              <bool>true</bool>
+             </property>
+             <property name="gridStyle">
+              <enum>Qt::SolidLine</enum>
+             </property>
+             <row>
+              <property name="text">
+               <string>A</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string>B</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string>C</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string>D</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string>E</string>
+              </property>
+             </row>
+             <row>
+              <property name="text">
+               <string>F</string>
+              </property>
+             </row>
+             <column>
+              <property name="text">
+               <string>1</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>2</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>3</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>4</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>5</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>6</string>
+              </property>
+             </column>
+             <item row="0" column="0">
+              <property name="text">
+               <string>Isn't</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../sharedcode/resources.qrc">
+                <normaloff>:/resources/RES/ffficons/emoticon_surprised.png</normaloff>:/resources/RES/ffficons/emoticon_surprised.png</iconset>
+              </property>
+             </item>
+             <item row="0" column="1">
+              <property name="text">
+               <string>this</string>
+              </property>
+              <property name="font">
+               <font>
+                <family>Courier New</family>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="icon">
+               <iconset resource="../sharedcode/resources.qrc">
+                <normaloff>:/resources/RES/cursor.png</normaloff>:/resources/RES/cursor.png</iconset>
+              </property>
+             </item>
+             <item row="0" column="2">
+              <property name="text">
+               <string/>
+              </property>
+             </item>
+             <item row="0" column="3">
+              <property name="text">
+               <string/>
+              </property>
+             </item>
+             <item row="1" column="0">
+              <property name="text">
+               <string>looks</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../sharedcode/resources.qrc">
+                <normaloff>:/resources/RES/ffficons/eye.png</normaloff>:/resources/RES/ffficons/eye.png</iconset>
+              </property>
+             </item>
+             <item row="1" column="1">
+              <property name="text">
+               <string>Excelish?</string>
+              </property>
+              <property name="icon">
+               <iconset resource="../sharedcode/resources.qrc">
+                <normaloff>:/resources/RES/ffficons/page_excel.png</normaloff>:/resources/RES/ffficons/page_excel.png</iconset>
+              </property>
              </item>
             </widget>
            </item>
@@ -627,7 +806,7 @@ p, li { white-space: pre-wrap; }
             <string>...</string>
            </property>
            <property name="icon">
-            <iconset resource="resources.qrc">
+            <iconset resource="../sharedcode/resources.qrc">
              <normaloff>:/resources/RES/ffficons/arrow_refresh.png</normaloff>:/resources/RES/ffficons/arrow_refresh.png</iconset>
            </property>
            <property name="autoRaise">
@@ -673,7 +852,11 @@ p, li { white-space: pre-wrap; }
   </layout>
  </widget>
  <resources>
-  <include location="resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
+  <include location="../sharedcode/resources.qrc"/>
  </resources>
  <connections/>
 </ui>

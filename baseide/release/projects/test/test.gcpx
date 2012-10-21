@@ -1,12 +1,14 @@
 <?xml version="1.0"?>
 <!DOCTYPE creatorIDEProject>
-<project description="" name="test.gcpx">
+<project dbcolor="#000000" version="1" description="Description!" author="Team Pi-Dev" name="Test file">
     <resources>
         <images/>
         <models/>
         <sounds/>
         <scenes/>
-        <classes/>
+        <classes>
+            <class name="asdfasd"/>
+        </classes>
         <fonts/>
         <filters/>
         <effects/>
@@ -15,14 +17,21 @@
         <target exporter="cpp" name="Windows_FULL">
             <name>Windows FULL</name>
             <description>Builds Windows FULL version of the game</description>
+            <defines></defines>
+            <modules></modules>
         </target>
         <target exporter="cpp" name="Windows_DEMO">
             <name>Windows DEMO</name>
             <description>Builds Windows DEMO version of the game</description>
+            <defines></defines>
+            <modules></modules>
         </target>
         <target exporter="html5" name="invalid">
             <name>Invalid target</name>
             <description>Testing target that must NOT crash the IDE!</description>
+            <defines></defines>
+            <modules></modules>
         </target>
     </targets>
+    <modules>Main</modules>
 </project>

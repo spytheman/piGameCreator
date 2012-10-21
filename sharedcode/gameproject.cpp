@@ -1,15 +1,19 @@
 #include "gameproject.h"
 #include "frameworkdata.h"
-#include "../sharedcode/globals.h"
-#include <QtXml/QDomDocument>
-#include <QtXml/QDomElement>
-#include <QFileInfo>
-#include <QDir>
+#include "progressdialog.h"
 #include "rsimage.h"
 #include "rsmodel.h"
 #include "rsclass.h"
 #include "rsscene.h"
 #include "rssound.h"
+#include "../sharedcode/globals.h"
+#include <QThread>
+#include <QDomDocument>
+#include <QDomElement>
+#include <QApplication>
+#include <QFileInfo>
+#include <QFileInfoList>
+#include <QDir>
 
 void gameproject::cn_init()
 {
@@ -88,6 +92,9 @@ bool gameproject::load(QString filename)
     QDomDocument* project = gcReadXml(filename);
     if(project)
     {
+        QIcon icon( QFileInfo(filename).absolutePath()+"/icon.png" );
+        if(icon.isNull())icon = ffficon("page_white");
+        this->icon = icon;
         if(project->doctype().name() != "creatorIDEProject")
         {
             gcerror("This is invalid pi|engine CREATOR project file!");
@@ -99,7 +106,10 @@ bool gameproject::load(QString filename)
         QDomElement meta = project->documentElement();
         title = meta.attribute("name");
         if(title=="")title = QFileInfo(absoluteFolder()).baseName();
-        description = meta.attribute("description");    // Empty for now!
+        description = meta.attribute("description");
+        version = meta.attribute("version");
+        author = meta.attribute("author");
+        dbcolor = meta.attribute("dbcolor");
         // folder??? Unneeded??? gcpx and folder name MUST be the same name! FOR NOW!
         // So folder will be IGNORED! In the future, it will be implemented.
 
@@ -201,9 +211,127 @@ bool gameproject::save()
     save(mFilename);
 }
 
+// These classes and functions here are for Save/Save AS threading
+// Each class represents a single thread, So i don't think is nessesary to place these in headers
+// as they are only used HERE
+class DirListThread:public QThread{
+public:
+    QString path;
+    DirListThread(QString dir): path(dir) {}
+    QFileInfoList AllFiles;
+    QFileInfoList AllDirs;
+    void getfolder(QString dir)
+    {
+        gcprint("getting folder "+dir);
+        QDir d(dir);
+        QFileInfoList dirs = d.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
+        QFileInfoList files = d.entryInfoList(QDir::Files | QDir::NoDotAndDotDot);
+        AllFiles<<files;
+        AllDirs<<dirs;
+        for(int i=0;i<dirs.count();i++)getfolder(dirs.at(i).absoluteFilePath());
+    }
+    void run()
+    {
+        getfolder(path);
+        //Filter: DO NOT copy GCPX files
+        foreach(QFileInfo s, AllFiles)
+        {
+            gcprint(s.baseName()+"!");
+            if(s.suffix().contains("gcpx"))AllFiles.removeAll(s);
+        }
+    }
+};
+class CopyFileThread:public QThread{
+public:
+    QString s,d;
+    CopyFileThread(QString src,QString dest):s(src),d(dest){}
+    void run()
+    {
+        QDir().mkpath(QFileInfo(d).absolutePath());
+        gcprint("Copying "+s +" -> "+d);
+        QFile::copy(s,d);
+    }
+};
+
 bool gameproject::save(QString filename)
 {
     gcprint("Saving "+title+"    ("+mFilename+")...");
+
+    //Is this new filename?
+    if( QFileInfo(filename).absoluteFilePath() !=
+            QFileInfo(this->filename()).absoluteFilePath() )
+    {
+        //here we must pre-copy the tree to a new location and THEN, update all the resources
+        // and then call SAVE on the active ones.
+
+        //COPY from old codebase:
+
+        //SAVE AS:
+        //1. Copy current project in new location
+        //2. set as current
+        //3. save resource editors now (in the new location) :)
+
+        QString newdir = QFileInfo(filename).absolutePath();
+        QString newname = QFileInfo(filename).fileName();
+        QString newabsdir = newdir;// + "/" + QFileInfo(newname).baseName();
+        //fn is the new file
+
+        progressdialog p;
+        p.setParent(qApp->activeWindow());
+        p.setWindowFlags(Qt::Window);
+        p.setWindowTitle(QObject::tr("Saving project %1 as %2...").arg(mFilename).arg(newname));
+        p.setText(QObject::tr("Preparing to copy..."));
+        p.setCancel(false);
+        p.setMax(-1);
+        p.show();
+        DirListThread d(this->absoluteFolder());
+        d.start();
+
+        p.setWindowModality(Qt::ApplicationModal);
+        while(!d.isFinished()) QApplication::processEvents();
+
+        QStringList src,dest;
+
+        gcprint("\nSOURCE FILES to COPY");
+        for(int i=0;i<d.AllFiles.count();i++)
+        {
+            src << d.AllFiles.at(i).absoluteFilePath();
+            gcprint(d.AllFiles.at(i).absoluteFilePath());
+        }
+        gcprint("\nDESTINATION FILES");
+        for(int i=0;i<d.AllFiles.count();i++)
+        {
+            QString o = d.AllFiles.at(i).absoluteFilePath();
+            o.replace(absoluteFolder(),newabsdir);
+            gcprint(o);
+            dest<<o;
+        }
+        gcprint("\nDIRS to MAKE");
+        for(int i=0;i<d.AllDirs.count();i++)
+        {
+            QString o = d.AllDirs.at(i).absoluteFilePath();
+            o.replace(absoluteFolder(),newabsdir);
+            gcprint(o);
+            QDir().mkpath(o);
+        }
+
+        p.setMax(src.count());
+        for(int i=0;i<src.count();i++)
+        {
+            p.setValue(i);
+            p.setText(QObject::tr("Copying %1").arg(QFileInfo(src.at(i)).fileName()));
+            CopyFileThread c(src.at(i),dest.at(i));
+            c.start();
+            while(!c.isFinished())QApplication::processEvents();
+        }
+
+        // p will be closed here because going off-scope!
+
+        //commit changes to project location
+        mFilename = filename;
+
+        //end saveas
+    }
 
     //save is not implemented??? must copy it from somewhere....
     QDomDocument xml("creatorIDEProject");
@@ -214,6 +342,9 @@ bool gameproject::save(QString filename)
     project.setAttribute("name", title);
     //project.setAttribute("folder", QFileInfo(absoluteFolder()).baseName()); // <--- Unneeded!
     project.setAttribute("description", description);
+    project.setAttribute("dbcolor", dbcolor);
+    project.setAttribute("author",author);
+    project.setAttribute("version", version);
     xml.appendChild(project);
 
     QDomElement resources = xml.createElement("resources");
@@ -251,8 +382,19 @@ bool gameproject::save(QString filename)
         descEl.appendChild(description);
         target.appendChild(descEl);
 
+        QDomElement defines = xml.createElement("defines");
+        defines.appendChild(xml.createTextNode(t->defines.join(" ")));
+        QDomElement modules = xml.createElement("modules");
+        modules.appendChild(xml.createTextNode(t->modules.join(" ")));
+
+        target.appendChild(defines);
+        target.appendChild(modules);
+
         targets.appendChild(target);
     }
+    QDomElement modules = xml.createElement("modules");
+    modules.appendChild(xml.createTextNode(this->modules.join(" ")));
+    project.appendChild(modules);
 
     gcSaveXml(mFilename, &xml);
     return false;
@@ -682,6 +824,7 @@ gameprojectinformation* gameproject::getProjectInformation(QString file)
     if(QFile::exists(file))
     {
         gameprojectinformation* p = new gameprojectinformation;
+        p->filename = file;
 
         //Load just the meta data from the project
         gcprint("Loading Metadata for project "+file+"...");
@@ -700,8 +843,12 @@ gameprojectinformation* gameproject::getProjectInformation(QString file)
             p->title = meta.attribute("name");
             if(p->title=="")p->title = QFileInfo(file).baseName();
             p->description = meta.attribute("description");
-            QIcon icon(meta.attribute("icon",""));
-            if(icon.isNull())icon = ffficon("page_white");
+            p->version = meta.attribute("version");
+            p->author = meta.attribute("author");
+            QString ifn = QFileInfo(file).absolutePath()+"/icon.png";
+            QIcon icon;
+            if(QFile::exists(ifn))icon = QIcon(ifn);
+            else icon = ffficon("page_white");
             p->icon = icon;
             p->valid = true;
             //Resources must not be loaded

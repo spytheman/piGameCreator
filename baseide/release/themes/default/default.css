@@ -5,6 +5,7 @@
 
 /* Main page */
 
+
 #wwMainPage
 {
 	background: url(themes/default/defbg.jpg) center center;
@@ -20,11 +21,127 @@ background:url(:/resources/RES/alpha.png);
 	background:palette(window);
 }
 
-CodeEditor[piGameScriptEditor=true]
+/* Project dashboard */
+ProjectDashboard
 {
-	background-color:none;
-	selection-background-color:palette(highlight);
-	selection-color:white;
+	background-image: url(themes/default/defbg.jpg);
+	background-position: right bottom;
+}
+
+ProjectDashboard #buttonsBar
+{
+	background: palette(window);
+}
+
+ProjectDashboard #buttonsBar QPushButton#pbHelp
+{
+	margin-right: 6px;
+}
+ProjectDashboard #buttonsBar QPushButton
+{
+	margin-top:7px;
+	margin-bottom:6px;
+	margin-left: 6px;
+	border: 1px solid #aaa;
+	padding: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;	
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #E1E1E1, stop: 0.4 #DDDDDD, stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+}
+
+ProjectDashboard #buttonsBar QPushButton:hover
+{
+	border: 1px solid #777;
+	padding: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;	
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #eee, stop: 0.4 #ddd, stop: 0.5 #ccc, stop: 1.0 #eee);
+}
+
+ProjectDashboard #buttonsBar QPushButton:pressed
+{
+	border: 1px solid #bbb;
+	padding: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;	
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 transparent, stop: 0.4 #f4f4f4, stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+}
+
+ProjectDashboard #buttonsBar QPushButton:checked
+{
+	border: 1px solid #bbb;
+	border-top: 1px solid transparent;
+	padding: 4px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;	
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+
+	background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 transparent, stop: 0.4 #f4f4f4, stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+}
+
+ProjectDashboard #basicInfoContainer
+{
+	background: qlineargradient(spread:pad, 
+	x1:0, y1:0, 
+	x2:0, y2:1, 
+	stop:0 rgba(0,0,0,0),
+	stop:0.04 rgba(0, 0, 0, 60), 
+	stop:0.041 rgb(255,255,255, 100),
+	stop:1 palette(window)
+	);
+}
+
+ProjectDashboard #modulesContainer
+{
+	background: qlineargradient(spread:pad, 
+	x1:0, y1:0, 
+	x2:0, y2:1, 
+	stop:0 rgba(0,0,0,0),
+	stop:0.1 rgba(0, 0, 0, 60), 
+	stop:0.101 rgb(255,255,255, 100),
+	stop:1 palette(window)
+	);
+	padding: 10px;
+}
+ProjectDashboard #modulesContainerFrame
+{
+	padding: -1px;
+}
+ProjectDashboard #modulesFrame
+{
+	padding: 3px;
+	border-radius: 5px;
+	border-left: 1px solid palette(shadow);
+	border-top: 1px solid palette(shadow);
+	border-right: 1px solid palette(light);
+	border-bottom: 1px solid palette(light);
+	background: qlineargradient(spread:pad, 
+	x1:0, y1:0, 
+	x2:0, y2:1, 
+	stop:0 rgba(255,255,255,40),
+	stop:0.499 rgba(255,255,255,100), 
+	stop:0.5 rgba(255,255,255,40),
+	stop:1 rgba(255,255,255,100)
+	);
+}
+ProjectDashboard #modulesFrame QToolButton
+{
+	padding: 2px;
 }
 
 /* Workspace TAB Styles */

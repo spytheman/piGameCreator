@@ -43,6 +43,9 @@ INPUT(
 ./release\selecticon.o
 ./release\imagepreviewer.o
 ./release\filereference.o
+./release\progressdialog.o
+./release\projectdashboard.o
+./release\skintestwindow.o
 ./release\moc_mainwindow.o
 ./release\moc_splashscreen.o
 ./release\moc_gcide.o
@@ -60,6 +63,9 @@ INPUT(
 ./release\moc_newprojectwizard.o
 ./release\moc_selecticon.o
 ./release\moc_imagepreviewer.o
+./release\moc_progressdialog.o
+./release\moc_projectdashboard.o
+./release\moc_skintestwindow.o
 ./release\qrc_resources.o
 ./release\qrc_res_ide.o
 );

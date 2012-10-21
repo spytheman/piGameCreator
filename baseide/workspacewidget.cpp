@@ -1,8 +1,11 @@
 #include "workspacewidget.h"
+#include <QWidget>
+#include <QVariant>
 
 WorkspaceWidget::WorkspaceWidget()
 {
     widget = (QWidget*)this;
+    shouldSetTabTitle = false;
 }
 
 bool WorkspaceWidget::isResourceEditor()
@@ -13,6 +16,13 @@ bool WorkspaceWidget::isResourceEditor()
 void WorkspaceWidget::setTitle(QString t)
 {
     mTitle = t;
+    if(shouldSetTabTitle)
+        for(int i=0;i<tabWidget->count();++i)
+        {
+            WorkspaceWidget* w =  (WorkspaceWidget*) tabWidget->widget(i)->property("WorkspaceWidget").value<void*>();
+            if(w==this)
+                tabWidget->setTabText(i," "+t);
+        }
     //if tab, set the tab title,
     //if subwindow, set its title,
     //if top level window, set its title.
@@ -21,4 +31,9 @@ void WorkspaceWidget::setTitle(QString t)
 QString WorkspaceWidget::title()
 {
     return mTitle;
+}
+
+void WorkspaceWidget::afterOpen()
+{
+    return;
 }

@@ -44,7 +44,8 @@ SOURCES +=  classedit.cpp \
     ../../baseide/codeeditor.cpp \
     ../../sharedcode/idesettings.cpp \
     ../../sharedcode/pgshighlighter.cpp \
-    ../../sharedcode/resourcetree.cpp
+    ../../sharedcode/resourcetree.cpp \
+    ../../sharedcode/progressdialog.cpp
 
 HEADERS += \
     variable.h \
@@ -73,7 +74,8 @@ HEADERS += \
     ../../baseide/codeeditor.h \
     ../../sharedcode/idesettings.h \
     ../../sharedcode/pgshighlighter.h \
-    ../../sharedcode/resourcetree.h
+    ../../sharedcode/resourcetree.h \
+    ../../sharedcode/progressdialog.h
 
 FORMS    += eventclass.ui \
     codeclass.ui \
@@ -83,7 +85,8 @@ FORMS    += eventclass.ui \
     editvardialog.ui \
     addfunction.ui \
     addeventwindow.ui \
-    getrepresentation.ui
+    getrepresentation.ui \
+    ../../sharedcode/progressdialog.ui
 
 RESOURCES += \
     ../../sharedcode/resources.qrc \

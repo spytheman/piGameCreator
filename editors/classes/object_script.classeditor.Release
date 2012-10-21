@@ -28,6 +28,7 @@ INPUT(
 ./release\idesettings.o
 ./release\pgshighlighter.o
 ./release\resourcetree.o
+./release\progressdialog.o
 ./release\moc_getmouseevent.o
 ./release\moc_getkeyevent.o
 ./release\moc_getrepresentation.o
@@ -39,6 +40,7 @@ INPUT(
 ./release\moc_addfunction.o
 ./release\moc_addeventwindow.o
 ./release\moc_codeeditor.o
+./release\moc_progressdialog.o
 ./release\qrc_resources.o
 ./release\qrc_res_ide.o
 );

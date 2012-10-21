@@ -53,7 +53,7 @@ public:
 
     //Project settings:
     QList<buildtarget*> buildTargets();
-    QString title, description;
+    QString title, description, version, author, dbcolor;
     QStringList modules; // Only Main by default
 
 
@@ -74,7 +74,7 @@ public:
     QString absoluteFolder();
     void setTitle(QString title);
 
-
+    QIcon icon;
 
     // A project should also contain other items!
 
@@ -137,7 +137,7 @@ private:
 class gameprojectinformation
 {
 public:
-    QString title, description;
+    QString title, description, author, version;
     QIcon icon;
     QString filename;
     bool valid;

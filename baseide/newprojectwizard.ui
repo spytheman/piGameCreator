@@ -425,7 +425,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Type the name of the main class. Typyng more than one name here will create more than one classes.</string>
+            <string>Type the name of the main class. Typing more than one name here will create more than one classes.</string>
            </property>
            <property name="wordWrap">
             <bool>true</bool>

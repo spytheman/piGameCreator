@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'codeclass.h'
 **
-** Created: Tue 16. Oct 03:24:33 2012
+** Created: Thu 18. Oct 05:02:09 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!

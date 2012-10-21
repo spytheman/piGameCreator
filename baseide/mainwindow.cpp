@@ -1,3 +1,4 @@
+#include "projectdashboard.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "gcide.h"
@@ -12,6 +13,7 @@
 #include "settingswindow.h"
 #include "buildtargets.h"
 #include "newresource.h"
+#include "skintestwindow.h"
 #include "../sharedcode/qtwin.h"
 #include "../sharedcode/gameproject.h"
 #include "../sharedcode/globals.h"
@@ -176,6 +178,22 @@ void MainWindow::showEvent(QShowEvent *)
     restoreState(creatorIDE->settings->value("MainWindow/State").toByteArray());
     shown = true;
 }
+
+void MainWindow::renameWorkspaceWidget(WorkspaceWidget *ww, QString s)
+{
+    for(int i=0;i<ui->WorkSpaceTabWidget->count();++i)
+    {
+        WorkspaceWidget* w =  (WorkspaceWidget*) ui->WorkSpaceTabWidget->widget(i)->property("WorkspaceWidget").value<void*>();
+        if(w==ww)
+            ui->WorkSpaceTabWidget->setTabText(i," "+s);
+    }
+}
+void MainWindow::tabTextChanged(QString s)
+{
+    WorkspaceWidget* ww = (WorkspaceWidget*)sender();
+    renameWorkspaceWidget(ww,s);
+}
+
 void MainWindow::openWorkspaceWidget(WorkspaceWidget *w)
 {
     gcprint("Opening workspace widget: "+w->widget->objectName());
@@ -183,10 +201,14 @@ void MainWindow::openWorkspaceWidget(WorkspaceWidget *w)
     ui->WorkSpaceTabWidget->addTab( w->widget ," "+w->title());
     ui->WorkSpaceTabWidget->setCurrentWidget(w->widget);
     creatorIDE->openedWidgets.append(w);
-
+    w->widget->setProperty("WorkspaceWidget",qVariantFromValue(  (void*)w ) );
+    w->tabWidget = ui->WorkSpaceTabWidget;
+    w->mainWindow = this;
+    w->shouldSetTabTitle = true;
     //Each opened workspace widget must know its pointer
     //as each WorkspaceWidget must know its actual widget
-    w->widget->setProperty("WorkspaceWidget",qVariantFromValue(  (void*)w ) );
+
+    //connect(w->widget, SIGNAL(titleChanged(QString)), this, SLOT(tabTextChanged(QString)));
 }
 
 void MainWindow::UpdateTargetsCB(OpenedProject* p)
@@ -455,7 +477,7 @@ void MainWindow::updateProjectTrees()
     foreach(OpenedProject* p, creatorIDE->projects)
     {
         // Add the project to the project combobox as well:
-        ui->projectComboBox->addItem( ffficon("human-joystick") ,p->project->title,
+        ui->projectComboBox->addItem( p->project->icon ,p->project->title,
                                      qVariantFromValue( (void*)p ));
 
         if(ui->projectComboBox->count()>1)ui->projectComboBox->setVisible(true);
@@ -472,7 +494,7 @@ void MainWindow::updateProjectTrees()
         projectNode->setEditable(false);
         projectNode->setFont(f);
         projectNode->setBackground( QColor(0,0,0,15) );
-        projectNode->setIcon( ffficon("human-joystick") );
+        projectNode->setIcon( p->project->icon );
         projectNode->setDropEnabled(1);
 
         // "project" node: Project AND data are OpenedProject* pointers
@@ -544,8 +566,26 @@ void MainWindow::on_projectTree_doubleClicked(const QModelIndex &index)
     ResourceTreeNode* node = (ResourceTreeNode*)item->data(TIDATA).value<void*>();
     if(!node && item->data(TIKIND).toString() == "dashboard")
     {
-        //This will open the project sadhboard
-        gcerror("Dashboard is not implemented!");
+        //Is this dashboard open?
+        for(int i=0;i<ui->WorkSpaceTabWidget->count();++i)
+        {
+            QWidget* ww = ui->WorkSpaceTabWidget->widget(i);
+            if(ww->property("dashboard").toBool()==true)
+            {
+                ProjectDashboard* PD = dynamic_cast<ProjectDashboard*>(ww);
+                if(!PD)gcerror("Main window: 575: Cast Error");
+                if(PD->project == creatorIDE->currentProject)
+                {
+                    ui->WorkSpaceTabWidget->setCurrentIndex(i);
+                    return;
+                }
+            }
+        }
+        //This will open the project dashboard
+        ProjectDashboard* pd = new ProjectDashboard;
+        pd->setProject(creatorIDE->currentProject);
+        pd->init();
+        creatorIDE->openWorkspaceWidget(pd);
         return;
     }
     gcresource* resource = node->resource;
@@ -1018,4 +1058,10 @@ void MainWindow::on_actionOpen_project_triggered()
 void MainWindow::on_actionCreate_project_triggered()
 {
     creatorIDE->newProject();
+}
+
+void MainWindow::on_actionSkin_editor_triggered()
+{
+    SkinTestWindow* w = new SkinTestWindow;
+    w->show();
 }

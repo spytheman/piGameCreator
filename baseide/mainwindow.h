@@ -25,6 +25,7 @@ public:
     void closeEvent(QCloseEvent *);
     void showEvent(QShowEvent *);
     void openWorkspaceWidget(WorkspaceWidget* w);
+    void renameWorkspaceWidget(WorkspaceWidget* w, QString s);
     QComboBox *targetsCB;
     QMenu* SkinsMenu;
     //void updateResourceViews();
@@ -41,7 +42,8 @@ public:
     //void addProjectEntry(OpenedProject* p); //adds a project entry with all of its resources!
     //bool addResourceEntry(OpenedProject* p, gcresource* res, bool open=false);
     
-private slots:
+public slots:
+    void tabTextChanged(QString s);
     void ShowSkins();
     void setSkin();
     void BuildTargetChanged(int row);
@@ -68,10 +70,11 @@ private slots:
     void routeRightMenuClickToItsDLL();
     void on_pushButton_clicked();
     void on_action_Save_triggered();
-
     void on_actionOpen_project_triggered();
-
     void on_actionCreate_project_triggered();
+
+private slots:
+    void on_actionSkin_editor_triggered();
 
 private:
     QTimer OpenWidgetTimer;

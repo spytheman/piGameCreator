@@ -57,7 +57,10 @@ SOURCES += main.cpp \
     newprojectwizard.cpp \
     ../sharedcode/selecticon.cpp \
     ../sharedcode/imagepreviewer.cpp \
-    ../sharedcode/filereference.cpp
+    ../sharedcode/filereference.cpp \
+    ../sharedcode/progressdialog.cpp \
+    projectdashboard.cpp \
+    skintestwindow.cpp
 
 
 
@@ -100,7 +103,10 @@ HEADERS  += mainwindow.h \
     newprojectwizard.h \
     ../sharedcode/selecticon.h \
     ../sharedcode/imagepreviewer.h \
-    ../sharedcode/filereference.h
+    ../sharedcode/filereference.h \
+    ../sharedcode/progressdialog.h \
+    projectdashboard.h \
+    skintestwindow.h
 
 
 FORMS    += mainwindow.ui \
@@ -115,7 +121,10 @@ FORMS    += mainwindow.ui \
     newresource.ui \
     newprojectwizard.ui \
     ../sharedcode/selecticon.ui \
-    ../sharedcode/imagepreviewer.ui
+    ../sharedcode/imagepreviewer.ui \
+    ../sharedcode/progressdialog.ui \
+    projectdashboard.ui \
+    skintestwindow.ui
 
 RESOURCES += \
     ../sharedcode/resources.qrc \

@@ -43,6 +43,9 @@ INPUT(
 ./debug\selecticon.o
 ./debug\imagepreviewer.o
 ./debug\filereference.o
+./debug\progressdialog.o
+./debug\projectdashboard.o
+./debug\skintestwindow.o
 ./debug\moc_mainwindow.o
 ./debug\moc_splashscreen.o
 ./debug\moc_gcide.o
@@ -60,6 +63,9 @@ INPUT(
 ./debug\moc_newprojectwizard.o
 ./debug\moc_selecticon.o
 ./debug\moc_imagepreviewer.o
+./debug\moc_progressdialog.o
+./debug\moc_projectdashboard.o
+./debug\moc_skintestwindow.o
 ./debug\qrc_resources.o
 ./debug\qrc_res_ide.o
 );

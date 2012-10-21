@@ -1,8 +1,0 @@
-<class base="" representation="block2IMG" collision="2d">
-    <variables/>
-    <properties/>
-    <events>
-        <event key="27" eventtype="0" type="key" src="Down Escape.pgs"/>
-    </events>
-    <functions/>
-</class>

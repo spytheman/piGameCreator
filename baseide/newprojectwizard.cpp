@@ -3,6 +3,7 @@
 #include "ui_newprojectwizard.h"
 #include "buildtargets.h"
 #include "openedproject.h"
+#include "gcide.h"
 #include "../sharedcode/selecticon.h"
 #include "../sharedcode/idesettings.h"
 #include "../sharedcode/qtwin.h"
@@ -117,32 +118,49 @@ bool newProjectWizard::validateCurrentPage()
         else
         {
             // Valid data may only mean some initialization
-            if(openedProject == NULL && gameProject == NULL)
+            // LOAD the template project!
+            QTreeWidgetItem* item = ui->treeWidget->currentItem();
+            if(!item)
             {
-                gameProject = new gameproject;
-                openedProject = new OpenedProject;
-                gameProject->title = ui->projectTitleLineEdit->text();
-                gameProject->description = ui->projectDescTextEdit->toPlainText();
-                openedProject->project = gameProject;
-                openedProject->selectedResource = NULL;
-                openedProject->selectedTarget = 0;
-
-                //make the path
-                QString path = ui->browseButton->text() + ui->dirSeparatorLabel->text() +
-                        ui->projectdirname->text() + ui->dirSeparatorLabel->text() + ui->projectdirname->text() + ".gcpx";
-                //remove the \\ part in case root drive was selected;
-                path.replace(ui->dirSeparatorLabel->text()+ui->dirSeparatorLabel->text(),ui->dirSeparatorLabel->text());
-                QFileInfo f(path);
-                path = f.absoluteFilePath();
-                gameProject->setFilename(path);
+                gcerror("Please select a project type to create.");
+                return false;
             }
-            else gcprint("Project is already initialized");
+            gameprojectinformation* gpi = (gameprojectinformation*) item->data(0,TIDATA).value<void*>();
+            if(!gpi)
+            {
+                gcerror("Please select a project type to create. Not a folder.");
+                return false;
+            }
+            QString fn = gpi->filename;
+            gameproject* gp = new gameproject(fn);
+            gp->load();
+            gameProject = gp;
+            openedProject = new OpenedProject;   //This will be set AFTER the user advances and completes the wizard ;]
+            openedProject->project = gp;
+
+            // We must patch this project a bit:
+
+            gp->description = ui->projectDescTextEdit->toPlainText();
+            gp->title = ui->projectTitleLineEdit->text();
+            //the ICON is specified as icon.png into the project folder. We should place it there.
+            return true;
         }
     }
     else if(currentPage() == ui->wpProjectTargets)
     {
+
+        //DO NOT set the filename! CALL SAVE with this!
+        QString newfn =
+                QFileInfo( ui->browseButton->property("dir").toString() + ui->dirSeparatorLabel->text() + ui->projectdirname->text() )
+                .absoluteFilePath() + "/" + ui->projectdirname->text() + ".gcpx";
         buildTargetsWidget->on_OKbutton_clicked();
         bool b = buildTargetsWidget->result();  //either 1 or 0
+        if(b)
+        {
+            gameProject->save(newfn);
+            creatorIDE->openProject(gameProject->filename());
+            delete gameProject;
+        }
         return b;
     }
 }

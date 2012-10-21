@@ -1,9 +1,0 @@
-# Haxe target file for Windows_DEMO target
-# TODO: Creator IDE must generate it!
-
--cp classes
--main Main
--cpp windows_demo
-
-# TODO: Add classpaths
-# -cp C:\Program Files\Pi-Engine\data\piengine\classes

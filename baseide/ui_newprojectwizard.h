@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'newprojectwizard.ui'
 **
-** Created: Tue 16. Oct 03:20:11 2012
+** Created: Sun 21. Oct 17:32:03 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -385,7 +385,7 @@ public:
         dirSeparatorLabel->setText(QApplication::translate("newProjectWizard", "DIR_SEP", 0, QApplication::UnicodeUTF8));
         toolButton->setText(QApplication::translate("newProjectWizard", "Icon", 0, QApplication::UnicodeUTF8));
         label_5->setText(QApplication::translate("newProjectWizard", "Main class:", 0, QApplication::UnicodeUTF8));
-        label_9->setText(QApplication::translate("newProjectWizard", "Type the name of the main class. Typyng more than one name here will create more than one classes.", 0, QApplication::UnicodeUTF8));
+        label_9->setText(QApplication::translate("newProjectWizard", "Type the name of the main class. Typing more than one name here will create more than one classes.", 0, QApplication::UnicodeUTF8));
         mainClassName->setText(QApplication::translate("newProjectWizard", "Main", 0, QApplication::UnicodeUTF8));
         wpProjectTargets->setTitle(QApplication::translate("newProjectWizard", "Targets and platforms", 0, QApplication::UnicodeUTF8));
         wpProjectTargets->setSubTitle(QApplication::translate("newProjectWizard", "Define the targets and platforms for this project.", 0, QApplication::UnicodeUTF8));

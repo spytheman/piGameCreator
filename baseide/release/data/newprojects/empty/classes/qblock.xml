@@ -1,8 +1,0 @@
-<class base="" representation="question" resizable="0" collision="2d">
-    <variables/>
-    <properties>
-        <property array="0" type="class" name="bonusItem" menu="0">(Not selected)</property>
-    </properties>
-    <events/>
-    <functions/>
-</class>

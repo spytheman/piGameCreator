@@ -82,6 +82,7 @@ public:
 
     //creates and opens a workspace window / widget
     bool openWorkspaceWidget(WorkspaceWidget* w);
+    void renameWorkspaceWidget(WorkspaceWidget* w, QString newname);
 
     //closes based on a widget pointer or a index
     bool closeWorkspaceWidget(WorkspaceWidget* w);

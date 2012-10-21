@@ -18,8 +18,10 @@ INPUT(
 ./debug\rsgraphicseffect.o
 ./debug\resourcetree.o
 ./debug\idesettings.o
+./debug\progressdialog.o
 ./debug\moc_sceneeditor.o
 ./debug\moc_qwidgetwithclosesignal.o
+./debug\moc_progressdialog.o
 ./debug\qrc_resources.o
 ./debug\qrc_res_ide.o
 );

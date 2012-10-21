@@ -8,6 +8,7 @@
 #include "scripttestwindow.h"
 #include "wwmainpage.h"
 #include "newprojectwizard.h"
+#include "projectdashboard.h"
 #include "../sharedcode/gameproject.h"
 #include "../sharedcode/resource.h"
 #include "../sharedcode/rsclass.h"
@@ -15,13 +16,14 @@
 #include "../sharedcode/rsmodel.h"
 #include "../sharedcode/rsscene.h"
 #include "../sharedcode/rssound.h"
+#include "../../sharedcode/idesettings.h"
 #include <QApplication>
 #include <QSettings>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QTextStream>
 #include <new>
-#include "../../sharedcode/idesettings.h"
+
 
 gcide* creatorIDE;
 
@@ -123,6 +125,11 @@ bool gcide::openWorkspaceWidget(WorkspaceWidget* w)
     return true;
 }
 
+void gcide::renameWorkspaceWidget(WorkspaceWidget *w, QString newname)
+{
+    mainWindow->renameWorkspaceWidget(w,newname);
+}
+
 bool gcide::openProject()
 {
     //No arguments passed? Ask user to select files then
@@ -199,6 +206,12 @@ bool gcide::openProject(QString filename)
 
         // This API is not needed! Views will be updated manually by each op
         creatorIDE->mainWindow->updateProjectExplorer();
+
+        // Open its dashboard:
+        ProjectDashboard* pd = new ProjectDashboard;
+        pd->setProject(op);
+        pd->init();
+        openWorkspaceWidget(pd);
     }
     else gcprint("Unable to open the project");
 }
@@ -348,6 +361,20 @@ bool gcide::closeProject(OpenedProject *project)
                         removeIndexes.append(wwindex);
                     }
                 }
+                else if(openedWidgets.at(wwindex)->widget->property("dashboard").toBool())
+                {
+                    //a dashboard
+                    ProjectDashboard* pd = dynamic_cast<ProjectDashboard*>(openedWidgets.at(wwindex));
+                    if(!pd)gcerror("Bad cast?");
+                    else
+                    {
+                        if(pd->project == project)
+                        {
+                            delete openedWidgets.at(wwindex);  //possible double deallocation
+                            removeIndexes.append(wwindex);
+                        }
+                    }
+                }
 
             //remove the project from the opened projects list
             projects.removeAt(i);
@@ -373,22 +400,7 @@ bool gcide::closeProject(OpenedProject *project)
 bool gcide::newProject()
 {
     newProjectWizard w(creatorIDE->mainWindow);
-    if(w.exec())
-    {
-        //Init the project and add it to the tree
-        QString path = w.gameProject->absoluteFolder();
-        gcmessage(path);
-        QDir d; d.mkpath(path);
-        w.gameProject->save();
-        projects.append(w.openedProject);
-        currentProject = w.openedProject;
-        mainWindow->updateProjectExplorer();
-    }
-    else
-    {
-        delete w.gameProject;
-        delete w.openedProject;
-    }
+    w.exec();   //This will open the project.
     //Again safe workaround
     QApplication::processEvents();
 }

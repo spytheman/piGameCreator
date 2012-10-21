@@ -269,6 +269,7 @@ void BuildTargets::setWizardMode()
 
     //Set content margins:
     ui->InnerWidget->setContentsMargins(9,9,9,9);
+    wizardMode = true;
 }
 
 void BuildTargets::on_selectModules_clicked()
