@@ -1,0 +1,1337 @@
+<haxe>
+	<class path="Application" params="" file="classes/Application.hx">
+		<title public="1" static="1">
+			<c path="String"/>
+			<haxe_doc>@description: Application is the main class for all pi|engine game 
+        or multimedia modules. Application is a static class that provides 
+        basic data about the current project and its features.
+        
+        From this class you can also query the application modes - is the engine
+        running in debug mode, in Developer mode or in server mode.</haxe_doc>
+		</title>
+		<author public="1" static="1"><c path="String"/></author>
+		<description public="1" static="1"><c path="String"/></description>
+		<organization public="1" static="1"><c path="String"/></organization>
+		<url public="1" static="1"><c path="String"/></url>
+		<version public="1" static="1"><c path="String"/></version>
+		<debugMode public="1" static="1"><e path="Bool"/></debugMode>
+		<serverMode public="1" static="1"><e path="Bool"/></serverMode>
+		<devMode public="1" static="1"><e path="Bool"/></devMode>
+		<isInitialized public="1" line="23" static="1"><e path="Bool"/></isInitialized>
+		<windows static="1"><c path="Array"><c path="Window"/></c></windows>
+		<init public="1" set="method" line="26" static="1"><f a=""><e path="Void"/></f></init>
+		<exec public="1" set="method" line="40" static="1"><f a=""><e path="Void"/></f></exec>
+		<args public="1" set="method" line="70" static="1">
+			<f a=""><c path="Array"><c path="String"/></c></f>
+			<haxe_doc><![CDATA[Windows, Mac, Linux:
+        Returns the command line arguments passed to the application.
+        HTML & JavaScript:
+        The query string.]]></haxe_doc>
+		</args>
+		<terminate public="1" set="method" line="78" static="1">
+			<f a="?exitCode">
+				<c path="Int"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Closes the application with given exit code(if supported)</haxe_doc>
+		</terminate>
+		<pi_query_system_info static="1">
+			<f a=""><d/></f>
+			<meta><m n=":noComplete"/></meta>
+		</pi_query_system_info>
+	</class>
+	<class path="Array" params="T" file="P:\CPP\piGameCreator\baseide\release\haxe\std/Array.hx" extern="1">
+		<iterator public="1" set="method">
+			<f a=""><t path="Iterator"><c path="Array.T"/></t></f>
+			<haxe_doc>Returns an iterator of the Array values.</haxe_doc>
+		</iterator>
+		<copy public="1" set="method">
+			<f a=""><c path="Array"><c path="Array.T"/></c></f>
+			<haxe_doc>Returns a copy of the Array. The values are not
+		copied, only the Array structure.</haxe_doc>
+		</copy>
+		<remove public="1" set="method">
+			<f a="x">
+				<c path="Array.T"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>Removes the first occurence of [x].
+		Returns false if [x] was not present.
+		Elements are compared by using standard equality.</haxe_doc>
+		</remove>
+		<insert public="1" set="method">
+			<f a="pos:x">
+				<c path="Int"/>
+				<c path="Array.T"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Inserts the element [x] at the position [pos].
+		All elements after [pos] are moved one index ahead.</haxe_doc>
+		</insert>
+		<unshift public="1" set="method">
+			<f a="x">
+				<c path="Array.T"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Adds the element [x] at the start of the array.</haxe_doc>
+		</unshift>
+		<toString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns a displayable representation of the Array content.</haxe_doc>
+		</toString>
+		<splice public="1" set="method">
+			<f a="pos:len">
+				<c path="Int"/>
+				<c path="Int"/>
+				<c path="Array"><c path="Array.T"/></c>
+			</f>
+			<haxe_doc>Removes [len] elements starting from [pos] an returns them.</haxe_doc>
+		</splice>
+		<sort public="1" set="method">
+			<f a="f">
+				<f a=":">
+					<c path="Array.T"/>
+					<c path="Array.T"/>
+					<c path="Int"/>
+				</f>
+				<e path="Void"/>
+			</f>
+			<haxe_doc><![CDATA[Sort the Array according to the comparison function [f].
+		[f(x,y)] should return [0] if [x == y], [>0] if [x > y]
+		and [<0] if [x < y].]]></haxe_doc>
+		</sort>
+		<slice public="1" set="method">
+			<f a="pos:?end">
+				<c path="Int"/>
+				<c path="Int"/>
+				<c path="Array"><c path="Array.T"/></c>
+			</f>
+			<haxe_doc>Copies the range of the array starting at [pos] up to,
+		but not including, [end]. Both [pos] and [end] can be
+		negative to count from the end: -1 is the last item in
+		the array.</haxe_doc>
+		</slice>
+		<shift public="1" set="method">
+			<f a=""><t path="Null"><c path="Array.T"/></t></f>
+			<haxe_doc>Removes the first element and returns it.</haxe_doc>
+		</shift>
+		<reverse public="1" set="method">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>Reverse the order of elements of the Array.</haxe_doc>
+		</reverse>
+		<push public="1" set="method">
+			<f a="x">
+				<c path="Array.T"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>Adds the element [x] at the end of the array.</haxe_doc>
+		</push>
+		<pop public="1" set="method">
+			<f a=""><t path="Null"><c path="Array.T"/></t></f>
+			<haxe_doc>Removes the last element of the array and returns it.</haxe_doc>
+		</pop>
+		<join public="1" set="method">
+			<f a="sep">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a representation of an array with [sep] for separating each element.</haxe_doc>
+		</join>
+		<concat public="1" set="method">
+			<f a="a">
+				<c path="Array"><c path="Array.T"/></c>
+				<c path="Array"><c path="Array.T"/></c>
+			</f>
+			<haxe_doc>Returns a new Array by appending [a] to [this].</haxe_doc>
+		</concat>
+		<length public="1" set="null">
+			<c path="Int"/>
+			<haxe_doc>The length of the Array</haxe_doc>
+		</length>
+		<new public="1" set="method">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>Creates a new Array.</haxe_doc>
+		</new>
+		<haxe_doc>An Array is a storage for values. You can access it using indexes or
+	with its API. On the server side, it's often better to use a [List] which
+	is less memory and CPU consuming, unless you really need indexed access.</haxe_doc>
+	</class>
+	<class path="Hash" params="T" file="P:\CPP\piGameCreator\baseide\release\haxe\std/cpp/_std/Hash.hx">
+		<toString public="1" set="method" line="76">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns an displayable representation of the hashtable content.</haxe_doc>
+		</toString>
+		<iterator public="1" set="method" line="61">
+			<f a=""><t path="Iterator"><c path="Hash.T"/></t></f>
+			<haxe_doc>Returns an iterator of all values in the hashtable.</haxe_doc>
+		</iterator>
+		<keys public="1" set="method" line="52">
+			<f a=""><t path="Iterator"><c path="String"/></t></f>
+			<haxe_doc>Returns an iterator of all keys in the hashtable.</haxe_doc>
+		</keys>
+		<remove public="1" set="method" line="45">
+			<f a="key">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>Removes a hashtable entry. Returns [true] if
+		there was such entry.</haxe_doc>
+		</remove>
+		<exists public="1" set="method" line="41">
+			<f a="key">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>Tells if a value exists for the given key.
+		In particular, it's useful to tells if a key has
+		a [null] value versus no value.</haxe_doc>
+		</exists>
+		<get public="1" set="method" line="37">
+			<f a="key">
+				<c path="String"/>
+				<t path="Null"><c path="Hash.T"/></t>
+			</f>
+			<haxe_doc>Get a value for the given key.</haxe_doc>
+		</get>
+		<set public="1" set="method" line="33">
+			<f a="key:value">
+				<c path="String"/>
+				<c path="Hash.T"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Set a value for the given key.</haxe_doc>
+		</set>
+		<__Internal><d/></__Internal>
+		<new public="1" set="method" line="29">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>Creates a new empty hashtable.</haxe_doc>
+		</new>
+		<haxe_doc>Hashtable over a set of elements, using [String] as keys.
+	Other kind of keys are not possible on all platforms since they
+	can't always be implemented efficiently.</haxe_doc>
+		<meta><m n=":core_api"/></meta>
+	</class>
+	<class path="IntIter" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/IntIter.hx">
+		<next public="1" set="method" line="53">
+			<f a=""><c path="Int"/></f>
+			<haxe_doc>Moves to the next item of the iterator.</haxe_doc>
+		</next>
+		<hasNext public="1" set="method" line="46">
+			<f a=""><e path="Bool"/></f>
+			<haxe_doc>Returns true if the iterator has other items, false otherwise.</haxe_doc>
+		</hasNext>
+		<max><c path="Int"/></max>
+		<min><c path="Int"/></min>
+		<new public="1" set="method" line="38">
+			<f a="min:max">
+				<c path="Int"/>
+				<c path="Int"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc><![CDATA[Iterate from [min] (inclusive) to [max] (exclusive).
+		If [max <= min], the iterator will not act as a countdown.]]></haxe_doc>
+		</new>
+		<haxe_doc>Integer iterator. Used for interval implementation.</haxe_doc>
+	</class>
+	<class path="Layer" params="" file="classes/Layer.hx"><new public="1" set="method" line="3"><f a=""><e path="Void"/></f></new></class>
+	<class path="Math" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/Math.hx" extern="1">
+		<PI public="1" set="null" static="1"><c path="Float"/></PI>
+		<NaN public="1" set="null" static="1"><c path="Float"/></NaN>
+		<NEGATIVE_INFINITY public="1" set="null" static="1"><c path="Float"/></NEGATIVE_INFINITY>
+		<POSITIVE_INFINITY public="1" set="null" static="1"><c path="Float"/></POSITIVE_INFINITY>
+		<abs public="1" set="method" static="1"><f a="v">
+	<c path="Float"/>
+	<c path="Float"/>
+</f></abs>
+		<min public="1" set="method" static="1"><f a="a:b">
+	<c path="Float"/>
+	<c path="Float"/>
+	<c path="Float"/>
+</f></min>
+		<max public="1" set="method" static="1"><f a="a:b">
+	<c path="Float"/>
+	<c path="Float"/>
+	<c path="Float"/>
+</f></max>
+		<sin public="1" set="method" static="1"><f a="v">
+	<c path="Float"/>
+	<c path="Float"/>
+</f></sin>
+		<cos public="1" set="method" static="1"><f a="v">
+	<c path="Float"/>
+	<c path="Float"/>
+</f></cos>
+		<atan2 public="1" set="method" static="1"><f a="y:x">
+	<c path="Float"/>
+	<c path="Float"/>
+	<c path="Float"/>
+</f></atan2>
+		<tan public="1" set="method" static="1"><f a="v">
+	<c path="Float"/>
+	<c path="Float"/>
+</f></tan>
+		<exp public="1" set="method" static="1"><f a="v">
+	<c path="Float"/>
+	<c path="Float"/>
+</f></exp>
+		<log public="1" set="method" static="1"><f a="v">
+	<c path="Float"/>
+	<c path="Float"/>
+</f></log>
+		<sqrt public="1" set="method" static="1"><f a="v">
+	<c path="Float"/>
+	<c path="Float"/>
+</f></sqrt>
+		<round public="1" set="method" static="1"><f a="v">
+	<c path="Float"/>
+	<c path="Int"/>
+</f></round>
+		<floor public="1" set="method" static="1"><f a="v">
+	<c path="Float"/>
+	<c path="Int"/>
+</f></floor>
+		<ceil public="1" set="method" static="1"><f a="v">
+	<c path="Float"/>
+	<c path="Int"/>
+</f></ceil>
+		<atan public="1" set="method" static="1"><f a="v">
+	<c path="Float"/>
+	<c path="Float"/>
+</f></atan>
+		<asin public="1" set="method" static="1"><f a="v">
+	<c path="Float"/>
+	<c path="Float"/>
+</f></asin>
+		<acos public="1" set="method" static="1"><f a="v">
+	<c path="Float"/>
+	<c path="Float"/>
+</f></acos>
+		<pow public="1" set="method" static="1"><f a="v:exp">
+	<c path="Float"/>
+	<c path="Float"/>
+	<c path="Float"/>
+</f></pow>
+		<random public="1" set="method" static="1"><f a=""><c path="Float"/></f></random>
+		<isFinite public="1" set="method" static="1"><f a="f">
+	<c path="Float"/>
+	<e path="Bool"/>
+</f></isFinite>
+		<isNaN public="1" set="method" static="1"><f a="f">
+	<c path="Float"/>
+	<e path="Bool"/>
+</f></isNaN>
+		<haxe_doc>This class defines mathematical functions and constants.</haxe_doc>
+	</class>
+	<class path="Std" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/cpp/_std/Std.hx">
+		<is public="1" set="method" line="27" static="1">
+			<f a="v:t">
+				<d/>
+				<d/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>Tells if a value v is of the type t.</haxe_doc>
+		</is>
+		<string public="1" set="method" line="31" static="1">
+			<f a="s">
+				<d/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Convert any value to a String</haxe_doc>
+		</string>
+		<int public="1" set="method" line="35" static="1">
+			<f a="x">
+				<c path="Float"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>Convert a Float to an Int, rounded down.</haxe_doc>
+		</int>
+		<parseInt public="1" set="method" line="39" static="1">
+			<f a="x">
+				<c path="String"/>
+				<t path="Null"><c path="Int"/></t>
+			</f>
+			<haxe_doc>Convert a String to an Int, parsing different possible representations. Returns [null] if could not be parsed.</haxe_doc>
+		</parseInt>
+		<parseFloat public="1" set="method" line="43" static="1">
+			<f a="x">
+				<c path="String"/>
+				<c path="Float"/>
+			</f>
+			<haxe_doc>Convert a String to a Float, parsing different possible reprensations.</haxe_doc>
+		</parseFloat>
+		<random public="1" set="method" line="47" static="1">
+			<f a="x">
+				<c path="Int"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>Return a random integer between 0 included and x excluded.</haxe_doc>
+		</random>
+		<haxe_doc>The Std class provides standard methods for manipulating basic types.</haxe_doc>
+		<meta><m n=":core_api"/></meta>
+	</class>
+	<enum path="Void" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/StdTypes.hx" module="StdTypes"><haxe_doc>The standard Void type. Only [null] values can be of the type [Void].</haxe_doc></enum>
+	<class path="Float" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/StdTypes.hx" module="StdTypes" extern="1"><haxe_doc>The standard Float type, this is a double-precision IEEE 64bit float.</haxe_doc></class>
+	<class path="Int" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/StdTypes.hx" module="StdTypes" extern="1">
+		<extends path="Float"/>
+		<haxe_doc>The standard Int type. Its precision depends on the platform.</haxe_doc>
+	</class>
+	<typedef path="Null" params="T" file="P:\CPP\piGameCreator\baseide\release\haxe\std/StdTypes.hx" module="StdTypes">
+		<c path="Null.T"/>
+		<haxe_doc>[Null] can be useful in two cases. In order to document some methods
+	that accepts or can return a [null] value, or for the Flash9 compiler and AS3
+	generator to distinguish between base values that can be null and others that
+	can't.</haxe_doc>
+	</typedef>
+	<enum path="Bool" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/StdTypes.hx" module="StdTypes">
+		<true/>
+		<false/>
+		<haxe_doc>The standard Boolean type is represented as an enum with two choices.</haxe_doc>
+	</enum>
+	<class path="Dynamic" params="T" file="P:\CPP\piGameCreator\baseide\release\haxe\std/StdTypes.hx" module="StdTypes" extern="1"><haxe_doc>Dynamic is an internal compiler type which has special behavior.
+	See the haXe language reference for more informations.</haxe_doc></class>
+	<typedef path="Iterator" params="T" file="P:\CPP\piGameCreator\baseide\release\haxe\std/StdTypes.hx" module="StdTypes">
+		<a>
+			<next set="method"><f a=""><c path="Iterator.T"/></f></next>
+			<hasNext set="method"><f a=""><e path="Bool"/></f></hasNext>
+		</a>
+		<haxe_doc>An Iterator is a structure that permits to list a given container
+	values. It can be used by your own data structures. See the haXe
+	documentation for more informations.</haxe_doc>
+	</typedef>
+	<typedef path="Iterable" params="T" file="P:\CPP\piGameCreator\baseide\release\haxe\std/StdTypes.hx" module="StdTypes">
+		<a><iterator set="method"><f a=""><t path="Iterator"><c path="Iterable.T"/></t></f></iterator></a>
+		<haxe_doc>An Iterable is a data structure which has an iterator() method.
+	See [Lambda] for generic functions on iterable structures.</haxe_doc>
+	</typedef>
+	<class path="ArrayAccess" params="T" file="P:\CPP\piGameCreator\baseide\release\haxe\std/StdTypes.hx" module="StdTypes" extern="1" interface="1"><haxe_doc>ArrayAccess is used to indicate a class that can be accessed using brackets.
+	The type parameter represent the type of the elements stored.</haxe_doc></class>
+	<class path="String" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/String.hx" extern="1">
+		<fromCharCode public="1" set="method" static="1"><f a="code">
+	<c path="Int"/>
+	<c path="String"/>
+</f></fromCharCode>
+		<toString public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the String itself.</haxe_doc>
+		</toString>
+		<substring public="1" set="method">
+			<f a="startIndex:?endIndex">
+				<c path="Int"/>
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc><![CDATA[Returns a part of the String, taking from [startIndex] to [endIndex] - 1.
+		If [endIndex] is not specified, length is used.
+		If [startIndex] or [endIndex] is smaller than 0, than 0 is used.
+		If [startIndex] > [endIndex] then they are swaped.]]></haxe_doc>
+		</substring>
+		<substr public="1" set="method">
+			<f a="pos:?len">
+				<c path="Int"/>
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a part of the String, taking [len] characters starting from [pos].
+		If [len] is not specified, it takes all the remaining characters.</haxe_doc>
+		</substr>
+		<split public="1" set="method">
+			<f a="delimiter">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+			</f>
+			<haxe_doc>Split the string using the specified delimiter.</haxe_doc>
+		</split>
+		<lastIndexOf public="1" set="method">
+			<f a="str:?startIndex">
+				<c path="String"/>
+				<c path="Int"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>Similar to [indexOf] but returns the latest index.</haxe_doc>
+		</lastIndexOf>
+		<indexOf public="1" set="method">
+			<f a="str:?startIndex">
+				<c path="String"/>
+				<c path="Int"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>Returns the index of first occurence of [value]
+		Returns [1-1] if [value] is not found.
+		The optional [startIndex] parameter allows you to specify at which character to start searching.
+		The position returned is still relative to the beginning of the string.</haxe_doc>
+		</indexOf>
+		<charCodeAt public="1" set="method">
+			<f a="index">
+				<c path="Int"/>
+				<t path="Null"><c path="Int"/></t>
+			</f>
+			<haxe_doc>Returns the character code at the given position.
+		Returns [null] if outside of String bounds.</haxe_doc>
+		</charCodeAt>
+		<charAt public="1" set="method">
+			<f a="index">
+				<c path="Int"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the character at the given position.
+		Returns the empty String if outside of String bounds.</haxe_doc>
+		</charAt>
+		<toLowerCase public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns an String where all characters have been lowercased.</haxe_doc>
+		</toLowerCase>
+		<toUpperCase public="1" set="method">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns an String where all characters have been uppercased.</haxe_doc>
+		</toUpperCase>
+		<length public="1" set="null">
+			<c path="Int"/>
+			<haxe_doc>The number of characters in the String.</haxe_doc>
+		</length>
+		<new public="1" set="method">
+			<f a="string">
+				<c path="String"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Creates a copy from a given String.</haxe_doc>
+		</new>
+		<haxe_doc>The basic String class.</haxe_doc>
+	</class>
+	<class path="StringBuf" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/cpp/_std/StringBuf.hx">
+		<toString public="1" get="inline" set="null" line="47">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the content of the string buffer.
+		The buffer is not emptied by this operation.</haxe_doc>
+		</toString>
+		<addChar public="1" get="inline" set="null" line="43">
+			<f a="c">
+				<c path="Int"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Adds a part of a string to the string buffer.</haxe_doc>
+		</addChar>
+		<addSub public="1" get="inline" set="null" line="39">
+			<f a="s:pos:?len">
+				<c path="String"/>
+				<c path="Int"/>
+				<c path="Int"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Adds a character to the string buffer.</haxe_doc>
+		</addSub>
+		<add public="1" get="inline" set="null" line="35">
+			<f a="x">
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Adds the representation of any value to the string buffer.</haxe_doc>
+		</add>
+		<b><c path="Array"><d/></c></b>
+		<new public="1" set="method" line="31">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>Creates a new string buffer.</haxe_doc>
+		</new>
+		<haxe_doc>A String buffer is an efficient way to build a big string by
+	appending small elements together.</haxe_doc>
+		<meta><m n=":core_api"/></meta>
+	</class>
+	<class path="cpp.Lib" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/cpp/Lib.hx">
+		<load public="1" set="method" line="32" static="1">
+			<f a="lib:prim:nargs">
+				<c path="String"/>
+				<c path="String"/>
+				<c path="Int"/>
+				<d/>
+			</f>
+			<haxe_doc>Load and return a Cpp primitive from a DLL library.</haxe_doc>
+		</load>
+		<loadLazy public="1" set="method" line="44" static="1">
+			<f a="lib:prim:nargs">
+				<unknown/>
+				<unknown/>
+				<c path="Int"/>
+				<d/>
+			</f>
+			<haxe_doc>Tries to load, and always returns a valid function, but the function may throw
+		if called.</haxe_doc>
+		</loadLazy>
+		<rethrow public="1" set="method" line="60" static="1"><f a="inExp">
+	<d/>
+	<e path="Void"/>
+</f></rethrow>
+		<stringReference public="1" set="method" line="62" static="1"><f a="inExp">
+	<d/>
+	<e path="Void"/>
+</f></stringReference>
+		<print public="1" set="method" line="67" static="1">
+			<f a="v">
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Print the specified value on the default output.</haxe_doc>
+		</print>
+		<haxeToNeko public="1" set="method" line="75" static="1">
+			<f a="v">
+				<d/>
+				<d/>
+			</f>
+			<haxe_doc>This function is used to make porting from neko to cpp easy.
+		It does not need to do anything because the c-code can work with any Dynamic</haxe_doc>
+		</haxeToNeko>
+		<nekoToHaxe public="1" set="method" line="83" static="1">
+			<f a="v">
+				<d/>
+				<d/>
+			</f>
+			<haxe_doc>This function is used to make porting from neko to cpp easy.
+		It does not need to do anything because the c-code can work with any Dynamic</haxe_doc>
+		</nekoToHaxe>
+		<println public="1" set="method" line="89" static="1">
+			<f a="v">
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Print the specified value on the default output followed by a newline character.</haxe_doc>
+		</println>
+	</class>
+	<class path="Sys" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/cpp/_std/Sys.hx">
+		<print public="1" set="method" line="28" static="1">
+			<f a="v">
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Print any value on the standard output.</haxe_doc>
+		</print>
+		<println public="1" set="method" line="32" static="1">
+			<f a="v">
+				<d/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Print any value on the standard output, followed by a newline</haxe_doc>
+		</println>
+		<stdin public="1" set="method" line="37" static="1">
+			<f a=""><c path="haxe.io.Input"/></f>
+			<haxe_doc>Returns the process standard input, from which you can read what user enters. Usually it will block until the user send a full input line. See [getChar] for an alternative.</haxe_doc>
+		</stdin>
+		<stdout public="1" set="method" line="41" static="1">
+			<f a=""><c path="haxe.io.Output"/></f>
+			<haxe_doc>Returns the process standard output on which you can write.</haxe_doc>
+		</stdout>
+		<stderr public="1" set="method" line="45" static="1">
+			<f a=""><c path="haxe.io.Output"/></f>
+			<haxe_doc>Returns the process standard error on which you can write.</haxe_doc>
+		</stderr>
+		<getChar public="1" set="method" line="49" static="1">
+			<f a="echo">
+				<e path="Bool"/>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>Read a single input character from the standard input (without blocking) and returns it. Setting [echo] to true will also display it on the output.</haxe_doc>
+		</getChar>
+		<args public="1" set="method" line="53" static="1">
+			<f a=""><c path="Array"><c path="String"/></c></f>
+			<haxe_doc>Returns all the arguments that were passed by the commandline.</haxe_doc>
+		</args>
+		<getEnv public="1" set="method" line="57" static="1">
+			<f a="s">
+				<c path="String"/>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns the value of the given environment variable.</haxe_doc>
+		</getEnv>
+		<putEnv public="1" set="method" line="64" static="1">
+			<f a="s:v">
+				<c path="String"/>
+				<c path="String"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Set the value of the given environment variable.</haxe_doc>
+		</putEnv>
+		<sleep public="1" set="method" line="68" static="1">
+			<f a="seconds">
+				<c path="Float"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Suspend the current execution for the given time (in seconds).</haxe_doc>
+		</sleep>
+		<setTimeLocale public="1" set="method" line="72" static="1">
+			<f a="loc">
+				<c path="String"/>
+				<e path="Bool"/>
+			</f>
+			<haxe_doc>Change the current time locale, which will affect [DateTools.format] date formating.
+		Returns true if the locale was successfully changed</haxe_doc>
+		</setTimeLocale>
+		<getCwd public="1" set="method" line="76" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Get the current working directory (usually the one in which the program was started)</haxe_doc>
+		</getCwd>
+		<setCwd public="1" set="method" line="80" static="1">
+			<f a="s">
+				<c path="String"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Change the current working directory.</haxe_doc>
+		</setCwd>
+		<systemName public="1" set="method" line="84" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the name of the system you are running on. For instance :
+			"Windows", "Linux", "BSD" and "Mac" depending on your desktop OS.</haxe_doc>
+		</systemName>
+		<escapeArgument set="method" line="88" static="1"><f a="arg">
+	<c path="String"/>
+	<c path="String"/>
+</f></escapeArgument>
+		<command public="1" set="method" line="102" static="1">
+			<f a="cmd:?args">
+				<c path="String"/>
+				<c path="Array"><c path="String"/></c>
+				<c path="Int"/>
+			</f>
+			<haxe_doc>Run the given command with the list of arguments. The command output will be printed on the same output as the current process.
+		The current process will block until the command terminates and it will return the command result (0 if there was no error).
+		Read the [sys.io.Process] api for a more complete way to start background processes.</haxe_doc>
+		</command>
+		<exit public="1" set="method" line="111" static="1">
+			<f a="code">
+				<c path="Int"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Exit the current process with the given error code.</haxe_doc>
+		</exit>
+		<time public="1" set="method" line="115" static="1">
+			<f a=""><c path="Float"/></f>
+			<haxe_doc>Gives the most precise timestamp value (in seconds).</haxe_doc>
+		</time>
+		<cpuTime public="1" set="method" line="119" static="1">
+			<f a=""><c path="Float"/></f>
+			<haxe_doc>Gives the most precise timestamp value (in seconds) but only account for the actual time spent running on the CPU for the current thread/process.</haxe_doc>
+		</cpuTime>
+		<executablePath public="1" set="method" line="123" static="1">
+			<f a=""><c path="String"/></f>
+			<haxe_doc>Returns the path to the current executable that we are running.</haxe_doc>
+		</executablePath>
+		<environment public="1" set="method" line="127" static="1">
+			<f a=""><c path="Hash"><c path="String"/></c></f>
+			<haxe_doc>Returns the whole environement variables.</haxe_doc>
+		</environment>
+		<get_env line="138" static="1"><f a="">
+	<c path="String"/>
+	<c path="String"/>
+</f></get_env>
+		<put_env line="139" static="1"><f a=":">
+	<c path="String"/>
+	<c path="String"/>
+	<unknown/>
+</f></put_env>
+		<_sleep line="140" static="1"><f a="">
+	<c path="Float"/>
+	<unknown/>
+</f></_sleep>
+		<set_time_locale line="141" static="1"><f a="">
+	<c path="String"/>
+	<e path="Bool"/>
+</f></set_time_locale>
+		<get_cwd line="142" static="1"><f a=""><c path="String"/></f></get_cwd>
+		<set_cwd line="143" static="1"><f a="">
+	<c path="String"/>
+	<unknown/>
+</f></set_cwd>
+		<sys_string line="144" static="1"><f a=""><c path="String"/></f></sys_string>
+		<sys_command line="145" static="1"><f a="">
+	<c path="String"/>
+	<c path="Int"/>
+</f></sys_command>
+		<sys_exit line="146" static="1"><f a="">
+	<c path="Int"/>
+	<unknown/>
+</f></sys_exit>
+		<sys_time line="147" static="1"><f a=""><c path="Float"/></f></sys_time>
+		<sys_cpu_time line="148" static="1"><f a=""><c path="Float"/></f></sys_cpu_time>
+		<sys_exe_path line="149" static="1"><f a=""><c path="String"/></f></sys_exe_path>
+		<sys_env line="150" static="1"><f a=""><c path="Array"><c path="String"/></c></f></sys_env>
+		<file_stdin line="152" static="1"><f a=""><unknown/></f></file_stdin>
+		<file_stdout line="153" static="1"><f a=""><unknown/></f></file_stdout>
+		<file_stderr line="154" static="1"><f a=""><unknown/></f></file_stderr>
+		<getch line="156" static="1"><f a="">
+	<e path="Bool"/>
+	<c path="Int"/>
+</f></getch>
+		<haxe_doc>This class gives you access to many base functionalities of system platforms. Looks in [sys] sub packages for more system APIs.</haxe_doc>
+		<meta><m n=":core_api"/></meta>
+	</class>
+	<class path="Viewport" params="" file="classes/Viewport.hx"><new public="1" set="method" line="3"><f a=""><e path="Void"/></f></new></class>
+	<class path="WinDLLHost" params="" file="classes/WinDLLHost.hx">
+		<main public="1" set="method" line="5" static="1">
+			<f a=""><e path="Void"/></f>
+			<haxe_doc>Pi engine testing application.</haxe_doc>
+		</main>
+		<meta><m n=":no_completion"/></meta>
+	</class>
+	<class path="Window" params="" file="classes/Window.hx">
+		<setFullscreen set="method" line="43"><f a="fullscreen">
+	<e path="Bool"/>
+	<e path="Void"/>
+</f></setFullscreen>
+		<setMode set="method" line="38"><f a="mode">
+	<e path="Bool"/>
+	<e path="Void"/>
+</f></setMode>
+		<setModality set="method" line="34"><f a="modal">
+	<e path="Bool"/>
+	<e path="Void"/>
+</f></setModality>
+		<layers public="1"><c path="Array"><c path="Layer"/></c></layers>
+		<viewports public="1"><c path="Array"><c path="Viewport"/></c></viewports>
+		<fullscreen public="1"><e path="Bool"/></fullscreen>
+		<mode public="1"><c path="Int"/></mode>
+		<modal public="1">
+			<e path="Bool"/>
+			<haxe_doc>Provides rendering windows. 
+        Each window contains layers.
+        More than one windows may be used on platforms that support them.</haxe_doc>
+		</modal>
+		<new public="1" set="method" line="18"><f a=""><e path="Void"/></f></new>
+	</class>
+	<class path="haxe.Int32" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/cpp/_std/haxe/Int32.hx" extern="1">
+		<make public="1" set="method" static="1"><f a="a:b">
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="haxe.Int32"/>
+</f></make>
+		<ofInt public="1" set="method" static="1"><f a="x">
+	<c path="Int"/>
+	<c path="haxe.Int32"/>
+</f></ofInt>
+		<toInt public="1" set="method" static="1"><f a="x">
+	<c path="haxe.Int32"/>
+	<c path="Int"/>
+</f></toInt>
+		<add public="1" set="method" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></add>
+		<sub public="1" set="method" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></sub>
+		<mul public="1" set="method" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></mul>
+		<div public="1" set="method" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></div>
+		<mod public="1" set="method" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></mod>
+		<shl public="1" set="method" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="Int"/>
+	<c path="haxe.Int32"/>
+</f></shl>
+		<shr public="1" set="method" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="Int"/>
+	<c path="haxe.Int32"/>
+</f></shr>
+		<ushr public="1" set="method" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="Int"/>
+	<c path="haxe.Int32"/>
+</f></ushr>
+		<and public="1" set="method" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></and>
+		<or public="1" set="method" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></or>
+		<xor public="1" set="method" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></xor>
+		<neg public="1" set="method" static="1"><f a="a">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></neg>
+		<complement public="1" set="method" static="1"><f a="a">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+</f></complement>
+		<compare public="1" set="method" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="Int"/>
+</f></compare>
+		<isNeg public="1" set="method" static="1"><f a="a">
+	<c path="haxe.Int32"/>
+	<e path="Bool"/>
+</f></isNeg>
+		<isZero public="1" set="method" static="1"><f a="a">
+	<c path="haxe.Int32"/>
+	<e path="Bool"/>
+</f></isZero>
+		<ucompare public="1" set="method" static="1"><f a="a:b">
+	<c path="haxe.Int32"/>
+	<c path="haxe.Int32"/>
+	<c path="Int"/>
+</f></ucompare>
+		<toNativeInt public="1" set="method" static="1"><f a="a">
+	<c path="haxe.Int32"/>
+	<c path="Int"/>
+</f></toNativeInt>
+		<meta><m n=":native"><e>cpp.CppInt32__</e></m></meta>
+	</class>
+	<class path="haxe.Log" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/haxe/Log.hx">
+		<trace public="1" set="dynamic" line="29" static="1"><f a="v:?infos">
+	<d/>
+	<t path="haxe.PosInfos"/>
+	<e path="Void"/>
+</f></trace>
+		<clear public="1" set="dynamic" line="54" static="1"><f a=""><e path="Void"/></f></clear>
+	</class>
+	<typedef path="haxe.PosInfos" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/haxe/PosInfos.hx"><a>
+	<methodName><c path="String"/></methodName>
+	<lineNumber><c path="Int"/></lineNumber>
+	<fileName><c path="String"/></fileName>
+	<customParams>
+		<c path="Array"><d/></c>
+		<meta><m n=":optional"/></meta>
+	</customParams>
+	<className><c path="String"/></className>
+</a></typedef>
+	<enum path="haxe.StackItem" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/haxe/Stack.hx" module="haxe.Stack">
+		<Module a="m"><c path="String"/></Module>
+		<Method a="classname:method">
+			<c path="String"/>
+			<c path="String"/>
+		</Method>
+		<Lambda a="v"><c path="Int"/></Lambda>
+		<FilePos a="s:file:line">
+			<t path="Null"><e path="haxe.StackItem"/></t>
+			<c path="String"/>
+			<c path="Int"/>
+		</FilePos>
+		<CFunction/>
+		<haxe_doc>Elements return by [Stack] methods.</haxe_doc>
+	</enum>
+	<class path="haxe.Stack" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/haxe/Stack.hx">
+		<callStack public="1" set="method" line="46" static="1">
+			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+			<haxe_doc>Return the call stack elements, or an empty array if not available.</haxe_doc>
+		</callStack>
+		<exceptionStack public="1" set="method" line="97" static="1">
+			<f a=""><c path="Array"><e path="haxe.StackItem"/></c></f>
+			<meta><m n=":noStack"/></meta>
+			<haxe_doc>Return the exception stack : this is the stack elements between
+		the place the last exception was thrown and the place it was
+		caught, or an empty array if not available.</haxe_doc>
+		</exceptionStack>
+		<toString public="1" set="method" line="131" static="1">
+			<f a="stack">
+				<c path="Array"><e path="haxe.StackItem"/></c>
+				<c path="String"/>
+			</f>
+			<haxe_doc>Returns a representation of the stack as a printable string.</haxe_doc>
+		</toString>
+		<itemToString set="method" line="140" static="1"><f a="b:s">
+	<c path="StringBuf"/>
+	<e path="haxe.StackItem"/>
+	<e path="Void"/>
+</f></itemToString>
+		<makeStack set="method" line="167" static="1">
+			<f a="s">
+				<c path="Array"><c path="String"/></c>
+				<c path="Array"><e path="haxe.StackItem"/></c>
+			</f>
+			<meta><m n=":noStack"/></meta>
+		</makeStack>
+		<haxe_doc>Get informations about the call stack.</haxe_doc>
+	</class>
+	<class path="haxe.io.Bytes" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/haxe/io/Bytes.hx">
+		<alloc public="1" set="method" line="259" static="1"><f a="length">
+	<c path="Int"/>
+	<c path="haxe.io.Bytes"/>
+</f></alloc>
+		<ofString public="1" set="method" line="291" static="1"><f a="s">
+	<c path="String"/>
+	<c path="haxe.io.Bytes"/>
+</f></ofString>
+		<ofData public="1" set="method" line="340" static="1"><f a="b">
+	<t path="haxe.io.BytesData"/>
+	<c path="haxe.io.Bytes"/>
+</f></ofData>
+		<getData public="1" get="inline" set="null" line="255"><f a=""><t path="haxe.io.BytesData"/></f></getData>
+		<toHex public="1" set="method" line="241"><f a=""><c path="String"/></f></toHex>
+		<toString public="1" set="method" line="218"><f a=""><c path="String"/></f></toString>
+		<readString public="1" set="method" line="168"><f a="pos:len">
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="String"/>
+</f></readString>
+		<compare public="1" set="method" line="130"><f a="other">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+</f></compare>
+		<sub public="1" set="method" line="103"><f a="pos:len">
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="haxe.io.Bytes"/>
+</f></sub>
+		<blit public="1" set="method" line="71"><f a="pos:src:srcpos:len">
+	<c path="Int"/>
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></blit>
+		<set public="1" get="inline" set="null" line="53"><f a="pos:v">
+	<c path="Int"/>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></set>
+		<get public="1" get="inline" set="null" line="37"><f a="pos">
+	<c path="Int"/>
+	<c path="Int"/>
+</f></get>
+		<b><t path="haxe.io.BytesData"/></b>
+		<length public="1" set="null"><c path="Int"/></length>
+		<new set="method" line="32"><f a="length:b">
+	<c path="Int"/>
+	<t path="haxe.io.BytesData"/>
+	<e path="Void"/>
+</f></new>
+	</class>
+	<class path="haxe.io.BytesBuffer" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/haxe/io/BytesBuffer.hx">
+		<getBytes public="1" set="method" line="126">
+			<f a=""><c path="haxe.io.Bytes"/></f>
+			<haxe_doc>Returns either a copy or a reference of the current bytes.
+		Once called, the buffer can no longer be used.</haxe_doc>
+		</getBytes>
+		<addBytes public="1" get="inline" set="null" line="100"><f a="src:pos:len">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></addBytes>
+		<add public="1" get="inline" set="null" line="81"><f a="src">
+	<c path="haxe.io.Bytes"/>
+	<e path="Void"/>
+</f></add>
+		<addByte public="1" get="inline" set="null" line="63"><f a="byte">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></addByte>
+		<b><t path="haxe.io.BytesData"/></b>
+		<new public="1" set="method" line="45"><f a=""><e path="Void"/></f></new>
+	</class>
+	<class path="haxe.io.Unsigned_char__" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/haxe/io/BytesData.hx" module="haxe.io.BytesData" extern="1"/>
+	<typedef path="haxe.io.BytesData" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/haxe/io/BytesData.hx"><c path="Array"><c path="haxe.io.Unsigned_char__"/></c></typedef>
+	<class path="haxe.io.Eof" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/haxe/io/Eof.hx">
+		<toString set="method" line="33"><f a=""><c path="String"/></f></toString>
+		<new public="1" set="method" line="31"><f a=""><e path="Void"/></f></new>
+		<haxe_doc>This exception is raised when reading while data is no longer available in the [Input].</haxe_doc>
+	</class>
+	<enum path="haxe.io.Error" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/haxe/io/Error.hx">
+		<Overflow><haxe_doc>An integer value is outside its allowed range</haxe_doc></Overflow>
+		<OutsideBounds><haxe_doc>An operation on Bytes is outside of its valid range</haxe_doc></OutsideBounds>
+		<Custom a="e">
+			<d/>
+			<haxe_doc>Other errors</haxe_doc>
+		</Custom>
+		<Blocked><haxe_doc>The IO is set into nonblocking mode and some data cannot be read or written</haxe_doc></Blocked>
+		<haxe_doc>The possible IO errors that can occur</haxe_doc>
+	</enum>
+	<class path="haxe.io.Input" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/haxe/io/Input.hx">
+		<_float_of_bytes line="425" static="1"><f a=":">
+	<t path="haxe.io.BytesData"/>
+	<e path="Bool"/>
+	<c path="Float"/>
+</f></_float_of_bytes>
+		<_double_of_bytes line="426" static="1"><f a=":">
+	<t path="haxe.io.BytesData"/>
+	<e path="Bool"/>
+	<c path="Float"/>
+</f></_double_of_bytes>
+		<readString public="1" set="method" line="408"><f a="len">
+	<c path="Int"/>
+	<c path="String"/>
+</f></readString>
+		<readInt32 public="1" set="method" line="393"><f a=""><c path="haxe.Int32"/></f></readInt32>
+		<readUInt30 public="1" set="method" line="384"><f a=""><c path="Int"/></f></readUInt30>
+		<readInt31 public="1" set="method" line="367"><f a=""><c path="Int"/></f></readInt31>
+		<readUInt24 public="1" set="method" line="360"><f a=""><c path="Int"/></f></readUInt24>
+		<readInt24 public="1" set="method" line="350"><f a=""><c path="Int"/></f></readInt24>
+		<readUInt16 public="1" set="method" line="344"><f a=""><c path="Int"/></f></readUInt16>
+		<readInt16 public="1" set="method" line="335"><f a=""><c path="Int"/></f></readInt16>
+		<readInt8 public="1" set="method" line="328"><f a=""><c path="Int"/></f></readInt8>
+		<readDouble public="1" set="method" line="255"><f a=""><c path="Float"/></f></readDouble>
+		<readFloat public="1" set="method" line="201"><f a=""><c path="Float"/></f></readFloat>
+		<readLine public="1" set="method" line="184"><f a=""><c path="String"/></f></readLine>
+		<readUntil public="1" set="method" line="176"><f a="end">
+	<c path="Int"/>
+	<c path="String"/>
+</f></readUntil>
+		<read public="1" set="method" line="164"><f a="nbytes">
+	<c path="Int"/>
+	<c path="haxe.io.Bytes"/>
+</f></read>
+		<readFullBytes public="1" set="method" line="156"><f a="s:pos:len">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></readFullBytes>
+		<readAll public="1" set="method" line="80"><f a="?bufsize">
+	<c path="Int"/>
+	<c path="haxe.io.Bytes"/>
+</f></readAll>
+		<setEndian set="method" line="73"><f a="b">
+	<e path="Bool"/>
+	<e path="Bool"/>
+</f></setEndian>
+		<close public="1" set="method" line="70"><f a=""><e path="Void"/></f></close>
+		<readBytes public="1" set="method" line="49"><f a="s:pos:len">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="Int"/>
+</f></readBytes>
+		<readByte public="1" set="method" line="40"><f a=""><c path="Int"/></f></readByte>
+		<bigEndian public="1" set="setEndian"><e path="Bool"/></bigEndian>
+		<haxe_doc>An Input is an abstract reader. See other classes in the [haxe.io] package
+	for several possible implementations.</haxe_doc>
+	</class>
+	<class path="haxe.io.Output" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/haxe/io/Output.hx">
+		<LN2 line="34" static="1"><c path="Float"/></LN2>
+		<_float_bytes line="364" static="1"><f a=":">
+	<c path="Float"/>
+	<e path="Bool"/>
+	<t path="haxe.io.BytesData"/>
+</f></_float_bytes>
+		<_double_bytes line="365" static="1"><f a=":">
+	<c path="Float"/>
+	<e path="Bool"/>
+	<t path="haxe.io.BytesData"/>
+</f></_double_bytes>
+		<writeString public="1" set="method" line="348"><f a="s">
+	<c path="String"/>
+	<e path="Void"/>
+</f></writeString>
+		<writeInput public="1" set="method" line="326"><f a="i:?bufsize">
+	<c path="haxe.io.Input"/>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeInput>
+		<prepare public="1" set="method" line="323">
+			<f a="nbytes">
+				<c path="Int"/>
+				<e path="Void"/>
+			</f>
+			<haxe_doc>Inform that we are about to write at least a specified number of bytes.
+		The underlying implementation can allocate proper working space depending
+		on this information, or simply ignore it. This is not a mandatory call
+		but a tip and is only used in some specific cases.</haxe_doc>
+		</prepare>
+		<writeInt32 public="1" set="method" line="303"><f a="x">
+	<c path="haxe.Int32"/>
+	<e path="Void"/>
+</f></writeInt32>
+		<writeUInt30 public="1" set="method" line="288"><f a="x">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeUInt30>
+		<writeInt31 public="1" set="method" line="271"><f a="x">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeInt31>
+		<writeUInt24 public="1" set="method" line="258"><f a="x">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeUInt24>
+		<writeInt24 public="1" set="method" line="253"><f a="x">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeInt24>
+		<writeUInt16 public="1" set="method" line="242"><f a="x">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeUInt16>
+		<writeInt16 public="1" set="method" line="237"><f a="x">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeInt16>
+		<writeInt8 public="1" set="method" line="231"><f a="x">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeInt8>
+		<writeDouble public="1" set="method" line="154"><f a="x">
+	<c path="Float"/>
+	<e path="Void"/>
+</f></writeDouble>
+		<writeFloat public="1" set="method" line="100"><f a="x">
+	<c path="Float"/>
+	<e path="Void"/>
+</f></writeFloat>
+		<writeFullBytes public="1" set="method" line="92"><f a="s:pos:len">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeFullBytes>
+		<write public="1" set="method" line="81"><f a="s">
+	<c path="haxe.io.Bytes"/>
+	<e path="Void"/>
+</f></write>
+		<setEndian set="method" line="74"><f a="b">
+	<e path="Bool"/>
+	<e path="Bool"/>
+</f></setEndian>
+		<close public="1" set="method" line="71"><f a=""><e path="Void"/></f></close>
+		<flush public="1" set="method" line="68"><f a=""><e path="Void"/></f></flush>
+		<writeBytes public="1" set="method" line="45"><f a="s:pos:len">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="Int"/>
+</f></writeBytes>
+		<writeByte public="1" set="method" line="41"><f a="c">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeByte>
+		<bigEndian public="1" set="setEndian"><e path="Bool"/></bigEndian>
+		<haxe_doc>An Output is an abstract write. A specific output implementation will only
+	have to override the [writeChar] and maybe the [write], [flush] and [close]
+	methods. See [File.write] and [String.write] for two ways of creating an
+	Output.</haxe_doc>
+	</class>
+	<class path="sys.io.FileInput" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/cpp/_std/sys/io/FileInput.hx">
+		<extends path="haxe.io.Input"/>
+		<file_eof line="77" static="1"><f a="">
+	<d/>
+	<e path="Bool"/>
+</f></file_eof>
+		<file_read line="79" static="1"><f a=":::">
+	<d/>
+	<t path="haxe.io.BytesData"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="Int"/>
+</f></file_read>
+		<file_read_char line="80" static="1"><f a="">
+	<d/>
+	<c path="Int"/>
+</f></file_read_char>
+		<file_close line="82" static="1"><f a="">
+	<d/>
+	<unknown/>
+</f></file_close>
+		<file_seek line="83" static="1"><f a="::">
+	<d/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<unknown/>
+</f></file_seek>
+		<file_tell line="84" static="1"><f a="">
+	<d/>
+	<c path="Int"/>
+</f></file_tell>
+		<eof public="1" set="method" line="73"><f a=""><e path="Bool"/></f></eof>
+		<tell public="1" set="method" line="68"><f a=""><c path="Int"/></f></tell>
+		<seek public="1" set="method" line="64"><f a="p:pos">
+	<c path="Int"/>
+	<e path="sys.io.FileSeek"/>
+	<e path="Void"/>
+</f></seek>
+		<close public="1" set="method" line="59" override="1"><f a=""><e path="Void"/></f></close>
+		<readBytes public="1" set="method" line="48" override="1"><f a="s:p:l">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="Int"/>
+</f></readBytes>
+		<readByte public="1" set="method" line="37" override="1"><f a=""><c path="Int"/></f></readByte>
+		<__f><d/></__f>
+		<new set="method" line="33"><f a="f">
+	<d/>
+	<e path="Void"/>
+</f></new>
+		<haxe_doc>Use [sys.io.File.read] to create a [FileInput]</haxe_doc>
+		<meta><m n=":core_api"/></meta>
+	</class>
+	<class path="sys.io.FileOutput" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/cpp/_std/sys/io/FileOutput.hx">
+		<extends path="haxe.io.Output"/>
+		<file_close line="62" static="1"><f a="">
+	<d/>
+	<unknown/>
+</f></file_close>
+		<file_seek line="63" static="1"><f a="::">
+	<d/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<unknown/>
+</f></file_seek>
+		<file_tell line="64" static="1"><f a="">
+	<d/>
+	<c path="Int"/>
+</f></file_tell>
+		<file_flush line="66" static="1"><f a="">
+	<d/>
+	<unknown/>
+</f></file_flush>
+		<file_write line="67" static="1"><f a=":::">
+	<d/>
+	<t path="haxe.io.BytesData"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="Int"/>
+</f></file_write>
+		<file_write_char line="68" static="1"><f a=":">
+	<d/>
+	<c path="Int"/>
+	<unknown/>
+</f></file_write_char>
+		<tell public="1" set="method" line="58"><f a=""><c path="Int"/></f></tell>
+		<seek public="1" set="method" line="54"><f a="p:pos">
+	<c path="Int"/>
+	<e path="sys.io.FileSeek"/>
+	<e path="Void"/>
+</f></seek>
+		<close public="1" set="method" line="49" override="1"><f a=""><e path="Void"/></f></close>
+		<flush public="1" set="method" line="45" override="1"><f a=""><e path="Void"/></f></flush>
+		<writeBytes public="1" set="method" line="41" override="1"><f a="s:p:l">
+	<c path="haxe.io.Bytes"/>
+	<c path="Int"/>
+	<c path="Int"/>
+	<c path="Int"/>
+</f></writeBytes>
+		<writeByte public="1" set="method" line="37" override="1"><f a="c">
+	<c path="Int"/>
+	<e path="Void"/>
+</f></writeByte>
+		<__f><d/></__f>
+		<new set="method" line="33"><f a="f">
+	<d/>
+	<e path="Void"/>
+</f></new>
+		<haxe_doc>Use [sys.io.File.write] to create a [FileOutput]</haxe_doc>
+		<meta><m n=":core_api"/></meta>
+	</class>
+	<enum path="sys.io.FileSeek" params="" file="P:\CPP\piGameCreator\baseide\release\haxe\std/sys/io/FileSeek.hx">
+		<SeekEnd/>
+		<SeekCur/>
+		<SeekBegin/>
+	</enum>
+</haxe>

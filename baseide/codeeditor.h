@@ -10,6 +10,7 @@ class CodeEditor : public QAbstractScrollArea
 {
     friend struct gswWrapper;
         Q_OBJECT
+        Q_PROPERTY(bool initCompleted READ fInitCompleted)
 
     public:
         CodeEditor(QWidget *parent = 0);
@@ -27,8 +28,10 @@ class CodeEditor : public QAbstractScrollArea
         void redo();
         void clearUndoStates();
         void selectAll();
+        void setFocusOnAce();
         void callJS(QString function, QString argument);
-        void callJS(QString function, QStringList arguments);
+        void callJS(QString function, QStringList arguments = QStringList());
+        QVariant evalJS(QString source);
 
         //set and get the text
         void setText(QString s);
@@ -38,6 +41,10 @@ class CodeEditor : public QAbstractScrollArea
         //other
         void setBackgroundColor(QColor c);
 
+    signals:
+        void textModified();
+        void completerRequested(int,QString);
+        void jsLoaded();
 
     private slots:
         void loadCompleted(bool b);
@@ -46,6 +53,8 @@ class CodeEditor : public QAbstractScrollArea
         QWebView webview;
         QString textToSet;
         bool isLoaded;
+        bool initCompleted;
+        bool fInitCompleted();
         QStringList callStack;
 };
 

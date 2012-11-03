@@ -1,0 +1,5 @@
+# Haxe target file for Engine_CPP target
+
+-cp classes
+-main EngineTestApp
+-cpp Engine_CPP

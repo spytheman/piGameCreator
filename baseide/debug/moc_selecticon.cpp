@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'selecticon.h'
 **
-** Created: Sat 13. Oct 22:30:31 2012
+** Created: Fri 2. Nov 07:46:55 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!

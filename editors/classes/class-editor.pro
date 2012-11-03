@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui xml opengl xmlpatterns webkit
+QT       += core gui xml opengl xmlpatterns webkit network
 
 QMAKE_CXXFLAGS  += -msse2 -msse
 
@@ -45,7 +45,8 @@ SOURCES +=  classedit.cpp \
     ../../sharedcode/idesettings.cpp \
     ../../sharedcode/pgshighlighter.cpp \
     ../../sharedcode/resourcetree.cpp \
-    ../../sharedcode/progressdialog.cpp
+    ../../sharedcode/progressdialog.cpp \
+    ../../sharedcode/messageevent.cpp
 
 HEADERS += \
     variable.h \
@@ -75,7 +76,8 @@ HEADERS += \
     ../../sharedcode/idesettings.h \
     ../../sharedcode/pgshighlighter.h \
     ../../sharedcode/resourcetree.h \
-    ../../sharedcode/progressdialog.h
+    ../../sharedcode/progressdialog.h \
+    ../../sharedcode/messageevent.h
 
 FORMS    += eventclass.ui \
     codeclass.ui \

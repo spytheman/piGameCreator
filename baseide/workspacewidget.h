@@ -15,6 +15,7 @@ class WorkspaceWidget
     friend class MainWindow;
 public:
     WorkspaceWidget();
+    ~WorkspaceWidget();
     virtual bool isResourceEditor();    //false, do not overload
     virtual void afterOpen();
     void setTitle(QString);

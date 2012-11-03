@@ -1,5 +1,6 @@
 #include "../sharedcode/globals.h"
 #include "scripttestwindow.h"
+#include "dllforexport.h"
 #include "ui_scripttestwindow.h"
 #include "settingswindow.h"
 #include <QFile>
@@ -105,7 +106,6 @@ void scripttestwindow::on_actionParse_triggered()
     }
     //Call RUN on the exporter, but with WHICH project???
     gcerror("well... to delete!");
-    i->run("Invalid project?");
 }
 
 #undef OUTIT

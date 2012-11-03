@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'codeclass.ui'
 **
-** Created: Thu 11. Oct 18:33:26 2012
+** Created: Fri 2. Nov 07:48:41 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -22,7 +22,6 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
-#include <QtGui/QListWidget>
 #include <QtGui/QMainWindow>
 #include <QtGui/QPushButton>
 #include <QtGui/QSpacerItem>
@@ -84,7 +83,6 @@ public:
     QCheckBox *cbRegexp;
     QSpacerItem *horizontalSpacer_4;
     QLabel *label_2;
-    QListWidget *listWidget;
     QDockWidget *classMembersDW;
     QWidget *dockWidgetContents;
     QVBoxLayout *verticalLayout_2;
@@ -363,14 +361,6 @@ public:
         verticalLayout->addWidget(searchBox);
 
         splitter->addWidget(widget);
-        listWidget = new QListWidget(splitter);
-        listWidget->setObjectName(QString::fromUtf8("listWidget"));
-        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Ignored);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(listWidget->sizePolicy().hasHeightForWidth());
-        listWidget->setSizePolicy(sizePolicy2);
-        splitter->addWidget(listWidget);
 
         verticalLayout_5->addWidget(splitter);
 
@@ -437,11 +427,11 @@ public:
 
         treeWidget = new QTreeWidget(dockWidgetContents);
         treeWidget->setObjectName(QString::fromUtf8("treeWidget"));
-        QSizePolicy sizePolicy3(QSizePolicy::Ignored, QSizePolicy::Expanding);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(treeWidget->sizePolicy().hasHeightForWidth());
-        treeWidget->setSizePolicy(sizePolicy3);
+        QSizePolicy sizePolicy2(QSizePolicy::Ignored, QSizePolicy::Expanding);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(treeWidget->sizePolicy().hasHeightForWidth());
+        treeWidget->setSizePolicy(sizePolicy2);
 
         verticalLayout_2->addWidget(treeWidget);
 

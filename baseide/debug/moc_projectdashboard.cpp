@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'projectdashboard.h'
 **
-** Created: Fri 19. Oct 01:33:34 2012
+** Created: Fri 2. Nov 07:46:58 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_ProjectDashboard[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      17,   14, // methods
+      24,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -50,6 +50,13 @@ static const uint qt_meta_data_ProjectDashboard[] = {
      429,   17,   17,   17, 0x08,
      456,   17,   17,   17, 0x08,
      482,   17,   17,   17, 0x08,
+     507,   17,   17,   17, 0x08,
+     530,   17,   17,   17, 0x08,
+     568,   17,   17,   17, 0x08,
+     611,   17,   17,   17, 0x08,
+     628,   17,   17,   17, 0x08,
+     661,   17,   17,   17, 0x08,
+     694,   17,   17,   17, 0x08,
 
        0        // eod
 };
@@ -70,6 +77,12 @@ static const char qt_meta_stringdata_ProjectDashboard[] = {
     "on_toolButton_11_clicked()\0"
     "on_toolButton_9_clicked()\0"
     "on_projectIcon_clicked()\0"
+    "on_addModule_clicked()\0"
+    "on_actionEdit_this_module_triggered()\0"
+    "on_actionRemove_as_Main_Module_triggered()\0"
+    "refreshModules()\0on_addModuleButtonBox_accepted()\0"
+    "on_addModuleButtonBox_rejected()\0"
+    "moduleButtonPressed()\0"
 };
 
 void ProjectDashboard::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -95,6 +108,13 @@ void ProjectDashboard::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         case 14: _t->on_toolButton_11_clicked(); break;
         case 15: _t->on_toolButton_9_clicked(); break;
         case 16: _t->on_projectIcon_clicked(); break;
+        case 17: _t->on_addModule_clicked(); break;
+        case 18: _t->on_actionEdit_this_module_triggered(); break;
+        case 19: _t->on_actionRemove_as_Main_Module_triggered(); break;
+        case 20: _t->refreshModules(); break;
+        case 21: _t->on_addModuleButtonBox_accepted(); break;
+        case 22: _t->on_addModuleButtonBox_rejected(); break;
+        case 23: _t->moduleButtonPressed(); break;
         default: ;
         }
     }
@@ -134,9 +154,9 @@ int ProjectDashboard::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 17)
+        if (_id < 24)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 17;
+        _id -= 24;
     }
     return _id;
 }

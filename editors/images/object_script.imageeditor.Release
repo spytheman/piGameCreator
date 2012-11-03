@@ -7,6 +7,7 @@ INPUT(
 ./release\glhelp.o
 ./release\resourceeditor.o
 ./release\workspacewidget.o
+./release\messageevent.o
 ./release\moc_imageeditor.o
 ./release\qrc_resources.o
 ./release\qrc_res_ide.o

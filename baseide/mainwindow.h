@@ -6,11 +6,14 @@
 #include <QModelIndex>
 #include <QComboBox>
 #include <QItemSelection>
+#include <QListWidgetItem>
 #include <QStandardItem>
 
 namespace Ui {
 class MainWindow;
 }
+
+class ResourceEditor;
 class OpenedProject;
 class WorkspaceWidget;
 class gcresource;
@@ -32,6 +35,8 @@ public:
     //void updateTreeSelection();
     Ui::MainWindow *ui;
     void UpdateTargetsCB(OpenedProject* p);
+    bool event(QEvent* e);
+    ResourceEditor* openResource(gcresource* res);
 
     //UPDATE project views sections
 
@@ -59,7 +64,7 @@ public slots:
     void on_actionGameScript_tester_triggered();
     void on_action_Targets_triggered();
     void on_action_Debug_triggered();
-    void on_actionBuild_triggered();
+    void on_action_Build_triggered();
     void projectTreeSelection(QItemSelection current, QItemSelection previous);
     void on_projectTree_expanded(const QModelIndex &index);
     void on_projectTree_collapsed(const QModelIndex &index);
@@ -72,9 +77,11 @@ public slots:
     void on_action_Save_triggered();
     void on_actionOpen_project_triggered();
     void on_actionCreate_project_triggered();
-
-private slots:
     void on_actionSkin_editor_triggered();
+    void on_toolButton_6_clicked();
+    void on_toolButton_7_clicked();
+    void on_toolButton_8_clicked();
+    void on_errorList_itemDoubleClicked(QListWidgetItem *item);
 
 private:
     QTimer OpenWidgetTimer;

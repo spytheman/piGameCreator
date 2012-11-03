@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Fri 19. Oct 02:47:36 2012
+** Created: Fri 2. Nov 07:46:39 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      30,   14, // methods
+      34,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -48,19 +48,23 @@ static const uint qt_meta_data_MainWindow[] = {
      427,   11,   11,   11, 0x0a,
      457,   11,   11,   11, 0x0a,
      485,   11,   11,   11, 0x0a,
-     529,  512,   11,   11, 0x0a,
-     581,  171,   11,   11, 0x0a,
-     618,  171,   11,   11, 0x0a,
-     656,   11,   11,   11, 0x0a,
-     680,   11,   11,   11, 0x0a,
-     706,  171,   11,   11, 0x0a,
-     755,  750,   11,   11, 0x0a,
-     790,   11,   11,   11, 0x0a,
-     820,   11,   11,   11, 0x0a,
-     844,   11,   11,   11, 0x0a,
-     871,   11,   11,   11, 0x0a,
-     905,   11,   11,   11, 0x0a,
-     941,   11,   11,   11, 0x08,
+     530,  513,   11,   11, 0x0a,
+     582,  171,   11,   11, 0x0a,
+     619,  171,   11,   11, 0x0a,
+     657,   11,   11,   11, 0x0a,
+     681,   11,   11,   11, 0x0a,
+     707,  171,   11,   11, 0x0a,
+     756,  751,   11,   11, 0x0a,
+     791,   11,   11,   11, 0x0a,
+     821,   11,   11,   11, 0x0a,
+     845,   11,   11,   11, 0x0a,
+     872,   11,   11,   11, 0x0a,
+     906,   11,   11,   11, 0x0a,
+     942,   11,   11,   11, 0x0a,
+     975,   11,   11,   11, 0x0a,
+    1001,   11,   11,   11, 0x0a,
+    1027,   11,   11,   11, 0x0a,
+    1053,  751,   11,   11, 0x0a,
 
        0        // eod
 };
@@ -80,7 +84,8 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_actionGameScript_tester_triggered()\0"
     "on_action_Targets_triggered()\0"
     "on_action_Debug_triggered()\0"
-    "on_actionBuild_triggered()\0current,previous\0"
+    "on_action_Build_triggered()\0"
+    "current,previous\0"
     "projectTreeSelection(QItemSelection,QItemSelection)\0"
     "on_projectTree_expanded(QModelIndex)\0"
     "on_projectTree_collapsed(QModelIndex)\0"
@@ -94,6 +99,10 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_actionOpen_project_triggered()\0"
     "on_actionCreate_project_triggered()\0"
     "on_actionSkin_editor_triggered()\0"
+    "on_toolButton_6_clicked()\0"
+    "on_toolButton_7_clicked()\0"
+    "on_toolButton_8_clicked()\0"
+    "on_errorList_itemDoubleClicked(QListWidgetItem*)\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -118,7 +127,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 13: _t->on_actionGameScript_tester_triggered(); break;
         case 14: _t->on_action_Targets_triggered(); break;
         case 15: _t->on_action_Debug_triggered(); break;
-        case 16: _t->on_actionBuild_triggered(); break;
+        case 16: _t->on_action_Build_triggered(); break;
         case 17: _t->projectTreeSelection((*reinterpret_cast< QItemSelection(*)>(_a[1])),(*reinterpret_cast< QItemSelection(*)>(_a[2]))); break;
         case 18: _t->on_projectTree_expanded((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         case 19: _t->on_projectTree_collapsed((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
@@ -132,6 +141,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 27: _t->on_actionOpen_project_triggered(); break;
         case 28: _t->on_actionCreate_project_triggered(); break;
         case 29: _t->on_actionSkin_editor_triggered(); break;
+        case 30: _t->on_toolButton_6_clicked(); break;
+        case 31: _t->on_toolButton_7_clicked(); break;
+        case 32: _t->on_toolButton_8_clicked(); break;
+        case 33: _t->on_errorList_itemDoubleClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -169,9 +182,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 30)
+        if (_id < 34)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 30;
+        _id -= 34;
     }
     return _id;
 }

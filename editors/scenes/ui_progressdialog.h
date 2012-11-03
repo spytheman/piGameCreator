@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'progressdialog.ui'
 **
-** Created: Wed 17. Oct 03:33:51 2012
+** Created: Fri 2. Nov 07:48:03 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -30,12 +30,13 @@ public:
     QLabel *label;
     QProgressBar *progressBar;
     QPushButton *pushButton;
+    QLabel *labelHeader;
 
     void setupUi(QWidget *progressdialog)
     {
         if (progressdialog->objectName().isEmpty())
             progressdialog->setObjectName(QString::fromUtf8("progressdialog"));
-        progressdialog->resize(356, 101);
+        progressdialog->resize(402, 117);
         gridLayout = new QGridLayout(progressdialog);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         label = new QLabel(progressdialog);
@@ -47,7 +48,7 @@ public:
         label->setSizePolicy(sizePolicy);
         label->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
 
-        gridLayout->addWidget(label, 0, 0, 1, 2);
+        gridLayout->addWidget(label, 1, 0, 1, 2);
 
         progressBar = new QProgressBar(progressdialog);
         progressBar->setObjectName(QString::fromUtf8("progressBar"));
@@ -55,7 +56,7 @@ public:
         progressBar->setValue(-1);
         progressBar->setTextVisible(false);
 
-        gridLayout->addWidget(progressBar, 1, 0, 1, 2);
+        gridLayout->addWidget(progressBar, 2, 0, 1, 2);
 
         pushButton = new QPushButton(progressdialog);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
@@ -66,7 +67,17 @@ public:
         sizePolicy1.setHeightForWidth(pushButton->sizePolicy().hasHeightForWidth());
         pushButton->setSizePolicy(sizePolicy1);
 
-        gridLayout->addWidget(pushButton, 2, 1, 1, 1);
+        gridLayout->addWidget(pushButton, 3, 1, 1, 1);
+
+        labelHeader = new QLabel(progressdialog);
+        labelHeader->setObjectName(QString::fromUtf8("labelHeader"));
+        QFont font;
+        font.setPointSize(10);
+        font.setBold(true);
+        font.setWeight(75);
+        labelHeader->setFont(font);
+
+        gridLayout->addWidget(labelHeader, 0, 0, 1, 1);
 
 
         retranslateUi(progressdialog);
@@ -79,6 +90,7 @@ public:
         progressdialog->setWindowTitle(QApplication::translate("progressdialog", "Form", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("progressdialog", "Progress...", 0, QApplication::UnicodeUTF8));
         pushButton->setText(QApplication::translate("progressdialog", "Cancel", 0, QApplication::UnicodeUTF8));
+        labelHeader->setText(QApplication::translate("progressdialog", "Header...", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

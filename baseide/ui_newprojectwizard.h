@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'newprojectwizard.ui'
 **
-** Created: Sun 21. Oct 17:32:03 2012
+** Created: Fri 2. Nov 07:45:38 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

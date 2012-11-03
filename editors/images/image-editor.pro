@@ -23,7 +23,8 @@ SOURCES +=  imgedit.cpp \
             ../../sharedcode/globals.cpp \
             ../../sharedcode/glhelp.cpp \
             ../../baseide/resourceeditor.cpp \
-            ../../baseide/workspacewidget.cpp
+            ../../baseide/workspacewidget.cpp \
+    ../../sharedcode/messageevent.cpp
 
 HEADERS +=  imgedit.h \
             imageeditor.h \
@@ -31,7 +32,8 @@ HEADERS +=  imgedit.h \
             ../../sharedcode/resource.h \
             ../../sharedcode/glhelp.h \
             ../../baseide/resourceeditor.h \
-            ../../baseide/workspacewidget.h
+            ../../baseide/workspacewidget.h \
+    ../../sharedcode/messageevent.h
 
 
 FORMS    += imageeditor.ui

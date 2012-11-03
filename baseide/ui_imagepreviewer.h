@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'imagepreviewer.ui'
 **
-** Created: Mon 15. Oct 18:01:42 2012
+** Created: Fri 2. Nov 07:45:38 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

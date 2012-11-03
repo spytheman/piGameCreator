@@ -14,5 +14,5 @@
         <effects/>
     </resources>
     <targets/>
-    <modules></modules>
+    <modules>Main</modules>
 </project>

@@ -1,3 +1,14 @@
+#include "../sharedcode/messageevent.h"
+#include "../sharedcode/globals.h"
+#include "../sharedcode/qtwin.h"
+#include "../sharedcode/gameproject.h"
+#include "../sharedcode/resource.h"
+#include "../sharedcode/rsimage.h"
+#include "../sharedcode/rsmodel.h"
+#include "../sharedcode/rssound.h"
+#include "../sharedcode/rsclass.h"
+#include "../sharedcode/rsscene.h"
+#include "../editors/classes/codeclass.h"
 #include "projectdashboard.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -12,17 +23,9 @@
 #include "scripttestwindow.h"
 #include "settingswindow.h"
 #include "buildtargets.h"
+#include "dllforexport.h"
 #include "newresource.h"
 #include "skintestwindow.h"
-#include "../sharedcode/qtwin.h"
-#include "../sharedcode/gameproject.h"
-#include "../sharedcode/globals.h"
-#include "../sharedcode/resource.h"
-#include "../sharedcode/rsimage.h"
-#include "../sharedcode/rsmodel.h"
-#include "../sharedcode/rssound.h"
-#include "../sharedcode/rsclass.h"
-#include "../sharedcode/rsscene.h"
 #include <QMessageBox>
 #include <QPushButton>
 #include <QStandardItem>
@@ -164,8 +167,48 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::closeEvent(QCloseEvent *e)
 {
+    //Free all projects
+    qDeleteAll(creatorIDE->projects);
+    creatorIDE->hxStopServer();
+
+    //save state
     creatorIDE->settings->setValue("MainWindow/Geometry",saveGeometry());
     creatorIDE->settings->setValue("MainWindow/State",saveState());
+
+    creatorIDE->settings->sync();
+
+    qApp->exit(0);
+}
+
+bool MainWindow::event(QEvent* e)
+{
+    //will this bug the entire IDE?
+    if(e->type()==MessageEvent)
+    {
+        messageEvent* m = (messageEvent*)e;
+        if(m->name=="get_current_target_index")
+        {
+            gameproject* gp = (gameproject*) m->data.value<void*>();
+            foreach(OpenedProject* op, creatorIDE->projects)
+                if(op->project==gp)
+                {
+                    int idx = op->selectedTarget;
+                    codeClass* ed = (codeClass*) m->sender;
+                    qApp->sendEvent(ed, new messageEvent("current_target_index",idx));
+                }
+        }
+        else if(m->name=="hx_query")
+        {
+            creatorIDE->hxServerQuery(m->data.toStringList(), (QObject*)m->sender);
+        }
+        else if(m->name=="hx_del_recv")
+        {
+            gcprint("hx_del_recv requested for 0x" +QString::number( (int)m->data.value<void*>(), 16 ) );
+            creatorIDE->removeHxQueryReceiver( (QObject*) m->data.value<void*>());
+        }
+        return true;
+    }
+    else return QMainWindow::event(e);
 }
 
 void MainWindow::showEvent(QShowEvent *)
@@ -233,7 +276,7 @@ void MainWindow::UpdateTargetsCB(OpenedProject* p)
     else
     {
         targetsCB->setEnabled(false);
-        targetsCB->addItem(tr("No project opened"));
+        targetsCB->addItem(tr("No build targets"));
     }
     targetsCB->blockSignals(false);
 }
@@ -462,7 +505,7 @@ void MainWindow::updateProjectTrees()
         targetsCB->blockSignals(true);
         targetsCB->clear();
         targetsCB->setEnabled(false);
-        targetsCB->addItem("No project opened");
+        targetsCB->addItem("No build targets");
         targetsCB->blockSignals(false);
         return;
     }
@@ -597,9 +640,14 @@ void MainWindow::on_projectTree_doubleClicked(const QModelIndex &index)
 
     //else it is resource
     res = node->resource;
-    kind = res->kind();
-    type = res->type;
-    name = res->name;
+    openResource(res);
+}
+
+ResourceEditor* MainWindow::openResource(gcresource *res)
+{
+    QString kind = res->kind();
+    QString type = res->type;
+    QString name = res->name;
     //gcmessage(name + ": " + kind + " " + type);
 
     //Now check if this resource is already opened:
@@ -611,7 +659,7 @@ void MainWindow::on_projectTree_doubleClicked(const QModelIndex &index)
             if(e->resource == res)  //pointer comparison?
             {
                 ui->WorkSpaceTabWidget->setCurrentWidget(ww->widget);
-                return;
+                return e;
             }
         }
     }
@@ -650,7 +698,7 @@ void MainWindow::on_projectTree_doubleClicked(const QModelIndex &index)
         if(possibleEditors.count()==0)
         {
             gcerror("pi|engine CREATOR is unable to edit this type of resource!\n Maybe it is created by newer version of pi|engine CREATOR or some of the files are missing.\n\nTry reinstalling pi|engine");
-            return;
+            return false;
         }
     }
 
@@ -677,10 +725,12 @@ void MainWindow::on_projectTree_doubleClicked(const QModelIndex &index)
         editor->creatorIDE = creatorIDE;
         editor->resource = res;
         editor->project = res->project;
-        editor->init();
         openWorkspaceWidget(editor);
+        editor->init();
+        return editor;
     }
     else gcerror("Unable to initialize GUI for editor "+selectedEditor->binaryFile() );
+
 }
 
 void MainWindow::on_projectTree_clicked(const QModelIndex &index)
@@ -942,36 +992,69 @@ void MainWindow::on_action_Targets_triggered()
 void MainWindow::on_action_Run_triggered()
 {
     if(creatorIDE->currentProject==0)return;
+    on_action_Save_triggered();
+    ui->errorList->clear();
     OpenedProject* op = creatorIDE->currentProject;
+    if(op->project->buildTargets().count()==0){on_action_Targets_triggered();return;}
 
     //must not go out of bounds...
     buildtarget* bt = op->project->buildTargets().at(op->selectedTarget);
+    bool compiled;
     if(bt->exporter->isValid())
-        bt->exporter->run(op->project->filename());
+        compiled = bt->exporter->run(op->project->filename(), op->project->buildTargets().at(op->selectedTarget)->codename);
     else on_action_Targets_triggered();
+
+    if(!compiled)
+    {
+        gcprint("Compiling failed!");
+        ui->ErrorsDW->show();
+        ui->errorList->clear();
+        QList<compileerror> errors = bt->exporter->getCompileErrors();
+        foreach(compileerror e, errors)
+        {
+            QListWidgetItem* item = new QListWidgetItem;
+            item->setText(e.message);
+            item->setToolTip("<b>"+e.file+":"+QString::number(e.line)+"</b><br/>"+e.message);
+            ui->errorList->addItem(item);
+            item->setData(TIDATA,  qVariantFromValue(e) );
+            item->setIcon(ffficon("exclamation"));
+        }
+    }
+    else
+    {
+        ui->ErrorsDW->hide();
+    }
 }
 
 void MainWindow::on_action_Debug_triggered()
 {
     if(creatorIDE->currentProject==0)return;
+    on_action_Save_triggered();
+    ui->errorList->clear();
     OpenedProject* op = creatorIDE->currentProject;
+    if(op->project->buildTargets().count()==0){on_action_Targets_triggered();return;}
 
     //must not go out of bounds...
     buildtarget* bt = op->project->buildTargets().at(op->selectedTarget);
+    bool compiled;
     if(bt->exporter->isValid())
-        bt->exporter->debug(op->project->filename());
+        compiled = bt->exporter->debug(op->project->filename(),op->project->buildTargets().at(op->selectedTarget)->codename);
     else on_action_Targets_triggered();
+
 }
 
-void MainWindow::on_actionBuild_triggered()
+void MainWindow::on_action_Build_triggered()
 {
     if(creatorIDE->currentProject==0)return;
+    on_action_Save_triggered();
+    ui->errorList->clear();
     OpenedProject* op = creatorIDE->currentProject;
+    if(op->project->buildTargets().count()==0){on_action_Targets_triggered();return;}
 
     //must not go out of bounds...
     buildtarget* bt = op->project->buildTargets().at(op->selectedTarget);
     if(bt->exporter->isValid())
-        bt->exporter->build(op->project->filename(),false);
+        bt->exporter->build(op->project->filename(),op->project->buildTargets().at(op->selectedTarget)->codename,false);
     else on_action_Targets_triggered();
 }
 
@@ -1046,7 +1129,17 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_action_Save_triggered()
 {
-    //Just to test that
+    if(creatorIDE->currentProject==0)return;
+    //save ALL resources belonging to the current project
+    foreach(WorkspaceWidget* w, creatorIDE->openedWidgets)
+        if(w->isResourceEditor())
+        {
+            ResourceEditor* re = (ResourceEditor*) w;
+            if(re->project == creatorIDE->currentProject->project)
+            if(re->modified) re->save();
+        }
+
+    //Then save it
     creatorIDE->currentProject->project->save();
 }
 
@@ -1064,4 +1157,33 @@ void MainWindow::on_actionSkin_editor_triggered()
 {
     SkinTestWindow* w = new SkinTestWindow;
     w->show();
+}
+
+void MainWindow::on_toolButton_6_clicked()
+{
+    on_action_Run_triggered();
+}
+
+void MainWindow::on_toolButton_7_clicked()
+{
+    on_action_Debug_triggered();
+}
+
+void MainWindow::on_toolButton_8_clicked()
+{
+    on_action_Build_triggered();
+}
+
+void MainWindow::on_errorList_itemDoubleClicked(QListWidgetItem *item)
+{
+    compileerror e = item->data(TIDATA).value<compileerror>();
+    QString mod = QFileInfo(e.file).baseName();   //This will actually be the module name in Creator
+    gcresource* res = creatorIDE->currentProject->project->getResourceByName(mod);
+
+    //Open the resource where the error is occurred
+    ResourceEditor* re = creatorIDE->openResource(res);
+
+    if(re)  re->postMessage("show_error",qVariantFromValue(e));
+
+    //And select / add marker for the given error position. With the error itself.
 }

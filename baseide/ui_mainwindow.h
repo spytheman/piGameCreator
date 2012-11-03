@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Wed 17. Oct 23:27:45 2012
+** Created: Fri 2. Nov 07:45:38 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -16,6 +16,7 @@
 #include <QtGui/QButtonGroup>
 #include <QtGui/QComboBox>
 #include <QtGui/QDockWidget>
+#include <QtGui/QFrame>
 #include <QtGui/QGroupBox>
 #include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
@@ -182,6 +183,19 @@ public:
     QWidget *page_5;
     QToolBar *runToolbar;
     QToolBar *viewToolbar;
+    QDockWidget *ErrorsDW;
+    QWidget *dockWidgetContents;
+    QVBoxLayout *verticalLayout_10;
+    QListWidget *errorList;
+    QFrame *goToLineBox;
+    QHBoxLayout *horizontalLayout_5;
+    QToolButton *toolButton_6;
+    QToolButton *toolButton_7;
+    QToolButton *toolButton_8;
+    QSpacerItem *horizontalSpacer_5;
+    QToolButton *errorClear;
+    QWidget *AddRemove_4;
+    QVBoxLayout *verticalLayout_12;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -536,7 +550,7 @@ public:
         MainWindow->addToolBar(Qt::TopToolBarArea, projectToolbar);
         projectDockWidget = new QDockWidget(MainWindow);
         projectDockWidget->setObjectName(QString::fromUtf8("projectDockWidget"));
-        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Expanding);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(projectDockWidget->sizePolicy().hasHeightForWidth());
@@ -900,6 +914,88 @@ public:
         viewToolbar->setIconSize(QSize(16, 16));
         viewToolbar->setFloatable(true);
         MainWindow->addToolBar(Qt::LeftToolBarArea, viewToolbar);
+        ErrorsDW = new QDockWidget(MainWindow);
+        ErrorsDW->setObjectName(QString::fromUtf8("ErrorsDW"));
+        QSizePolicy sizePolicy5(QSizePolicy::Preferred, QSizePolicy::Fixed);
+        sizePolicy5.setHorizontalStretch(0);
+        sizePolicy5.setVerticalStretch(0);
+        sizePolicy5.setHeightForWidth(ErrorsDW->sizePolicy().hasHeightForWidth());
+        ErrorsDW->setSizePolicy(sizePolicy5);
+        dockWidgetContents = new QWidget();
+        dockWidgetContents->setObjectName(QString::fromUtf8("dockWidgetContents"));
+        verticalLayout_10 = new QVBoxLayout(dockWidgetContents);
+        verticalLayout_10->setSpacing(0);
+        verticalLayout_10->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
+        errorList = new QListWidget(dockWidgetContents);
+        errorList->setObjectName(QString::fromUtf8("errorList"));
+        sizePolicy2.setHeightForWidth(errorList->sizePolicy().hasHeightForWidth());
+        errorList->setSizePolicy(sizePolicy2);
+
+        verticalLayout_10->addWidget(errorList);
+
+        goToLineBox = new QFrame(dockWidgetContents);
+        goToLineBox->setObjectName(QString::fromUtf8("goToLineBox"));
+        goToLineBox->setFrameShape(QFrame::Panel);
+        goToLineBox->setFrameShadow(QFrame::Raised);
+        goToLineBox->setProperty("Toolbar", QVariant(true));
+        horizontalLayout_5 = new QHBoxLayout(goToLineBox);
+        horizontalLayout_5->setSpacing(0);
+        horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        horizontalLayout_5->setContentsMargins(3, 0, 3, 0);
+        toolButton_6 = new QToolButton(goToLineBox);
+        toolButton_6->setObjectName(QString::fromUtf8("toolButton_6"));
+        toolButton_6->setIcon(icon23);
+        toolButton_6->setToolButtonStyle(Qt::ToolButtonIconOnly);
+        toolButton_6->setAutoRaise(true);
+
+        horizontalLayout_5->addWidget(toolButton_6);
+
+        toolButton_7 = new QToolButton(goToLineBox);
+        toolButton_7->setObjectName(QString::fromUtf8("toolButton_7"));
+        toolButton_7->setIcon(icon24);
+        toolButton_7->setToolButtonStyle(Qt::ToolButtonIconOnly);
+        toolButton_7->setAutoRaise(true);
+
+        horizontalLayout_5->addWidget(toolButton_7);
+
+        toolButton_8 = new QToolButton(goToLineBox);
+        toolButton_8->setObjectName(QString::fromUtf8("toolButton_8"));
+        toolButton_8->setIcon(icon29);
+        toolButton_8->setToolButtonStyle(Qt::ToolButtonIconOnly);
+        toolButton_8->setAutoRaise(true);
+
+        horizontalLayout_5->addWidget(toolButton_8);
+
+        horizontalSpacer_5 = new QSpacerItem(403, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_5->addItem(horizontalSpacer_5);
+
+        errorClear = new QToolButton(goToLineBox);
+        errorClear->setObjectName(QString::fromUtf8("errorClear"));
+        errorClear->setIcon(icon46);
+        errorClear->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        errorClear->setAutoRaise(true);
+
+        horizontalLayout_5->addWidget(errorClear);
+
+
+        verticalLayout_10->addWidget(goToLineBox);
+
+        AddRemove_4 = new QWidget(dockWidgetContents);
+        AddRemove_4->setObjectName(QString::fromUtf8("AddRemove_4"));
+        sizePolicy3.setHeightForWidth(AddRemove_4->sizePolicy().hasHeightForWidth());
+        AddRemove_4->setSizePolicy(sizePolicy3);
+        verticalLayout_12 = new QVBoxLayout(AddRemove_4);
+        verticalLayout_12->setSpacing(0);
+        verticalLayout_12->setContentsMargins(0, 0, 0, 0);
+        verticalLayout_12->setObjectName(QString::fromUtf8("verticalLayout_12"));
+
+        verticalLayout_10->addWidget(AddRemove_4);
+
+        ErrorsDW->setWidget(dockWidgetContents);
+        MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(1), ErrorsDW);
 
         menuBar->addAction(menu_File->menuAction());
         menuBar->addAction(menuView->menuAction());
@@ -1013,6 +1109,7 @@ public:
         viewToolbar->addAction(actionGraphics_effects);
 
         retranslateUi(MainWindow);
+        QObject::connect(errorClear, SIGNAL(clicked()), errorList, SLOT(clear()));
 
         WorkSpaceTabWidget->setCurrentIndex(-1);
         stackedWidget->setCurrentIndex(0);
@@ -1144,6 +1241,11 @@ public:
         searchboxClear_3->setText(QString());
         runToolbar->setWindowTitle(QApplication::translate("MainWindow", "Debug and Run", 0, QApplication::UnicodeUTF8));
         viewToolbar->setWindowTitle(QApplication::translate("MainWindow", "Resources", 0, QApplication::UnicodeUTF8));
+        ErrorsDW->setWindowTitle(QApplication::translate("MainWindow", "Compilation issues", 0, QApplication::UnicodeUTF8));
+        toolButton_6->setText(QApplication::translate("MainWindow", "Clear", 0, QApplication::UnicodeUTF8));
+        toolButton_7->setText(QApplication::translate("MainWindow", "Clear", 0, QApplication::UnicodeUTF8));
+        toolButton_8->setText(QApplication::translate("MainWindow", "Clear", 0, QApplication::UnicodeUTF8));
+        errorClear->setText(QApplication::translate("MainWindow", "Clear", 0, QApplication::UnicodeUTF8));
         Q_UNUSED(MainWindow);
     } // retranslateUi
 

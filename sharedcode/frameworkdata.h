@@ -10,6 +10,7 @@ extern bool frameworkDataIsLoaded;
 class FrameworkData
 {
 public:    
+    static QString classPath();
     static bool loadFrameworkData();
     static QStringList classDefFiles;
     static vObject gameScriptData;
@@ -17,6 +18,7 @@ public:
     static QStringList getAllFrameworkClassNames();
     static vObject getFrameworkClass(QString name);
     static rsClass getFrameworkClassAsResource(QString name);
+    static gameproject* frameworkProject;
 };
 
 #endif // FRAMEWORKDATA_H

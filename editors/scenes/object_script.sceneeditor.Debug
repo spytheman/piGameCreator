@@ -19,6 +19,7 @@ INPUT(
 ./debug\resourcetree.o
 ./debug\idesettings.o
 ./debug\progressdialog.o
+./debug\messageevent.o
 ./debug\moc_sceneeditor.o
 ./debug\moc_qwidgetwithclosesignal.o
 ./debug\moc_progressdialog.o

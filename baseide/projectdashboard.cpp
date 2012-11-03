@@ -18,11 +18,17 @@ ProjectDashboard::ProjectDashboard(QWidget *parent) :
     setBackgroundRole(QPalette::Window);
     setProperty("dashboard", true);
     ui->setupUi(this);
+
+    ui->menuBar->hide();
+
     ui->DashboardSW->setCurrentIndex(0);
     setAttribute(Qt::WA_DeleteOnClose,true);
     timer.setSingleShot(true);
     timer.setInterval(1000);
+    refresher.setInterval(1);
+    refresher.setSingleShot(true);
     connect(&timer, SIGNAL(timeout()),this,SLOT(saveProjectAndUpdateExplorer()));
+    connect(&refresher, SIGNAL(timeout()), this, SLOT(refreshModules()));
 
     //hide unimplemented stuff:
     ui->pbCalendar->hide();
@@ -35,6 +41,8 @@ ProjectDashboard::ProjectDashboard(QWidget *parent) :
     a->setDefaultWidget(ui->wallpaperWidgetFrame);
     m->addAction(a);
     ui->wallpaperOptions->setMenu(m);
+
+
 }
 
 ProjectDashboard::~ProjectDashboard()
@@ -61,6 +69,7 @@ void ProjectDashboard::updateWallpaper()
 void ProjectDashboard::init()
 {
     updateWallpaper();
+    refreshModules();
 
     setTitle(project->project->title);
     // project's icon.png and wallpaper.jpg must be into the project's folder;
@@ -237,4 +246,111 @@ void ProjectDashboard::on_projectIcon_clicked()
         ui->prolectIconLabel->setPixmap(w.selectedIcon.pixmap(16,16));
         ui->prolectIconLabel->pixmap()->save(project->project->absoluteFolder()+"/icon.png");
     }
+}
+
+void ProjectDashboard::refreshModules()
+{
+    //update the widgets
+    QWidgetList l;
+    QWidget* w;
+    for( int i=0; i < ui->modulesLayout->count(); i++ )
+    {
+        QLayoutItem* li = ui->modulesLayout->itemAt(i);
+        if(!li->isEmpty())
+        {
+            w = li->widget();
+            if(w->property("module").toBool()==true)
+                l<<w;
+        }
+    }
+    qDeleteAll(l);
+
+    //Add:
+    for(int i= project->project->modules.count()-1; i>=0; i--)
+    {
+        QString s = project->project->modules.at(i);
+        QToolButton* tb = new QToolButton;
+        tb->setPopupMode(QToolButton::InstantPopup);
+        tb->setText(s);
+        tb->setProperty("module",true);
+        tb->setMenu(ui->menuModule);
+        tb->setIcon(ffficon("application_xp"));
+        tb->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+        tb->installEventFilter(this);
+        connect(tb, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(moduleButtonPressed()));
+        QBoxLayout* bl = ui->modulesLayout;
+        bl->insertWidget(0,tb);
+    }
+}
+
+bool ProjectDashboard::eventFilter(QObject *o, QEvent *e)
+{
+    if(e->type()==QEvent::MouseButtonPress)
+    {
+        QToolButton* tb = (QToolButton*)o;
+        moduleButtonClicked = tb->text();
+    }
+    return false;
+}
+
+void ProjectDashboard::moduleButtonPressed()
+{
+    QToolButton* t = (QToolButton*) sender();
+    gcmessage(t->text());
+}
+
+void ProjectDashboard::on_addModule_clicked()
+{
+    addModuleResult = -1;
+    ui->addModuleWindow->setWindowFlags(Qt::Dialog);
+    ui->addModuleWindow->setWindowTitle("Add main module");
+    ui->addModuleWindow->setWindowIcon(ffficon("application_add"));
+    QWidget* w = ui->addModuleWindow;
+    ui->availableClassesWidget->clear();
+    QList<gcresource*> classes = project->project->getResourcesFromKind("class");
+    foreach(gcresource* r, classes)
+    {
+        QListWidgetItem* item = new QListWidgetItem;
+        item->setCheckState(   project->project->modules.contains(r->name)?Qt::Checked:Qt::Unchecked   );
+        item->setText(r->name);
+        ui->availableClassesWidget->addItem(item);
+    }
+    w->setWindowModality(Qt::ApplicationModal);
+    w->show();
+    while(addModuleResult==-1)QApplication::processEvents();
+    w->hide();
+    //now update the checked things
+    project->project->modules.clear();
+
+    for(int i=0;i<ui->availableClassesWidget->count();++i)
+        if(ui->availableClassesWidget->item(i)->checkState()==Qt::Checked)
+            project->project->modules.append( ui->availableClassesWidget->item(i)->text() );
+
+    refreshModules();
+}
+
+void ProjectDashboard::on_actionEdit_this_module_triggered()
+{
+    //TODO: call this on the MainWindow
+    gcresource* res = project->project->getResourceByName(moduleButtonClicked);
+    if(res)
+    {
+        creatorIDE->openResource(res);
+    }
+}
+
+void ProjectDashboard::on_actionRemove_as_Main_Module_triggered()
+{
+    project->project->modules.removeAll(moduleButtonClicked);
+    refresher.start();
+}
+
+void ProjectDashboard::on_addModuleButtonBox_accepted()
+{
+    addModuleResult = 1;
+}
+
+void ProjectDashboard::on_addModuleButtonBox_rejected()
+{
+    addModuleResult = 0;
 }

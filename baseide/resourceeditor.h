@@ -55,6 +55,7 @@ public:
 
     // Call this into your editor contructor:
     void initResourceEditor(QWidget* w);
+    void postMessage(QString text, QVariant data);
 
     //Theresource associated with this editor
     gcresource* resource;

@@ -1,8 +1,9 @@
 #ifndef DLLFOREXPORT_H
 #define DLLFOREXPORT_H
 
-#include "dllforexport.h"
+#include "../sharedcode/globals.h"
 #include <QString>
+
 
 class dllForExport
 {
@@ -13,14 +14,16 @@ public:
     //DLL funcs
     QString getName();
     QString getDescription();
-    bool run(QString projectfile);
-    bool debug(QString projectfile);
-    bool clean(QString projectfile);
-    bool build(QString projectfile, bool final);
+    bool run(QString projectfile, QString target);
+    bool debug(QString projectfile, QString target);
+    bool clean(QString projectfile, QString target);
+    bool build(QString projectfile, QString target, bool final);
     QString configure(QString projectfile); //filename!
     QString parameters(QString projectfile); //is this even needed or is exporter-specific?
     QString binaryFile();
     QString exporterName();
+    QList<compileerror> getCompileErrors();
+    void clearCompileErrors();
 
 private:
     QString binfilename, exportername;
@@ -28,12 +31,14 @@ private:
 
     QString (*pname)();
     QString (*pdesc)();
-    bool (*prun)(QString);
-    bool (*pdebug)(QString);
-    bool (*pclean)(QString);
-    bool (*pbuild)(QString, bool);
+    bool (*prun)(QString,QString);
+    bool (*pdebug)(QString,QString);
+    bool (*pclean)(QString,QString);
+    bool (*pbuild)(QString,QString, bool);
     QString (*pconfigure)(QString);
     QString (*pparameters)(QString);
+    QList<compileerror> (*pgetcompileerrors)();
+    void (*pclearcompileerrors)();
 
 };
 

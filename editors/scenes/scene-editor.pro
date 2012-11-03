@@ -35,7 +35,8 @@ SOURCES +=  sceneedit.cpp \
     ../../sharedcode/rsgraphicseffect.cpp \
     ../../sharedcode/resourcetree.cpp \
     ../../sharedcode/idesettings.cpp \
-    ../../sharedcode/progressdialog.cpp
+    ../../sharedcode/progressdialog.cpp \
+    ../../sharedcode/messageevent.cpp
 
 HEADERS +=  sceneedit.h \
             sceneeditor.h \
@@ -52,7 +53,8 @@ HEADERS +=  sceneedit.h \
     ../../sharedcode/frameworkdata.h \
     ../../sharedcode/resourcetree.h \
     ../../sharedcode/idesettings.h \
-    ../../sharedcode/progressdialog.h
+    ../../sharedcode/progressdialog.h \
+    ../../sharedcode/messageevent.h
 
 
 FORMS    += sceneeditor.ui \

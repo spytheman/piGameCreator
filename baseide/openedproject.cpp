@@ -1,4 +1,7 @@
 #include "openedproject.h"
+#include "gcide.h"
+#include <QTimer>
+#include <QHostAddress>
 
 OpenedProject::OpenedProject()
 {

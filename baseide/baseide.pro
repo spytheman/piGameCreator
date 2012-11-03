@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui xml opengl xmlpatterns webkit testlib #qtconcurrent
+QT       += core gui xml opengl xmlpatterns webkit testlib network #qtconcurrent
 
 
 TARGET = baseide
@@ -60,7 +60,8 @@ SOURCES += main.cpp \
     ../sharedcode/filereference.cpp \
     ../sharedcode/progressdialog.cpp \
     projectdashboard.cpp \
-    skintestwindow.cpp
+    skintestwindow.cpp \
+    ../sharedcode/messageevent.cpp
 
 
 
@@ -106,7 +107,8 @@ HEADERS  += mainwindow.h \
     ../sharedcode/filereference.h \
     ../sharedcode/progressdialog.h \
     projectdashboard.h \
-    skintestwindow.h
+    skintestwindow.h \
+    ../sharedcode/messageevent.h
 
 
 FORMS    += mainwindow.ui \

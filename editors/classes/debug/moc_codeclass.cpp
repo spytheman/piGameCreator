@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'codeclass.h'
 **
-** Created: Thu 18. Oct 05:02:09 2012
+** Created: Fri 2. Nov 07:49:26 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_codeClass[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -35,6 +35,17 @@ static const uint qt_meta_data_codeClass[] = {
       58,   11,   10,   10, 0x0a,
      100,   10,   10,   10, 0x0a,
      120,   10,   10,   10, 0x0a,
+     141,  135,   10,   10, 0x0a,
+     170,   10,   10,   10, 0x0a,
+     204,  200,   10,   10, 0x0a,
+     227,  223,   10,   10, 0x0a,
+     262,   10,   10,   10, 0x0a,
+     278,   10,   10,   10, 0x0a,
+     299,  294,   10,   10, 0x0a,
+     338,  294,   10,   10, 0x0a,
+     387,  383,  378,   10, 0x0a,
+     417,   10,   10,   10, 0x0a,
+     434,   10,   10,   10, 0x0a,
 
        0        // eod
 };
@@ -43,7 +54,16 @@ static const char qt_meta_stringdata_codeClass[] = {
     "codeClass\0\0checked\0"
     "on_actionClass_members_triggered(bool)\0"
     "on_actionFunction_library_triggered(bool)\0"
-    "reloadWindowState()\0on_tbGoToLineNumber_clicked()\0"
+    "reloadWindowState()\0codeModified()\0"
+    "pos,c\0invokeCompleter(int,QString)\0"
+    "on_tbGoToLineNumber_clicked()\0out\0"
+    "showError(QString)\0xml\0"
+    "InitHaxeCompilerCompleter(QString)\0"
+    "showCompleter()\0hideCompleter()\0item\0"
+    "completerItemClicked(QListWidgetItem*)\0"
+    "completerItemSelected(QListWidgetItem*)\0"
+    "bool\0o,e\0eventFilter(QObject*,QEvent*)\0"
+    "refreshHaxeAPI()\0refreshHaxeAPIlater()\0"
 };
 
 void codeClass::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -55,7 +75,19 @@ void codeClass::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         case 0: _t->on_actionClass_members_triggered((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 1: _t->on_actionFunction_library_triggered((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 2: _t->reloadWindowState(); break;
-        case 3: _t->on_tbGoToLineNumber_clicked(); break;
+        case 3: _t->codeModified(); break;
+        case 4: _t->invokeCompleter((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 5: _t->on_tbGoToLineNumber_clicked(); break;
+        case 6: _t->showError((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 7: _t->InitHaxeCompilerCompleter((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 8: _t->showCompleter(); break;
+        case 9: _t->hideCompleter(); break;
+        case 10: _t->completerItemClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
+        case 11: _t->completerItemSelected((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
+        case 12: { bool _r = _t->eventFilter((*reinterpret_cast< QObject*(*)>(_a[1])),(*reinterpret_cast< QEvent*(*)>(_a[2])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = _r; }  break;
+        case 13: _t->refreshHaxeAPI(); break;
+        case 14: _t->refreshHaxeAPIlater(); break;
         default: ;
         }
     }
@@ -95,9 +127,9 @@ int codeClass::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 15;
     }
     return _id;
 }

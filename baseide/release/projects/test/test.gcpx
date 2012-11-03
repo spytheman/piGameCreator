@@ -8,6 +8,7 @@
         <scenes/>
         <classes>
             <class name="asdfasd"/>
+            <class name="Main"/>
         </classes>
         <fonts/>
         <filters/>

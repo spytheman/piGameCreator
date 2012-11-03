@@ -185,8 +185,11 @@ void newProjectWizard::initializePage(int id)
 
 void newProjectWizard::on_treeWidget_currentItemChanged(QTreeWidgetItem *current, QTreeWidgetItem *previous)
 {
+    gameprojectinformation* pi = (gameprojectinformation*) current->data(0,TIDATA).value<void*>();
+    if(!pi)return;
     ui->projectType->setText(current->text(0));
     ui->projectDescription->setText(current->whatsThis(0));
+    ui->mainClassName->setText( pi->modules.join(" ") );
 }
 
 
@@ -198,7 +201,7 @@ void newProjectWizard::on_browseButton_clicked()
                                           QDesktopServices::DocumentsLocation
                                           ), QFileDialog::ShowDirsOnly );
     if(newdir!="") ui->browseButton->setText(newdir);
-    else ui->browseButton->setText("Browse");
+    else return;
     ui->browseButton->setProperty("dir",newdir);
     ideSettings::setString(S_CREATORIDE_PROJECTDIR, newdir);
 
@@ -238,3 +241,4 @@ void newProjectWizard::on_toolButton_clicked()
     if(!w.selectedIcon.isNull())
     ui->toolButton->setIcon(w.selectedIcon);
 }
+

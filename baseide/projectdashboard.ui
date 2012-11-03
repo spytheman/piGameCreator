@@ -517,7 +517,7 @@ p, li { white-space: pre-wrap; }
                      </font>
                     </property>
                     <property name="text">
-                     <string>Main modules:</string>
+                     <string>Main modules</string>
                     </property>
                    </widget>
                   </item>
@@ -537,49 +537,53 @@ p, li { white-space: pre-wrap; }
                     </property>
                     <layout class="QHBoxLayout" name="horizontalLayout_8">
                      <property name="spacing">
-                      <number>0</number>
+                      <number>3</number>
                      </property>
                      <property name="margin">
                       <number>0</number>
                      </property>
                      <item>
-                      <widget class="QToolButton" name="toolButton_7">
+                      <widget class="QToolButton" name="addModule">
                        <property name="text">
-                        <string>Module</string>
+                        <string>Edit</string>
+                       </property>
+                       <property name="icon">
+                        <iconset resource="../sharedcode/resources.qrc">
+                         <normaloff>:/resources/RES/ffficons/application_cascade.png</normaloff>:/resources/RES/ffficons/application_cascade.png</iconset>
+                       </property>
+                       <property name="toolButtonStyle">
+                        <enum>Qt::ToolButtonTextBesideIcon</enum>
                        </property>
                       </widget>
                      </item>
                      <item>
-                      <spacer name="horizontalSpacer_3">
+                      <widget class="Line" name="line">
                        <property name="orientation">
-                        <enum>Qt::Horizontal</enum>
+                        <enum>Qt::Vertical</enum>
                        </property>
-                       <property name="sizeType">
-                        <enum>QSizePolicy::Expanding</enum>
+                      </widget>
+                     </item>
+                     <item>
+                      <layout class="QHBoxLayout" name="modulesLayout">
+                       <property name="spacing">
+                        <number>1</number>
                        </property>
-                       <property name="sizeHint" stdset="0">
-                        <size>
-                         <width>10</width>
-                         <height>1</height>
-                        </size>
-                       </property>
-                      </spacer>
+                       <item>
+                        <spacer name="horizontalSpacer_3">
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                         <property name="sizeHint" stdset="0">
+                          <size>
+                           <width>40</width>
+                           <height>20</height>
+                          </size>
+                         </property>
+                        </spacer>
+                       </item>
+                      </layout>
                      </item>
                     </layout>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QToolButton" name="addModule">
-                    <property name="text">
-                     <string>Add</string>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="../sharedcode/resources.qrc">
-                      <normaloff>:/resources/RES/ffficons/add.png</normaloff>:/resources/RES/ffficons/add.png</iconset>
-                    </property>
-                    <property name="toolButtonStyle">
-                     <enum>Qt::ToolButtonTextBesideIcon</enum>
-                    </property>
                    </widget>
                   </item>
                  </layout>
@@ -672,8 +676,8 @@ p, li { white-space: pre-wrap; }
        <widget class="QWidget" name="addModuleWindow" native="true">
         <property name="geometry">
          <rect>
-          <x>64</x>
-          <y>104</y>
+          <x>32</x>
+          <y>96</y>
           <width>274</width>
           <height>258</height>
          </rect>
@@ -871,6 +875,42 @@ p, li { white-space: pre-wrap; }
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>709</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuModule">
+    <property name="title">
+     <string>Module</string>
+    </property>
+    <addaction name="actionEdit_this_module"/>
+    <addaction name="actionRemove_as_Main_Module"/>
+   </widget>
+   <addaction name="menuModule"/>
+  </widget>
+  <action name="actionEdit_this_module">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/brick.png</normaloff>:/resources/RES/ffficons/brick.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open in class editor</string>
+   </property>
+  </action>
+  <action name="actionRemove_as_Main_Module">
+   <property name="icon">
+    <iconset resource="../sharedcode/resources.qrc">
+     <normaloff>:/resources/RES/ffficons/cross.png</normaloff>:/resources/RES/ffficons/cross.png</iconset>
+   </property>
+   <property name="text">
+    <string>Remove as main module</string>
+   </property>
+  </action>
  </widget>
  <resources>
   <include location="../sharedcode/resources.qrc"/>

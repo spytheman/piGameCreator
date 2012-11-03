@@ -1,7 +1,9 @@
 #include "resourceeditor.h"
 #include "../sharedcode/resource.h"
+#include "../sharedcode/messageevent.h"
 #include "gcide.h"
 #include <QMainWindow>
+#include <QApplication>
 
 ResourceEditor::ResourceEditor()
 {
@@ -32,6 +34,7 @@ bool ResourceEditor::load()
 }
 bool ResourceEditor::save()
 {
+    gcerror("SAVE() is not implemented for this resource editor: "+ QString(widget->metaObject()->className()) );
     return false;
 }
 QString ResourceEditor::title()
@@ -62,9 +65,21 @@ bool ResourceEditor::exportResource(QString filename)
 void ResourceEditor::makeModified()
 {
     modified = true;
-    //set the title to have a STAR
+    if(!title().endsWith(" *"))setTitle(title()+" *");
 }
 void ResourceEditor::updateTitle()
 {
+    QString s = title();
+    if(!modified)
+    {
+        if(s.endsWith(" *"))s = s.replace(" *","");
+    }
+    else
+        if(!s.endsWith(" *"))s.append(" *");
+    setTitle(s);
     //Updates the tab title
+}
+void ResourceEditor::postMessage(QString name, QVariant data)
+{
+    qApp->postEvent(widget, new messageEvent(name,data));
 }

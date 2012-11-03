@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE creatorIDEProject>
+<project dbcolor="#000000" version="" description="&lt;hr>&lt;p>This project contains all the classes and class mappings for the &lt;b>pi|engine Game Framework!&lt;/b>&lt;/p>&#xa;&lt;span style=&quot; background: #fe0;  font-size: 20px; font-weight: bold; color: #E00;&quot;>Edit only if you know what you are doing!&lt;/span>&#xa;&lt;p>Editing this file may &lt;b>CORRUPT EVERYTHING&lt;/b>, including the &lt;b>Creator IDE&lt;/b> itself!&lt;/p>" author="" name="pi|engine">
+    <resources>
+        <images/>
+        <models/>
+        <sounds/>
+        <scenes/>
+        <classes>
+            <class name="Application"/>
+            <class name="Window"/>
+            <class name="Layer"/>
+            <class name="Scene"/>
+            <class name="Viewport"/>
+            <class name="EngineTestApp"/>
+            <class name="Point"/>
+            <class name="Rect"/>
+            <class name="GameObject"/>
+            <class name="Representation"/>
+        </classes>
+        <fonts/>
+        <filters/>
+        <effects/>
+    </resources>
+    <targets>
+        <target exporter="cpp" name="Engine_CPP">
+            <name>Engine C++</name>
+            <description>A C++ test target for the pi|engine</description>
+            <defines></defines>
+            <modules>EngineTestApp</modules>
+        </target>
+        <target exporter="cpp" name="Engine_HTML5">
+            <name>Engine HTML5</name>
+            <description>A HTML5 test target for the pi|engine</description>
+            <defines></defines>
+            <modules>EngineTestApp</modules>
+        </target>
+    </targets>
+    <modules>EngineTestApp</modules>
+</project>

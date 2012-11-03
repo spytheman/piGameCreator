@@ -29,6 +29,7 @@ INPUT(
 ./release\pgshighlighter.o
 ./release\resourcetree.o
 ./release\progressdialog.o
+./release\messageevent.o
 ./release\moc_getmouseevent.o
 ./release\moc_getkeyevent.o
 ./release\moc_getrepresentation.o

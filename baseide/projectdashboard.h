@@ -22,6 +22,7 @@ public:
     void setProject(OpenedProject* project);
     void init();
     void updateWallpaper();
+    bool eventFilter(QObject *, QEvent *);
     
 private slots:
     void clearBottomStates();
@@ -39,8 +40,14 @@ private slots:
     void on_toolButton_10_clicked();
     void on_toolButton_11_clicked();
     void on_toolButton_9_clicked();
-
     void on_projectIcon_clicked();
+    void on_addModule_clicked();
+    void on_actionEdit_this_module_triggered();
+    void on_actionRemove_as_Main_Module_triggered();
+    void refreshModules();
+    void on_addModuleButtonBox_accepted();
+    void on_addModuleButtonBox_rejected();
+    void moduleButtonPressed();
 
 signals:
     void titleChanged(QString);
@@ -49,6 +56,9 @@ private:
     Ui::ProjectDashboard *ui;
     OpenedProject* project;
     QTimer timer;
+    QTimer refresher;
+    int addModuleResult;
+    QString moduleButtonClicked;
 };
 
 #endif // PROJECTDASHBOARD_H

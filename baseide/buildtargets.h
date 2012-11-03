@@ -41,6 +41,7 @@ private slots:
     void on_exporterLineEdit_textChanged(const QString &arg1);
     void on_toolButton_2_clicked();
     void on_selectModules_clicked();
+    void on_defines_textChanged(const QString &arg1);
 
 private:
     Ui::BuildTargets *ui;

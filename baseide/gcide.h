@@ -2,6 +2,7 @@
 #define GCIDE_H
 
 #include <QSettings>
+#include <QProcess>
 #include <QStandardItemModel>
 #include "../sharedcode/frameworkdata.h"
 #include "../sharedcode/rsclass.h"
@@ -24,6 +25,7 @@ class gcide: public QObject
 
 public:
     gcide();
+    ~gcide();
     bool init();
     int run();
 
@@ -43,6 +45,10 @@ public:
     QString gc3DformatsWrite;
     QString gcSolidSoundFormats;
     QString gcTrackedSoundFormats;
+
+    //Haxe server ports used:
+    int haxeDefaultPort;
+    QList<int> haxePorts;
 
     //Exporters
     QList<dllForExport*> exporterLibs;
@@ -88,6 +94,9 @@ public:
     bool closeWorkspaceWidget(WorkspaceWidget* w);
     bool closeWorkspaceWidget(int index);
 
+    //Open/close resources by pointers
+    ResourceEditor* openResource(gcresource* res);
+
     //Models
     QStandardItemModel* projectModel;
 
@@ -111,6 +120,33 @@ public:
     //fontsetting codeFormats[CODE_FORMATS_TOTAL_COUNT];
 
     void emitConfigChanged();
+
+    //Haxe server related
+    bool hxIsServerStarted;
+    QProcess
+        hxServer,   //maintains the haxe server.
+        hxCmd;      //maintains the haxe commands.
+    QString serverOut, serverErr;
+    QString cmdOut, cmdErr;
+
+    //This command queries the haxe server. It is stacked, so queries can be
+    //sent to the proper receiver
+    //receiver will get messageEvent "hx_result" containing vObject{err:QString,out:QString}
+    void hxServerQuery(QStringList args, QObject* receiver);
+    struct ThxServerQuery{QStringList args; QObject* receiver;};
+    QList<ThxServerQuery> hxQueryStack;
+
+    //use THIS function to remove receiver from the stack
+    void removeHxQueryReceiver(QObject* object);
+
+public slots:
+    void hxStartServer();
+    void hxStopServer();
+    void hxProcessQueries();
+    void hxServerStarted();
+    void hxServerStopped();
+    void hxServerSTDOUT();
+    void hxServerSTDERR();
 
 signals:
     void IDEConfigChanged();

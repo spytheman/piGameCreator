@@ -1,11 +1,23 @@
+// MUST NOT depend of the Creator IDE!
+
+#include "../sharedcode/messageevent.h"
 #include "workspacewidget.h"
 #include <QWidget>
 #include <QVariant>
+#include <QApplication>
 
 WorkspaceWidget::WorkspaceWidget()
 {
     widget = (QWidget*)this;
     shouldSetTabTitle = false;
+}
+
+WorkspaceWidget::~WorkspaceWidget()
+{
+    //remove from the haxe command event queue
+    //creatorIDE->removeHxQueryReceiver(dynamic_cast<QObject*>(this));
+    QObject* obj = dynamic_cast<QObject*>(widget);
+    qApp->sendEvent(mainWindow,new messageEvent("hx_del_recv",qVariantFromValue((void*)obj),obj));
 }
 
 bool WorkspaceWidget::isResourceEditor()

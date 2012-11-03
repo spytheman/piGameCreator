@@ -15,6 +15,7 @@ public:
     explicit progressdialog(QWidget *parent = 0);
     ~progressdialog();
     void setText(QString);
+    void setHeader(QString);
     void setMax(int);   //-1 for undetermined / infinity
     void setValue(int);
     void setCancel(bool);

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'buildtargets.ui'
 **
-** Created: Tue 16. Oct 03:20:11 2012
+** Created: Fri 2. Nov 07:45:38 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!

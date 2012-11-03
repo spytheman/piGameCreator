@@ -18,6 +18,7 @@
         left: 0;
         right: 0;
     }
+	.horscroll{box-shadow: none !important;}
 	</style>
 </head>
 <body>
@@ -26,12 +27,86 @@
     
 <script src="src/ace.js" type="text/javascript" charset="utf-8"></script>
 <script>
+
+// These lists contains all the text tokens from haxe and can be manipulated.
+var haxeTypes = Array(
+	"Array", "Void", "Bool", "Int", "UInt", "Float", "Dynamic", "String", "List", "Hash", "IntHash", "Error", "Unknown", "Type", "Std"
+);
+var haxeConstants = Array(
+	"null", "true", "false"
+);
+var haxeKeywords = Array(
+	"break", "case", "cast", "catch", "class", "continue", "default", "else", "enum", "extends", "for", "function", "if", "implements", "import", "in", "inline", "interface", "new", "override", "package", "private", "public", "return", "static", "super", "switch", "this", "throw", "trace", "try", "typedef", "untyped", "var", "while"
+)
+
+// Convenience functions - in global scope so I can call them directly from C++:
+var originalHaxeTypes = haxeTypes;
+var originalHaxeConstants = haxeConstants;
+
+function resetTypes(){haxeTypes = originalHaxeTypes;}
+function resetConstants(){haxeConstants = originalHaxeConstants;}
+function addType(newtype){if(!haxeTypes.contains(newtype))haxeTypes.push(newtype);}
+function addConstant(newconst){if(!haxeConstants.contains(newconst))haxeConstants.push(newconst);}
+function getTokenType(token)
+{
+	if( haxeKeywords.contains(token) ) return "keyword";
+	if( haxeConstants.contains(token) ) return "constant.language";
+	if( haxeTypes.contains(token) ) return "support.type";
+	return "identifier";
+}
+
+
     var editor = ace.edit("editor");
+	var Range = require("ace/range").Range;
+	var Selection = require("ace/selection").Selection;
 	var findQuery = "";
+	var shouldFireTextModified = true;
+	var completerBeginPoint = null;
+	
+	// Bind ACE events to local C++ functions
+	editor.getSession().on('change', function(){
+		
+		//Are we invoking the code completer?
+		
+		//get the current entered char:
+		var sr = editor.getSelectionRange();
+		sr.end.column++;
+		var theChar = editor.session.getTextRange(sr);
+		
+		// . and ( opens the code completer, so does Ctrl+Space
+		if(window.creatorIDE != undefined);
+			if(theChar=="." || theChar=="(" || theChar==":" || theChar=="<")
+			{
+				var R = new Range(0,0, sr.end.row, sr.end.column);
+				var TL = editor.session.getTextRange(R).length;
+				if(window.creatorIDE!=undefined)
+				window.creatorIDE.completerRequested(TL, theChar);
+			}
+			else if(theChar==" ")
+			{
+				sr.end.column-=4;
+				if(editor.session.getTextRange(sr)=="new")
+					if(window.creatorIDE!=undefined)
+						window.creatorIDE.completerRequested(0, "new");
+			}
+			else if(theChar==">")
+			{
+				sr.end.column-=2;
+				if(editor.session.getTextRange(sr)=="->")
+					if(window.creatorIDE!=undefined)
+						window.creatorIDE.completerRequested(0, "new");
+			}
+			else
+			{
+				if(shouldFireTextModified && window.creatorIDE != undefined) window.creatorIDE.textModified();
+			}
+
+	});
 
 	function updateHighlighting()
 	{
-		setEditorText(getEditorText());
+		editor.session.bgTokenizer.lines=[];
+		editor.session.bgTokenizer.fireUpdateEvent(0,Number.MAX_VALUE);
 	}
 	function setEditMode(mode)
 	{
@@ -44,9 +119,12 @@
 	function setEditorText(text)
 	{
 		//document.getElementById("editor").innerHTML = text;
+		shouldFireTextModified = false;
 		var selection = editor.getSelectionRange();
 		editor.setValue(text);
 		editor.selection.setRange(selection);
+		shouldFireTextModified = true;
+		editor.session.getUndoManager().reset();
 	}
 	function getEditorText()
 	{
@@ -84,6 +162,40 @@
 	{
 		var newstyle = "#editor{font-family: \""+font+"\" !important;font-size: "+size+ "px !important;}";
 		document.getElementById("ide_config_style").innerHTML = newstyle;
+	}
+	function getCursorPosXY()
+	{
+		return editor.renderer.textToScreenCoordinates(editor.getSelectionRange().start.row, editor.getSelectionRange().start.column);
+	}
+	function keyBackspace()
+	{
+		editor.selection.selectLeft();
+		editor.session.remove(editor.getSelectionRange());
+	}
+	function keyDelete()
+	{
+		editor.selection.selectRight();
+		editor.session.remove(editor.getSelectionRange());
+	}
+	function markCompleterBeginPoint()
+	{
+		completerBeginPoint = editor.getCursorPosition();
+		completerBeginPoint.column++;
+	}
+	function selectFromCompleterPointToCursor()
+	{
+		var e = editor.selection.getCursor();
+		var s = completerBeginPoint;
+		var r = new Range(s.row, s.column, e.row, e.column);
+		editor.selection.setRange(r);
+	}
+	function getCurrentLineText()
+	{
+		var c = editor.getSelectionRange();
+		editor.selection.selectLine();
+		var text =  editor.session.getTextRange(editor.getSelectionRange());
+		editor.selection.setRange(c);
+		return text;
 	}
 	
 </script>

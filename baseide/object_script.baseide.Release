@@ -46,11 +46,13 @@ INPUT(
 ./release\progressdialog.o
 ./release\projectdashboard.o
 ./release\skintestwindow.o
+./release\messageevent.o
 ./release\moc_mainwindow.o
 ./release\moc_splashscreen.o
 ./release\moc_gcide.o
 ./release\moc_initthread.o
 ./release\moc_wwmainpage.o
+./release\moc_openedproject.o
 ./release\moc_projecttreemodel.o
 ./release\moc_newimage.o
 ./release\moc_inputresourcename.o

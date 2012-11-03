@@ -18,8 +18,8 @@
             <name>Windows</name>
             <description></description>
             <defines></defines>
-            <modules></modules>
+            <modules>Main</modules>
         </target>
     </targets>
-    <modules></modules>
+    <modules>Main</modules>
 </project>

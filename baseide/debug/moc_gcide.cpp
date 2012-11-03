@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'gcide.h'
 **
-** Created: Thu 18. Oct 04:14:36 2012
+** Created: Fri 2. Nov 07:46:41 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_gcide[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -33,11 +33,23 @@ static const uint qt_meta_data_gcide[] = {
  // signals: signature, parameters, type, tag, flags
        7,    6,    6,    6, 0x05,
 
+ // slots: signature, parameters, type, tag, flags
+      26,    6,    6,    6, 0x0a,
+      42,    6,    6,    6, 0x0a,
+      57,    6,    6,    6, 0x0a,
+      76,    6,    6,    6, 0x0a,
+      94,    6,    6,    6, 0x0a,
+     112,    6,    6,    6, 0x0a,
+     129,    6,    6,    6, 0x0a,
+
        0        // eod
 };
 
 static const char qt_meta_stringdata_gcide[] = {
-    "gcide\0\0IDEConfigChanged()\0"
+    "gcide\0\0IDEConfigChanged()\0hxStartServer()\0"
+    "hxStopServer()\0hxProcessQueries()\0"
+    "hxServerStarted()\0hxServerStopped()\0"
+    "hxServerSTDOUT()\0hxServerSTDERR()\0"
 };
 
 void gcide::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -47,6 +59,13 @@ void gcide::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         gcide *_t = static_cast<gcide *>(_o);
         switch (_id) {
         case 0: _t->IDEConfigChanged(); break;
+        case 1: _t->hxStartServer(); break;
+        case 2: _t->hxStopServer(); break;
+        case 3: _t->hxProcessQueries(); break;
+        case 4: _t->hxServerStarted(); break;
+        case 5: _t->hxServerStopped(); break;
+        case 6: _t->hxServerSTDOUT(); break;
+        case 7: _t->hxServerSTDERR(); break;
         default: ;
         }
     }
@@ -85,9 +104,9 @@ int gcide::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 8;
     }
     return _id;
 }

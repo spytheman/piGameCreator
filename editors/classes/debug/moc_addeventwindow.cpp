@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'addeventwindow.h'
 **
-** Created: Thu 11. Oct 18:34:11 2012
+** Created: Fri 2. Nov 07:49:30 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!

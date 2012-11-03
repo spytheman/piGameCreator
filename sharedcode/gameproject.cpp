@@ -164,8 +164,7 @@ bool gameproject::load(QString filename)
             foreach(QString s, tempmods)
             {
                 gcprint("MODULE: "+s);
-                if(s.at(0).isUpper()){modules.append(s);}
-                else gcprint("Invalid module name, must start with uppercase letter (haXe requirement)");
+                    modules.append(s);
             }
         }
         else gcprint("NO MODULES section");
@@ -669,10 +668,10 @@ void rec_getNodeNames(QStringList* output, ResourceTreeNode* node, bool folders 
     }
     else
     {
-        QString out;
-        for(int i=0;i<level;i++)out+="    ";
-        out+=node->name;
-        gcprint(out);
+        //QString out;
+        //for(int i=0;i<level;i++)out+="    ";
+        //out+=node->name;
+        //gcprint(out);
         output->append(node->name);
     }
 }
@@ -694,8 +693,12 @@ bool gameproject::isResource(QString name)
 QStringList gameproject::getClasses()
 {
     QStringList names;
-    ResourceTreeNode* root; root->childs.append(mClasses);
-    rec_getNodeNames(&names,root);
+
+    ResourceTreeNode r;
+    r.folder = true;
+    r.root = true;
+    r.childs.append(mClasses);
+    rec_getNodeNames(&names,&r);
     return names;
 }
 
@@ -738,6 +741,17 @@ QList<gcresource*> gameproject::getAllResources()
     rec_getNodeResources(&R, &root);
     return R;
 }
+gcresource* gameproject::getResourceByName(QString name)
+{
+    // @OPTIMIZE
+    QList<gcresource*> R = getAllResources();
+    foreach(gcresource* r, R)
+    {
+        if(r->name==name)return r;
+    }
+    return 0;
+}
+
 QList<gcresource*> gameproject::getResourcesUnderNode(ResourceTreeNode *node)
 {
     QList<gcresource*> R;
@@ -876,6 +890,20 @@ gameprojectinformation* gameproject::getProjectInformation(QString file)
                     res=res.nextSibling();
                 }
             }
+
+            res = project->documentElement().firstChild().nextSibling().nextSibling();  //modules
+            if(res.toElement().tagName()=="modules")
+            {
+                QStringList tempmods = res.toElement().text().split(" ",QString::SkipEmptyParts);
+                foreach(QString s, tempmods)
+                {
+                    gcprint("MODULE: "+s);
+                        p->modules.append(s);
+                }
+            }
+            else gcprint("NO MODULES section");
+
+
         }
         else return NULL;
         return p;

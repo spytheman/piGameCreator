@@ -214,14 +214,18 @@ void BuildTargets::on_OKbutton_clicked()
     {
         QListWidgetItem* item = ui->TargetsLV->item(i);
         QString title, code, desc;
+        QStringList defines;
         vObject o =item->data(TIDATA).toHash();
         code =o.value("codename").toString();
         title=o.value("name").toString();
         if(title.isEmpty())title=tr("Unnamed target");
         desc =o.value("description").toString();
+        defines = o.value("defines").toStringList();
         if(code.isEmpty())valid=false;
         buildtarget* t = new buildtarget;
         t->name=title; t->codename=code; t->description=desc;
+        t->modules = o.value("modules").toStringList();
+        t->defines = defines;
         t->exporter = (dllForExport*)o.value("exporter").value<void*>();
         t->exportername = o.value("exportername").toString();
         newlist << t;
@@ -311,4 +315,15 @@ void BuildTargets::on_selectModules_clicked()
         ui->modulesLabel->setText(nm.join(", "));
         if(ui->modulesLabel->text().isEmpty())ui->modulesLabel->setText("No modules selected.");
     }
+}
+
+
+void BuildTargets::on_defines_textChanged(const QString &arg1)
+{
+    gcprint("Defines changed!");
+    QListWidgetItem* item = ui->TargetsLV->currentItem();
+    if(item==0)return;
+    vObject o = item->data(TIDATA).value<vObject>();
+    o["defines"]=arg1.split(" ",QString::SkipEmptyParts);
+    item->setData(TIDATA,qVariantFromValue(o));
 }

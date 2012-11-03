@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'projectdashboard.ui'
 **
-** Created: Fri 19. Oct 04:41:13 2012
+** Created: Fri 2. Nov 07:45:38 2012
 **      by: Qt User Interface Compiler version 4.8.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -25,6 +25,8 @@
 #include <QtGui/QLineEdit>
 #include <QtGui/QListWidget>
 #include <QtGui/QMainWindow>
+#include <QtGui/QMenu>
+#include <QtGui/QMenuBar>
 #include <QtGui/QPlainTextEdit>
 #include <QtGui/QPushButton>
 #include <QtGui/QSpacerItem>
@@ -39,6 +41,8 @@ QT_BEGIN_NAMESPACE
 class Ui_ProjectDashboard
 {
 public:
+    QAction *actionEdit_this_module;
+    QAction *actionRemove_as_Main_Module;
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout;
     QStackedWidget *DashboardSW;
@@ -94,9 +98,10 @@ public:
     QLabel *label_8;
     QFrame *modulesFrame;
     QHBoxLayout *horizontalLayout_8;
-    QToolButton *toolButton_7;
-    QSpacerItem *horizontalSpacer_3;
     QToolButton *addModule;
+    QFrame *line;
+    QHBoxLayout *modulesLayout;
+    QSpacerItem *horizontalSpacer_3;
     QWidget *buttonsBar;
     QHBoxLayout *horizontalLayout_3;
     QPushButton *pbCalendar;
@@ -123,6 +128,8 @@ public:
     QToolButton *toolButton_8;
     QToolButton *toolButton_9;
     QToolButton *toolButton_11;
+    QMenuBar *menuBar;
+    QMenu *menuModule;
 
     void setupUi(QMainWindow *ProjectDashboard)
     {
@@ -139,6 +146,16 @@ public:
 " {color:#999}\n"
 "\n"
 ""));
+        actionEdit_this_module = new QAction(ProjectDashboard);
+        actionEdit_this_module->setObjectName(QString::fromUtf8("actionEdit_this_module"));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/resources/RES/ffficons/brick.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionEdit_this_module->setIcon(icon);
+        actionRemove_as_Main_Module = new QAction(ProjectDashboard);
+        actionRemove_as_Main_Module->setObjectName(QString::fromUtf8("actionRemove_as_Main_Module"));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/resources/RES/ffficons/cross.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionRemove_as_Main_Module->setIcon(icon1);
         centralwidget = new QWidget(ProjectDashboard);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         verticalLayout = new QVBoxLayout(centralwidget);
@@ -344,9 +361,9 @@ public:
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         projectIcon = new QToolButton(basicInfoContainer);
         projectIcon->setObjectName(QString::fromUtf8("projectIcon"));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/resources/RES/ffficons/page_white.png"), QSize(), QIcon::Normal, QIcon::Off);
-        projectIcon->setIcon(icon);
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/resources/RES/ffficons/page_white.png"), QSize(), QIcon::Normal, QIcon::Off);
+        projectIcon->setIcon(icon2);
         projectIcon->setAutoRaise(true);
 
         horizontalLayout_4->addWidget(projectIcon);
@@ -393,9 +410,9 @@ public:
 
         buildTargetsBtn = new QPushButton(basicInfoContainer);
         buildTargetsBtn->setObjectName(QString::fromUtf8("buildTargetsBtn"));
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/resources/RES/ffficons/computer.png"), QSize(), QIcon::Normal, QIcon::Off);
-        buildTargetsBtn->setIcon(icon1);
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/resources/RES/ffficons/computer.png"), QSize(), QIcon::Normal, QIcon::Off);
+        buildTargetsBtn->setIcon(icon3);
 
         horizontalLayout_5->addWidget(buildTargetsBtn);
 
@@ -449,29 +466,37 @@ public:
         modulesFrame->setFrameShape(QFrame::WinPanel);
         modulesFrame->setFrameShadow(QFrame::Sunken);
         horizontalLayout_8 = new QHBoxLayout(modulesFrame);
-        horizontalLayout_8->setSpacing(0);
+        horizontalLayout_8->setSpacing(3);
         horizontalLayout_8->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
-        toolButton_7 = new QToolButton(modulesFrame);
-        toolButton_7->setObjectName(QString::fromUtf8("toolButton_7"));
+        addModule = new QToolButton(modulesFrame);
+        addModule->setObjectName(QString::fromUtf8("addModule"));
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/resources/RES/ffficons/application_cascade.png"), QSize(), QIcon::Normal, QIcon::Off);
+        addModule->setIcon(icon4);
+        addModule->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
-        horizontalLayout_8->addWidget(toolButton_7);
+        horizontalLayout_8->addWidget(addModule);
 
-        horizontalSpacer_3 = new QSpacerItem(10, 1, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        line = new QFrame(modulesFrame);
+        line->setObjectName(QString::fromUtf8("line"));
+        line->setFrameShape(QFrame::VLine);
+        line->setFrameShadow(QFrame::Sunken);
 
-        horizontalLayout_8->addItem(horizontalSpacer_3);
+        horizontalLayout_8->addWidget(line);
+
+        modulesLayout = new QHBoxLayout();
+        modulesLayout->setSpacing(1);
+        modulesLayout->setObjectName(QString::fromUtf8("modulesLayout"));
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        modulesLayout->addItem(horizontalSpacer_3);
+
+
+        horizontalLayout_8->addLayout(modulesLayout);
 
 
         horizontalLayout_7->addWidget(modulesFrame);
-
-        addModule = new QToolButton(modulesContainer);
-        addModule->setObjectName(QString::fromUtf8("addModule"));
-        QIcon icon2;
-        icon2.addFile(QString::fromUtf8(":/resources/RES/ffficons/add.png"), QSize(), QIcon::Normal, QIcon::Off);
-        addModule->setIcon(icon2);
-        addModule->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-
-        horizontalLayout_7->addWidget(addModule);
 
 
         gridLayout->addWidget(modulesContainer, 1, 0, 1, 1);
@@ -528,7 +553,7 @@ public:
         UIPages->setObjectName(QString::fromUtf8("UIPages"));
         addModuleWindow = new QWidget(UIPages);
         addModuleWindow->setObjectName(QString::fromUtf8("addModuleWindow"));
-        addModuleWindow->setGeometry(QRect(64, 104, 274, 258));
+        addModuleWindow->setGeometry(QRect(32, 96, 274, 258));
         verticalLayout_10 = new QVBoxLayout(addModuleWindow);
         verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
         label_9 = new QLabel(addModuleWindow);
@@ -571,9 +596,9 @@ public:
 
         toolButton_6 = new QToolButton(addModuleWindow);
         toolButton_6->setObjectName(QString::fromUtf8("toolButton_6"));
-        QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/resources/RES/clear_left.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton_6->setIcon(icon3);
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8(":/resources/RES/clear_left.png"), QSize(), QIcon::Normal, QIcon::Off);
+        toolButton_6->setIcon(icon5);
         toolButton_6->setAutoRaise(true);
 
         horizontalLayout_6->addWidget(toolButton_6);
@@ -606,9 +631,9 @@ public:
         sizePolicy5.setVerticalStretch(0);
         sizePolicy5.setHeightForWidth(toolButton_10->sizePolicy().hasHeightForWidth());
         toolButton_10->setSizePolicy(sizePolicy5);
-        QIcon icon4;
-        icon4.addFile(QString::fromUtf8(":/resources/RES/ffficons/folder.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton_10->setIcon(icon4);
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/resources/RES/ffficons/folder.png"), QSize(), QIcon::Normal, QIcon::Off);
+        toolButton_10->setIcon(icon6);
         toolButton_10->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
         gridLayout_3->addWidget(toolButton_10, 0, 0, 1, 1);
@@ -617,9 +642,7 @@ public:
         toolButton_8->setObjectName(QString::fromUtf8("toolButton_8"));
         sizePolicy5.setHeightForWidth(toolButton_8->sizePolicy().hasHeightForWidth());
         toolButton_8->setSizePolicy(sizePolicy5);
-        QIcon icon5;
-        icon5.addFile(QString::fromUtf8(":/resources/RES/ffficons/cross.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton_8->setIcon(icon5);
+        toolButton_8->setIcon(icon1);
         toolButton_8->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
         gridLayout_3->addWidget(toolButton_8, 0, 1, 1, 1);
@@ -628,9 +651,9 @@ public:
         toolButton_9->setObjectName(QString::fromUtf8("toolButton_9"));
         sizePolicy5.setHeightForWidth(toolButton_9->sizePolicy().hasHeightForWidth());
         toolButton_9->setSizePolicy(sizePolicy5);
-        QIcon icon6;
-        icon6.addFile(QString::fromUtf8(":/resources/RES/ffficons/color_wheel.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton_9->setIcon(icon6);
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8(":/resources/RES/ffficons/color_wheel.png"), QSize(), QIcon::Normal, QIcon::Off);
+        toolButton_9->setIcon(icon7);
         toolButton_9->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
         gridLayout_3->addWidget(toolButton_9, 1, 0, 1, 1);
@@ -639,9 +662,9 @@ public:
         toolButton_11->setObjectName(QString::fromUtf8("toolButton_11"));
         sizePolicy5.setHeightForWidth(toolButton_11->sizePolicy().hasHeightForWidth());
         toolButton_11->setSizePolicy(sizePolicy5);
-        QIcon icon7;
-        icon7.addFile(QString::fromUtf8(":/resources/RES/ffficons/arrow_refresh_small.png"), QSize(), QIcon::Normal, QIcon::Off);
-        toolButton_11->setIcon(icon7);
+        QIcon icon8;
+        icon8.addFile(QString::fromUtf8(":/resources/RES/ffficons/arrow_refresh_small.png"), QSize(), QIcon::Normal, QIcon::Off);
+        toolButton_11->setIcon(icon8);
         toolButton_11->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
 
         gridLayout_3->addWidget(toolButton_11, 1, 1, 1, 1);
@@ -651,6 +674,16 @@ public:
         verticalLayout->addWidget(DashboardSW);
 
         ProjectDashboard->setCentralWidget(centralwidget);
+        menuBar = new QMenuBar(ProjectDashboard);
+        menuBar->setObjectName(QString::fromUtf8("menuBar"));
+        menuBar->setGeometry(QRect(0, 0, 709, 19));
+        menuModule = new QMenu(menuBar);
+        menuModule->setObjectName(QString::fromUtf8("menuModule"));
+        ProjectDashboard->setMenuBar(menuBar);
+
+        menuBar->addAction(menuModule->menuAction());
+        menuModule->addAction(actionEdit_this_module);
+        menuModule->addAction(actionRemove_as_Main_Module);
 
         retranslateUi(ProjectDashboard);
 
@@ -664,6 +697,8 @@ public:
     void retranslateUi(QMainWindow *ProjectDashboard)
     {
         ProjectDashboard->setWindowTitle(QApplication::translate("ProjectDashboard", "MainWindow", 0, QApplication::UnicodeUTF8));
+        actionEdit_this_module->setText(QApplication::translate("ProjectDashboard", "Open in class editor", 0, QApplication::UnicodeUTF8));
+        actionRemove_as_Main_Module->setText(QApplication::translate("ProjectDashboard", "Remove as main module", 0, QApplication::UnicodeUTF8));
         toolButton->setText(QApplication::translate("ProjectDashboard", "Edit", 0, QApplication::UnicodeUTF8));
         prolectIconLabel->setText(QString());
         projectTitleLabel->setText(QApplication::translate("ProjectDashboard", "Project Title", 0, QApplication::UnicodeUTF8));
@@ -681,9 +716,8 @@ public:
         label_7->setText(QApplication::translate("ProjectDashboard", "Company/Team:", 0, QApplication::UnicodeUTF8));
         label_3->setText(QApplication::translate("ProjectDashboard", "App version:", 0, QApplication::UnicodeUTF8));
         buildTargetsBtn->setText(QApplication::translate("ProjectDashboard", "Build targets", 0, QApplication::UnicodeUTF8));
-        label_8->setText(QApplication::translate("ProjectDashboard", "Main modules:", 0, QApplication::UnicodeUTF8));
-        toolButton_7->setText(QApplication::translate("ProjectDashboard", "Module", 0, QApplication::UnicodeUTF8));
-        addModule->setText(QApplication::translate("ProjectDashboard", "Add", 0, QApplication::UnicodeUTF8));
+        label_8->setText(QApplication::translate("ProjectDashboard", "Main modules", 0, QApplication::UnicodeUTF8));
+        addModule->setText(QApplication::translate("ProjectDashboard", "Edit", 0, QApplication::UnicodeUTF8));
         pbCalendar->setText(QApplication::translate("ProjectDashboard", "Calendar", 0, QApplication::UnicodeUTF8));
         pbBasicInfo->setText(QApplication::translate("ProjectDashboard", "Basic info", 0, QApplication::UnicodeUTF8));
         pbModules->setText(QApplication::translate("ProjectDashboard", "Modules", 0, QApplication::UnicodeUTF8));
@@ -702,6 +736,7 @@ public:
         toolButton_8->setText(QApplication::translate("ProjectDashboard", "None", 0, QApplication::UnicodeUTF8));
         toolButton_9->setText(QApplication::translate("ProjectDashboard", "Text color", 0, QApplication::UnicodeUTF8));
         toolButton_11->setText(QApplication::translate("ProjectDashboard", "Reset", 0, QApplication::UnicodeUTF8));
+        menuModule->setTitle(QApplication::translate("ProjectDashboard", "Module", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

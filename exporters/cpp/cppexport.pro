@@ -6,7 +6,7 @@
 
 QT       += xml gui xmlpatterns
 
-INCLUDEPATH += ../../gamecreator
+INCLUDEPATH += ../../gamecreator ..
 
 TARGET = cpptarget
 TEMPLATE = lib
@@ -15,17 +15,42 @@ DEFINES += CPPTARGET_LIBRARY
 
 SOURCES += cppexport.cpp \
     config.cpp \
-    ../../sharedcode/gcexporter.cpp
+    ../../sharedcode/gcexporter.cpp \
+    ../../sharedcode/progressdialog.cpp \
+    ../../sharedcode/gameproject.cpp \
+    ../../sharedcode/globals.cpp \
+    ../../sharedcode/rssound.cpp \
+    ../../sharedcode/rsscene.cpp \
+    ../../sharedcode/rsmodel.cpp \
+    ../../sharedcode/rsimage.cpp \
+    ../../sharedcode/rsgraphicseffect.cpp \
+    ../../sharedcode/rsclass.cpp \
+    ../../sharedcode/resourcetree.cpp \
+    ../../sharedcode/resource.cpp \
+    ../../sharedcode/frameworkdata.cpp
 
 HEADERS += \
     config.h \
     ../../sharedcode/gcexporter.h \
-    cppexport.h
+    cppexport.h \
+    ../../sharedcode/progressdialog.h \
+    ../../sharedcode/gameproject.h \
+    ../../sharedcode/globals.h \
+    ../../sharedcode/rssound.h \
+    ../../sharedcode/rsscene.h \
+    ../../sharedcode/rsmodel.h \
+    ../../sharedcode/rsimage.h \
+    ../../sharedcode/rsgraphicseffect.h \
+    ../../sharedcode/rsclass.h \
+    ../../sharedcode/resourcetree.h \
+    ../../sharedcode/resource.h \
+    ../../sharedcode/frameworkdata.h
 
 DESTDIR = ../cpp
 
 FORMS += \
-    config.ui
+    config.ui \
+    ../../sharedcode/progressdialog.ui
 
 QMAKE_POST_LINK = copy /y "cpptarget.dll" "..\..\baseide\release\targets\cpp\target.dll"
 

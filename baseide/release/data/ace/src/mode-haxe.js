@@ -11,12 +11,13 @@ var haxeConstants = Array(
 	"null", "true", "false"
 );
 var haxeKeywords = Array(
-"break", "case", "cast", "catch", "class", "continue", "default", "else", "enum", "extends", "for", "function", "if", "implements", "import", "in", "inline", "interface", "new", "override", "package", "private", "public", "return", "static", "super", "switch", "this", "throw", "trace", "try", "typedef", "untyped", "var", "while"
+	"break", "case", "cast", "catch", "class", "continue", "default", "else", "enum", "extends", "for", "function", "if", "implements", "import", "in", "inline", "interface", "new", "override", "package", "private", "public", "return", "static", "super", "switch", "this", "throw", "trace", "try", "typedef", "untyped", "var", "while"
 )
 
 // Convenience functions - in global scope so I can call them directly from C++:
 var originalHaxeTypes = haxeTypes;
 var originalHaxeConstants = haxeConstants;
+
 function resetTypes(){haxeTypes = originalHaxeTypes;}
 function resetConstants(){haxeConstants = originalHaxeConstants;}
 function addType(newtype){if(!haxeTypes.contains(newtype))haxeTypes.push(newtype);}

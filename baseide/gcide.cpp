@@ -5,6 +5,7 @@
 #include "openedproject.h"
 #include "newimage.h"
 #include "dllforresourceeditor.h"
+#include "dllforexport.h"
 #include "scripttestwindow.h"
 #include "wwmainpage.h"
 #include "newprojectwizard.h"
@@ -16,7 +17,8 @@
 #include "../sharedcode/rsmodel.h"
 #include "../sharedcode/rsscene.h"
 #include "../sharedcode/rssound.h"
-#include "../../sharedcode/idesettings.h"
+#include "../sharedcode/idesettings.h"
+#include "../sharedcode/messageevent.h"
 #include <QApplication>
 #include <QSettings>
 #include <QFileDialog>
@@ -32,6 +34,18 @@ gcide::gcide()
     creatorIDE = this;
     currentProject = 0;
     currentResource = 0;
+    haxeDefaultPort = 6000;
+
+    // Server:
+    connect(&hxServer, SIGNAL(started()), this, SLOT(hxServerStarted()));
+    connect(&hxServer, SIGNAL(finished(int)), this, SLOT(hxServerStopped()));
+    connect(&hxServer, SIGNAL(readyReadStandardOutput()), this, SLOT(hxServerSTDOUT()));
+    connect(&hxServer, SIGNAL(readyReadStandardError()), this, SLOT(hxServerSTDERR()));
+}
+
+gcide::~gcide()
+{
+    hxStopServer();
 }
 
 bool gcide::init()
@@ -191,6 +205,7 @@ bool gcide::openProject(QString filename)
         //add the project to the opened projects
         OpenedProject* op = new OpenedProject;
         op->project = gp;
+
         creatorIDE->projects.append(op);
 
         //Must add to the project tree and all other widgets of this type
@@ -357,6 +372,7 @@ bool gcide::closeProject(OpenedProject *project)
                                 re->save();
 
                         //remove from the list
+                        openedWidgets.at(wwindex)->widget->close();
                         delete openedWidgets.at(wwindex);  //possible double deallocation
                         removeIndexes.append(wwindex);
                     }
@@ -370,7 +386,8 @@ bool gcide::closeProject(OpenedProject *project)
                     {
                         if(pd->project == project)
                         {
-                            delete openedWidgets.at(wwindex);  //possible double deallocation
+                            openedWidgets.at(wwindex)->widget->close();
+                            delete openedWidgets.at(wwindex);
                             removeIndexes.append(wwindex);
                         }
                     }
@@ -386,7 +403,7 @@ bool gcide::closeProject(OpenedProject *project)
     for(int i=openedWidgets.count()-1;i>=0;i--)
         if(removeIndexes.contains(i))
         {
-            openedWidgets.at(i)->widget->close();
+            //openedWidgets.at(i)->widget->close();
             openedWidgets.removeAt(i);
         }
 
@@ -403,4 +420,76 @@ bool gcide::newProject()
     w.exec();   //This will open the project.
     //Again safe workaround
     QApplication::processEvents();
+}
+
+ResourceEditor* gcide::openResource(gcresource *res)
+{
+    return mainWindow->openResource(res);
+}
+
+void gcide::hxServerQuery(QStringList args, QObject *receiver)
+{
+    //Add a query:
+    ThxServerQuery q;
+    q.args = args;
+    q.receiver = receiver;
+    hxQueryStack.push_back(q);
+    hxProcessQueries();
+    gcprint(">> " + args.join(" "));
+    //gcprint("Haxe Server Query Stack has now "+ QString::number(hxQueryStack.count()) +" items!");
+}
+
+void gcide::hxProcessQueries()
+{
+    while(!hxQueryStack.isEmpty())
+    {
+        ThxServerQuery q = hxQueryStack.takeFirst();
+        QStringList args;
+        args.append(q.args);
+        hxCmd.setProcessChannelMode(QProcess::MergedChannels);
+        hxCmd.start("haxe", args);
+
+        //Blocks! Convert to event based!
+        hxCmd.waitForFinished();
+        QString out = hxCmd.readAll();
+        qApp->sendEvent(q.receiver, new messageEvent("hx_result",out,this));
+    }
+    /**/
+}
+
+void gcide::hxStartServer()
+{
+    gcprint("Starting Haxe compilation server");
+    hxServer.start("haxe", QStringList() << "-v" << "--wait" << "6000");
+}
+
+void gcide::hxServerStarted(){ hxIsServerStarted = true;}
+void gcide::hxServerStopped()
+{
+    hxIsServerStarted = false;
+    gcprint("Haxe compilation server was stopped.");
+    QTimer::singleShot(100, this, SLOT(hxStartServer()));
+}
+void gcide::hxServerSTDERR(){serverErr.append(hxServer.readAllStandardError());}
+void gcide::hxServerSTDOUT(){serverErr.append(hxServer.readAllStandardOutput());}
+
+void gcide::removeHxQueryReceiver(QObject *object)
+{
+    for(int i=0; i<hxQueryStack.count(); )
+    {
+        if(hxQueryStack.at(i).receiver == object)
+        {
+            gcprint("0x"+QString::number( (int)hxQueryStack.at(i).receiver, 16 )+" wiped from the CreatorIDE's haxe result call stack!");
+            hxQueryStack.removeAt(i);
+        }
+        else ++i;
+    }
+}
+
+void gcide::hxStopServer()
+{
+    hxServer.blockSignals(true);
+    hxServer.kill();
+    hxServer.blockSignals(false);
+    gcprint("Haxe compilation cache server was stopped.");
 }

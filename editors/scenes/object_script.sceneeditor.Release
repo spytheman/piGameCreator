@@ -19,6 +19,7 @@ INPUT(
 ./release\resourcetree.o
 ./release\idesettings.o
 ./release\progressdialog.o
+./release\messageevent.o
 ./release\moc_sceneeditor.o
 ./release\moc_qwidgetwithclosesignal.o
 ./release\moc_progressdialog.o

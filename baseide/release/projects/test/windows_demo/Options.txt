@@ -1,0 +1,7 @@
+cpp
+haxe_208
+haxe_209
+haxe_210
+sys
+true
+P:\CPP\piGameCreator\baseide\release\haxe/lib\hxcpp/2,10/

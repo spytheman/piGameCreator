@@ -35,6 +35,10 @@ void progressdialog::setText(QString s)
 {
     ui->label->setText(s);
 }
+void progressdialog::setHeader(QString s)
+{
+    ui->labelHeader->setText(s);
+}
 void progressdialog::setCancel(bool b)
 {
     ui->pushButton->setEnabled(b);

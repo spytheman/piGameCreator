@@ -1,117 +1,28 @@
 #include <QDir>
 #include <QTextStream>
 #include "frameworkdata.h"
+#include "gameproject.h"
 
 bool frameworkDataIsLoaded = false;
 QStringList FrameworkData::classDefFiles;
 vObject FrameworkData::gameScriptData;
+gameproject* FrameworkData::frameworkProject;
+
+QString FrameworkData::classPath()
+{
+    QDir d("data/pi-engine/classes/");
+    return d.absolutePath();
+}
 
 bool FrameworkData::loadFrameworkData()
 {
-    gcprint("Loading GameScript database files...");
-    //clear ALL
-    classDefFiles.clear();
-    gameScriptData.clear();
-    //current project class data must get reloaded OR saved in gameproject*;
+    gcprint("Loading Framework data...");
 
-    //TODO: Pre-fill them!
-    //get ALL files
-    QDir d("data");
-    QStringList files = d.entryList(QStringList("*.gsd"));
-    foreach(QString fn,files)
-    {
-        gcprint("Reading Class database file data/"+fn+"...");
-        vObject oFile;
-        QDomDocument* xml = gcReadXml("data/"+fn);
-        if(xml==0){gcerror("Something wrong happened with Game Script Definition file\ndata/"+fn);}
-        QDomElement defs = xml->documentElement();
-        if(defs.tagName()=="gamescriptdata")
-        {
-            for(int i=0;i<defs.childNodes().count();i++)
-            {
-                QDomNode defN = defs.childNodes().at(i);
-                if(defN.isElement())
-                {
-                    vObject oClass;
-                    QDomElement def = defN.toElement();
-                    oClass["gcHidden"] = def.attribute("hidden");
-                    oClass["gcDesc"] = def.attribute("desc");
-                    oClass["gcDisplayName"] = def.attribute("doc");
-                    oClass["gcName"] = def.attribute("name");
-                    oClass["gcBase"] = def.attribute("base");
-                    //def can only be CLASS or GLOBAL
-                    QString className="";
-                    if(def.tagName()=="global" or def.tagName()=="class")
-                    {
-                        //class name is empty string for GLOBAL scope!
-                        if(def.tagName()=="class")className=def.attribute("name");
-                        gcprint("\t"+className);
+    frameworkProject = new gameproject;
+    frameworkProject->setFilename("data/pi-engine/pi-engine.gcpx");
+    frameworkProject->load();
+    //Must use haXe's compiler to load class definitions somehow!
 
-                        //class name is OK! now let's load its internal things
-                        QDomElement e = def.firstChildElement();
-                        while(!e.isNull())
-                        {
-                            //description
-                            QString description;
-                            QTextStream T(&description);
-                            for(int i=0;i<e.childNodes().count();i++)e.childNodes().at(i).save(T,0);
-                            description = description.trimmed();
-
-                            //type: variable, property or function
-                            if(e.tagName()=="var" or e.tagName()=="prop")
-                            {
-                                //variable and property
-                                QString name = e.attribute("name");
-                                if(name==""){gcerror(fn+"::"+className+": Unnamed variable!");}
-                                //gameScriptData[fn][className][name]
-                                vObject o;
-                                o["kind"]=e.tagName(); //var or prop
-                                o["type"]=e.attribute("type","int");
-                                o["static"]= (e.attribute("static")=="true");
-                                o["desc"]=description;
-                                oClass[name]=o;
-                            }
-                            else if(e.tagName()=="func")
-                            {
-                                //function
-                                QString name = e.attribute("name");
-                                if(name==""){gcerror(fn+"::"+className+": Unnamed function!");}
-                                vObject o;
-                                o["kind"]=e.tagName(); //var or prop
-                                o["type"]=e.attribute("type","int");
-                                o["static"]= (e.attribute("static")=="true");
-                                o["desc"]=description;
-
-                                //Arguments!
-                                int n=1;
-                                QString ns = "arg"+QString::number(n);
-                                while(e.hasAttribute(ns))
-                                {
-                                    QStringList nl = e.attribute(ns).split(" ");
-                                    vObject arg;
-                                    arg["kind"]="arg";
-                                    arg["type"]=nl.at(0);
-                                    arg["name"]=nl.at(1);
-                                    arg["val"] =e.attribute(ns+"value");
-                                    arg["desc"] =e.attribute(ns+"desc");
-                                    o[ns]=arg;
-                                    n++;
-                                    ns = "arg"+QString::number(n);
-                                }
-                                oClass[name]=o;
-                            }
-                            e = e.nextSiblingElement();
-                        }
-                    }
-                    oFile[className]=oClass;
-                    oFile["gcFileName"]=fn;
-                }
-            }
-        }
-        else gcprint(fn + " is not a valid Game Script Definition file.");
-        gameScriptData[fn] = oFile;
-    }
-    //qDebug()<<gameScriptData;
     frameworkDataIsLoaded = true;
 }
 //GameScript
@@ -132,19 +43,7 @@ QList<vObject> FrameworkData::getAllFrameworkClasses()
 QStringList FrameworkData::getAllFrameworkClassNames()
 {
     if(!frameworkDataIsLoaded)loadFrameworkData();
-    QStringList L;
-    vObjectIterator FI;
-    for(FI=gameScriptData.begin();FI!=gameScriptData.end();++FI)
-    {
-        vObject File = FI.value().toHash();
-        vObjectIterator Class;
-        for(Class=File.begin();Class!=File.end();++Class)
-        {
-            if(Class.key()!="")
-            L << Class.key();
-        }
-    }
-    return L;
+    return frameworkProject->getClasses();
 }
 
 vObject FrameworkData::getFrameworkClass(QString name)

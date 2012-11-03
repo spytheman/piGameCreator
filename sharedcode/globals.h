@@ -5,8 +5,8 @@
 #include <QHash>
 #include <QtXml/QDomDocument>
 #include <QTreeWidgetItem>
-#include "../baseide/dllforexport.h"
 
+class dllForExport;
 typedef QHash<QString,QVariant> vObject;
 typedef QHash<QString,QVariant>::const_iterator vObjectIterator;
 
@@ -71,6 +71,13 @@ struct buildtarget
     QStringList modules;
     vObject settings;
 };
+struct compileerror
+{
+    QString message,file;
+    int line,begin,end;
+};
+Q_DECLARE_METATYPE(compileerror)
+
 #define CFkeyword 0
 #define CFfunction 1
 #define CFvariable 2
@@ -84,5 +91,7 @@ struct buildtarget
 #define CFnormaltext 10
 #define CFerror 11
 
+#define __MessageEvent 2012
+#define MessageEvent ((QEvent::Type)__MessageEvent)
 
 #endif // GLOBALS_H

@@ -112,4 +112,6 @@ void initThread::run()
     creatorIDE->loadSettings();
 
     FrameworkData::loadFrameworkData();
+
+    creatorIDE->hxStartServer();
 }

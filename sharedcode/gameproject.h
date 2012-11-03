@@ -100,6 +100,7 @@ public:
     QList<gcresource*> getResourcesFromKind(QString kind);
     QList<gcresource*> getResourcesUnderNode(ResourceTreeNode* node);
     QList<gcresource*> getAllResources();
+    gcresource* getResourceByName(QString name);
     rsClass getClass(QString name);
 
     bool addResource(gcresource* resource);
@@ -142,6 +143,7 @@ public:
     QString filename;
     bool valid;
     QList<buildtarget*> targets;
+    QStringList modules;
     gameprojectinformation();
     gameprojectinformation(QString file);
 };

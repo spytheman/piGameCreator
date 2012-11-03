@@ -1,0 +1,5 @@
+# Haxe target file for Windows target
+
+-cp classes
+-main Main
+-cpp Windows
