@@ -7,7 +7,12 @@
 #include <QStringList>
 #include <QPushButton>
 #include "sceneeditor.h"
+
+#ifdef WIN32
 #define DLLEXPORT extern "C" __declspec(dllexport)
+#else
+#define DLLEXPORT extern "C"
+#endif
 
 
 DLLEXPORT QString getName()

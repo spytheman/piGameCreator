@@ -7,7 +7,12 @@
 #include <QStringList>
 #include "imageeditor.h"
 #include <QPushButton>
+
+#ifdef WIN32
 #define DLLEXPORT extern "C" __declspec(dllexport)
+#else
+#define DLLEXPORT extern "C"
+#endif
 
 DLLEXPORT QString getName()
 {
