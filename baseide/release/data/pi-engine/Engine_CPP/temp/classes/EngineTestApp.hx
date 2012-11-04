@@ -4,21 +4,29 @@ class EngineTestApp
     /** Pi engine testing application. */
     public static function main()
     {    
-        Application.title = "pi|engine testing application";
-        
-        Application.init();        
-        
-        var o:GameObject;
-        o = new GameObject();
-        o.zrot = 10;
-        
-        trace(o.rotation);
-        o.rotation = 50;
-        
-        trace(o.zrot);
-        vm.
-        
-        Application.exec();
-        Application.pause();
+        try
+        {
+            Application.title = "pi|engine testing application";
+            
+            Application.init();        
+            trace("Application init successful");
+            //Create a window:
+            
+            var w = new Window();
+            
+            w.title = "Pesho";
+            w.show()
+            
+            Application.exec();
+            Application.pause();
+        }
+        catch(e:Dynamic)
+        {
+            Sys.println("Application exception occurred");
+            trace(e);
+            Sys.println("---------- CALL STACK ----------");
+            trace(haxe.Stack.callStack());
+            Application.pause();
+        }
     }
 }

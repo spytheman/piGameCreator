@@ -9,24 +9,24 @@
 
 Void GameObject_obj::__construct(hx::Null< Float >  __o_x,hx::Null< Float >  __o_y,hx::Null< Float >  __o_z)
 {
-HX_STACK_PUSH("GameObject::new","GameObject.hx",27);
+HX_STACK_PUSH("GameObject::new","GameObject.hx",35);
 Float x = __o_x.Default(0);
 Float y = __o_y.Default(0);
 Float z = __o_z.Default(0);
 {
-	HX_STACK_LINE(28)
-	this->x = x;
-	HX_STACK_LINE(29)
-	this->y = y;
-	HX_STACK_LINE(30)
-	this->z = z;
-	HX_STACK_LINE(32)
-	this->xrot = (int)0;
-	HX_STACK_LINE(33)
-	this->yrot = (int)0;
-	HX_STACK_LINE(34)
-	this->zrot = (int)0;
 	HX_STACK_LINE(36)
+	this->x = x;
+	HX_STACK_LINE(37)
+	this->y = y;
+	HX_STACK_LINE(38)
+	this->z = z;
+	HX_STACK_LINE(40)
+	this->xrot = (int)0;
+	HX_STACK_LINE(41)
+	this->yrot = (int)0;
+	HX_STACK_LINE(42)
+	this->zrot = (int)0;
+	HX_STACK_LINE(44)
 	this->representation = null();
 }
 ;
@@ -47,12 +47,12 @@ Dynamic GameObject_obj::__Create(hx::DynamicArray inArgs)
 	return result;}
 
 Float GameObject_obj::_setZrot( Float zrot){
-	HX_STACK_PUSH("GameObject::_setZrot","GameObject.hx",23);
+	HX_STACK_PUSH("GameObject::_setZrot","GameObject.hx",31);
 	HX_STACK_THIS(this);
 	HX_STACK_ARG(zrot,"zrot");
-	HX_STACK_LINE(23)
+	HX_STACK_LINE(31)
 	this->zrot = zrot;
-	HX_STACK_LINE(23)
+	HX_STACK_LINE(31)
 	return this->zrot;
 }
 
@@ -60,14 +60,25 @@ Float GameObject_obj::_setZrot( Float zrot){
 HX_DEFINE_DYNAMIC_FUNC1(GameObject_obj,_setZrot,return )
 
 Float GameObject_obj::_getZrot( ){
-	HX_STACK_PUSH("GameObject::_getZrot","GameObject.hx",22);
+	HX_STACK_PUSH("GameObject::_getZrot","GameObject.hx",30);
 	HX_STACK_THIS(this);
-	HX_STACK_LINE(22)
+	HX_STACK_LINE(30)
 	return this->zrot;
 }
 
 
 HX_DEFINE_DYNAMIC_FUNC0(GameObject_obj,_getZrot,return )
+
+Void GameObject_obj::draw( ){
+{
+		HX_STACK_PUSH("GameObject::draw","GameObject.hx",24);
+		HX_STACK_THIS(this);
+	}
+return null();
+}
+
+
+HX_DEFINE_DYNAMIC_FUNC0(GameObject_obj,draw,(void))
 
 
 GameObject_obj::GameObject_obj()
@@ -109,6 +120,7 @@ Dynamic GameObject_obj::__Field(const ::String &inName,bool inCallProp)
 		if (HX_FIELD_EQ(inName,"x") ) { return x; }
 		break;
 	case 4:
+		if (HX_FIELD_EQ(inName,"draw") ) { return draw_dyn(); }
 		if (HX_FIELD_EQ(inName,"zrot") ) { return zrot; }
 		if (HX_FIELD_EQ(inName,"yrot") ) { return yrot; }
 		if (HX_FIELD_EQ(inName,"xrot") ) { return xrot; }
@@ -166,6 +178,7 @@ static ::String sMemberFields[] = {
 	HX_CSTRING("_setZrot"),
 	HX_CSTRING("_getZrot"),
 	HX_CSTRING("representation"),
+	HX_CSTRING("draw"),
 	HX_CSTRING("rotation"),
 	HX_CSTRING("zrot"),
 	HX_CSTRING("yrot"),

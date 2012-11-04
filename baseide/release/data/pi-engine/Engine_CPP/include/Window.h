@@ -32,21 +32,34 @@ class Window_obj : public hx::Object{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("Window"); }
 
-		virtual int _getId( );
-		Dynamic _getId_dyn();
+		virtual ::String _setTitle( ::String title);
+		Dynamic _setTitle_dyn();
 
-		virtual Void setFullscreen( bool fullscreen);
-		Dynamic setFullscreen_dyn();
+		virtual bool _setFullscreen( bool fullscreen);
+		Dynamic _setFullscreen_dyn();
 
-		virtual Void setMode( bool mode);
-		Dynamic setMode_dyn();
+		virtual int _setMode( int mode);
+		Dynamic _setMode_dyn();
 
-		virtual Void setModality( bool modal);
-		Dynamic setModality_dyn();
+		virtual bool _setModality( bool modal);
+		Dynamic _setModality_dyn();
+
+		virtual Void close( );
+		Dynamic close_dyn();
+
+		virtual Void hide( );
+		Dynamic hide_dyn();
+
+		virtual Void open( );
+		Dynamic open_dyn();
+
+		virtual Void show( );
+		Dynamic show_dyn();
 
 		Array< ::Layer > layers; /* REM */ 
 		Array< ::Viewport > viewports; /* REM */ 
-		int id; /* REM */ 
+		int nativeId; /* REM */ 
+		::String title; /* REM */ 
 		bool fullscreen; /* REM */ 
 		int mode; /* REM */ 
 		bool modal; /* REM */ 
@@ -61,6 +74,12 @@ class Window_obj : public hx::Object{
 		static Dynamic &_pi_window_get_title_dyn() { return _pi_window_get_title;}
 		static Dynamic _pi_window_set_title; /* REM */ 
 		static Dynamic &_pi_window_set_title_dyn() { return _pi_window_set_title;}
+		static Dynamic _pi_window_set_modality; /* REM */ 
+		static Dynamic &_pi_window_set_modality_dyn() { return _pi_window_set_modality;}
+		static Dynamic _pi_window_set_fullscreen; /* REM */ 
+		static Dynamic &_pi_window_set_fullscreen_dyn() { return _pi_window_set_fullscreen;}
+		static Dynamic _pi_window_set_mode; /* REM */ 
+		static Dynamic &_pi_window_set_mode_dyn() { return _pi_window_set_mode;}
 		static Dynamic _pi_window_move_rect; /* REM */ 
 		static Dynamic &_pi_window_move_rect_dyn() { return _pi_window_move_rect;}
 		static Dynamic _pi_window_move_xy; /* REM */ 

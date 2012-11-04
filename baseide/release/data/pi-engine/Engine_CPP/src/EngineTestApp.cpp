@@ -6,11 +6,20 @@
 #ifndef INCLUDED_EngineTestApp
 #include <EngineTestApp.h>
 #endif
-#ifndef INCLUDED_GameObject
-#include <GameObject.h>
+#ifndef INCLUDED_Sys
+#include <Sys.h>
+#endif
+#ifndef INCLUDED_Window
+#include <Window.h>
 #endif
 #ifndef INCLUDED_haxe_Log
 #include <haxe/Log.h>
+#endif
+#ifndef INCLUDED_haxe_Stack
+#include <haxe/Stack.h>
+#endif
+#ifndef INCLUDED_haxe_StackItem
+#include <haxe/StackItem.h>
 #endif
 
 Void EngineTestApp_obj::__construct()
@@ -34,26 +43,41 @@ Dynamic EngineTestApp_obj::__Create(hx::DynamicArray inArgs)
 Void EngineTestApp_obj::main( ){
 {
 		HX_STACK_PUSH("EngineTestApp::main","EngineTestApp.hx",6);
-		HX_STACK_LINE(7)
-		::Application_obj::title = HX_CSTRING("pi|engine testing application");
-		HX_STACK_LINE(9)
-		::Application_obj::init();
-		HX_STACK_LINE(11)
-		::GameObject o;		HX_STACK_VAR(o,"o");
-		HX_STACK_LINE(12)
-		o = ::GameObject_obj::__new(null(),null(),null());
-		HX_STACK_LINE(13)
-		o->zrot = (int)10;
-		HX_STACK_LINE(14)
-		::haxe::Log_obj::trace(o->_getZrot(),hx::SourceInfo(HX_CSTRING("EngineTestApp.hx"),14,HX_CSTRING("EngineTestApp"),HX_CSTRING("main")));
-		HX_STACK_LINE(15)
-		o->_setZrot((int)50);
-		HX_STACK_LINE(16)
-		::haxe::Log_obj::trace(o->zrot,hx::SourceInfo(HX_CSTRING("EngineTestApp.hx"),16,HX_CSTRING("EngineTestApp"),HX_CSTRING("main")));
-		HX_STACK_LINE(18)
-		::Application_obj::exec();
-		HX_STACK_LINE(19)
-		::Application_obj::pause();
+		HX_STACK_LINE(6)
+		try{
+			HX_STACK_LINE(9)
+			::Application_obj::title = HX_CSTRING("pi|engine testing application");
+			HX_STACK_LINE(11)
+			::Application_obj::init();
+			HX_STACK_LINE(12)
+			::haxe::Log_obj::trace(HX_CSTRING("Application init successful"),hx::SourceInfo(HX_CSTRING("EngineTestApp.hx"),12,HX_CSTRING("EngineTestApp"),HX_CSTRING("main")));
+			HX_STACK_LINE(15)
+			::Window w = ::Window_obj::__new();		HX_STACK_VAR(w,"w");
+			HX_STACK_LINE(17)
+			w->_setTitle(HX_CSTRING("Pesho"));
+			HX_STACK_LINE(18)
+			w->open();
+			HX_STACK_LINE(20)
+			::Application_obj::exec();
+			HX_STACK_LINE(21)
+			::Application_obj::pause();
+		}
+		catch(Dynamic __e){
+			{
+				Dynamic e = __e;{
+					HX_STACK_LINE(25)
+					::Sys_obj::println(HX_CSTRING("Application exception occurred"));
+					HX_STACK_LINE(26)
+					::haxe::Log_obj::trace(e,hx::SourceInfo(HX_CSTRING("EngineTestApp.hx"),26,HX_CSTRING("EngineTestApp"),HX_CSTRING("main")));
+					HX_STACK_LINE(27)
+					::Sys_obj::println(HX_CSTRING("---------- CALL STACK ----------"));
+					HX_STACK_LINE(28)
+					::haxe::Log_obj::trace(::haxe::Stack_obj::callStack(),hx::SourceInfo(HX_CSTRING("EngineTestApp.hx"),28,HX_CSTRING("EngineTestApp"),HX_CSTRING("main")));
+					HX_STACK_LINE(29)
+					::Application_obj::pause();
+				}
+			}
+		}
 	}
 return null();
 }

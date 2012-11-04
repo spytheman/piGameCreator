@@ -3,6 +3,7 @@ CONFIG -= qt
 
 SOURCES += \
     interface.cpp \
+    Window.cpp
 
 QMAKE_CXXFLAGS  += -msse -msse2 -msse3
 
@@ -12,4 +13,5 @@ INCLUDEPATH += ../glew/include ../glew/lib ../freeglut/include ../baseide/releas
 DESTDIR = .
 QMAKE_POST_LINK = copy /y "debug\pi-engine.dll" "..\baseide\release\data\pi-engine\Engine_CPP\pi-engine.dll"
 
-HEADERS +=
+HEADERS += \
+    piengine.h

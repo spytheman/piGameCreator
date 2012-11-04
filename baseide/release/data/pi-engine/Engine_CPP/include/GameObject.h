@@ -36,6 +36,9 @@ class GameObject_obj : public hx::Object{
 		Dynamic _getZrot_dyn();
 
 		::Representation representation; /* REM */ 
+		virtual Void draw( );
+		Dynamic draw_dyn();
+
 		Float rotation; /* REM */ 
 		Float zrot; /* REM */ 
 		Float yrot; /* REM */ 

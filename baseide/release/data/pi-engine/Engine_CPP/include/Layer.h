@@ -5,6 +5,7 @@
 #include <hxcpp.h>
 #endif
 
+HX_DECLARE_CLASS0(GameObject)
 HX_DECLARE_CLASS0(Layer)
 
 
@@ -28,6 +29,21 @@ class Layer_obj : public hx::Object{
 		void __Visit(HX_VISIT_PARAMS);
 		::String __ToString() const { return HX_CSTRING("Layer"); }
 
+		virtual Void draw( );
+		Dynamic draw_dyn();
+
+		virtual Void step( );
+		Dynamic step_dyn();
+
+		virtual bool _setActive( bool active);
+		Dynamic _setActive_dyn();
+
+		bool active; /* REM */ 
+		bool isLoaded; /* REM */ 
+		Array< ::GameObject > objects; /* REM */ 
+		Array< ::Layer > layers; /* REM */ 
+		static Array< ::Layer > availableLayers; /* REM */ 
+		static Array< ::Layer > activeLayers; /* REM */ 
 };
 
 

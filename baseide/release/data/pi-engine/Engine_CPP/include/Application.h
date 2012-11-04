@@ -56,6 +56,8 @@ class Application_obj : public hx::Object{
 
 		static Dynamic _pi_query_system_info; /* REM */ 
 		static Dynamic &_pi_query_system_info_dyn() { return _pi_query_system_info;}
+		static Dynamic _pi_init_control_thread; /* REM */ 
+		static Dynamic &_pi_init_control_thread_dyn() { return _pi_init_control_thread;}
 		static Void pause( );
 		static Dynamic pause_dyn();
 

@@ -27,6 +27,8 @@ class Application
     
     public static var isInitialized : Bool = false;
     
+
+    
     
     public static function init()
     {
@@ -34,8 +36,19 @@ class Application
         try
         {
             Sys.println("Application.exec() called.\nInitializing pi|engine...");
-            _pi_query_system_info = cpp.Lib.load("pi-engine", "pi_query_system_info",0);
+            #if cpp
+            _pi_query_system_info = cpp.Lib.load("pi-engine", "pi_query_system_info",0) ();
+            _pi_init_control_thread = cpp.Lib.load("pi-engine", "pi_init_control_thread",0) ();
+            
+            //Window
+            Window._pi_window_create = cpp.Lib.load("pi-engine", "pi_window_create",1);
+            Window._pi_window_set_visible = cpp.Lib.load("pi-engine", "pi_window_set_visible",2);
+            Window._pi_window_set_title = cpp.Lib.load()
+            
+            #end
             Window._windows = new Array<Window>();
+            Layer.availableLayers = new Array<Layer>();
+            Layer.activeLayers = new Array<Layer>();
         }
         catch(e: Dynamic)
         {
@@ -44,6 +57,7 @@ class Application
         isInitialized = true;
     }
     
+    /** Starts the game event loop */
     public static function exec()
     {
         try
@@ -66,9 +80,18 @@ class Application
             Sys.println("Starting the event loop...");
             
             //TODO: Plan the event loop!
-            while( Window._windows. )
+            var frame = 0;
+            while(Window._windows.length>0)
             {
+                //Version 1: Singlethreaded!
                 
+                //Process all active layers
+                for(layer in Layer.activeLayers)
+                {
+                    
+                }
+                
+                //vsync and render
             }
             
             
@@ -116,6 +139,8 @@ class Application
 #if cpp
     // pi-engine shared library pointers. Must remain unlisted.
     public static var _pi_query_system_info: Void->Dynamic;
+    public static var _pi_init_control_thread: Void->Void;
+    //public static var _pi_native_engine_step: Void->Void;
     
     public static function pause()
     {

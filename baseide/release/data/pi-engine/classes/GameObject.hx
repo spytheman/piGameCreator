@@ -16,6 +16,15 @@ class GameObject
     /** Object's Z rotation */
     public var rotation( _getZrot,_setZrot ):Float;
     
+    /** Draws this object. 
+        The default implementation draws the currently set representation. 
+        You can overload this function and draw by yourself, if you wish
+    */
+    public function draw()
+    {
+        
+    }
+    
     /** Object's representation, if this object needs to be displayed */
     public var representation:Representation;
     public function _getZrot() {return zrot;}
