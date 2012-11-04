@@ -4,7 +4,7 @@ You can read the blog for this project here: http://blog.pi-dev.com/
 
 The project is started, however, it is still in heavy development phase, thus is not publicly released.
 
-If you manage to compile this source code, the application will be unusable for game deveoplment, because the API is not implemented.
+If you manage to compile this source code, the application will be unusable for game development, because the API is not implemented.
 You can, however, use this as general purpose haXe ide with a code completion.
 
 piGameCreator is different from the most other game creation softwares, including, but not limited to, Yoyo's Game Maker, Scirra's Construct and Clickteam's Multimedia Fusion and TGF by technical design.
