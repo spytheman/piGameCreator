@@ -89,7 +89,7 @@ HEADERS  += mainwindow.h \
     model/projecttreemodel.h \
     dllforexport.h \
     dllforresourceeditor.h \
-    editors/imgedit.h \
+    ../editors/images/imgedit.h \
     newimage.h \
     inputresourcename.h \
     ntdialog.h \
@@ -97,7 +97,7 @@ HEADERS  += mainwindow.h \
     scripttestwindow.h \
     codeeditor.h \
     buildtargets.h \
-    pgshighlighter.h \
+    ../sharedcode/pgshighlighter.h \
     ../sharedcode/resourcetree.h \
     ../sharedcode/imageio.h \
     newresource.h \
