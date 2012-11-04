@@ -21,7 +21,8 @@ void gcprint(int i)
 }
 void gcprint(void* i)
 {
-    QString a = QString::number((int)i);
+    int x = *((int *)i); 
+    QString a = QString::number(x);
     qDebug(a.toLocal8Bit().data());
 }
 void gcmessage(QString message)
