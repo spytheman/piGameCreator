@@ -479,7 +479,8 @@ void gcide::removeHxQueryReceiver(QObject *object)
     {
         if(hxQueryStack.at(i).receiver == object)
         {
-            gcprint("0x"+QString::number( (int)hxQueryStack.at(i).receiver, 16 )+" wiped from the CreatorIDE's haxe result call stack!");
+          //int x = *((int *)hxQueryStack.at(i).receiver); 
+          //gcprint("0x"+QString::number( x, 16 )+" wiped from the CreatorIDE's haxe result call stack!");
             hxQueryStack.removeAt(i);
         }
         else ++i;
