@@ -52,8 +52,12 @@ FORMS += \
     config.ui \
     ../../sharedcode/progressdialog.ui
 
-QMAKE_POST_LINK = copy /y "cpptarget.dll" "..\..\baseide\release\targets\cpp\target.dll"
-
+win32 {
+    QMAKE_POST_LINK = copy /y "cpptarget.dll" "..\..\baseide\release\targets\cpp\target.dll"
+}
+linux {
+    QMAKE_POST_LINK = cp -a "libcpptarget.so.1.0.0" "../../baseide/release/targets/cpp/target.so"
+}
 QMAKE_CXXFLAGS  += -msse2 -msse
 
 RESOURCES += \
