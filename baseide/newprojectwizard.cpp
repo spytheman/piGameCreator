@@ -52,7 +52,7 @@ newProjectWizard::newProjectWizard(QWidget *parent) :
         groupTreeItem->setIcon(0, icon);
         QFont f; f.setBold(true);
         groupTreeItem->setFont(0, f);
-        groupTreeItem->setData(0, TIDATA, NULL);
+        groupTreeItem->setData((int)0, TIDATA, (char*)NULL);
         //Parse the projects:
         QString src = group.attribute("src");
         if(!src.startsWith("@"))
