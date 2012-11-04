@@ -46,7 +46,7 @@ void initThread::run()
                 cpath+"\\neko;"
     ).toLocal8Bit() );
 #else
-    gcerror("initthread.cpp: Set the proper environment for your system!");
+//    gcerror("initthread.cpp: Set the proper environment for your system!");
 #endif
 
     QApplication::processEvents();
