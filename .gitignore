@@ -1,4 +1,4 @@
-./Makefile
+Makefile
 baseide/Makefile
 baseide/ui_imagepreviewer.h
 baseide/ui_progressdialog.h
