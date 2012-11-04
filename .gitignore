@@ -1,0 +1,9 @@
+./Makefile
+baseide/Makefile
+baseide/ui_imagepreviewer.h
+baseide/ui_progressdialog.h
+baseide/ui_selecticon.h
+baseide/*.o
+baseide/moc_*
+baseide/qrc_res_ide.cpp
+baseide/qrc_resources.cpp
