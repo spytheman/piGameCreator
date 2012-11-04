@@ -5,9 +5,9 @@ You can read the blog for this project here: http://blog.pi-dev.com/
 The project is started, however, it is still in heavy development phase, thus is not publicly released.
 
 If you manage to compile this source code, the application will be unusable for game development, because the API is not implemented.
-You can, however, use this as general purpose haXe ide with a code completion.
+You can, however, use this as general purpose Haxe ide with a code completion.
 
-piGameCreator is different from the most other game creation softwares, including, but not limited to, Yoyo's Game Maker, Scirra's Construct and Clickteam's Multimedia Fusion and TGF by technical design.
+pi|engine is different from the most other game creation software by technical design.
 
 Instead of producing some special kind of data that the base engine interprets, making the process execution slower, Creator IDE is a high-level code generator (thanks to Haxe). When you create the game, define the objects behavior, scenes and save your project into the native file format, a platform exporter will run and convert the project file to raw high level language, such as C++ (using the Haxe compiler) and then will pass the code to the real compiler for compilation (Currently, this works only on Windows and depends on Visual Studio Express).
 
