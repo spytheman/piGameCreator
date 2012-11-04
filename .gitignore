@@ -10,3 +10,8 @@ baseide/Makefile
 
 exporters/cpp/Makefile
 exporters/cpp/libcpptarget.so*
+
+editors/classes/Makefile*
+editors/images/Makefile*
+editors/scenes/Makefile*
+exporters/cpp/Makefile*
