@@ -2,7 +2,7 @@
 #include "../sharedcode/qtwin.h"
 #include "gcide.h"
 #include "buildtargets.h"
-#include "dllForExport.h"
+#include "dllforexport.h"
 #include "openedproject.h"
 #include "ui_buildtargets.h"
 #include <QDialogButtonBox>
