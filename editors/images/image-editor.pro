@@ -13,7 +13,15 @@ TEMPLATE = lib
 DEFINES += FREEGLUT_STATIC
 # LIBS += ../../freeglut/lib/libfreeglut32_static.a ../../glew/lib/libglew32.a -lopengl32 -luser32 -lgdi32 -lkernel32 -lwinmm -lQtWebkit4
 INCLUDEPATH += ../../glew/include ../../glew/lib ../../freeglut/include
-QMAKE_POST_LINK = copy /y "..\dlls\imageeditor.dll" "..\..\baseide\release\editors\image-editor.dll"
+
+win32 {
+   QMAKE_POST_LINK = copy /y "..\dlls\imageeditor.dll" "..\..\baseide\release\editors\image-editor.dll"
+}   
+
+unix {
+   QMAKE_POST_LINK = cp -a "../dlls/libimageeditor.so.1.0.0" "../../baseide/release/editors/image-editor.so"
+}
+
 DESTDIR = ../dlls
 
 SOURCES +=  imgedit.cpp \

@@ -11,9 +11,18 @@ QMAKE_CXXFLAGS  += -msse2 -msse
 TARGET = sceneeditor
 TEMPLATE = lib
 DEFINES += FREEGLUT_STATIC GLEW_STATIC
-LIBS += ../../freeglut/lib/libfreeglut32_static.a ../../glew/lib/libglew32.a -lopengl32 -luser32 -lgdi32 -lkernel32 -lwinmm -lQtWebkit4
 INCLUDEPATH += ../../glew/include ../../glew/lib ../../freeglut/include
-QMAKE_POST_LINK = copy /y "..\dlls\sceneeditor.dll" "..\..\baseide\release\editors\scene-editor.dll"
+
+win32 {
+   LIBS += ../../freeglut/lib/libfreeglut32_static.a ../../glew/lib/libglew32.a -lopengl32 -luser32 -lgdi32 -lkernel32 -lwinmm -lQtWebkit4
+   QMAKE_POST_LINK = copy /y "..\dlls\sceneeditor.dll" "..\..\baseide\release\editors\scene-editor.dll"
+}   
+
+unix {
+   LIBS += -lglut -lGLEW -lGL -lQtWebKit
+   QMAKE_POST_LINK = cp -a "../dlls/libsceneeditor.so.1.0.0" "../../baseide/release/editors/scene-editor.so"
+}
+
 DESTDIR = ../dlls
 
 SOURCES +=  sceneedit.cpp \
