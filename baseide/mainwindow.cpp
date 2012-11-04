@@ -203,7 +203,6 @@ bool MainWindow::event(QEvent* e)
         }
         else if(m->name=="hx_del_recv")
         {
-            gcprint("hx_del_recv requested for 0x" +QString::number( (int)m->data.value<void*>(), 16 ) );
             creatorIDE->removeHxQueryReceiver( (QObject*) m->data.value<void*>());
         }
         return true;
