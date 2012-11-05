@@ -38,14 +38,14 @@ SOURCES +=  sceneedit.cpp \
             ../../baseide/resourceeditor.cpp \
             ../../baseide/workspacewidget.cpp \
             sceneview.cpp \
-    ../../sharedcode/frameworkdata.cpp \
-    ../../sharedcode/rssound.cpp \
-    ../../sharedcode/rsmodel.cpp \
-    ../../sharedcode/rsgraphicseffect.cpp \
-    ../../sharedcode/resourcetree.cpp \
-    ../../sharedcode/idesettings.cpp \
-    ../../sharedcode/progressdialog.cpp \
-    ../../sharedcode/messageevent.cpp
+            ../../sharedcode/frameworkdata.cpp \
+            ../../sharedcode/rssound.cpp \
+            ../../sharedcode/rsmodel.cpp \
+            ../../sharedcode/rsgraphicseffect.cpp \
+            ../../sharedcode/resourcetree.cpp \
+            ../../sharedcode/idesettings.cpp \
+            ../../sharedcode/progressdialog.cpp \
+            ../../sharedcode/messageevent.cpp
 
 HEADERS +=  sceneedit.h \
             sceneeditor.h \
@@ -57,13 +57,12 @@ HEADERS +=  sceneedit.h \
             ../../sharedcode/gameproject.h \
             ../../baseide/resourceeditor.h \
             ../../baseide/workspacewidget.h \
-    sceneeditor.h \
-    sceneview.h \
-    ../../sharedcode/frameworkdata.h \
-    ../../sharedcode/resourcetree.h \
-    ../../sharedcode/idesettings.h \
-    ../../sharedcode/progressdialog.h \
-    ../../sharedcode/messageevent.h
+            sceneview.h \
+            ../../sharedcode/frameworkdata.h \
+            ../../sharedcode/resourcetree.h \
+            ../../sharedcode/idesettings.h \
+            ../../sharedcode/progressdialog.h \
+            ../../sharedcode/messageevent.h
 
 
 FORMS    += sceneeditor.ui \
