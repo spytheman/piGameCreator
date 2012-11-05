@@ -15,3 +15,9 @@ editors/classes/Makefile*
 editors/images/Makefile*
 editors/scenes/Makefile*
 exporters/cpp/Makefile*
+
+editors/dlls/lib*.so
+editors/dlls/lib*.so.1
+editors/dlls/lib*.so.1.0
+editors/dlls/lib*.so.1.0.0
+
