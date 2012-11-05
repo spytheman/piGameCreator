@@ -70,10 +70,15 @@ void initThread::run()
     QApplication::processEvents();
     //load them
     {
-        QDir t("editors");
+#ifdef WIN32
+        QDir t("editors", "*.dll");
+#else
+        QDir t("editors", "*.so");       
+#endif       
         QStringList libs = t.entryList();
         foreach(QString s,libs)
         {
+            gcprint("----------------- Trying to open: '" + s + "' .\n");
             dllForResourceEditor* dll = new dllForResourceEditor(s);
             if(dll->isValid())creatorIDE->resourceEditorLibs.push_back(dll);
             else delete dll;
