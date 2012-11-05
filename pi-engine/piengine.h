@@ -2,7 +2,11 @@
 #define PIENGINE_H
 
 // DLL exports
+#ifdef WIN32
 #define DLLEXPORT extern "C" __declspec(dllexport)
+#else
+#define DLLEXPORT extern "C"
+#endif
 
 // Platform native libraries:
 #ifdef WIN32
