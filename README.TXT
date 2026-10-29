@@ -1,4 +1,4 @@
-Pi|engine (Pi Engine, formerly piGameCreator) is open-source multiplatform integrated development environment (IDE) mostly oriented in game development.
+Pi|engine (Pi Engine, formerly piGameCreator) was an open-source multiplatform integrated development environment (IDE) mostly oriented in game development.
 
 You can read the blog for this project here: http://blog.pi-dev.com/
 
